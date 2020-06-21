@@ -16,7 +16,7 @@
 
   </head>
   <body>
-    <div class="main px-4 flex flex-col lg:flex-row">
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
       <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
   <div class="lg:sticky top-0">
     <div class="sidebar-content">
@@ -30,29 +30,9 @@
       
         <div class="animated fadeInLeft" style="animation-delay: 0.4s">
           <p class="my-4 text-gray-600 font-light hidden lg:block">
-            在诗词的世界里或许会因为只言片语而感动
+            文章目录
           </p>
-          <div class="animated fadeInLeft social-container hidden lg:block" style="animation-delay: 0.6s">
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
+          <div class="toc-container hidden lg:block">
             
           </div>
         </div>
@@ -97,96 +77,70 @@
 </div>
 <div class="mask" onclick="closeMenu()">
 </div>
-      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4">
-        <h2 class="latest-article text-lg text-gray-700 mb-8">
-          <i class="ri-article-line"></i>
-          最新文章
-        </h2>
-        
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${0 * 0.2}s` }">
-    
-      <a href="https://Shisuiyi.github.io/post/san-qu-hao-ge-bei/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://Shisuiyi.github.io/post-images/san-qu-hao-ge-bei.webp'">
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">散曲好个悲</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2020-06-21 / 1 min read
         </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://Shisuiyi.github.io/post/san-qu-hao-ge-bei/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">散曲好个悲</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">2020-06-21 / 1 min read</div>
-    </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${1 * 0.2}s` }">
-    
-      <a href="https://Shisuiyi.github.io/post/xin-yue-jun-xi-jun-bu-zhi/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://Shisuiyi.github.io/post-images/xin-yue-jun-xi-jun-bu-zhi.jpg'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://Shisuiyi.github.io/post/xin-yue-jun-xi-jun-bu-zhi/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">心悦君兮君不知</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/san-qu-hao-ge-bei.webp" alt="">
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">2020-06-21 / 1 min read</div>
-    </div>
-  </section>
+        <div class="post-content yue">
+          <pre><code>                                                    散曲好个悲
+                                                【原创 师不予】
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${2 * 0.2}s` }">
-    
-      <a href="https://Shisuiyi.github.io/post/gu-ren-lai/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://Shisuiyi.github.io/post-images/gu-ren-lai.jpg'">
+                                伫依江边楼头
+
+                                暮雨潇潇
+
+                                斜风飘摇
+
+                                有书信邈
+
+                                苹花老
+
+                                胡笳声儿渐小
+
+                                把酒对花几度
+
+                                残灯忘添
+
+                                华胥梦短
+
+                                有暝鸦乱
+
+                                画楼断
+
+                                芭蕉叶儿曛卷
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1592733463797.webp" alt="" loading="lazy"></figure>
+
         </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://Shisuiyi.github.io/post/gu-ren-lai/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">故人来</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
+
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">2020-06-21 / 1 min read</div>
-    </div>
-  </section>
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/tag/-OHJICDrs/">
+            <span class="flex-auto">师不予</span>
+          </a>
+        
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${3 * 0.2}s` }">
-    
-      <a href="https://Shisuiyi.github.io/post/hello-gridea/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://Shisuiyi.github.io/post-images/hello-gridea.png'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://Shisuiyi.github.io/post/hello-gridea/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">Hello Gridea</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 
-      </div>
-      <div class="text-gray-400 text-sm font-light">2018-12-12 / 2 min read</div>
-    </div>
-  </section>
+        <div class="flex justify-between py-8">
+          
 
-        <div class="read-more">
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/post/xin-yue-jun-xi-jun-bu-zhi/">
+                <h3 class="post-title">
+                  心悦君兮君不知
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
           
         </div>
-        <div class="index-page">
-          <div class="pagination-container animated fadeIn">
-  
-  
-</div>
 
-        </div>
+        
+
       </div>
     </div>
 
