@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予--博客</title>
-    <updated>2020-06-25T06:48:55.389Z</updated>
+    <updated>2020-06-25T06:53:37.325Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, 师不予--博客</rights>
     <entry>
         <title type="html"><![CDATA[雁儿归]]></title>
-        <id>https://Shisuiyi.github.io/post/ 雁儿归 /</id>
-        <link href="https://Shisuiyi.github.io/post/ 雁儿归 /">
+        <id>https://Shisuiyi.github.io/ 雁儿归 /</id>
+        <link href="https://Shisuiyi.github.io/ 雁儿归 /">
         </link>
         <updated>2020-06-25T06:22:25.000Z</updated>
         <content type="html"><![CDATA[<center>
@@ -44,8 +44,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[与君别]]></title>
-        <id>https://Shisuiyi.github.io/post/与君别/</id>
-        <link href="https://Shisuiyi.github.io/post/与君别/">
+        <id>https://Shisuiyi.github.io/与君别/</id>
+        <link href="https://Shisuiyi.github.io/与君别/">
         </link>
         <updated>2020-06-25T05:41:31.000Z</updated>
         <content type="html"><![CDATA[<center><font color=#00FFFF size=5  face="STCAIYUN">与君别</font></center>
@@ -74,8 +74,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[散曲好个悲]]></title>
-        <id>https://Shisuiyi.github.io/post/san-qu-hao-ge-bei/</id>
-        <link href="https://Shisuiyi.github.io/post/san-qu-hao-ge-bei/">
+        <id>https://Shisuiyi.github.io/san-qu-hao-ge-bei/</id>
+        <link href="https://Shisuiyi.github.io/san-qu-hao-ge-bei/">
         </link>
         <updated>2020-06-21T09:56:28.000Z</updated>
         <content type="html"><![CDATA[<pre><code>                                                    散曲好个悲
@@ -110,8 +110,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[心悦君兮君不知]]></title>
-        <id>https://Shisuiyi.github.io/post/xin-yue-jun-xi-jun-bu-zhi/</id>
-        <link href="https://Shisuiyi.github.io/post/xin-yue-jun-xi-jun-bu-zhi/">
+        <id>https://Shisuiyi.github.io/xin-yue-jun-xi-jun-bu-zhi/</id>
+        <link href="https://Shisuiyi.github.io/xin-yue-jun-xi-jun-bu-zhi/">
         </link>
         <updated>2020-06-21T09:30:29.000Z</updated>
         <content type="html"><![CDATA[<pre><code>                                                 心悦君兮君不知
@@ -151,8 +151,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[故人来]]></title>
-        <id>https://Shisuiyi.github.io/post/gu-ren-lai/</id>
-        <link href="https://Shisuiyi.github.io/post/gu-ren-lai/">
+        <id>https://Shisuiyi.github.io/gu-ren-lai/</id>
+        <link href="https://Shisuiyi.github.io/gu-ren-lai/">
         </link>
         <updated>2020-06-21T07:16:08.000Z</updated>
         <content type="html"><![CDATA[<pre><code>                                                 Sommersby \故人来
