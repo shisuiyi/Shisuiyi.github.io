@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予--博客</title>
-    <updated>2020-06-25T06:20:15.077Z</updated>
+    <updated>2020-06-25T06:33:27.092Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://Shisuiyi.github.io/images/avatar.png</logo>
     <icon>https://Shisuiyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 师不予--博客</rights>
+    <entry>
+        <title type="html"><![CDATA[雁儿归]]></title>
+        <id>https://Shisuiyi.github.io/post/yan-er-gui/</id>
+        <link href="https://Shisuiyi.github.io/post/yan-er-gui/">
+        </link>
+        <updated>2020-06-25T06:22:25.000Z</updated>
+        <content type="html"><![CDATA[<center>
+<pre><code>    雁儿归 
+    文/师不予/原创】
+    徐风悲，秋雨梧桐叶儿坠
+    举瘿杯，小玉栏杆月下谁
+    苦侯雁儿归
+    一度秋萍碎
+    泪空垂，心憔悴
+    梳妆镜前独颓废
+    胭脂兑，红颜媚
+    昨宵绿蚁何滋味
+    酒不醉人人自醉    
+</code></pre>
+</center>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1593066278512.webp" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[与君别]]></title>
         <id>https://Shisuiyi.github.io/post/与君别/</id>
