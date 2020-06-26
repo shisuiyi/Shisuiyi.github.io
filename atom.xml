@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予--博客</title>
-    <updated>2020-06-25T07:00:56.458Z</updated>
+    <updated>2020-06-26T04:42:20.070Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -16,8 +16,9 @@
         <link href="https://Shisuiyi.github.io/ 雁儿归 /">
         </link>
         <updated>2020-06-25T06:22:25.000Z</updated>
-        <content type="html"><![CDATA[<center>
-<pre><code>    雁儿归 
+        <content type="html"><![CDATA[<pre><code>    &lt;center&gt;
+
+    雁儿归 
     文/师不予/原创】
     
     徐风悲，秋雨梧桐叶儿坠
@@ -37,8 +38,8 @@
     昨宵绿蚁何滋味
 
     酒不醉人人自醉    
+&lt;/center&gt;
 </code></pre>
-</center>
 <figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1593066278512.webp" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
