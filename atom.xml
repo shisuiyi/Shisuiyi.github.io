@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予--博客</title>
-    <updated>2020-06-26T04:46:55.151Z</updated>
+    <updated>2020-06-26T05:01:34.440Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -10,6 +10,32 @@
     <logo>https://Shisuiyi.github.io/images/avatar.png</logo>
     <icon>https://Shisuiyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 师不予--博客</rights>
+    <entry>
+        <title type="html"><![CDATA[雨与油纸伞]]></title>
+        <id>https://Shisuiyi.github.io/rain/</id>
+        <link href="https://Shisuiyi.github.io/rain/">
+        </link>
+        <updated>2020-06-26T04:54:19.000Z</updated>
+        <content type="html"><![CDATA[<center><font color=#6495ED size=5 >雨与油纸伞</font></center>
+<center><font color=#6495ED size=2 >[文/原创/师不予]</font></center>
+<center>
+<font color= #8FBC8F
+<p>雨中，弥蒙的是缠绵的温润</p>
+<p>风摇花落，拨动的油纸伞划出片片流云</p>
+<p>徜徉在青石碎瓦的雨巷</p>
+<p>沉醉于若隐若现的烟柳</p>
+<p>等候、回首</p>
+<p>丁香结着哀怨的忧愁</p>
+<p>行人怯步</p>
+<p>在雨中踟蹰</p>
+<p>怕扰了，那伞下的姑娘</p>
+<p>只管凭栏独守</p>
+<p>望着她低眉敛首，拂起了烟柳<br>
+</font></p>
+</center>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1593147650752.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[雁儿归]]></title>
         <id>https://Shisuiyi.github.io/ 雁儿归 /</id>
