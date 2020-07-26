@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予-博客</title>
-    <updated>2020-07-26T07:38:40.793Z</updated>
+    <updated>2020-07-26T07:47:59.445Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -11,6 +11,35 @@
     <logo>https://Shisuiyi.github.io/images/avatar.png</logo>
     <icon>https://Shisuiyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 师不予-博客</rights>
+    <entry>
+        <title type="html"><![CDATA[卷珠帘]]></title>
+        <id>https://Shisuiyi.github.io/卷珠帘/</id>
+        <link href="https://Shisuiyi.github.io/卷珠帘/">
+        </link>
+        <updated>2020-07-26T07:40:36.000Z</updated>
+        <content type="html"><![CDATA[<center><font color=#CC3333 size=5 >卷珠帘</font></center>
+<center><font color=#CC3333 size=3 >文/师不予/原创</font></center>
+<center>
+<iframe 
+frameborder="no" 
+border="0" 
+marginwidth="0" 
+marginheight="0" 
+width=500 height=86 
+src="//music.163.com/outchain/player?type=2&id=29759370&auto=1&height=66">
+</iframe>
+</center>
+<center><font color=#CC3366 size=4 >
+<p>曾记月满窗前</p>
+<p>桃花满，盛开的朵朵娇艳</p>
+<p>有的是</p>
+<p>一分酒酣，两点娥妆浅</p>
+<p>舞衣歌伴，声声离人怨</p>
+<p>酒阑执扇，沉水残烟，美人卷珠帘</p>
+</center>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1595749643193.webp" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[风流]]></title>
         <id>https://Shisuiyi.github.io/风流/</id>
