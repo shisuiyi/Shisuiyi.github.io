@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予-博客</title>
-    <updated>2020-07-26T07:54:17.928Z</updated>
+    <updated>2020-07-26T07:56:34.895Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -11,6 +11,27 @@
     <logo>https://Shisuiyi.github.io/images/avatar.png</logo>
     <icon>https://Shisuiyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 师不予-博客</rights>
+    <entry>
+        <title type="html"><![CDATA[相思忆]]></title>
+        <id>https://Shisuiyi.github.io/xiang-si-yi/</id>
+        <link href="https://Shisuiyi.github.io/xiang-si-yi/">
+        </link>
+        <updated>2020-07-26T07:50:11.000Z</updated>
+        <content type="html"><![CDATA[<center><font color=#6699CC size=5 >相思忆</font></center>
+<center><font color=#6699CC size=3 >文/师不予/原创</font></center>
+<center><font color=#66CCCC size=4 >
+<p>恼月光 清冷幽幽落西厢</p>
+<p>扯破香囊 泪损红妆</p>
+<p>想那洛阳舞霓裳 对镜花黄鬓如霜</p>
+<p>冷篆香 风动纱窗守闺房</p>
+<p>别后音茫 相思断肠</p>
+<p>笑疏狂 千杯万盏浮生忙</p>
+<p>挑了诗囊 天涯路长</p>
+<p>也曾打马御街旁 羁旅江南客一乡</p>
+<p>薄情郎 红娘嫁妆何处藏</p>
+<p>销魂惆怅 唯泪千行</p>
+</center>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[相思忆]]></title>
         <id>https://Shisuiyi.github.io/相思忆/</id>
@@ -315,47 +336,6 @@ src="//music.163.com/outchain/player?type=2&id=169826&auto=1&height=66">
                                 芭蕉叶儿曛卷
 </code></pre>
 <figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1592733463797.webp" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[心悦君兮君不知]]></title>
-        <id>https://Shisuiyi.github.io/xin-yue-jun-xi-jun-bu-zhi/</id>
-        <link href="https://Shisuiyi.github.io/xin-yue-jun-xi-jun-bu-zhi/">
-        </link>
-        <updated>2020-06-21T09:30:29.000Z</updated>
-        <content type="html"><![CDATA[<pre><code>                                                 心悦君兮君不知
-                                                【原创-师不予】
-
-                                君可知
-
-                                帘卷未央银钩坠
-
-                                琦霞碎 箫声会
-
-                                对镜晓妆红颜褪
-
-                                美人和泪垂
-
-                                是非
-
-                                一场酔
-
-
-                                君可知
-
-                                隔雾窥山尽落晖
-
-                                芳芜秽 共憔悴
-
-                                孤馆落梅下幽晦
-
-                                萧索候春闺
-
-                                情费
-
-                                白发催
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1592732004586.jpg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
