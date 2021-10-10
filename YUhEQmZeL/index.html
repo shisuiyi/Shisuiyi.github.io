@@ -1,23 +1,181 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://Shisuiyi.github.io</id>
-    <title>师不予-博客</title>
-    <updated>2021-10-10T02:28:21.812Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://Shisuiyi.github.io"/>
-    <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
-    <subtitle>&lt;font color=#6495ED size=2 &gt;小小Tester的学习历程&lt;/font&gt;
-</subtitle>
-    <logo>https://Shisuiyi.github.io/images/avatar.png</logo>
-    <icon>https://Shisuiyi.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, 师不予-博客</rights>
-    <entry>
-        <title type="html"><![CDATA[python 基本数据类型 ·中]]></title>
-        <id>https://Shisuiyi.github.io/YUhEQmZeL/</id>
-        <link href="https://Shisuiyi.github.io/YUhEQmZeL/">
-        </link>
-        <updated>2021-10-10T01:50:10.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="一-序列类型">一、序列类型</h2>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予-博客</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>
+" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1633832867120">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1633832867120" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予-博客</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E5%BA%8F%E5%88%97%E7%B1%BB%E5%9E%8B">一、序列类型</a>
+<ul>
+<li><a href="#1-%E5%AD%97%E7%AC%A6%E4%B8%B2">1. 字符串</a>
+<ul>
+<li><a href="#11-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AE%9A%E4%B9%89">1.1 字符串的定义</a>
+<ul>
+<li><a href="#%E5%AE%9A%E4%B9%89%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2">定义空字符串</a></li>
+</ul>
+</li>
+<li><a href="#12-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%B4%A2%E5%BC%95">1.2 字符串的索引</a></li>
+<li><a href="#13-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%88%87%E7%89%87">1.3 字符串的切片</a>
+<ul>
+<li><a href="#%E6%80%9D%E8%80%83">思考</a></li>
+</ul>
+</li>
+<li><a href="#14-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5">1.4 字符串拼接</a></li>
+<li><a href="#15-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95">1.5 字符串常用方法</a>
+<ul>
+<li><a href="#strisalpha">str.isalpha()</a></li>
+<li><a href="#strisdigit">str.isdigit()</a></li>
+<li><a href="#strislower">str.islower()</a></li>
+<li><a href="#strisupper">str.isupper()</a></li>
+<li><a href="#strisspace">str.isspace</a></li>
+<li><a href="#strupper">str.upper()</a></li>
+<li><a href="#strlower">str.lower()</a></li>
+<li><a href="#strstripchars">str.strip(chars = &quot; &quot;)</a></li>
+<li><a href="#strlstripchars">str.lstrip(chars = &quot; &quot;)</a></li>
+<li><a href="#strrstripchars">str.rstrip(chars = &quot; &quot;)</a></li>
+<li><a href="#strreplaceoldnewcount-1">str.replace(old,new,count= -1)</a></li>
+<li><a href="#strsplitstr-numstringcountstr">str.split(str=&quot;&quot;, num=string.count(str))</a></li>
+<li><a href="#strindexsub-startnone-endnone">str.index(sub, start=None, end=None)</a></li>
+<li><a href="#strfindsub-startnone-endnone">str.find(sub, start=None, end=None)</a></li>
+<li><a href="#strcount-sub-startnone-endnone">str.count( sub, start=None, end=None)</a></li>
+</ul>
+</li>
+<li><a href="#16-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%80%BC%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E5%8C%96">1.6 字符串和数值的相互转化</a></li>
+<li><a href="#17-%E8%BD%AC%E4%B9%89%E7%AC%A6">1.7 转义符</a></li>
+<li><a href="#18-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96">1.8 字符串格式化</a>
+<ul>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E5%8C%96"><code>%</code> 字符串格式化</a></li>
+<li><a href="#format-%E5%87%BD%E6%95%B0%E6%A0%BC%E5%BC%8F%E5%8C%96"><code>format</code> 函数格式化</a></li>
+<li><a href="#%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E5%80%BC">格式字符串字面值</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-%E5%88%97%E8%A1%A8">2. 列表</a>
+<ul>
+<li><a href="#21-%E5%88%97%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89">2.1 列表的定义</a></li>
+<li><a href="#22-%E5%88%97%E8%A1%A8%E7%9A%84%E6%8B%BC%E6%8E%A5">2.2 列表的拼接</a></li>
+<li><a href="#23-%E5%88%97%E8%A1%A8%E7%9A%84%E7%B4%A2%E5%BC%95%E5%92%8C%E5%88%87%E7%89%87">2.3 列表的索引和切片</a></li>
+<li><a href="#24-%E5%88%97%E8%A1%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">2.4 列表的常用操作</a>
+<ul>
+<li><a href="#241-%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0">2.4.1 修改元素</a></li>
+<li><a href="#242-%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0">2.4.2 增加元素</a></li>
+<li><a href="#243-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">2.4.3 删除元素</a></li>
+</ul>
+</li>
+<li><a href="#25-%E5%88%97%E8%A1%A8%E7%9A%84%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95">2.5 列表的其他方法</a></li>
+<li><a href="#26-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%88%97%E8%A1%A8%E7%9A%84%E8%BD%AC%E6%8D%A2">2.6 字符串和列表的转换</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%85%83%E7%BB%84">3. 元组</a>
+<ul>
+<li><a href="#31-%E5%85%83%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89">3.1 元组的定义</a></li>
+<li><a href="#32-%E5%85%83%E7%BB%84%E7%9A%84%E7%B4%A2%E5%BC%95%E5%92%8C%E5%88%87%E7%89%87">3.2 元组的索引和切片</a></li>
+<li><a href="#32-%E5%85%83%E7%BB%84%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">3.2 元组的常用操作</a></li>
+<li><a href="#33-%E5%85%83%E7%BB%84%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95">3.3 元组的常用方法</a></li>
+<li><a href="#34-len-%E5%87%BD%E6%95%B0">3.4 len 函数</a></li>
+</ul>
+</li>
+<li><a href="#4-%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1">4. 可变与不可变对象</a></li>
+<li><a href="#5%E5%8F%AF%E5%93%88%E5%B8%8C%E5%AF%B9%E8%B1%A1">5.可哈希对象</a></li>
+<li><a href="#6%E8%B5%8B%E5%80%BC%E4%B8%8E%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D">6.赋值与深浅拷贝</a>
+<ul>
+<li><a href="#61-%E8%B5%8B%E5%80%BC">6.1 赋值</a></li>
+<li><a href="#62-%E6%B5%85%E6%8B%B7%E8%B4%9D">6.2 浅拷贝</a></li>
+<li><a href="#63-%E6%B7%B1%E6%8B%B7%E8%B4%9D">6.3 深拷贝</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">python 基本数据类型 ·中</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-10-10 / 30 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/YUhEQmZeL.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h2 id="一-序列类型">一、序列类型</h2>
 <p>序列类型用来表示有序的元素集合。</p>
 <h3 id="1-字符串">1. 字符串</h3>
 <p>python 中字符串用 str 表示，字符串是使用单引号，双引号，三引号包裹起来的字符的序列，用来表示文本信息。</p>
@@ -896,496 +1054,133 @@ print(ln)
 </code></pre>
 <p>[1, 2, 3, ['b', 'b']]<br>
 [1, 2, 3, ['a', 'b']]</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ Python基本数据类型 ·上]]></title>
-        <id>https://Shisuiyi.github.io/w-B-uNoob/</id>
-        <link href="https://Shisuiyi.github.io/w-B-uNoob/">
-        </link>
-        <updated>2021-10-01T02:05:21.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="python基本数据类型-上">Python基本数据类型 ·上</h1>
-<h2 id="一-什么是数据类型">一、什么是数据类型</h2>
-<p>编程语言通过一些复杂的计算机物理底层机制，创造不同类型的数据，用来表示现实世界中的不同信息，以便于计算机更好的存储和计算。</p>
-<p>每种编程语言都会有一些基本的数据类型用来表示现实世界中的常见信息。</p>
-<p>Python 中的常见数据类型如下</p>
-<h3 id="数值类型">数值类型</h3>
-<table>
-<thead>
-<tr>
-<th>描述</th>
-<th>名称</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>数学概念中的整数</td>
-<td>int(整数)</td>
-</tr>
-<tr>
-<td>数学概念中的实数</td>
-<td>float(浮点数)</td>
-</tr>
-<tr>
-<td>数学概念中的复数</td>
-<td>complex(复数)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="序列类型">序列类型</h3>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>str(字符串()</td>
-<td>字符串是字符的序列表示，用来表示文本信息</td>
-</tr>
-<tr>
-<td>list(列表)</td>
-<td>列表用来表示有序的可变元素集合。例如表示一个有序的数据组。</td>
-</tr>
-<tr>
-<td>tuple(元组)</td>
-<td>元组用来表示有序的不可变元素集合。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="散列类型">散列类型</h3>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>set(集合)</td>
-<td>数学概念中的集合，无限不重复元素的集合</td>
-</tr>
-<tr>
-<td>dict(字典)</td>
-<td>字典是无序键值对的集合。用来表示有关联的数据，例如表示一个人的基本信息。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="其他类型">其他类型</h3>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>bool(布尔型)</td>
-<td>bool 型数据只有两个元素，True 表示真，False 表示假。用来表示条件判断结果。</td>
-</tr>
-<tr>
-<td>None</td>
-<td>None 表示空。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="是否-bool-属于-number-的一种呢">是否 bool 属于 Number 的一种呢？</h3>
-<pre><code class="language-python"># 可以将它转成 int 呢？
-print(int(True))
-print(int(False))
 
-# 输出结果
-1
-0
-</code></pre>
-<p>因为 int 能讲 bool 转成整型，True 就是 1，False 就是 0</p>
-<h2 id="二-数值类型">二、数值类型</h2>
-<h3 id="1-整数类型int">1. 整数类型(int)</h3>
-<p>python 中整数类型用 <code>int</code> 表示，与数学中的整数概念一致</p>
-<pre><code class="language-python">  age = 18
-</code></pre>
-<p>其中 age 是变量名，<code>=</code> 是赋值运算符，<code>18</code> 是值。</p>
-<p>上面的代码表示创建一个整数 18 然后赋值给变量 age。</p>
-<h4 id="1变量">1.变量</h4>
-<p>在程序运行过程中会有一些中间值，在稍后的执行中会用到，这时可以将这些中间值赋值给变量，然后在后面的代码中通过调用这些变量名来获取这些值。可以简单的理解为给这些值取一个别名，这个别名就代表这个值。</p>
-<p>变量的命名规则：</p>
-<ol>
-<li>由大小写字母 A-Z a-z，数字 0-9 和下划线 <code>_</code> 组成</li>
-<li>不能以数字开头</li>
-<li>不能是关键字</li>
-<li>变量名大小写敏感</li>
-</ol>
-<pre><code class="language-python">  # 正确的案例
-lucky_num = 88
-lucky_num2 = 888
-  # 错误的案例
-1lucky_num = 88
-  # 上面的age 和 Age是两个不同的变量
-Age = 19
-</code></pre>
-<p>python 官方占用了一些变量名作为程序的关键字，总共 35 个，这些关键字不能作为自定义变量名使用。</p>
-<pre><code class="language-python">import keyword
-print(keyword.kwlist)
-</code></pre>
-<p>['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']</p>
-<h4 id="2赋值运算符">2.赋值运算符</h4>
-<p>在 python 中 = 是赋值运算符，而不是数学意义上的等于号。python 解释器会先计算 = 右边的表达式，然后将结果复制给 = 左边的变量。</p>
-<pre><code class="language-python">res = 1           # 定义变量res赋值为1
-res = res + 1     # 先计算res + 1 再赋值给变量res
-res               # res的值为2
-</code></pre>
-<h4 id="3-type-函数和-print-函数">3. type 函数和 print 函数</h4>
-<p>python 提供了内建函数 <code>type</code> 用来查看值或者变量的类型。</p>
-<p>只需要将变量或者值作为参数传入 <code>type</code> 函数即可。</p>
-<pre><code class="language-python">  type(age)
-</code></pre>
-<p>int</p>
-<pre><code class="language-python">  type(18)
-</code></pre>
-<p>int</p>
-<p><code>print</code> 函数用来在屏幕上输出传入的数据的字符串表现形式，是代码调试最重要的函数。</p>
-<pre><code class="language-python">print(age)
-print(type(age))
-# 注意交互式输出和print函数输出的区别
-</code></pre>
-<p>运行结果：</p>
-<p>18<br>
-&lt;class 'int'&gt;</p>
-<h4 id="4整数的常见表示形式">4.整数的常见表示形式</h4>
-<p>在 python 中整数最常见的是 10 进制整数，也有二进制，八进制和十六进制。</p>
-<h5 id="10-进制">10 进制</h5>
-<ul>
-<li>0,1,2,3,4,5,6,7,8,9</li>
-<li>满 10 进 1 位</li>
-<li>正常写的 Number 都是 10 进制</li>
-</ul>
-<pre><code class="language-python">a = 10  # 十进制
-print('a的类型为：', type(a), a)
-</code></pre>
-<p>a 的类型为： &lt;class 'int'&gt; 10</p>
-<hr>
-<h5 id="2-进制">2 进制</h5>
-<ul>
-<li>0,1</li>
-<li>满 2 进 1 位</li>
-</ul>
-<pre><code class="language-python">b = 0b1110  # 二进制
-print('b的类型为：', type(b),b)
-</code></pre>
-<p>b 的类型为： &lt;class 'int'&gt; 14</p>
-<hr>
-<h5 id="8-进制">8 进制</h5>
-<ul>
-<li>0,1,2,3,4,5,6,7</li>
-<li>满 8 进 1 位</li>
-</ul>
-<pre><code class="language-python">c = 0o57    # 八进制
-print('c的类型为：', type(c),c)
-</code></pre>
-<p>c 的类型为： &lt;class 'int'&gt; 47</p>
-<hr>
-<h5 id="16-进制">16 进制</h5>
-<ul>
-<li>0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F</li>
-<li>满 16 进 1 位</li>
-</ul>
-<pre><code class="language-python">d = 0xa5c   # 十六进制
-print('d的类型为：', type(d), d)
-</code></pre>
-<p>d 的类型为： &lt;class 'int'&gt; 2652</p>
-<h4 id="int-转成十进制">int() 转成十进制</h4>
-<p>int 可以将数字字符串和 Number 类型的值转成整数</p>
-<pre><code class="language-python"># 转成十进制
-print(0b101)
-print(0o777)
-print(0xBBB)
-print(int(0b101))
-print(int(0o777))
-print(int(0xBBB))
-print(int(&quot;-123&quot;))
-print(int(1.1))
-print(int(1.9))
+        </div>
 
-# 输出结果
-5
-511
-3003
-5
-511
-3003
--123
-1
-1
-</code></pre>
-<ul>
-<li>不写 int() 的话，也可以将其他进制的数自动转成十进制</li>
-<li>int() 能将纯整数（不能是浮点数）的字符串转成 int 类型</li>
-<li>传入浮点数不会进行四舍五入，直接取整数部分</li>
-</ul>
-<h4 id="bin-其他进制数转二进制">bin() 其他进制数转二进制</h4>
-<pre><code class="language-python"># 转成二进制
-print(bin(10))  # 10 转成 2进制
-print(bin(0o7))  # 7 转成 2进制
-print(bin(0xA))  # 10 转成 2进制
-print(bin(0o27))  # 8*2+7 转成 2进制
-print(bin(0x22E))  # 16^2*2+16*2+14 转成 2进制
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/oQOHcoQAu/">
+            <span class="flex-auto">python</span>
+          </a>
+        
 
-# 输出结果
-0b1010
-0b111
-0b1010
-0b10111
-0b1000101110
-</code></pre>
-<h4 id="oct-其他进制转成八进制">oct() 其他进制转成八进制</h4>
-<pre><code class="language-python"># 转成八进制
-print(oct(110))
-print(oct(0b100))
-print(oct(0xAAA))
 
-# 输出结果
-0o156
-0o4
-0o5252
-</code></pre>
-<h4 id="hex-其他进制转成十六进制">hex() 其他进制转成十六进制</h4>
-<pre><code class="language-python"># 转成十六进制
-print(hex(110))
-print(hex(0b100))
-print(hex(0o777))
+        <div class="flex justify-between py-8">
+          
 
-# 输出结果
-0x6e
-0x4
-0x1ff
-</code></pre>
-<h4 id="5整数的取值范围">5.整数的取值范围</h4>
-<p>python 中整数类型的理论取值范围是[-无穷，无穷]，实际取值范围受限于运行 python 程序的计算机内存大小。</p>
-<h3 id="2-浮点数类型float">2. 浮点数类型(float)</h3>
-<p>python 中浮点数数用 float 表示，与数学中的实数概念一致，也可以理解为有小数。</p>
-<pre><code class="language-python">a = 0.0
-print('a的类型为：', type(a))
-</code></pre>
-<p>a 的类型为： &lt;class 'float'&gt;</p>
-<h4 id="1浮点数的表现形式">1.浮点数的表现形式</h4>
-<p>在 python 中浮点数可以表示为 <code>a.b</code> 的格式，也可以表示为小写或大写 <code>E</code> 的科学计算法。例如：</p>
-<pre><code class="language-python">a = 0.0
-print('a的类型为：', type(a))
-</code></pre>
-<p>a 的类型为： &lt;class 'float'&gt;</p>
-<pre><code class="language-python"># 小数部分为零可以省略不写
-b = 76.
-print('b的类型为：', type(b))
-</code></pre>
-<p>b 的类型为： &lt;class 'float'&gt;</p>
-<pre><code class="language-python"># 整数部分为0可以省略不写
-c = .78
-print('b的类型为',:type(c),c)
-</code></pre>
-<p>c的类型为: &lt;class 'float'&gt; 0.78</p>
-<pre><code class="language-python">d = -3.1415926
-print('d的类型为：', type(d))
-</code></pre>
-<p>d 的类型为： &lt;class 'float'&gt;</p>
-<pre><code class="language-python">e = 9.5e-2
-print('d的类型为：', type(e))
-</code></pre>
-<p>e的类型为： &lt;class 'float'&gt;</p>
-<pre><code class="language-python">f = 9.5e2
-print('f的类型为：', type(f),f)
-</code></pre>
-<p>f的类型为： &lt;class 'float'&gt; 950.0</p>
-<h5 id="思考">思考：</h5>
-<p>浮点数可以表示所有的整数数值，python 为何要同时提供两种数据类型？</p>
-<pre><code>  相同的操作整数要比浮点数快5-20倍
-</code></pre>
-<h4 id="2数学运算符">2.数学运算符</h4>
-<p>与数学中的常用运算符一致</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>+</code></td>
-<td>加法运算符 <code>1+1</code></td>
-</tr>
-<tr>
-<td><code>-</code></td>
-<td>减法运算符 <code>3-2</code></td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>乘法运算符 <code>9*9</code></td>
-</tr>
-<tr>
-<td><code>/</code></td>
-<td>除法运算符 <code>9/3</code>，除法运算后的结果一定为 <code>float</code> 类型</td>
-</tr>
-<tr>
-<td><code>//</code></td>
-<td>整除运算符 <code>10/3</code>，也称为 <code>地板除</code> 向下取整</td>
-</tr>
-<tr>
-<td><code>%</code></td>
-<td>取模运算符 <code>10%3</code>，表示 10 除以 3 取余数</td>
-</tr>
-<tr>
-<td><code>**</code></td>
-<td>幂次运算符 <code>2**3</code>，表示 2 的 3 次幂</td>
-</tr>
-<tr>
-<td><code>()</code></td>
-<td>括号运算符，括号内的表达式先运算 （1+2）* 3</td>
-</tr>
-</tbody>
-</table>
-<p>注意一个浮点数和一个整数进行运算后的结果一定为浮点数</p>
-<pre><code class="language-python">  2+1.0
-</code></pre>
-<p>3.0</p>
-<pre><code class="language-python">  9/3 # 除法运算的结果一定为float类型
-</code></pre>
-<p>3.0</p>
-<pre><code class="language-python">  9//2 # 地板除，向下取整
-</code></pre>
-<p>4</p>
-<pre><code class="language-python">9.0//2 # 当有浮点数进行运算时，结果一定是浮点数，不管是什么计算符
-</code></pre>
-<p>4.0</p>
-<pre><code class="language-python"># 求模
-print(5 % 2)
-print(5.1 % 2)
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/w-B-uNoob/">
+                <h3 class="post-title">
+                   Python基本数据类型 ·上
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
 
-# 输出结果
-1
-1.0999999999999996
-</code></pre>
-<ul>
-<li>浮点数的求模结果为一堆小数位，而不是 1.1</li>
-<li>因为在计算机内存，有的浮点数无法被精确的表示，在这里，只能使用近似值来表示 1.1</li>
-</ul>
-<pre><code class="language-python"># 幂运算
-print(2 ** 3)  # 2 的 3次方
-print(1.1 ** 3)  # 1.1 的 3 次方
+        
 
-# 输出结果
-8
-1.3310000000000004
-</code></pre>
-<h4 id="3组合赋值运算符">3.组合赋值运算符</h4>
-<p>赋值运算符与算术运算符可以组合使用，注意算术运算符要写在前面且中间不能有空格。</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-<th>实例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>=</td>
-<td>等于-简单的赋值</td>
-<td>c = a + b print(c) # 30</td>
-</tr>
-<tr>
-<td>+=</td>
-<td>加等于</td>
-<td>c += a 等同于 c = c + a</td>
-</tr>
-<tr>
-<td>-=</td>
-<td>减等于</td>
-<td>c -= a 等同于 c = c - a</td>
-</tr>
-<tr>
-<td>*=</td>
-<td>乘等于</td>
-<td>c *= a 等同于 c = c * a</td>
-</tr>
-<tr>
-<td>/=</td>
-<td>除等于</td>
-<td>c /= a 等同于 c = c/a</td>
-</tr>
-<tr>
-<td>%=</td>
-<td>取余等于</td>
-<td>c%=a 等同于 c = c%a</td>
-</tr>
-<tr>
-<td>**=</td>
-<td>幂等于</td>
-<td>c ** =a 等同于 c = c ** a</td>
-</tr>
-<tr>
-<td>//=</td>
-<td>取整除等于</td>
-<td>c//=a 等同于 c = c//a</td>
-</tr>
-</tbody>
-</table>
-<p>体现了程序员的&quot;懒惰&quot;，这种懒惰大力提倡，使得代码简洁和高效。</p>
-<pre><code class="language-python">a = 1
-a += 2  #  a = a+2
-a 
-</code></pre>
-<p>3</p>
-<h4 id="4-浮点数的不精确性">4. 浮点数的不精确性</h4>
-<p>整数和浮点数在计算机中的表示不同，python 提供无限制且准确的整数计算，浮点数却是不精确的，例如：</p>
-<pre><code class="language-python">  0.2+0.1
-</code></pre>
-<p>0.30000000000000004<br>
-根据 sys.float_info.dig 的值，<strong>计算机只能提供 15 个数字的准确性</strong>。浮点数在超过 15 位数字计算中产生的误差与计算机内部采用二进制运算有关。</p>
-<pre><code class="language-python">import sys
+      </div>
+    </div>
 
-print(sys.float_info.dig)
-</code></pre>
-<p>15</p>
-<h5 id="思考-2">思考：</h5>
-<p>3.1415926535897924*1.23456789 的计算怎么准确</p>
-<h6 id="拓展高精度浮点运算类型">拓展：高精度浮点运算类型</h6>
-<pre><code class="language-python">import decimal
-a = decimal.Decimal('3.141952653')
-b = decimal.Decimal('1.23456789')
-print(a * b)
-</code></pre>
-<p>3.87895385729411217</p>
-<h4 id="5-浮点数和整数的相互转化">5. 浮点数和整数的相互转化</h4>
-<p><code>int</code>,<code>float</code> 是 python 的内置函数，通过它们可以对浮点数类型和整数类型相互转化</p>
-<pre><code class="language-python">a = 1.9
-# 转化为整数
-# 通过调用int函数，提取浮点数的整数部分
-b = int(a)
-print(b, type(b))
-</code></pre>
-<p>1 &lt;class 'int'&gt;</p>
-<pre><code class="language-python">c = 2
-# 转化为浮点数
-# 通过调用float函数，将整数转化为小数部分为0的浮点数
-d = float(c)
-print(d, type(d))
-</code></pre>
-<p>2.0 &lt;class 'float'&gt;</p>
-<h3 id="3复数">3.复数</h3>
-<p>科学计算中的复数。</p>
-<pre><code class="language-python">a = 12.3+4j
-print('a的类型为：', type(a))
-# 运行结果：a的类型为： &lt;class 'complex'&gt;
-print(a.real)
-print(a.imag)
-</code></pre>
-<p>a 的类型为： &lt;class 'complex'&gt;<br>
-12.3<br>
-4.0</p>
-]]></content>
-    </entry>
-</feed>
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
