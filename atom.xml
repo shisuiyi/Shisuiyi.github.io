@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予-博客</title>
-    <updated>2021-10-11T12:21:43.729Z</updated>
+    <updated>2021-10-11T12:25:24.446Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -350,7 +350,7 @@ int('1.2')
 <li><code>+</code>, 右对齐，正数前加正号，负数前加负号</li>
 <li><code>-</code>, 左对齐，正数前无符号，负数前加负号</li>
 <li><code>空格</code>, 右对齐，正数前加空格，负数前加负号</li>
-<li><code>0</code>, 右对齐，正数前无符号，复数前加负号；用 <code>0</code> 填充空白处</li>
+<li><code>0</code>, 右对齐，正数前无符号，负数前加负号；用 <code>0</code> 填充空白处</li>
 </ul>
 </li>
 <li>
