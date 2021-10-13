@@ -5,7 +5,7 @@
 <title>师不予-博客</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>
 " />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1634126885759">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1634129074168">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -24,7 +24,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1634126885759" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1634129074168" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予-博客</h1>
       </div>
@@ -783,7 +783,7 @@ ls.insert(0,0)
 print(ls)
 </code></pre>
 <p>[0, 1, 2, 3]<br>
-<code>.extend(iterable)</code>，扩展列表，元素为传入的可迭代对象中的元素</p>
+<code>.extend(iterable)</code>，扩展列表，元素为传入的可迭代对象中的元素（不能传入数值）</p>
 <pre><code class="language-python">ls = [1,2,3]
 ls.extend([4,5,6])
 print(ls)
@@ -804,13 +804,13 @@ ls.pop()
 <pre><code class="language-python">print(ls)
 </code></pre>
 <p>[2]<br>
-<code>.remove(value)</code>，从列表中删除第一个指定的值 value，如不不存在 value 则报错。</p>
+<code>.remove(value)</code>，从列表中删除第一个指定的值 value，如不存在 value 则报错。</p>
 <pre><code class="language-python">ls = [1,2,3,1]
 ls.remove(1)
 print(ls)
 </code></pre>
 <p>[2, 3, 1]<br>
-<code>.clear()</code>，清空列表，原列表变成空列表</p>
+<code>.clear()</code>，清空列表，原列表变成空列表，等价于 del a[:]</p>
 <pre><code class="language-python">ls = [1,2,3]
 ls.clear()
 print(ls)
