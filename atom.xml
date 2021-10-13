@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予-博客</title>
-    <updated>2021-10-11T12:52:09.040Z</updated>
+    <updated>2021-10-13T12:12:34.987Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -813,7 +813,7 @@ id(s)
 <h4 id="61-赋值">6.1 赋值</h4>
 <p>python 是解释型编程语言，当解释器在碰到赋值语句时它首先会计算赋值符号右边的表达式的值，然后再创建左边的变量。</p>
 <p>变量中实际存储的是值在内存中的地址，引用变量时通过地址指向内存中的值。通过内建函数 <code>id</code> 可以查看解释器中变量的虚拟内存地址整数值。</p>
-<pre><code class="language-python">`   `a = 1
+<pre><code class="language-python">a = 1
 id(a)
 </code></pre>
 <p>4382612480</p>
