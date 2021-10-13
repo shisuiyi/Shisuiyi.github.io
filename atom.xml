@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予-博客</title>
-    <updated>2021-10-13T12:52:16.400Z</updated>
+    <updated>2021-10-13T13:48:31.628Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -789,11 +789,11 @@ id(a)
 <pre><code class="language-python">s = 'hello'
 id(s)
 </code></pre>
-<p>140453671058032</p>
+<p>3067776627760</p>
 <pre><code class="language-python">s = 'Hello'
 id(s)
 </code></pre>
-<p>140453671058032</p>
+<p>3067782100656</p>
 <p>基本数据类型中数字，字符串，元组是不可变对象。</p>
 <h3 id="5可哈希对象">5.可哈希对象</h3>
 <p>一个对象的哈希值如果在其生命周期内绝不改变，就被称为可哈希。可哈希对象都可以通过内置函数 <code>hash</code> 进行求值。</p>
