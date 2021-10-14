@@ -5,7 +5,7 @@
 <title>师不予-博客</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>
 " />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1634132841582">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1634217273030">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -24,7 +24,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1634132841582" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1634217273030" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予-博客</h1>
       </div>
@@ -109,6 +109,8 @@
 </ul>
 </li>
 <li><a href="#4-%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1">4. 可变与不可变对象</a></li>
+<li><a href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E5%93%AA%E4%BA%9B%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1"><strong>有哪些可变对象，哪些不可变对象？</strong></a></li>
+<li><a href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB"><strong>不可变对象和可变对象的区别？</strong></a></li>
 <li><a href="#5%E5%8F%AF%E5%93%88%E5%B8%8C%E5%AF%B9%E8%B1%A1">5.可哈希对象</a></li>
 <li><a href="#6%E8%B5%8B%E5%80%BC%E4%B8%8E%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D">6.赋值与深浅拷贝</a>
 <ul>
@@ -169,7 +171,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">python 基本数据类型 ·中</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-10-10 / 30 min read
+          2021-10-10 / 31 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/YUhEQmZeL.jpg" alt="">
@@ -926,9 +928,46 @@ print(len(t))
 3<br>
 3</p>
 <h3 id="4-可变与不可变对象">4. 可变与不可变对象</h3>
-<p>python 中的对象根据底层内存机制分为可变与不可变两种。</p>
-<p>可变对象可以在其 <code>id()</code> 保持固定的情况下改变其取值。</p>
-<p>下面的列表 a，修改值后，id 保持不变</p>
+<p>因为元组是不可变对象，所以元组一般适合用来存储不变的数据</p>
+<ul>
+<li>在 Python 中，一切皆为对象</li>
+<li>Python 中不存在值传递，一切传递的都是对象的引用，也可以认为是传址</li>
+</ul>
+<h3 id="有哪些可变对象哪些不可变对象"><strong>有哪些可变对象，哪些不可变对象？</strong></h3>
+<ul>
+<li>不可变对象：字符串、元组、数字（int、float）</li>
+<li>可变对象：数组、字典、集合</li>
+</ul>
+<h3 id="不可变对象和可变对象的区别"><strong>不可变对象和可变对象的区别？</strong></h3>
+<ul>
+<li>
+<p>可变对象：改变对象内容，对象在内存中的地址不会被改变<br>
+<img src="https://Shisuiyi.github.io/post-images/1634217079437.png" alt="" loading="lazy"><br>
+变的是：原来对象的内容，不会创建新对象，而变量也还是指向原对象</p>
+</li>
+<li>
+<p>不可变对象：改变对象内容，对象在内存中的地址会被改变；如果必须存储一个不同的值，则必须创建新的对象<br>
+<img src="https://Shisuiyi.github.io/post-images/1634217054851.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>Python 中的变量有一个内存空间</p>
+</li>
+<li>
+<p>具体的数据（对象）也有一个内存空间</p>
+</li>
+<li>
+<p>而变量保存（指向）的是存储数据（对象）的内存地址，一般也叫对象引用</p>
+</li>
+<li>
+<p>不可变对象是指对象内容本身不可变</p>
+</li>
+<li>
+<p>变的是：改变了值，会创建新对象，然后变量改变了对象引用，指向了新对象，旧对象会被垃圾回收</p>
+</li>
+</ul>
+<p>python 中的对象根据底层内存机制分为可变与不可变两种。<br>
+可变对象可以在其 <code>id()</code> 保持固定的情况下改变其取值。<br>
+下面的列表 a，修改值后，id 保持不变</p>
 <pre><code class="language-python">a = [1,2,3]
 id(a)
 </code></pre>
