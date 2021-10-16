@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予-博客</title>
-    <updated>2021-10-16T01:58:38.995Z</updated>
+    <updated>2021-10-16T02:08:58.967Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -1577,7 +1577,7 @@ print(ls)
 </code></pre>
 <p>[2, 2, 3]<br>
 会发现变量 ls 在修改列表的值后，变量 ln 的值也发生了同样的改变，这是因为 ls，ln 指向相同的列表。对可变数据类型进行变量赋值时要考虑这个特性。</p>
-<p>#####6.1.1 实际的一种应用场景</p>
+<h5 id="611-实际的一种应用场景">6.1.1 实际的一种应用场景</h5>
 <ul>
 <li>有一个变量 a，存储了一个值</li>
 <li>此时想用另一个变量 b 暂时存储变量 a 的值，以便后续使用</li>
