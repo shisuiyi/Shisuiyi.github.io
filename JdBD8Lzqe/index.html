@@ -1,0 +1,969 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予-博客</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>
+" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1634346192067">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1634346192067" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予-博客</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E6%95%A3%E5%88%97%E7%B1%BB%E5%9E%8B">一、散列类型</a>
+<ul>
+<li><a href="#1-%E9%9B%86%E5%90%88">1. 集合</a>
+<ul>
+<li><a href="#11-%E9%9B%86%E5%90%88%E5%AE%9A%E4%B9%89">1.1 集合定义</a></li>
+<li><a href="#12-%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">1.2 集合的常用操作</a>
+<ul>
+<li><a href="#121-%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0">1.2.1 添加元素</a></li>
+<li><a href="#122-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">1.2.2 删除元素</a></li>
+<li><a href="#123%E9%9B%86%E5%90%88%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95">1.2.3集合常见方法</a></li>
+<li><a href="#124-%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97">1.2.4 集合运算</a>
+<ul>
+<li><a href="#%E4%BA%A4%E9%9B%86">交集</a></li>
+<li><a href="#%E5%B9%B6%E9%9B%86">并集</a></li>
+<li><a href="#%E8%A1%A5%E9%9B%86">补集</a></li>
+<li><a href="#%E5%AF%B9%E7%A7%B0%E5%B7%AE%E9%9B%86">对称差集</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#13-%E9%9B%86%E5%90%88%E5%8E%BB%E9%87%8D">1.3 集合去重</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%AD%97%E5%85%B8">2. 字典</a>
+<ul>
+<li><a href="#21-%E5%AD%97%E5%85%B8%E7%9A%84%E5%AE%9A%E4%B9%89">2.1 字典的定义</a></li>
+<li><a href="#22-%E5%AD%97%E5%85%B8%E7%9A%84%E7%B4%A2%E5%BC%95">2.2 字典的索引</a></li>
+<li><a href="#23-%E5%AD%97%E5%85%B8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C">2.3 字典的常用操作</a>
+<ul>
+<li><a href="#231-%E5%A2%9E%E5%8A%A0%E5%85%83%E7%B4%A0">2.3.1 增加元素</a></li>
+<li><a href="#232-%E4%BF%AE%E6%94%B9%E5%85%83%E7%B4%A0">2.3.2 修改元素</a></li>
+<li><a href="#233-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0">2.3.3 删除元素</a></li>
+<li><a href="#234-%E6%9F%A5%E8%AF%A2%E5%85%83%E7%B4%A0">2.3.4 查询元素</a></li>
+</ul>
+</li>
+<li><a href="#24%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0">2.4常见函数</a></li>
+<li><a href="#25-dict-%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3">2.5 dict() 创建字典对象详解</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%AD%97%E5%85%B8">创建空字典</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87-iterable-%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8">通过 iterable 创建字典</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8">通过关键字参数创建字典</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%AD%97%E5%85%B8%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8">通过另一个字典对象创建字典</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B">五，其他类型</a>
+<ul>
+<li><a href="#1-%E5%B8%83%E5%B0%94%E5%9E%8B">1. 布尔型</a>
+<ul>
+<li><a href="#11-%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6">1.1 比较运算符</a></li>
+<li><a href="#12-%E6%88%90%E5%91%98%E8%BF%90%E7%AE%97%E7%AC%A6">1.2 成员运算符</a></li>
+<li><a href="#13-%E5%B8%83%E5%B0%94%E5%9E%8B%E8%BF%90%E7%AE%97">1.3 布尔型运算</a></li>
+<li><a href="#14-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">1.4 布尔类型转换</a></li>
+<li><a href="#12-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6">1.2 逻辑运算符</a></li>
+</ul>
+</li>
+<li><a href="#2-none">2. None</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">python基本数据类型 ·下</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-10-16 / 15 min read
+        </div>
+        
+        <div class="post-content yue">
+          <h2 id="一-散列类型">一、散列类型</h2>
+<p>散列类型用来表示无序集合。</p>
+<h3 id="1-集合">1. 集合</h3>
+<p>python 中集合(set)类型与数学中的集合类型一致，用来表示无序不重复元素的集合。</p>
+<h4 id="11-集合定义">1.1 集合定义</h4>
+<p>集合使用一对大括号 <code>{}</code> 进行定义，元素直接使用逗号隔开。集合中的元素必须是不可变类型。</p>
+<pre><code class="language-python">a = {1, 2, 3, 4, 5, 6}
+b = {1,2,'a',('a',),1.5}      # 集合中元素必须是不可变类型
+
+print('a的类型为：', type(a))    # a的类型为： &lt;class 'set'&gt;
+print('b的类型为：', type(b))    # b的类型为： &lt;class 'set'&gt;
+</code></pre>
+<p>a 的类型为： &lt;class 'set'&gt;<br>
+b 的类型为： &lt;class 'set'&gt;</p>
+<pre><code class="language-python">{[1,2,3],(1,2,3)}
+</code></pre>
+<hr>
+<p>TypeError Traceback (most recent call last)</p>
+<p>in<br>
+----&gt; 1 {[1,2,3],(1,2,3)}</p>
+<p>TypeError: unhashable type: 'list'<br>
+注意空集合的定义方式是 <code>set()</code></p>
+<pre><code class="language-python">a = set()                      # 空集合
+# 注a = {} 是空字典
+print(a)
+</code></pre>
+<p>set()</p>
+<h4 id="12-集合的常用操作">1.2 集合的常用操作</h4>
+<h5 id="121-添加元素">1.2.1 添加元素</h5>
+<p>集合添加元素常用函数有两个：<code>add</code> 和 <code>update</code></p>
+<p><code>set.add(obj)</code>，向集合中添加元素 obj，如果集合中不存在则添加</p>
+<pre><code class="language-python">s = {1,2}
+s.add(1)
+print(s)
+</code></pre>
+<p>{1, 2}</p>
+<pre><code class="language-python">s.add(3)
+print(s)
+</code></pre>
+<p>{1, 2, 3}<br>
+<code>set.update(iterable)</code>，向集合中添加多个元素，如何集合中不存在则添加</p>
+<pre><code class="language-python">s = {1,2}
+s.update({2,3})
+print(s)
+</code></pre>
+<p>{1, 2, 3}</p>
+<pre><code class="language-python">s.update([3,4])
+print(s)
+</code></pre>
+<p>{1, 2, 3, 4}</p>
+<h5 id="122-删除元素">1.2.2 删除元素</h5>
+<p>remove(item)</p>
+<p><code>set.remove(ele)</code>，从集合中删除元素 <code>ele</code>，如果不存在则抛出异常。</p>
+<pre><code class="language-python"># remove
+set_ = {1, 2, 3}
+set_.remove(2)
+print(set_)
+
+
+# 输出结果
+{1, 3}
+</code></pre>
+<p>clear()</p>
+<p>移除集合中的所有元素</p>
+<pre><code class="language-python"># remove
+set_ = {1, 2, 3}
+print(set_)
+set_.clear()
+print(set_)
+
+
+# 输出结果
+{1, 2, 3}
+set() 
+</code></pre>
+<p>pop()</p>
+<p><code>set.pop()</code> 随机删除并返回集合中的一个元素，如何集合中元素为空则抛出异常。</p>
+<p><code>set.pop()</code>是随机删除集合中的一个元素，只当集合元素是字符串类型时，并且在脚本运行（CMD）时才会随机删除，在交互式环境（IDE）中是保持删除左边第一个元素的。如果集合元素是其他数据类型时，是删除左边第一个元素的。</p>
+<pre><code class="language-python"># pop
+a = {1, 2, 3, 4}
+print(a.pop())
+print(a.pop())
+print(a)
+
+
+# 输出结果
+1
+2
+{3, 4}
+</code></pre>
+<h5 id="123集合常见方法">1.2.3集合常见方法</h5>
+<p>difference()</p>
+<p>从源集合中找出目标集合中没有的元素集合</p>
+<pre><code class="language-python"># difference
+a = {1, 2, 3, 4}
+b = {2, 3, 5}
+print(a.difference(b))
+
+
+# 输出结果
+{1, 4}
+</code></pre>
+<p>unio()</p>
+<p>返回两个集合的并集</p>
+<pre><code class="language-python"># union
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+print(set1.union(set2))
+
+
+# 输出结果
+{1, 2, 3, 4, 5}
+</code></pre>
+<p>intersection()</p>
+<p>返回两个集合的交集</p>
+<pre><code class="language-python"># intersection
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+print(set1.intersection(set2))
+
+
+# 输出结果
+{3}
+</code></pre>
+<p>issubset()</p>
+<p>判断指定集合是否为子集</p>
+<pre><code class="language-python"># issubset
+set1 = {1, 2}
+set2 = {1, 2, 3}
+print(set1.issubset(set2))
+
+
+# 输出结果
+True
+</code></pre>
+<p>issuperset()</p>
+<p>判断指定集合是否为超集</p>
+<pre><code class="language-python"># issuperset
+set1 = {1, 2, 3}
+set2 = {1, 2}
+print(set1.issuperset(set2))
+
+
+# 输出结果
+True
+</code></pre>
+<h5 id="124-集合运算">1.2.4 集合运算</h5>
+<table>
+<thead>
+<tr>
+<th>数学符号</th>
+<th>python 运算符</th>
+<th>含义</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>∩</td>
+<td>&amp;</td>
+<td>交集</td>
+<td>一般地，由所有属于 A 且属于 B 的元素所组成的集合叫做 AB 的交集。</td>
+</tr>
+<tr>
+<td>∪</td>
+<td>|</td>
+<td>并集</td>
+<td>一般地，由所有属于集合 A 或属于集合 B 的元素所组成的集合，叫做 AB 的并集</td>
+</tr>
+<tr>
+<td>-或\</td>
+<td>-</td>
+<td>相对补集/差集</td>
+<td>A-B，取在 A 集合但不在 B 集合的项</td>
+</tr>
+<tr>
+<td></td>
+<td>^</td>
+<td>对称差集/反交集</td>
+<td>A^B，取只在 A 集合和只在 B 集合的项，去掉两者交集项</td>
+</tr>
+</tbody>
+</table>
+<h6 id="交集">交集</h6>
+<p>取既属于集合 A 和又属于集合 B 的项组成的集合叫做 AB 的交集</p>
+<pre><code class="language-python">s1 = {1,2,3}
+s2 = {2,3,4}
+s = s1 &amp; s2
+print(s)
+</code></pre>
+<p>{2, 3}</p>
+<h6 id="并集">并集</h6>
+<p>集合 A 和集合 B 的所有元素组成的集合称为集合 A 与集合 B 的并集</p>
+<figure data-type="image" tabindex="1"><img src="http://testingpai.com/upload/file/2020/10/image-c8e2dd23.png" alt="image.png" loading="lazy"></figure>
+<pre><code class="language-python">s1 = {1,2,3}
+s2 = {2,3,4}
+s = s1|s2
+print(s)
+</code></pre>
+<p>{1, 2, 3, 4}</p>
+<h6 id="补集">补集</h6>
+<p>取在集合 A 中不在集合 B 中的项组成的集合称为 A 相对 B 的补集<br>
+<img src="http://testingpai.com/upload/file/2020/10/image-dee739c1.png" alt="image.png" loading="lazy"></p>
+<pre><code class="language-python">s1 = {1,2,3}
+s2 = {2,3,4}
+s = s1-s2
+print(s)
+</code></pre>
+<p>{1}</p>
+<h6 id="对称差集">对称差集</h6>
+<p>取不在集合 AB 交集里的元素组成的集合称为对称差集，也叫反交集<br>
+<img src="http://testingpai.com/upload/file/2020/10/image-e41d1a82.png" alt="image.png" loading="lazy"></p>
+<pre><code class="language-python">s1 = {1,2,3}
+s2 = {2,3,4}
+s = s1^s2
+print(s)
+</code></pre>
+<p>{1, 4}</p>
+<h4 id="13-集合去重">1.3 集合去重</h4>
+<p>集合具有天生去重的性质，因此可以利用它来去除序列中的重复元素</p>
+<pre><code class="language-python">ls = [1,1,2,3,4,4,3,2,5]
+ls = list(set(ls))
+print(ls)
+</code></pre>
+<p>[1, 2, 3, 4, 5]</p>
+<pre><code class="language-python">  set('aabbcc')
+</code></pre>
+<p>{'a', 'b', 'c'}</p>
+<h3 id="2-字典">2. 字典</h3>
+<p>因为集合无序，因此不能很便捷的获取特定元素。利用集合元素不重复的特性，使集合中的元素映射值组成键值对，再通过键来获取对应的值。</p>
+<h4 id="21-字典的定义">2.1 字典的定义</h4>
+<p>python 中的字典(dict)数据类型就是键值对的集合，使用一对大括号进行定义，键值对之间使用逗号隔开，键和值使用冒号分割。</p>
+<ul>
+<li>字典在 Python 里面是非常重要的数据类型，而且很常用</li>
+<li>字典中的键必须是不可变数据类型，且不会重复，值可以使任意数据类型。</li>
+<li>字典由键和对应值成对组成，字典中所有的键值对放在 { } 中间，每一对键值之间用逗号分开</li>
+</ul>
+<pre><code class="language-python">a = {}                      # 空字典
+b = {
+    1: 2,                   # key:数字；value：数字
+    2: 'hello',             # key:数字；value：字符串
+    ('k1',): 'v1',          # key:元祖；value：字符串
+    'k2': [1, 2, 3],        # key:字符串；value：列表
+    'k3': ('a', 'b', 'c'),  # key:字符串；value：元祖
+    'k4': {                 # key:字符串；value：字典
+        'name': 'feifei',
+        'age': '18'
+    }
+}
+
+print('a的类型为：', type(a))    # a的类型为： &lt;class 'dict'&gt;
+print('b的类型为：', type(b))    # b的类型为： &lt;class 'dict'&gt;
+</code></pre>
+<p>a 的类型为： &lt;class 'dict'&gt;<br>
+b 的类型为： &lt;class 'dict'&gt;</p>
+<h4 id="22-字典的索引">2.2 字典的索引</h4>
+<p>字典通过键值对中的键作为索引来获取对应的值。字典中的键是无序的。</p>
+<pre><code class="language-python">d = {1:2, 'key': 'value'}
+print(d[1])
+</code></pre>
+<p>2</p>
+<pre><code class="language-python">  print(d['key'])
+</code></pre>
+<p>value<br>
+这种方式很好的将键和值联系起来，就像查字典一样。</p>
+<p>有两种方式</p>
+<ul>
+<li>通过索引 [ key ]</li>
+<li>通过 .get(key) 方法</li>
+</ul>
+<pre><code class="language-python">book = {
+    'title': 'Python 入门基础',
+    'author': '张三',
+    'press': '机械工业出版社'
+}
+
+print(book[&quot;title&quot;])
+print(book[&quot;author&quot;])
+print(book.get(&quot;press&quot;))
+print(book.get(&quot;a&quot;)) 
+</code></pre>
+<pre><code class="language-tex">Python 入门基础
+张三
+机械工业出版社
+None
+---------------------------------------------------------------------------
+KeyError                                  Traceback (most recent call last)
+~\AppData\Local\Temp/ipykernel_14548/1462041223.py in &lt;module&gt;
+      9 print(book.get(&quot;press&quot;))
+     10 print(book.get(&quot;a&quot;))
+---&gt; 11 print(book[&quot;a&quot;])
+
+KeyError: 'a'
+</code></pre>
+<p>两种方式有啥区别？</p>
+<ul>
+<li>.get(key) 当 key 不存在的时候会返回 None</li>
+<li>[ key ] 如果 key 不存在则会报错 KeyError: 'authors'</li>
+</ul>
+<h4 id="23-字典的常用操作">2.3 字典的常用操作</h4>
+<h5 id="231-增加元素">2.3.1 增加元素</h5>
+<p>字典可以直接利用 key 索引赋值的方式进行添加元素，如果 key 存在则修改字典</p>
+<pre><code class="language-python">d = {'name': 'xinlan'}
+d['age'] = 18
+print(d)
+</code></pre>
+<p>{'name': 'xinlan', 'age': 18}<br>
+<code>dict.update(new_dict)</code>，将 new_dict 合并进 <code>dict</code> 中。</p>
+<pre><code class="language-python">d = {'name': 'xinlan'}
+n_d = {'age':18, 'sex':'男'}
+d.update(n_d)
+print(d)
+</code></pre>
+<p>{'name': 'xinlan', 'age': 18, 'sex': '男'}</p>
+<pre><code class="language-python">d.update({'sex': '女','height': 170})  # 当有重复key的时候会覆盖原值
+print(d)
+</code></pre>
+<p>{'name': 'xinlan', 'age': 18, 'sex': '女', 'height': 170}</p>
+<h5 id="232-修改元素">2.3.2 修改元素</h5>
+<p>直接通过 key 索引赋值的方式可以对字典进行修改，如果 key 不存在则添加</p>
+<pre><code class="language-python">d = {'name': 'xinlan'}
+d['name'] = 'XinLan'
+print(d)
+</code></pre>
+<p>{'name': 'XinLan'}</p>
+<h5 id="233-删除元素">2.3.3 删除元素</h5>
+<p><code>dict.pop(key[,d])</code>，删除指定的 key 对应的值并返回该值，如果 key 不存在则返回 d，如果没有给定 d，则抛出异常</p>
+<pre><code class="language-python">d = {'name': 'xinlan','age': 18}
+d.pop('age')
+</code></pre>
+<p>18</p>
+<pre><code class="language-python">print(d)
+</code></pre>
+<p>{'name': 'xinlan'}<br>
+d.pop('age')</p>
+<p><code>dict.popitem()</code>，返回并删除字典中的最后一对键和值。如果字典已经为空，却调用了此方法，就报出 KeyError 异常。</p>
+<pre><code class="language-tex">Help on built-in function popitem:
+
+popitem() method of builtins.dict instance
+    Remove and return a (key, value) pair as a 2-tuple.
+    
+    Pairs are returned in LIFO (last-in, first-out) order.
+    Raises KeyError if the dict is empty.
+</code></pre>
+<pre><code class="language-python">d = {'name': 'Felix','age': 18}
+d.popitem()
+</code></pre>
+<p>('age', 18)</p>
+<h5 id="234-查询元素">2.3.4 查询元素</h5>
+<p>通过 key 索引可以直接获取 key 对应的值，如果 key 不存在则抛出异常。</p>
+<pre><code class="language-python">d = {1:2, 'key': 'value'}
+print(d[1])
+</code></pre>
+<p>2</p>
+<pre><code class="language-python">  d['name']
+</code></pre>
+<hr>
+<p>KeyError Traceback (most recent call last)</p>
+<p>in<br>
+----&gt; 1 d['name']</p>
+<p>KeyError: 'name'<br>
+<code>dict.get(key,default=None)</code>，获取 key 对应的 value 如果不存在返回 default------“安全返回”</p>
+<pre><code class="language-python">d = {1:2, 'key': 'value'}
+d.get(1)
+</code></pre>
+<p>2</p>
+<pre><code class="language-python">  d.get('name',0)
+</code></pre>
+<p>0</p>
+<h4 id="24常见函数">2.4常见函数</h4>
+<p>len</p>
+<p>获取字典中键值对的数量</p>
+<pre><code class="language-python"># len
+var = {'a': 'A', 'b': 'B', 'c': 'C'}
+print(len(var))
+
+
+# 输出结果
+3
+</code></pre>
+<p>list</p>
+<p>返回包含该字典中所有键的列表</p>
+<pre><code class="language-python"># list
+book = {
+    'title': 'Python 入门基础',
+    'author': '张三',
+    'press': '机械工业出版社'
+}
+print(list(book))
+
+
+# 输出结果
+['title', 'author', 'press']
+</code></pre>
+<ul>
+<li>这个返回结果是无序的</li>
+<li>tuple() 一样也可以这样哦，返回的是键组成的元组</li>
+</ul>
+<p>sorted</p>
+<p>返回包含该字典中所有键的有序列表</p>
+<pre><code class="language-python"># sorted
+book = {
+    'title': 'Python 入门基础',
+    'author': '张三',
+    'press': '机械工业出版社'
+}
+print(sorted(book))
+
+
+# 输出结果
+['author', 'press', 'title']
+</code></pre>
+<h4 id="25-dict-创建字典对象详解">2.5 dict() 创建字典对象详解</h4>
+<p><code>dict</code>是一个类，而不是函数，有四种传参方式，下面将一一举例</p>
+<ul>
+<li>
+<h5 id="创建空字典">创建空字典</h5>
+</li>
+</ul>
+<pre><code class="language-python"># 创建空字典
+dict1 = dict()
+print(dict1)
+
+
+# 输出结果
+{}
+</code></pre>
+<ul>
+<li>
+<h5 id="通过-iterable-创建字典">通过 iterable 创建字典</h5>
+</li>
+</ul>
+<pre><code class="language-python"># 传递 list 来创建字典
+mid = [(&quot;a&quot;, 1), (&quot;b&quot;, 2)]
+dict2 = dict(mid)
+print(dict2)
+
+
+# 输出结果
+{'a': 1, 'b': 2}
+</code></pre>
+<p>iterable 的详解：https://www.cnblogs.com/poloyy/p/14658433.html</p>
+<ul>
+<li>
+<h5 id="通过关键字参数创建字典">通过关键字参数创建字典</h5>
+</li>
+</ul>
+<pre><code class="language-python"># 传递关键字参数来创建字典
+dict3 = dict(name=&quot;yy&quot;, age=24)
+print(dict3)
+
+
+# 输出结果
+{'name': 'yy', 'age': 24}
+</code></pre>
+<ul>
+<li>
+<h5 id="通过另一个字典对象创建字典">通过另一个字典对象创建字典</h5>
+</li>
+</ul>
+<pre><code class="language-python">mid = {&quot;title&quot;: [1, 2, 3]}
+# 相当于浅拷贝
+dict4 = dict(mid)
+
+print(dict4)
+print(id(mid), id(dict4))
+
+mid[&quot;name&quot;] = &quot;test&quot;
+mid[&quot;title&quot;][1] = 1
+
+print(mid, dict4)
+
+
+# 输出结果
+{'title': [1, 2, 3]}
+4498981760 4500413824
+{'title': [1, 1, 3], 'name': 'test'} {'title': [1, 1, 3]}
+</code></pre>
+<p>这种传参方式相当于浅拷贝，新的字典对象和旧的字典对象并不指向同一个对象引用</p>
+<p>假设直接用赋值的方式，因为字典是可变对象，所以新旧字典对象都会指向同一个对象引用</p>
+<pre><code class="language-python">dict1 = {1: 1}
+dict2 = dict1
+print(id(dict1), id(dict2))
+
+
+# 输出结果
+4355281792 4355281792
+</code></pre>
+<p>所以，当想复制一个新的字典对象但是又不想指向同一个对象引用的话，最好还是使用 dict() 的方式</p>
+<h2 id="五其他类型">五，其他类型</h2>
+<h3 id="1-布尔型">1. 布尔型</h3>
+<p>条件表达式的运算结果返回布尔型(bool)，布尔型数据只有两个，<code>True</code> 和 <code>False</code> 表示 <code>真</code> 和 <code>假</code>。</p>
+<pre><code class="language-python">  True
+</code></pre>
+<p>True</p>
+<pre><code class="language-python">  False  # 注意首字母大写
+</code></pre>
+<p>False</p>
+<h4 id="11-比较运算符">1.1 比较运算符</h4>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>等于-比较对象是否相等</td>
+<td>print(a==b) # False</td>
+</tr>
+<tr>
+<td>is</td>
+<td>等于-比较对象的内存地址是否相同</td>
+<td>print(a is b)</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于</td>
+<td>print(a!=b) # True</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+<td>print(a&gt;b) # False</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+<td>print(a&lt;b) # True</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+<td>print(a&gt;=b) # False</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+<td>print(a&lt;=b) # True</td>
+</tr>
+</tbody>
+</table>
+<p>比较运算符运算后的结果是布尔型</p>
+<pre><code class="language-python">a = 1
+b = 2
+a == b
+</code></pre>
+<p>False</p>
+<pre><code class="language-python">  a = 300
+  b = 300
+  a is b
+</code></pre>
+<p>False</p>
+<pre><code class="language-python">  a == b
+</code></pre>
+<p>True</p>
+<h4 id="12-成员运算符">1.2 成员运算符</h4>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>in</td>
+<td>如果在指定的序列中找到值返回 True，否则 False</td>
+<td><code>L = [1, 2, 3, 4, 5] a = 3 print(a in L) # True</code></td>
+</tr>
+<tr>
+<td>not in</td>
+<td>如果在指定的序列中没有找到值返回 True，否则 False</td>
+<td><code>print(a not in L) # False</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">ls = [1,2,3,4,5]
+1 in ls
+</code></pre>
+<p>True</p>
+<pre><code class="language-python">s = ['abcdefg']
+'a' in s
+</code></pre>
+<p>False</p>
+<pre><code class="language-python">t = (1,2,3)
+4 in t
+</code></pre>
+<p>False</p>
+<pre><code class="language-python">d = {'name': 'Felix','age':18}
+'name' in d
+</code></pre>
+<p>True</p>
+<pre><code class="language-python">st = {1,2,3}
+1 in st
+</code></pre>
+<p>True</p>
+<h4 id="13-布尔型运算">1.3 布尔型运算</h4>
+<p>布尔型数据可以和数值类型数据进行数学计算，这时 <code>True</code> 表示整数·<code>1</code>, <code>False</code> 表示整数 <code>0</code></p>
+<pre><code class="language-python">  True + 1
+</code></pre>
+<p>2</p>
+<pre><code class="language-python">  False + 1
+</code></pre>
+<p>1</p>
+<h4 id="14-布尔类型转换">1.4 布尔类型转换</h4>
+<p>任意数据都可以通过函数 <code>bool</code> 转换成布尔型。</p>
+<p>在 python 中，None, 0（整数），0.0（浮点数），0.0+0.0j（复数），&quot;&quot;(空字符串)，空列表，空元组，空字典，空集合的布尔值都为 <code>False</code>，其他数值为 <code>True</code></p>
+<pre><code class="language-python">print(bool(0))
+print(bool(0.0))
+print(bool(0.0+0.0j))
+print(bool(''))
+print(bool([]))
+print(bool(()))
+print(bool({}))
+print(bool(set()))
+print(bool(None))
+</code></pre>
+<p>False<br>
+False<br>
+False<br>
+False<br>
+False<br>
+False<br>
+False<br>
+False<br>
+False</p>
+<h4 id="12-逻辑运算符">1.2 逻辑运算符</h4>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>and</td>
+<td>与，如果 x 为 False,x and y 返回 x 的值，否则返回 y 的值</td>
+<td>print(a and b) # True</td>
+</tr>
+<tr>
+<td>or</td>
+<td>或，如果 x 为 True,x and y 返回 x 的值，否则返回 y 的值</td>
+<td>print(a or b) # True</td>
+</tr>
+<tr>
+<td>not</td>
+<td>非，如果 x 为 True，返回 False，反之，返回 True</td>
+<td>print(not a) # False</td>
+</tr>
+</tbody>
+</table>
+<p>逻辑运算符两边的表达式不是布尔型时，在运算前会转换为布尔型。</p>
+<pre><code class="language-python">  True and True
+</code></pre>
+<p>True</p>
+<pre><code class="language-python">  True and False
+</code></pre>
+<p>False</p>
+<pre><code class="language-python">  0 and 1 # 短路
+</code></pre>
+<p>0</p>
+<pre><code class="language-python">  1 and 2 
+</code></pre>
+<p>2</p>
+<pre><code class="language-python">  True or False
+</code></pre>
+<p>True</p>
+<pre><code class="language-python">  False or False
+</code></pre>
+<p>False</p>
+<pre><code class="language-python">  1 or 0  # 短路
+</code></pre>
+<p>1</p>
+<pre><code class="language-python">  0 or ''  # 短路
+</code></pre>
+<p>''</p>
+<h3 id="2-none">2. None</h3>
+<p><code>None</code> 是 python 中的特殊数据类型，它的值就是它本身 <code>None</code>，表示空，表示不存在。</p>
+<pre><code class="language-python">  print(None) # 注意首字母大写
+</code></pre>
+<p>None</p>
+
+        </div>
+
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/YUhEQmZeL/">
+                <h3 class="post-title">
+                  python 基本数据类型 ·中
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
