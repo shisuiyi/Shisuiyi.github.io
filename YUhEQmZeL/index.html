@@ -5,7 +5,7 @@
 <title>师不予-博客</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>
 " />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1634346443461">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1634349516213">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -24,7 +24,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1634346443461" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1634349516213" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予-博客</h1>
       </div>
@@ -117,9 +117,30 @@
 <li><a href="#5%E5%8F%AF%E5%93%88%E5%B8%8C%E5%AF%B9%E8%B1%A1">5.可哈希对象</a></li>
 <li><a href="#6%E8%B5%8B%E5%80%BC%E4%B8%8E%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D">6.赋值与深浅拷贝</a>
 <ul>
-<li><a href="#61-%E8%B5%8B%E5%80%BC">6.1 赋值</a></li>
-<li><a href="#62-%E6%B5%85%E6%8B%B7%E8%B4%9D">6.2 浅拷贝</a></li>
-<li><a href="#63-%E6%B7%B1%E6%8B%B7%E8%B4%9D">6.3 深拷贝</a></li>
+<li><a href="#61-%E8%B5%8B%E5%80%BC">6.1 赋值</a>
+<ul>
+<li><a href="#612%E6%8B%B7%E8%B4%9D%E7%9A%84%E8%AF%9E%E7%94%9F">6.1.2拷贝的诞生</a></li>
+<li><a href="#613copy-%E6%A8%A1%E5%9D%97">6.1.3copy 模块</a></li>
+</ul>
+</li>
+<li><a href="#62%E6%B5%85%E6%8B%B7%E8%B4%9D">6.2浅拷贝</a>
+<ul>
+<li><a href="#621%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%90%8E%E7%9A%84%E5%80%BC%E6%98%AF%E7%9B%B8%E5%90%8C%E7%9A%84">6.2.1浅拷贝后的值是相同的</a></li>
+<li><a href="#622%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%90%8E%E7%9A%84%E4%BC%9A%E4%BA%A7%E7%94%9F%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E5%AF%B9%E8%B1%A1">6.2.2浅拷贝后的会产生一个新的对象</a></li>
+<li><a href="#623%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8%E5%86%85%E7%9A%84%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E5%85%83%E7%B4%A0">6.2.3修改列表内的不可变对象元素</a></li>
+<li><a href="#624%E4%BF%AE%E6%94%B9%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8E%9F%E7%90%86%E5%9B%BE">6.2.4修改不可变对象的原理图</a></li>
+<li><a href="#625%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8%E5%86%85%E7%9A%84%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E5%85%83%E7%B4%A0">6.2.5修改列表内的可变对象元素</a></li>
+<li><a href="#626%E4%BF%AE%E6%94%B9%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8E%9F%E7%90%86%E5%9B%BE">6.2.6修改可变对象的原理图</a></li>
+<li><a href="#627%E6%80%BB%E7%BB%93">6.2.7总结</a></li>
+</ul>
+</li>
+<li><a href="#63-%E6%B7%B1%E6%8B%B7%E8%B4%9D">6.3 深拷贝</a>
+<ul>
+<li><a href="#631%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%8E%9F%E7%90%86%E5%9B%BE">6.3.1深拷贝原理图</a></li>
+<li><a href="#632%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%A4%9A%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">6.3.2浅拷贝的多种实现方式</a></li>
+<li><a href="#633%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%8C%BA%E5%88%AB">6.3.3面试题：浅拷贝、深拷贝的区别</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -174,7 +195,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">python 基本数据类型 ·中</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-10-10 / 31 min read
+          2021-10-10 / 37 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/YUhEQmZeL.jpg" alt="">
@@ -1010,6 +1031,12 @@ id(s)
 <p>TypeError: unhashable type: 'list'</p>
 <h3 id="6赋值与深浅拷贝">6.赋值与深浅拷贝</h3>
 <h4 id="61-赋值">6.1 赋值</h4>
+<ul>
+<li>变量：存储对象的引用</li>
+<li>对象：会被分配一块内存，存储实际的数据，比如字符串、数字、列表</li>
+<li>引用：变量指向对象，可以理解为指针</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1634347489130.png" alt="" loading="lazy"></figure>
 <p>python 是解释型编程语言，当解释器在碰到赋值语句时它首先会计算赋值符号右边的表达式的值，然后再创建左边的变量。</p>
 <p>变量中实际存储的是值在内存中的地址，引用变量时通过地址指向内存中的值。通过内建函数 <code>id</code> 可以查看解释器中变量的虚拟内存地址整数值。</p>
 <pre><code class="language-python">a = 1
@@ -1038,65 +1065,246 @@ print(ls)
 </code></pre>
 <p>[2, 2, 3]<br>
 会发现变量 ls 在修改列表的值后，变量 ln 的值也发生了同样的改变，这是因为 ls，ln 指向相同的列表。对可变数据类型进行变量赋值时要考虑这个特性。</p>
-<h4 id="62-浅拷贝">6.2 浅拷贝</h4>
-<p>导入 <code>copy</code> 模块中的 <code>copy</code> 函数就是浅拷贝操作</p>
+<p>#####6.1.1 实际的一种应用场景</p>
+<ul>
+<li>有一个变量 a，存储了一个值</li>
+<li>此时想用另一个变量 b 暂时存储变量 a 的值，以便后续使用</li>
+<li>然后继续修改变量 a 的值，但修改的时候并不想同步更改变量 b 的值</li>
+</ul>
+<pre><code class="language-python">a=1
+b=a
+a=2
+</code></pre>
+<ul>
+<li>赋值运算符详解：https://www.cnblogs.com/poloyy/p/15083012.html</li>
+<li>Python 的赋值语句并不是创建一个新对象，只是创建了一个共享原始对象引用的新变量</li>
+</ul>
+<p>不可变对象的赋值：</p>
+<pre><code class="language-python">a = 1
+b = a
+
+print(a, b)
+
+a += 2
+print(a, b)
+
+print(&quot;a id:&quot;, id(a))
+print(&quot;b id:&quot;, id(b))
+
+
+# 输出结果
+1 1
+2 1
+a id: 4564097808
+b id: 4564097776
+</code></pre>
+<ul>
+<li>修改变量 a 的值，不会同步修改变量 b 的值</li>
+<li>因为赋值操作 a += 2 后，变量 a 存储的对象引用已经改变了</li>
+<li>至于具体的原理，可以看看不可变对象、可变对象的详解 https://www.cnblogs.com/poloyy/p/15073168.html</li>
+</ul>
+<p>可变对象的赋值：</p>
+<pre><code class="language-python">a = [1, 2, 3]
+b = a
+
+print(a, b)
+
+a[1] = 22
+print(a, b)
+
+print(&quot;a id:&quot;, id(a))
+print(&quot;b id:&quot;, id(b))
+
+
+# 输出结果
+[1, 2, 3] [1, 2, 3]
+[1, 22, 3] [1, 22, 3]
+a id: 4567683136
+b id: 4567683136
+</code></pre>
+<ul>
+<li>修改 a 变量的值，会同步修改变量 b 的值，这不符合上面的说的实际应用场景</li>
+<li>因为变量 a、b 指向的对象是可变对象，所以它们保存的对象引用都是一样的</li>
+</ul>
+<h5 id="612拷贝的诞生">6.1.2拷贝的诞生</h5>
+<ul>
+<li>那如果要让可变对象也能满足上述实际应用场景，要怎么做呢？</li>
+<li>当然就是拷贝</li>
+<li>而拷贝又分为浅拷贝、深拷贝，接下来会具体聊一聊两种拷贝的区别</li>
+</ul>
+<p>第一个重点总结</p>
+<ul>
+<li>对于不可变对象来说，赋值操作其实就可以满足上面说的实际应用场景</li>
+<li>所以！后面要讲的浅拷贝、深拷贝对于不可变对象来说，和赋值操作是一样的效果！</li>
+<li>记住！浅拷贝、深拷贝只针对可变对象，即列表、集合、字典！</li>
+</ul>
+<h5 id="613copy-模块">6.1.3copy 模块</h5>
+<p>Python 提供了 copy 模块，包含了浅拷贝、深拷贝函数</p>
+<pre><code class="language-python">from copy import copy, deepcopy
+
+# 浅拷贝
+copy(x)
+
+# 深拷贝
+deepcopy(x)
+</code></pre>
+<h4 id="62浅拷贝">6.2浅拷贝</h4>
+<p>一句话概括：浅拷贝会创建一个新对象，该新对象存储原始元素的引用</p>
+<h5 id="621浅拷贝后的值是相同的">6.2.1浅拷贝后的值是相同的</h5>
+<ul>
+<li>将列表赋值给变量 old_list</li>
+<li>通过 copy() 方法对 old_list 变量指向的对象进行浅拷贝，并赋值给新变量 new_list</li>
+<li>因为是对象进行拷贝，所以 new_list 和 old_list 存储的值是相同的</li>
+</ul>
 <pre><code class="language-python">import copy
-a = 123
-s = 'hello'
-b = copy.copy(a)
-d = copy.copy(s)
-print(id(a),id(b))
-print(id(s),id(d))
+
+old_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+new_list = copy.copy(old_list)
+
+print(&quot;Old list:&quot;, old_list)
+print(&quot;New list:&quot;, new_list)
+
+
+# 输出结果
+Old list: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+New list: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 </code></pre>
-<p>4382616384 4382616384<br>
-140571355341296 140571355341296<br>
-对于字符串数字这种不可变数据类型来说，浅拷贝相当于变量赋值，所以变量 a 和 b 的 id 相等，变量 s 和 d 的 id 相等。</p>
-<pre><code class="language-python">a += 1
-print(a)
-print(b)
+<h5 id="622浅拷贝后的会产生一个新的对象">6.2.2浅拷贝后的会产生一个新的对象</h5>
+<ul>
+<li>虽然 old_list 和 new_list 存储的值是相同的，但浅拷贝的操作是产生了一个新的对象</li>
+<li>所以 old_list 和 new_list 指向的对象并不是同一个</li>
+</ul>
+<pre><code class="language-python">import copy
+
+old_list = [[1, 2], [3, 4]]
+new_list = copy.copy(old_list)
+
+old_list.append([5, 6])
+
+print(&quot;Old list:&quot;, old_list, &quot;id is :&quot;, id(old_list))
+print(&quot;New list:&quot;, new_list, &quot;id is :&quot;, id(new_list))
+
+
+# 输出结果
+Old list: [[1, 2], [3, 4], [5, 6]] id is : 4366240704
+New list: [[1, 2], [3, 4]] id is : 4366246720
 </code></pre>
-<p>124<br>
-123<br>
-对原变量的修改会创建新的值，不会影响浅拷贝生成的变量，变量 a 自加 1 后指向值 124，变量 b 的值不变</p>
-<p>对于可变数据类型，列表，字典，集合等浅拷贝会有不一样的结果。</p>
-<pre><code class="language-python">ls = [1,'2',['a','b']]
-ln = copy.copy(ls)
-print(id(ls),id(ln))
+<p>可以看到内存地址是不同的，所以给 old_list 新增一个元素并不会同步让 new_list 也新增</p>
+<p>原理图</p>
+<figure data-type="image" tabindex="2"><a href="https://img2020.cnblogs.com/blog/1896874/202108/1896874-20210801103442325-199330745.png"><img src="https://img2020.cnblogs.com/blog/1896874/202108/1896874-20210801103442325-199330745.png" alt="img" loading="lazy"></a></figure>
+<ul>
+<li>浅拷贝生成了一个新对象，然后赋值给 new_list</li>
+<li>new_list、old_list 指向的列表对象不是同一个，但值相同</li>
+<li>重点：对于列表对象中的元素，浅拷贝产生的新对象只存储原始元素的引用（内存地址），所以两个列表对象的元素的引用都指向同一个内存地址</li>
+</ul>
+<h5 id="623修改列表内的不可变对象元素">6.2.3修改列表内的不可变对象元素</h5>
+<p>上面的栗子是直接添加元素，来看看修改元素会怎么样</p>
+<pre><code class="language-python"># 不可变元素
+import copy
+
+old_list = [1, 2, &quot;string&quot;, (1, 2,)]
+new_list = copy.copy(old_list)
+
+old_list[1] += 22
+old_list[2] += &quot;s&quot;
+old_list[3] += (3,)
+
+print(&quot;Old list:&quot;, old_list)
+print(&quot;New list:&quot;, new_list)
+
+
+# 输出结果
+Old list: [1, 24, 'strings', (1, 2, 3)]
+New list: [1, 2, 'string', (1, 2)]
 </code></pre>
-<p>140571352915648 140571355343040<br>
-当对可变数据类型进行浅拷贝时，会创建一个新的数据，所以变量 ls 和 ln 的 id 不想等。</p>
-<pre><code class="language-python">  print(id(ls[2]),id(ln[2]))
+<p>修改 old_list 的三种不可变对象元素，均不会同步给 new_list</p>
+<h5 id="624修改不可变对象的原理图">6.2.4修改不可变对象的原理图</h5>
+<figure data-type="image" tabindex="3"><a href="https://img2020.cnblogs.com/blog/1896874/202108/1896874-20210801105557786-1875694485.png"><img src="https://img2020.cnblogs.com/blog/1896874/202108/1896874-20210801105557786-1875694485.png" alt="img" loading="lazy"></a></figure>
+<h5 id="625修改列表内的可变对象元素">6.2.5修改列表内的可变对象元素</h5>
+<pre><code class="language-python"># 可变元素
+import copy
+
+old_list = [[1, 2], [3, 4]]
+new_list = copy.copy(old_list)
+
+old_list[0][0] += 99
+old_list[1][0] += 97
+
+print(&quot;Old list:&quot;, old_list, &quot;old list id:&quot;, id(old_list), &quot; old list[0] id:&quot;, id(old_list[0]))
+print(&quot;new list:&quot;, new_list, &quot;new list id:&quot;, id(new_list), &quot; new list[0] id:&quot;, id(new_list[0]))
+
+
+# 输出结果
+Old list: [[100, 2], [100, 4]] old list id: 4430308096  old list[0] id: 4430302400
+new list: [[100, 2], [100, 4]] new list id: 4430308416  new list[0] id: 4430302400
 </code></pre>
-<p>140571355288384 140571355288384</p>
-<p>浅拷贝将原始对象中找到的对象引用插入其中。<br>
-也就是说，ls 列表中的元素，ln 中只是引用，ln 中的每个对应位置指向的内存地址和 ls 相同。</p>
-<pre><code class="language-python">ls[0] = 2
-print(ls)
-print(ln)
-</code></pre>
-<p>[2, '2', ['a', 'b']]<br>
-[1, '2', ['a', 'b']]<br>
-修改 ls 中第一个元素，因为是不可变数据类型，所以 ls 中第一个位置指向了新的内存地址，ln 中的不变。</p>
-<pre><code class="language-python">ls[2][0] = 1
-print(ls)
-print(ln)
-</code></pre>
-<p>[2, '2', [1, 'b']]<br>
-[1, '2', [1, 'b']]<br>
-修改 ls 中最后一个元素，因为是可变数据类型，所以 ln 中的值也发生了改变。</p>
+<p>从输出结果看到</p>
+<ul>
+<li>两个变量保存了不同的对象引用</li>
+<li>但是可变对象元素的内存地址仍然是同一个</li>
+</ul>
+<h5 id="626修改可变对象的原理图">6.2.6修改可变对象的原理图</h5>
+<figure data-type="image" tabindex="4"><a href="https://img2020.cnblogs.com/blog/1896874/202108/1896874-20210801110731999-1822292487.png"><img src="https://img2020.cnblogs.com/blog/1896874/202108/1896874-20210801110731999-1822292487.png" alt="img" loading="lazy"></a></figure>
+<h5 id="627总结">6.2.7总结</h5>
+<ul>
+<li>修改可变对象是在原始对象上直接操作的</li>
+<li>浅拷贝产生的新对象存储的仍然是原始对象的内存地址</li>
+<li>所以修改可变对象的时候，新对象的值也会被同步修改，因为新旧列表对象的元素的引用是指向同一个内存地址</li>
+<li>当修改可变对象的时候，不满足一开始说的实际应用场景，所以诞生了深拷贝</li>
+</ul>
 <h4 id="63-深拷贝">6.3 深拷贝</h4>
-<p>不可变数据类型的深浅拷贝一致。</p>
-<p>复杂数据类型进行深拷贝会对数据中的所有元素完全重新复制一份，不管有多少层嵌套，互不影响。</p>
-<pre><code class="language-python">import copy
-ls = [1,2,3,['a', 'b']]
-# 深拷贝使用deepcopy
-ln = copy.deepcopy(ls)
-ls[3][0]='b'
-print(ls)
-print(ln)
+<ul>
+<li>创建一个新对象，且存储的对象引用也是新的</li>
+<li>深，意味着会把所有子元素对象也复制生成一个新对象</li>
+</ul>
+<p>栗子一</p>
+<pre><code class="language-python"># 深拷贝
+old_list = [[1, 2], [3, 4]]
+new_list = copy.deepcopy(old_list)
+
+old_list[0][0] += 99
+old_list[1][0] += 97
+
+print(&quot;Old list:&quot;, old_list, &quot;old list id:&quot;, id(old_list), &quot; old list[0] id:&quot;, id(old_list[0]))
+print(&quot;new list:&quot;, new_list, &quot;new list id:&quot;, id(new_list), &quot; new list[0] id:&quot;, id(new_list[0]))
+
+
+# 输出结果
+Old list: [[100, 2], [100, 4]] old list id: 4430308480  old list[0] id: 4430211392
+new list: [[1, 2], [3, 4]] new list id: 4430308096  new list[0] id: 4430308864
 </code></pre>
-<p>[1, 2, 3, ['b', 'b']]<br>
-[1, 2, 3, ['a', 'b']]</p>
+<p>从输出结果看到</p>
+<ul>
+<li>两个变量保存了不同的对象引用</li>
+<li>可变对象元素（子对象）的内存地址也是不同的</li>
+</ul>
+<p>栗子二</p>
+<p>假设是一个三维列表呢</p>
+<pre><code class="language-python"># 深拷贝-三维数组
+old_list = [[1, [10, 9]], [3, 4]]
+new_list = copy.deepcopy(old_list)
+
+old_list[0][1][0] += 90
+
+print(&quot;Old list:&quot;, old_list)
+print(&quot;New list:&quot;, new_list)
+
+
+# 输出结果
+Old list: [[1, [100, 9]], [3, 4]]
+New list: [[1, [10, 9]], [3, 4]]
+</code></pre>
+<p>两个变量依旧是独立的</p>
+<h5 id="631深拷贝原理图">6.3.1深拷贝原理图</h5>
+<figure data-type="image" tabindex="5"><a href="https://img2020.cnblogs.com/blog/1896874/202108/1896874-20210801124730663-364174440.png"><img src="https://img2020.cnblogs.com/blog/1896874/202108/1896874-20210801124730663-364174440.png" alt="img" loading="lazy"></a></figure>
+<h5 id="632浅拷贝的多种实现方式">6.3.2浅拷贝的多种实现方式</h5>
+<p>https://www.cnblogs.com/poloyy/p/15086511.html</p>
+<h5 id="633面试题浅拷贝-深拷贝的区别">6.3.3面试题：浅拷贝、深拷贝的区别</h5>
+<ol>
+<li>浅拷贝和深拷贝只有在可变对象才会生效，不可变对象的赋值操作、浅拷贝、深拷贝的效果是一样的</li>
+<li>浅拷贝会将对象复制生成一个新对象，但新对象仍然存储原始对象的引用，当原始对象是可变对象，然后修改它的值时，新旧对象会同时改变</li>
+<li>深拷贝不仅会将对象复制生成一个新对象，且所有原始对象都会复制生成新对象，即使原始对象是可变对象，新对象存储的对象引用也是新的，所以改变旧对象的可变对象时，不会影响新对象</li>
+</ol>
 
         </div>
 
