@@ -1,0 +1,891 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予-博客</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>
+" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1634730987298">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1634730987298" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予-博客</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84">一、程序结构</a>
+<ul>
+<li><a href="#1-%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84">1. 顺序结构</a></li>
+<li><a href="#2-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84">2. 分支结构</a>
+<ul>
+<li><a href="#21-%E5%8D%95%E5%88%86%E6%94%AF">2.1. 单分支</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B%E6%88%90%E7%BB%A9%E6%98%AF%E5%90%A6%E5%8F%8A%E6%A0%BC">案例：成绩是否及格</a></li>
+<li><a href="#input-%E5%87%BD%E6%95%B0">input 函数</a></li>
+</ul>
+</li>
+<li><a href="#22%E4%BA%8C%E5%88%86%E6%94%AF">2.2.二分支</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B%E6%88%90%E7%BB%A9%E6%98%AF%E5%90%A6%E5%8F%8A%E6%A0%BC2">案例：成绩是否及格(2)</a></li>
+<li><a href="#%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97">三目运算</a></li>
+</ul>
+</li>
+<li><a href="#23-%E5%A4%9A%E5%88%86%E6%94%AF">2.3. 多分支</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B%E6%88%90%E7%BB%A9%E8%AF%84%E4%BB%B7">案例：成绩评价</a></li>
+</ul>
+</li>
+<li><a href="#24-%E5%88%86%E6%94%AF%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84">2.4 分支嵌套结构</a>
+<ul>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%A0%97%E5%AD%90">代码栗子</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84">3. 循环结构</a>
+<ul>
+<li><a href="#31-%E6%9D%A1%E4%BB%B6%E5%BE%AA%E7%8E%AF">3.1 条件循环</a>
+<ul>
+<li><a href="#while-break-%E8%AF%AD%E5%8F%A5"><strong>while + break 语句</strong></a></li>
+<li><a href="#while-continue-%E7%9A%84%E6%A0%97%E5%AD%90"><strong>while + continue 的栗子</strong></a></li>
+<li><a href="#while-else-%E7%9A%84%E6%A0%97%E5%AD%90"><strong>while + else 的栗子</strong></a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%A0%97%E5%AD%90%E4%B8%80"><strong>代码栗子一</strong></a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%A0%97%E5%AD%90%E4%BA%8C"><strong>代码栗子二</strong></a></li>
+<li><a href="#%E9%87%8D%E7%82%B9"><strong>重点</strong></a></li>
+</ul>
+</li>
+<li><a href="#32-%E9%81%8D%E5%8E%86%E5%BE%AA%E7%8E%AF">3.2 遍历循环</a>
+<ul>
+<li><a href="#%E9%81%8D%E5%8E%86%E5%88%97%E8%A1%A8">遍历列表</a></li>
+<li><a href="#%E9%81%8D%E5%8E%86%E5%85%83%E7%BB%84">遍历元组</a></li>
+<li><a href="#%E9%81%8D%E5%8E%86%E9%9B%86%E5%90%88">遍历集合</a></li>
+<li><a href="#%E9%81%8D%E5%8E%86%E5%AD%97%E5%85%B8">遍历字典</a></li>
+<li><a href="#%E8%BF%AD%E4%BB%A3%E5%99%A8iterator">迭代器（iterator）</a></li>
+<li><a href="#range-%E5%87%BD%E6%95%B0">range 函数</a></li>
+</ul>
+</li>
+<li><a href="#33-%E5%BE%AA%E7%8E%AF%E6%8E%A7%E5%88%B6%E5%85%B3%E9%94%AE%E5%AD%97">3.3 循环控制关键字</a>
+<ul>
+<li><a href="#break-%E5%85%B3%E9%94%AE%E5%AD%97"><code>break</code> 关键字</a></li>
+<li><a href="#continue-%E5%85%B3%E9%94%AE%E5%AD%97"><code>continue</code> 关键字</a></li>
+<li><a href="#else-%E5%85%B3%E9%94%AE%E5%AD%97"><code>else</code> 关键字</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86">二、异常处理</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">python程序流程控制</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-10-19 / 18 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/djnJ-yV6X.jpg" alt="">
+        
+        <div class="post-content yue">
+          <p>python 是通过一些程序结构来控制程序的执行顺序和流程的。</p>
+<h2 id="一-程序结构">一、程序结构</h2>
+<p>计算机程序是一条条按顺序执行的指令。顺序结构是是计算机程序的基础，但单一的顺序结构不能解决所有问题。计算机程序由三种基本结构组成：</p>
+<ul>
+<li>顺序结构</li>
+<li>分支结构</li>
+<li>循环结构</li>
+</ul>
+<h3 id="1-顺序结构">1. 顺序结构</h3>
+<p>我们每天早上起床，穿衣服，洗脸，刷牙，叠被子，吃早餐，这些按照单一顺序进行的就是顺序结构。</p>
+<p>顺序结构是程序执行的基本流程，它会按照代码从上往下的顺序依次执行。</p>
+<pre><code class="language-python">a = 1
+a += 1
+print(a)
+</code></pre>
+<p>2<br>
+例如上面的代码，执行流程为</p>
+<ol>
+<li>定义变量 <code>a</code>，并赋值为整数 1</li>
+<li>变量 <code>a</code> 自加 1</li>
+<li>调用函数 <code>print</code> 输出变量 <code>a</code> 的值</li>
+</ol>
+<p>从上往下依次执行</p>
+<h3 id="2-分支结构">2. 分支结构</h3>
+<p>出门时是否带伞要根据天气条件进行判断，如果天气好就不带，如果可能下雨或正在下雨就要带，这就是分支结构。</p>
+<p>分支结构是程序根据条件判断结果而选择不同代码向前执行的一种方式，也叫条件分支。</p>
+<p>分支结构包括：</p>
+<ol>
+<li>单分支</li>
+<li>二分支</li>
+<li>多分支</li>
+</ol>
+<h4 id="21-单分支">2.1. 单分支</h4>
+<p>在 python 中单分支结构通过 <code>if</code> 语句来实现，语法如下：</p>
+<pre><code class="language-python">if &lt;条件&gt;：
+    语句块
+</code></pre>
+<ul>
+<li>注意条件语句结束后要紧跟冒号</li>
+<li>语句块是 <code>if</code> 条件满足后执行的一条或多条语句序列</li>
+<li>语句块中语句通过缩进与 <code>if</code> 语句所在行形成包含关系</li>
+<li>缩进按照规范为 4 个空格</li>
+</ul>
+<p><code>if</code> 语句会首先计算 <code>&lt;条件&gt;</code> 表达式，如果结果为 <code>True</code> 则会执行所包含的语句块，结果为 <code>False</code> 则会跳过所包含的语句块。</p>
+<p><code>if</code> 语句中的语句块的执行与否依赖于条件判断。但无论什么情况，控制都会 转到与 if 语句同级别的下一条语句。<br>
+<img src="http://testingpai.com/upload/file/2020/10/image-faf66393.png" alt="image.png" loading="lazy"></p>
+<h5 id="案例成绩是否及格">案例：成绩是否及格</h5>
+<figure data-type="image" tabindex="1"><img src="http://testingpai.com/upload/file/2020/10/image-229fafa4.png" alt="image.png" loading="lazy"></figure>
+<h5 id="input-函数">input 函数</h5>
+<p><code>input</code> 函数用来接收用户输入的文本信息，然后以字符串的形式返回，它接收字符串参数作为提示信息输出。</p>
+<pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')
+print(score,type(score))
+</code></pre>
+<p>请输入你的成绩 &gt;&gt;&gt;:100<br>
+100 &lt;class 'str'&gt;</p>
+<pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')
+# 转换类型
+score = float(score)
+# 判断
+if score &lt; 60:
+    print('没及格，赏一巴掌')
+  
+if score &gt;= 60:
+    print('有进步，么么哒，亲一下')
+</code></pre>
+<p>请输入你的成绩 &gt;&gt;&gt;:100<br>
+有进步，么么哒，亲一下</p>
+<h4 id="22二分支">2.2.二分支</h4>
+<p>python 中二分支结构通过 <code>if-else</code> 语句来实现的，语法 格式如下：</p>
+<pre><code class="language-python">if &lt;条件&gt;:
+	&lt;语句块1&gt;
+else:
+	&lt;语句块2&gt;
+</code></pre>
+<ul>
+<li>&lt; 语句块 1&gt; 是在 if 条件满足后执行的一个或多个语句序列</li>
+<li>&lt; 语句块 2&gt; 是 if 条件不满足后执行的语句序列</li>
+<li>注意缩进，&lt; 语句块 2&gt; 通过缩进与 else 所在行形成包含关系</li>
+</ul>
+<p>二分支语句用于区分 &lt; 条件 &gt; 的两种可能 True 或者 False，分别形成执行路径<br>
+<img src="http://testingpai.com/upload/file/2020/10/image-5f43a6a6.png" alt="image.png" loading="lazy"></p>
+<h5 id="案例成绩是否及格2">案例：成绩是否及格(2)</h5>
+<p>通过二分支改进案例成绩是否及格</p>
+<pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')
+# 转换类型
+score = float(score)
+# 判断
+if score &lt; 60:
+    print('没及格，赏一巴掌')
+else:
+    print('有进步，么么哒，亲一下')
+</code></pre>
+<p>请输入你的成绩 &gt;&gt;&gt;:100<br>
+有进步，么么哒，亲一下</p>
+<h5 id="三目运算">三目运算</h5>
+<p>二分支结构还有一种更简洁的表达方式，语法格式如下：</p>
+<pre><code class="language-python">&lt;表达式&gt; if &lt;条件&gt; else &lt;表达式2&gt;
+</code></pre>
+<p>适合代码块为 1 行语句时，这种方式也叫三目运算。</p>
+<p>上面的代码可以改写为：</p>
+<pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')
+# 转换类型
+score = float(score)
+# 判断
+
+print('没及格，赏一巴掌') if score &lt; 60 else print('有进步，么么哒，亲一下')  
+</code></pre>
+<p>请输入你的成绩 &gt;&gt;&gt;:100<br>
+有进步，么么哒，亲一下<br>
+对于简单判断，三目运算可以将多行语句写成一行，简洁明了。</p>
+<h4 id="23-多分支">2.3. 多分支</h4>
+<p>python 通过 <code>if - elif - else</code> 表示多分支结构，语法如下：</p>
+<pre><code class="language-python">if &lt;条件1&gt;:
+	&lt;代码块1&gt;
+elif &lt;条件2&gt;:
+	&lt;代码块2&gt;
+...
+else:
+	&lt;代码块3&gt;
+</code></pre>
+<p>多分支是二分支的扩展，用于多个判断条件多条执行路径的情况。python 依次执行判断条件，寻找第一个结果为 True 的条件，执行该条件下的代码块，同时结束后跳过整个 <code>if-elif-else</code> 结构，执行后面的语句。如果没有任何条件成立，则执行 else 下的代码块，且 else 语句是可选的，也即是说可以没有 else 语句。</p>
+<figure data-type="image" tabindex="2"><img src="http://testingpai.com/upload/file/2020/10/image-27edff62.png" alt="image.png" loading="lazy"></figure>
+<h5 id="案例成绩评价">案例：成绩评价</h5>
+<p>上面的案例对成绩的评价太粗糙了，60 分就可以赏个么么哒。通过多分支改进上面的案例。</p>
+<p>请根据用户输入的成绩，按一下等级分区：</p>
+<ul>
+<li>&lt; 40: E</li>
+<li>40-60: D</li>
+<li>60-75: C</li>
+<li>75-85: B</li>
+<li>85-100: A</li>
+</ul>
+<pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')# 转换类型score = float(score)# 判断if score &lt; 40:    print('等级：E')elif 40&lt;= score &lt; 60:    print('等级：D')elif 60&lt;= score &lt; 75:    print('等级：C')elif 75&lt;= score &lt; 85:    print('等级：B')else:    print('等级：A')
+</code></pre>
+<p>请输入你的成绩 &gt;&gt;&gt;:100<br>
+等级：A</p>
+<h4 id="24-分支嵌套结构">2.4 分支嵌套结构</h4>
+<p>程序首先判断条件 1 是否为真</p>
+<p>如果条件 1 为真，则判断条件 2 是否为真</p>
+<ul>
+<li>条件 1 为真并且条件 2 为真，执行代码块 1</li>
+<li>条件 1 为真并且条件 2 为假，执行代码块 2</li>
+</ul>
+<p>如果条件 1 为假，则判断条件 3 是否为真</p>
+<ul>
+<li>条件 1 为假并且条件 3 为真，执行代码块 3</li>
+<li>条件 1 为假并且条件 3 为假，执行代码块 4</li>
+</ul>
+<h5 id="代码栗子">代码栗子</h5>
+<pre><code class="language-python"># 分支嵌套结构from random import randintres1 = randint(0, 1)res2 = randint(0, 1)if res1 == 0:    if res2 != 0:        print(&quot;0,1&quot;)    else:        print(&quot;0,0&quot;)else:    if res2 &gt; 0:        print(&quot;1,1&quot;)    else:        print(&quot;1,0&quot;)# 输出结果1,0
+</code></pre>
+<h3 id="3-循环结构">3. 循环结构</h3>
+<p>工作日每天 9:00 到公司上班，17:30 下班，周而复始，这就是循环结构。</p>
+<p>python 中循环结构有两种：</p>
+<ol>
+<li>条件循环也叫 while 循环</li>
+<li>遍历循环也叫 for 循环</li>
+</ol>
+<h4 id="31-条件循环">3.1 条件循环</h4>
+<p>在循环结构中，程序的执行流程为：</p>
+<ol>
+<li>判断循环条件</li>
+<li>如果为真，则执行循环中的代码块；执行后跳转到步骤 1，重复第 1 步和第 2 步.</li>
+<li>如果为假，则循环结束</li>
+</ol>
+<p>python 中的条件循环通过 <code>while</code> 循环语句来实现，所以也叫 <code>while</code> 循环，语法格式如下：</p>
+<pre><code class="language-python">while &lt;条件&gt;:
+	代码块
+</code></pre>
+<ul>
+<li><code>while</code> 关键字空格后接条件表达式末尾加上冒号组成 <code>while</code> 语句</li>
+<li>代码块中的代码通过 4 个空格和 <code>while</code> 语句形成包含关系</li>
+</ul>
+<pre><code class="language-python">while` 语句首先计算 `&lt;条件&gt;` 表达式，如果结果 `True`，则执行对应代码块中的语句，执行结束后再次执行 `&lt;条件&gt;
+</code></pre>
+<p>表达式，再次判断结果，如果为 <code>True</code> 则循环执行，直到 <code>&lt;条件&gt;</code> 表达式为 <code>False</code> 时跳出循环，执行和 <code>while</code> 语句相同缩进的下一条语句。</p>
+<p>当 <code>&lt;条件&gt;</code> 表达式恒为 <code>True</code> 时，形成无限循环，也叫死循环，需要小心使用。</p>
+<figure data-type="image" tabindex="3"><img src="http://testingpai.com/upload/file/2020/10/image-901004fe.png" alt="image.png" loading="lazy"></figure>
+<pre><code class="language-python"># 依次打印0-9i = 0while i &lt; 10:    print(i)    i = i + 1
+</code></pre>
+<p>0<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9</p>
+<pre><code class="language-python"># 序列的循环# 列表的元素循环ls = ['a','b','c','d','e','f']index = 0while index &lt; len(ls):    print(ls[index])    index += 1
+</code></pre>
+<p>a<br>
+b<br>
+c<br>
+d<br>
+e<br>
+f</p>
+<pre><code class="language-python"># 散列的循环
+# 集合没办法循环
+dc = {'name': 'felix', 'age': 18}
+index = 0
+# 转换成列表
+keys = list(dc.keys())
+while index &lt; len(keys):
+    print(dc[keys[index]])
+    index += 1
+</code></pre>
+<p>felix<br>
+18</p>
+<h5 id="while-break-语句"><strong>while + break 语句</strong></h5>
+<ul>
+<li>在正常的循环中，当条件为假时，循环才会终止</li>
+<li>有些情况下，希望能够提前从循环中退出，break 的作用就是这个</li>
+</ul>
+<p>代码栗子</p>
+<ul>
+<li>这是一个检测 number 是否会素数的循环</li>
+<li>factor 是因子，通过循环取 2 到 number - 1 的数字</li>
+</ul>
+<pre><code class="language-python">number = 9
+is_prime = True
+factor = 2
+while factor &lt; number:
+    print(factor)
+    # 如果可以整除因子，证明不是素数
+    if number % factor == 0:
+        is_prime = False
+        # 退出循环
+        break
+    # 循环自增
+    factor = factor + 1
+print(is_prime)
+
+
+# 输出结果
+False
+</code></pre>
+<h5 id="while-continue-的栗子"><strong>while + continue 的栗子</strong></h5>
+<ul>
+<li>在正常的循环中，循环块中的语句是顺序执行的</li>
+<li>有些情况下，希望能够跳过循环块中的剩余语句，跳到下一次循环，就是 continue 的作用</li>
+</ul>
+<pre><code class="language-python"># continue
+sum = 0
+number = 0
+while number &lt; 7:
+    number += 1
+    # 若是奇数则跳转到下一次循环
+    if number % 2 != 0:
+        continue
+    sum += number
+
+# 求和
+print(sum)
+</code></pre>
+<p>2+4+6</p>
+<h5 id="while-else-的栗子"><strong>while + else 的栗子</strong></h5>
+<p><strong>语法格式</strong></p>
+<pre><code class="language-python">while 条件：
+    代码块 1
+else:
+    代码块 2
+</code></pre>
+<ul>
+<li>当循环条件为真时，执行代码块 1</li>
+<li>当循环条件为假时，执行代码块 2</li>
+</ul>
+<h5 id="代码栗子一"><strong>代码栗子一</strong></h5>
+<pre><code class="language-python"># else
+number = 1
+while number &lt;= 3:
+    print(number)
+    number = number + 1
+else:
+    print('At the end:', number)
+
+
+# 输出结果
+1
+2
+3
+At the end: 4
+</code></pre>
+<h5 id="代码栗子二"><strong>代码栗子二</strong></h5>
+<pre><code class="language-python"># else
+number = 1
+while number &lt;= 5:
+    print(number)
+    number = number + 1
+    if number == 3:
+        # 提前结束循环
+        break        
+else:
+    print('At the end:', number)
+
+
+# 输出结果
+1
+2
+</code></pre>
+<p>因为提前结束了 while 循环，所以并不会到 else 里面</p>
+<h5 id="重点"><strong>重点</strong></h5>
+<ul>
+<li>若想执行 else 里面的代码块，必须是触达到循环条件且为假</li>
+<li>如果在循环里面提前结束了循环（break），则不会执行 else 里面的代码块</li>
+</ul>
+<h4 id="32-遍历循环">3.2 遍历循环</h4>
+<p>python 中使用关键字 <code>for</code> 来实现遍历循环，也叫 <code>for</code> 循环，也叫迭代循环，语法格式如下：</p>
+<pre><code class="language-python">  for &lt;循环变量&gt; in &lt;遍历结构&gt;：
+	代码块
+</code></pre>
+<ul>
+<li>关键字 <code>for</code>+ 空格 +<code>&lt;循环变量&gt;</code>+ 关键字 <code>in</code>+&lt; 遍历结构 &gt;+ 冒号组成 for 语句</li>
+<li>代码块通过缩进和 for 语句形成包含关系</li>
+</ul>
+<p>for 循环会依次取出遍历结构中的元素，然后赋值给循环变量，每次遍历都会执行代码块，只到取出遍历结构中的所有元素。</p>
+<p>所有可迭代对象都可以作为遍历结构进行 for 循环。</p>
+<p>基本数据类型中序列数据类型，散列数据类型都可以进行迭代。</p>
+<h5 id="遍历列表">遍历列表</h5>
+<pre><code class="language-python"># 遍历列表
+lis = [1, 2, 3, 4]
+for i in lis:
+    print(l)
+
+
+# 输出结果
+1
+2
+3
+4
+</code></pre>
+<h5 id="遍历元组">遍历元组</h5>
+<pre><code class="language-python"># 遍历元组
+tup = (1, 2, 3, 4)
+for i in tup:
+    print(i)
+
+
+# 输出结果
+1
+2
+3
+4
+</code></pre>
+<h5 id="遍历集合">遍历集合</h5>
+<pre><code class="language-python"># 遍历集合
+se =set('abcdeg')
+for i in se:
+    print(i)
+
+# 输出结果
+b
+g
+d
+c
+e
+a
+# 对于序列而言，迭代按照顺序进行
+# 对于集合而言，迭代是没有顺序的
+</code></pre>
+<h5 id="遍历字典">遍历字典</h5>
+<pre><code class="language-python"># 遍历字典
+dic = {1: 1, 2: 2, &quot;3&quot;: 3, &quot;4&quot;: 4}
+for i in dic:
+    print(i)
+
+
+# 输出结果
+1
+2
+3
+4
+</code></pre>
+<h5 id="迭代器iterator">迭代器（iterator）</h5>
+<p>迭代器是一个可以记住遍历位置的对象。for 循环迭代本质上就是通过迭代器来实现的。</p>
+<p>通过内建函数 <code>iter</code> 可以创建迭代器。</p>
+<pre><code class="language-python">  iter('abc')
+</code></pre>
+<p><code>&lt;str_iterator at 0x7fdc6a017670&gt;</code><br>
+不是所有的数据类型都可以创建迭代器，凡是能够创建迭代器的对象称为 <code>可迭代对象</code>，反之是 <code>不可迭代对象</code></p>
+<h5 id="range-函数">range 函数</h5>
+<p>内建函数 <code>range</code> 可以创建输出整数序列的迭代器。</p>
+<pre><code class="language-python">  range(start, stop,step)
+</code></pre>
+<p>range(i,j)生成 <code>i,i+1,i+2,...,j-1</code>,start 默认为 0，当给定 step 时，它指定增长不长。</p>
+<pre><code class="language-python"># 输出0-9
+for i in range(10):
+    print(i)
+</code></pre>
+<p>0<br>
+1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9</p>
+<pre><code class="language-python"># 输出1-10
+for i in range(1,11):
+    print(i)
+</code></pre>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10</p>
+<pre><code class="language-python"># 输出-1--10
+for i in range(-1,-11,-1):
+    print(i)
+</code></pre>
+<p>-1<br>
+-2<br>
+-3<br>
+-4<br>
+-5<br>
+-6<br>
+-7<br>
+-8<br>
+-9<br>
+-10<br>
+for 循环经常和 <code>range</code> 函数配合用来指定循环次数。</p>
+<h4 id="33-循环控制关键字">3.3 循环控制关键字</h4>
+<p>循环有时候需要主动中断来提高程序执行效率。</p>
+<pre><code class="language-python">ls = [60,59,78,80,56,55]
+# ls中存放的是所有学生的成绩
+# 要判断是否有同学不及格
+for i in ls:
+    if i &lt; 60:
+        print('有同学不及格')
+</code></pre>
+<p>有同学不及格<br>
+有同学不及格<br>
+有同学不及格<br>
+可以发现上面的案例中，其实第二个成绩就不及格了，但是程序继续循环下去，如果数据量小，效率差别不大，但数据量大时会影响程序的执行效率。在实际的代码编写中会有很多这种情况，这是就需要能够主动结束循环的能力。</p>
+<h5 id="break-关键字"><code>break</code> 关键字</h5>
+<p>python 中循环结构可以使用 <code>break</code> 跳出当前循环体，脱离该循环后代码继续执行。</p>
+<pre><code class="language-python">  for i in ls:
+    if i &gt;= 60:
+        print('有同学及格')
+        break
+</code></pre>
+<p>有同学及格</p>
+<pre><code class="language-python">index = 0
+while index &lt; len(ls):
+    if ls[index] &gt;= 60:
+        print('有同学及格')
+        break
+</code></pre>
+<p>有同学及格</p>
+<pre><code class="language-python">  for i in range(1,4):
+    for j in range(1,4):
+        if i==2:
+            break
+        print(i,j)
+</code></pre>
+<p>1 1<br>
+1 2<br>
+1 3<br>
+3 1<br>
+3 2<br>
+3 3</p>
+<h5 id="continue-关键字"><code>continue</code> 关键字</h5>
+<p>python 中循环结构还可以使用 <code>continue</code> 关键字用来跳出当次循环，继续执行下一次循环。</p>
+<pre><code class="language-python"># 输出所有的奇数
+for i in range(10):
+    if i%2 == 0:
+        continue
+    print(i)
+</code></pre>
+<p>1<br>
+3<br>
+5<br>
+7<br>
+9</p>
+<pre><code class="language-python">for i in range(10):
+    if i%2 == 0:
+        break
+    print(i)
+</code></pre>
+<h5 id="else-关键字"><code>else</code> 关键字</h5>
+<p>循环结构还可以通过和 <code>else</code> 关键字进行配合，用来检测循环是否正常循环结束，还是 <code>break</code> 掉了。</p>
+<pre><code class="language-python">for i in range(10):
+    if i%2 != 0:
+        continue
+    print(i)
+else:
+    print('循环正常结束')
+</code></pre>
+<p>0<br>
+2<br>
+4<br>
+6<br>
+8<br>
+循环正常结束</p>
+<pre><code class="language-python">for i in range(10):
+    if i%2 != 0:
+        break
+    print(i)
+else:
+    print('循环正常结束')
+</code></pre>
+<p>0</p>
+<h2 id="二-异常处理">二、异常处理</h2>
+<p>在程序的编写过程中会出现各种错误，语法错误在程序启动时就会检测出来，它是程序正常运行的前提条件。程序中还有一种错误发生在程序运行后，可能是由于逻辑问题，又或者是业务发生了改变，为了能让用户有更好的体验，加强代码的健壮性，我们需要对这些错误进行处理，也叫异常处理。</p>
+<p>在 python 中通过 <code>try-except</code> 语句进行异常处理。</p>
+<p>回忆我们前面关于成绩评价的案例，当用户输入非数值时程序会发生什么？</p>
+<pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')
+# 转换类型
+score = float(score)
+# 判断
+if score &lt; 40:
+    print('等级：E')
+elif 40&lt;= score &lt; 60:
+    print('等级：D')
+elif 60&lt;= score &lt; 75:
+    print('等级：C')
+elif 75&lt;= score &lt; 85:
+    print('等级：B')
+else:
+    print('等级：A')
+</code></pre>
+<p>请输入你的成绩 &gt;&gt;&gt;:abc</p>
+<hr>
+<p>ValueError Traceback (most recent call last)</p>
+<p>in<br>
+1 score = input('请输入你的成绩 &gt;&gt;&gt;:')<br>
+2 # 转换类型<br>
+----&gt; 3 score = float(score)<br>
+4 # 判断<br>
+5 if score &lt; 40:</p>
+<p>ValueError: could not convert string to float: 'abc'<br>
+<img src="http://testingpai.com/upload/file/2020/10/image-9bf60d2d.png" alt="image.png" loading="lazy"></p>
+<p>728 x 213 774 x 226</p>
+<p><code>try-except</code> 语句的基本语法格式如下：</p>
+<pre><code class="language-python">try:
+	&lt;语句块1&gt;
+except &lt;异常类型1&gt;:
+	&lt;语句块2&gt;
+except &lt;异常类型2&gt;:
+    &lt;语句块3&gt;
+</code></pre>
+<p>语句块 1 中的代码如果发生异常，且异常与类型与对应 excep 语句中的异常类型相同则会被其捕获，从而执行对应的语句块</p>
+<pre><code class="language-python">try:
+    score = input('请输入你的成绩&gt;&gt;&gt;:')
+    # 转换类型
+    score = float(score)
+    # 判断
+    if score &lt; 40:
+        print('等级：E')
+    elif 40&lt;= score &lt; 60:
+        print('等级：D')
+    elif 60&lt;= score &lt; 75:
+        print('等级：C')
+    elif 75&lt;= score &lt; 85:
+        print('等级：B')
+    else:
+        print('等级：A')
+except ValueError as e:
+    print(e)
+    print('请输入正确的成绩')
+</code></pre>
+<p>请输入你的成绩 &gt;&gt;&gt;:aaa<br>
+could not convert string to float: 'aaa'<br>
+请输入正确的成绩<br>
+除了 <code>try</code> 和 <code>except</code> 关键字外，异常语句还可以与 <code>else</code> 和 <code>finally</code> 关键字配合使用，语法格式如下：</p>
+<pre><code class="language-python">try: 
+	&lt;语句块1&gt;
+except &lt;异常类型&gt;:
+	&lt;语句块2&gt;
+...
+else:
+	&lt;语句块3&gt;
+finally:
+	&lt;语句块4&gt;
+</code></pre>
+<p>代码执行流程如下：<br>
+<img src="http://testingpai.com/upload/file/2020/10/image-eb8687d2.png" alt="image.png" loading="lazy"></p>
+<p>没有发生异常时，会执行 <code>else</code> 语句后的代码块，不管有没有发生异常，<code>finally</code> 语句后的代码块一定会执行</p>
+<pre><code class="language-python">try:
+    a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    index = input('请输入一个正整数&gt;&gt;&gt;:')
+    index = int(index)
+    print(a[index])
+except Exception as e:
+    print(e)
+    print('请输入一个正整数')
+else:
+    print('没有发生异常')
+finally:
+    print('我一定会执行')
+</code></pre>
+<p>请输入一个正整数 &gt;&gt;&gt;:1<br>
+B<br>
+没有发生异常<br>
+我一定会执行</p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/oQOHcoQAu/">
+            <span class="flex-auto">python</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/JdBD8Lzqe/">
+                <h3 class="post-title">
+                  python基本数据类型 ·下
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
