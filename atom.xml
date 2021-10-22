@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予-博客</title>
-    <updated>2021-10-22T12:58:54.302Z</updated>
+    <updated>2021-10-22T13:12:54.187Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -149,7 +149,20 @@ else:
 <li>75-85: B</li>
 <li>85-100: A</li>
 </ul>
-<pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')# 转换类型score = float(score)# 判断if score &lt; 40:    print('等级：E')elif 40&lt;= score &lt; 60:    print('等级：D')elif 60&lt;= score &lt; 75:    print('等级：C')elif 75&lt;= score &lt; 85:    print('等级：B')else:    print('等级：A')
+<pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')
+# 转换类型
+score = float(score)
+# 判断
+if score &lt; 40:
+    print('等级：E')
+elif 40&lt;= score &lt; 60:
+    print('等级：D')
+elif 60&lt;= score &lt; 75:
+    print('等级：C')
+elif 75&lt;= score &lt; 85:
+    print('等级：B')
+else:
+    print('等级：A')
 </code></pre>
 <p>请输入你的成绩 &gt;&gt;&gt;:100<br>
 等级：A</p>
@@ -166,7 +179,25 @@ else:
 <li>条件 1 为假并且条件 3 为假，执行代码块 4</li>
 </ul>
 <h5 id="代码栗子">代码栗子</h5>
-<pre><code class="language-python"># 分支嵌套结构from random import randintres1 = randint(0, 1)res2 = randint(0, 1)if res1 == 0:    if res2 != 0:        print(&quot;0,1&quot;)    else:        print(&quot;0,0&quot;)else:    if res2 &gt; 0:        print(&quot;1,1&quot;)    else:        print(&quot;1,0&quot;)# 输出结果1,0
+<pre><code class="language-python"># 分支嵌套结构
+from random import randint
+
+res1 = randint(0, 1)
+res2 = randint(0, 1)
+if res1 == 0:
+    if res2 != 0:
+        print(&quot;0,1&quot;)
+    else:
+        print(&quot;0,0&quot;)
+else:
+    if res2 &gt; 0:
+        print(&quot;1,1&quot;)
+    else:
+        print(&quot;1,0&quot;)
+
+
+# 输出结果
+1,0
 </code></pre>
 <h3 id="3-循环结构">3. 循环结构</h3>
 <p>工作日每天 9:00 到公司上班，17:30 下班，周而复始，这就是循环结构。</p>
@@ -195,7 +226,12 @@ else:
 <p>表达式，再次判断结果，如果为 <code>True</code> 则循环执行，直到 <code>&lt;条件&gt;</code> 表达式为 <code>False</code> 时跳出循环，执行和 <code>while</code> 语句相同缩进的下一条语句。</p>
 <p>当 <code>&lt;条件&gt;</code> 表达式恒为 <code>True</code> 时，形成无限循环，也叫死循环，需要小心使用。</p>
 <figure data-type="image" tabindex="3"><img src="https://Shisuiyi.github.io/post-images/1634907135515.png" alt="" loading="lazy"></figure>
-<pre><code class="language-python"># 依次打印0-9i = 0while i &lt; 10:    print(i)    i = i + 1
+<pre><code class="language-python"># 依次打印0-9
+i = 0
+while i &lt; 10:
+    print(i)
+    i = i + 1
+
 </code></pre>
 <p>0<br>
 1<br>
@@ -207,7 +243,14 @@ else:
 7<br>
 8<br>
 9</p>
-<pre><code class="language-python"># 序列的循环# 列表的元素循环ls = ['a','b','c','d','e','f']index = 0while index &lt; len(ls):    print(ls[index])    index += 1
+<pre><code class="language-python"># 序列的循环
+# 列表的元素循环
+ls = ['a','b','c','d','e','f']
+index = 0
+while index &lt; len(ls):
+    print(ls[index])
+    index += 1
+
 </code></pre>
 <p>a<br>
 b<br>
