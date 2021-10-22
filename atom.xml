@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予-博客</title>
-    <updated>2021-10-20T13:03:37.532Z</updated>
+    <updated>2021-10-22T12:58:54.302Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -62,9 +62,9 @@ print(a)
 </ul>
 <p><code>if</code> 语句会首先计算 <code>&lt;条件&gt;</code> 表达式，如果结果为 <code>True</code> 则会执行所包含的语句块，结果为 <code>False</code> 则会跳过所包含的语句块。</p>
 <p><code>if</code> 语句中的语句块的执行与否依赖于条件判断。但无论什么情况，控制都会 转到与 if 语句同级别的下一条语句。<br>
-<img src="http://testingpai.com/upload/file/2020/10/image-faf66393.png" alt="image.png" loading="lazy"></p>
+<img src="https://Shisuiyi.github.io/post-images/1634907056073.png" alt="" loading="lazy"></p>
 <h5 id="案例成绩是否及格">案例：成绩是否及格</h5>
-<figure data-type="image" tabindex="1"><img src="http://testingpai.com/upload/file/2020/10/image-229fafa4.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1634907063209.png" alt="" loading="lazy"></figure>
 <h5 id="input-函数">input 函数</h5>
 <p><code>input</code> 函数用来接收用户输入的文本信息，然后以字符串的形式返回，它接收字符串参数作为提示信息输出。</p>
 <pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')
@@ -97,7 +97,7 @@ else:
 <li>注意缩进，&lt; 语句块 2&gt; 通过缩进与 else 所在行形成包含关系</li>
 </ul>
 <p>二分支语句用于区分 &lt; 条件 &gt; 的两种可能 True 或者 False，分别形成执行路径<br>
-<img src="http://testingpai.com/upload/file/2020/10/image-5f43a6a6.png" alt="image.png" loading="lazy"></p>
+<img src="https://Shisuiyi.github.io/post-images/1634907084861.png" alt="" loading="lazy"></p>
 <h5 id="案例成绩是否及格2">案例：成绩是否及格(2)</h5>
 <p>通过二分支改进案例成绩是否及格</p>
 <pre><code class="language-python">score = input('请输入你的成绩&gt;&gt;&gt;:')
@@ -138,7 +138,7 @@ else:
 	&lt;代码块3&gt;
 </code></pre>
 <p>多分支是二分支的扩展，用于多个判断条件多条执行路径的情况。python 依次执行判断条件，寻找第一个结果为 True 的条件，执行该条件下的代码块，同时结束后跳过整个 <code>if-elif-else</code> 结构，执行后面的语句。如果没有任何条件成立，则执行 else 下的代码块，且 else 语句是可选的，也即是说可以没有 else 语句。</p>
-<figure data-type="image" tabindex="2"><img src="http://testingpai.com/upload/file/2020/10/image-27edff62.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://Shisuiyi.github.io/post-images/1634907102945.png" alt="" loading="lazy"></figure>
 <h5 id="案例成绩评价">案例：成绩评价</h5>
 <p>上面的案例对成绩的评价太粗糙了，60 分就可以赏个么么哒。通过多分支改进上面的案例。</p>
 <p>请根据用户输入的成绩，按一下等级分区：</p>
@@ -194,7 +194,7 @@ else:
 </code></pre>
 <p>表达式，再次判断结果，如果为 <code>True</code> 则循环执行，直到 <code>&lt;条件&gt;</code> 表达式为 <code>False</code> 时跳出循环，执行和 <code>while</code> 语句相同缩进的下一条语句。</p>
 <p>当 <code>&lt;条件&gt;</code> 表达式恒为 <code>True</code> 时，形成无限循环，也叫死循环，需要小心使用。</p>
-<figure data-type="image" tabindex="3"><img src="http://testingpai.com/upload/file/2020/10/image-901004fe.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://Shisuiyi.github.io/post-images/1634907135515.png" alt="" loading="lazy"></figure>
 <pre><code class="language-python"># 依次打印0-9i = 0while i &lt; 10:    print(i)    i = i + 1
 </code></pre>
 <p>0<br>
@@ -559,7 +559,7 @@ else:
 4 # 判断<br>
 5 if score &lt; 40:</p>
 <p>ValueError: could not convert string to float: 'abc'<br>
-<img src="http://testingpai.com/upload/file/2020/10/image-9bf60d2d.png" alt="image.png" loading="lazy"></p>
+<img src="https://Shisuiyi.github.io/post-images/1634907163283.png" alt="" loading="lazy"></p>
 <p><code>try-except</code> 语句的基本语法格式如下：</p>
 <pre><code class="language-python">try:
 	&lt;语句块1&gt;
@@ -603,7 +603,7 @@ finally:
 	&lt;语句块4&gt;
 </code></pre>
 <p>代码执行流程如下：<br>
-<img src="http://testingpai.com/upload/file/2020/10/image-eb8687d2.png" alt="image.png" loading="lazy"></p>
+<img src="https://Shisuiyi.github.io/post-images/1634907176310.png" alt="" loading="lazy"></p>
 <p>没有发生异常时，会执行 <code>else</code> 语句后的代码块，不管有没有发生异常，<code>finally</code> 语句后的代码块一定会执行</p>
 <pre><code class="language-python">try:
     a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
