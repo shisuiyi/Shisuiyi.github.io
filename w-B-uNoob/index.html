@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635255444176">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635341666156">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635255444176" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635341666156" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -416,6 +416,9 @@ print('a的类型为：', type(a))
 <p>a 的类型为： &lt;class 'float'&gt;</p>
 <h4 id="1浮点数的表现形式">1.浮点数的表现形式</h4>
 <p>在 python 中浮点数可以表示为 <code>a.b</code> 的格式，也可以表示为小写或大写 <code>E</code> 的科学计算法。例如：</p>
+<ul>
+<li>float() 能将纯整数（也能是浮点数）的字符串转成 float 类型</li>
+</ul>
 <pre><code class="language-python">a = 0.0
 print('a的类型为：', type(a))
 </code></pre>
@@ -442,6 +445,9 @@ print('d的类型为：', type(e))
 print('f的类型为：', type(f),f)
 </code></pre>
 <p>f的类型为： &lt;class 'float'&gt; 950.0</p>
+<pre><code class="language-python">float('6.2222')
+</code></pre>
+<p>6.2222</p>
 <h5 id="思考">思考：</h5>
 <p>浮点数可以表示所有的整数数值，python 为何要同时提供两种数据类型？</p>
 <pre><code>  相同的操作整数要比浮点数快5-20倍

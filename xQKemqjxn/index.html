@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635255444176">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635341666156">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635255444176" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635341666156" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -112,21 +112,27 @@
 </li>
 </ul>
 </li>
-<li><a href="#5-lambda-%E5%87%BD%E6%95%B0">5. lambda 函数</a><br>
-*<br>
-*<br>
-* <a href="#%E6%A1%88%E4%BE%8B-7">案例</a></li>
+<li><a href="#5-lambda">5. lambda</a><br>
+*
+<ul>
+<li><a href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F%E5%A6%82%E4%B8%8B">语法格式如下：</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89-lambda-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0">为什么有 lambda 匿名函数</a></li>
+<li><a href="#lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%AF%AD%E6%B3%95">lambda 表达式的语法</a></li>
+<li><a href="#lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%B0%8F%E6%A0%97%E5%AD%90">lambda 表达式小栗子</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%87%8D%E5%86%99%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%B0%86%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92">使用 lambda 表达式重写上面的将函数作为参数传递</a></li>
+</ul>
+</li>
 <li><a href="#6-%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F">6. 变量作用域</a>
 <ul>
 <li><a href="#61-%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F">6.1 全局变量</a></li>
 <li><a href="#62-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">6.2 局部变量</a>
 <ul>
-<li><a href="#%E6%A1%88%E4%BE%8B-8">案例</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B-7">案例</a></li>
 </ul>
 </li>
 <li><a href="#62-global-%E5%85%B3%E9%94%AE%E5%AD%97">6.2 global 关键字</a>
 <ul>
-<li><a href="#%E6%A1%88%E4%BE%8B-9">案例：</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B-8">案例：</a></li>
 </ul>
 </li>
 </ul>
@@ -211,7 +217,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16"> python 的函数与代码复用</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-10-26 / 19 min read
+          2021-10-26 / 20 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/xQKemqjxn.jpg" alt="">
@@ -605,18 +611,64 @@ print(&quot;调用函数：&quot;, test(), &quot;hahaha&quot;)
 调用函数： None hahaha
 </code></pre>
 <p>Python 提供了 pass 语句，代表函数没有功能代码块</p>
-<h2 id="5-lambda-函数">5. lambda 函数</h2>
-<p>简单来说，<code>lambda</code> 函数用来定义简单的，能够在一行内表示的函数。</p>
-<p>语法格式如下：</p>
-<pre><code class="language-python">lambda arg1,arg2,... : expression
-</code></pre>
-<h5 id="案例-7">案例</h5>
+<h2 id="5-lambda">5. lambda</h2>
+<h4 id="语法格式如下">语法格式如下：</h4>
+<p>简单来说，lambda 函数用来定义简单的，能够在一行内表示的函数。<br>
+<code>lambda arg1,arg2,... : expression</code><br>
+案例</p>
 <pre><code class="language-python">f = lambda x,y : x + y
 res = f(1,2)
 print(res)
 </code></pre>
 <p>3<br>
-<code>lambda</code> 函数一般不会直接定义，通常是作为参数传递给其他函数作为参数使用。</p>
+lambda 函数一般不会直接定义，通常是作为参数传递给其他函数作为参数使用。</p>
+<h4 id="为什么有-lambda-匿名函数">为什么有 lambda 匿名函数</h4>
+<ul>
+<li>在传入函数时，有些时候，不需要显式地定义函数，直接传入匿名函数更方便</li>
+<li>Python 提供了 lambda 表达式对匿名函数提供支持</li>
+</ul>
+<h4 id="lambda-表达式的语法">lambda 表达式的语法</h4>
+<pre><code class="language-python">lambda args: expression
+</code></pre>
+<p>expression 只允许是一条表达式，所以使用很受限</p>
+<h4 id="lambda-表达式小栗子">lambda 表达式小栗子</h4>
+<pre><code class="language-python">lambda x:x&gt;2
+</code></pre>
+<p>等价函数写法</p>
+<pre><code class="language-python">def select_positive(x):
+    return x &gt; 2
+</code></pre>
+<h4 id="使用-lambda-表达式重写上面的将函数作为参数传递">使用 lambda 表达式重写上面的将函数作为参数传递</h4>
+<pre><code class="language-python">def test(list, select_fun):
+    for item in list:
+        if select_fun(item):
+            print(item)
+
+
+list = [1, -1, 2, -2, 3, -3]
+
+test(list, lambda x: x &gt; 0)
+test(list, lambda x: x &lt; 0)
+
+
+# 输出结果
+1
+2
+3
+-1
+-2
+-3
+</code></pre>
+<pre><code class="language-python">ls=[('多少才能健康',59),
+    ('KOI',9),
+    ('DKFVLCDASKV',90),
+    ('二的非常',40)]
+</code></pre>
+<p>成绩的排序</p>
+<pre><code class="language-python">ls.sort(key =lambda x:x[1])
+print(ls)
+</code></pre>
+<p>[('KOI', 9), ('二的非常', 40), ('多少才能健康', 59), ('DKFVLCDASKV', 90)]</p>
 <h2 id="6-变量作用域">6. 变量作用域</h2>
 <p>python 中一个变量能够被访问的范围叫做作用域。根据作用域的大小简单的分为全局变量和局部变量。</p>
 <h3 id="61-全局变量">6.1 全局变量</h3>
@@ -624,7 +676,7 @@ print(res)
 <p>直接定义在函数外的变量就是全局变量，在程序运行的全过程有效。</p>
 <h3 id="62-局部变量">6.2 局部变量</h3>
 <p>定义在函数里，的变量就是局部变量，它只在它定义的函数里起作用，一旦函数执行完毕它就不存在了。</p>
-<h4 id="案例-8">案例</h4>
+<h4 id="案例-7">案例</h4>
 <pre><code class="language-python">a = 1 # 全局变量
 
 def fun():
@@ -632,8 +684,7 @@ def fun():
 fun()
 </code></pre>
 <p>1<br>
-上面的案例说明全局变量能够在函数里访问。<br>
-<img src="https://Shisuiyi.github.io/post-images/1635255441543.png" alt="" loading="lazy"></p>
+上面的案例说明全局变量能够在函数里访问。</p>
 <pre><code class="language-python">def fun():
     b = 2  # 局部变量
     print(b)
@@ -643,13 +694,17 @@ print(b)
 </code></pre>
 <p>2</p>
 <hr>
-<p>NameError Traceback (most recent call last)</p>
-<p>in<br>
-4<br>
-5 fun()<br>
-----&gt; 6 print(b)</p>
-<p>NameError: name 'b' is not defined<br>
-上面的案例说明局部变量在函数外部不能直接访问</p>
+<pre><code class="language-python"># 输出
+NameError Traceback (most recent call last)
+
+in
+4
+5 fun()
+----&gt; 6 print(b)
+
+NameError: name 'b' is not defined
+</code></pre>
+<p>上面的案例说明局部变量在函数外部不能直接访问</p>
 <pre><code class="language-python">a = 1
 def fun():
 
@@ -658,19 +713,24 @@ def fun():
 fun()
 </code></pre>
 <hr>
-<p>UnboundLocalError Traceback (most recent call last)</p>
-<p>in<br>
-4 a += 1 # 尝试直接在函数内部修改全局变量<br>
-5 print(a)<br>
-----&gt; 6 fun()</p>
-<p>in fun()<br>
-2 def fun():<br>
-3<br>
-----&gt; 4 a += 1 # 尝试直接在函数内部修改全局变量<br>
-5 print(a)<br>
-6 fun()</p>
-<p>UnboundLocalError: local variable 'a' referenced before assignment<br>
-上面的案例说明在函数内部不能直接修改全局变量（不可变数据类型）</p>
+<pre><code class="language-python"># 输出
+UnboundLocalError Traceback (most recent call last)
+
+in
+4 a += 1 # 尝试直接在函数内部修改全局变量
+5 print(a)
+----&gt; 6 fun()
+
+in fun()
+2 def fun():
+3
+----&gt; 4 a += 1 # 尝试直接在函数内部修改全局变量
+5 print(a)
+6 fun()
+
+UnboundLocalError: local variable 'a' referenced before assignment
+</code></pre>
+<p>上面的案例说明在函数内部不能直接修改全局变量（不可变数据类型）</p>
 <p>可变数据类型的修改不受影响，所以可变类型的全局变量在使用的过程中需要格外的注意</p>
 <pre><code class="language-python">a = [1,2]
 def func():
@@ -684,7 +744,7 @@ print(a)
 <h3 id="62-global-关键字">6.2 global 关键字</h3>
 <p>有时候需要在函数内部修改全局变量。</p>
 <p>使用 <code>globals</code> 关键字可以在函数内部修改全局变量</p>
-<h4 id="案例-9">案例：</h4>
+<h4 id="案例-8">案例：</h4>
 <pre><code class="language-python">a = 1 # 全局变量
 
 def fun():
