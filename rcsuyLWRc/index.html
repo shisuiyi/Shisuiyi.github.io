@@ -1,0 +1,985 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635425214335">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635425214335" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E7%B1%BB">1. 类</a>
+<ul>
+<li><a href="#11-%E7%B1%BB%E7%9A%84%E6%A6%82%E5%BF%B5">1.1 类的概念</a></li>
+<li><a href="#12-%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89">1.2 类的定义</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B">案例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-%E5%AF%B9%E8%B1%A1">2. 对象</a>
+<ul>
+<li><a href="#21-%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A6%82%E5%BF%B5">2.1 对象的概念</a></li>
+<li><a href="#22-%E5%AE%9E%E4%BE%8B%E5%8C%96">2.2 实例化</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-2">案例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-%E5%B1%9E%E6%80%A7">3. 属性</a>
+<ul>
+<li><a href="#31-%E7%B1%BB%E5%B1%9E%E6%80%A7">3.1 类属性</a>
+<ul>
+<li><a href="#311-%E7%B1%BB%E5%B1%9E%E6%80%A7%E7%9A%84%E5%AE%9A%E4%B9%89">3.1.1 类属性的定义</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-3">案例：</a></li>
+</ul>
+</li>
+<li><a href="#312-%E7%B1%BB%E5%B1%9E%E6%80%A7%E7%9A%84%E8%AE%BF%E9%97%AE">3.1.2 类属性的访问</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-4">案例：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#32-%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7">3.2 对象属性</a>
+<ul>
+<li><a href="#321-%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E7%9A%84%E5%AE%9A%E4%B9%89">3.2.1 对象属性的定义</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-5">案例：</a></li>
+</ul>
+</li>
+<li><a href="#322-%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E7%9A%84%E8%AE%BF%E9%97%AE">3.2.2 对象属性的访问</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-6">案例：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E6%96%B9%E6%B3%95">4. 方法</a>
+<ul>
+<li><a href="#41-%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95">4.1 对象方法</a>
+<ul>
+<li><a href="#411-%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89">4.1.1 对象方法的定义</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-7">案例：</a></li>
+</ul>
+</li>
+<li><a href="#412-%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E7%9A%84%E8%B0%83%E7%94%A8">4.1.2 对象方法的调用</a></li>
+</ul>
+</li>
+<li><a href="#42-%E7%B1%BB%E6%96%B9%E6%B3%95">4.2 类方法</a><br>
+*
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-8">案例</a></li>
+</ul>
+</li>
+<li><a href="#43-%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95">4.3 特殊方法（魔术方法）</a>
+<ul>
+<li><a href="#__init__"><code>__init__</code></a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-9">案例：</a></li>
+</ul>
+</li>
+<li><a href="#__str__"><code>__str__</code></a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-10">案例：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#44-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">4.4 静态方法</a><br>
+*
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-11">案例：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF">5. 类的继承</a>
+<ul>
+<li><a href="#51-%E7%BB%A7%E6%89%BF">5.1 继承</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-12">案例：</a></li>
+</ul>
+</li>
+<li><a href="#52-%E9%87%8D%E5%86%99">5.2 重写</a></li>
+<li><a href="#53-super-%E6%96%B9%E6%B3%95">5.3 super 方法</a></li>
+<li><a href="#54-%E5%A4%9A%E6%80%81">5.4 多态</a></li>
+<li><a href="#55-%E7%A7%81%E6%9C%89%E5%8C%96">5.5 私有化</a></li>
+</ul>
+</li>
+<li><a href="#6%E8%87%AA%E7%9C%81%E4%B8%8E%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6">6.自省与反射机制</a>
+<ul>
+<li><a href="#61-%E8%87%AA%E7%9C%81">6.1 自省</a>
+<ul>
+<li><a href="#type">type</a></li>
+<li><a href="#isinstance">isinstance</a></li>
+<li><a href="#issubclass">issubclass</a></li>
+<li><a href="#dir">dir</a></li>
+</ul>
+</li>
+<li><a href="#62-%E5%8F%8D%E5%B0%84">6.2 反射</a>
+<ul>
+<li><a href="#hasattr">hasattr</a></li>
+<li><a href="#getattr">getattr</a></li>
+<li><a href="#setattr">setattr</a></li>
+<li><a href="#delattr">delattr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16"> python 面向对象</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-10-28 / 19 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/rcsuyLWRc.jpg" alt="">
+        
+        <div class="post-content yue">
+          <p>前面我们讲到基本数据类型用来表示最常见的信息。但是信息有无穷多种，为了更好的表达信息，我们可以创建自定义数据类型。</p>
+<h2 id="1-类">1. 类</h2>
+<h3 id="11-类的概念">1.1 类的概念</h3>
+<p>一种数据类型就是类。例如整数，浮点数，字符串。</p>
+<h3 id="12-类的定义">1.2 类的定义</h3>
+<p>python 中通过关键字 <code>class</code> 可以定义一个自定义数据类型，基本语法如下：</p>
+<pre><code class="language-python">class 类名:
+	属性
+	方法
+</code></pre>
+<p>注意：python 中类名规则同变量，一般使用 <code>大驼峰</code> 来表示。</p>
+<h4 id="案例">案例</h4>
+<p>例如：创建一个 <code>Point</code> 类用于表示平面坐标系中的一个点</p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+  print(Point)
+</code></pre>
+<p>&lt;class '<strong>main</strong>.Point'&gt;</p>
+<h2 id="2-对象">2. 对象</h2>
+<h3 id="21-对象的概念">2.1 对象的概念</h3>
+<p>某种数据类型的一个具体的数据称为这个类的一个对象或者实例。通过类创建对象叫做实例化。</p>
+<p>所谓的面向对象，就是把一些数据抽象成类的思想。</p>
+<p>python 是一门面向对象的编程语言，python 中一切皆对象。</p>
+<p>前面学习的函数也是 python 中的一个类，定义的某个函数就是函数类的一个具体实例。</p>
+<pre><code class="language-python">def func():
+    pass
+print(type(func))
+</code></pre>
+<p>&lt;class 'function'&gt;</p>
+<h3 id="22-实例化">2.2 实例化</h3>
+<p>除了基本数据类型实例化的过程中用到的特殊的语法规范外，所有自定义类型进行实例化都是通过调用类名来实现的，非常简单，语法如下：</p>
+<pre><code class="language-python">类名(参数)
+</code></pre>
+<p>看起来和调用函数一样。</p>
+<h4 id="案例-2">案例</h4>
+<p>给上面创建的 <code>Point</code> 类创建一个实例。</p>
+<pre><code class="language-python">point = Point()
+print(type(point))
+</code></pre>
+<p>&lt;class '<strong>main</strong>.Point'&gt;</p>
+<h2 id="3-属性">3. 属性</h2>
+<p>类和对象的特征数据称为属性。</p>
+<h3 id="31-类属性">3.1 类属性</h3>
+<p>类的特征称为类属性。</p>
+<h4 id="311-类属性的定义">3.1.1 类属性的定义</h4>
+<p>直接在类中定义的变量（与 class 语句只有一个缩进），就是类属性。</p>
+<h5 id="案例-3">案例：</h5>
+<p>给 <code>Point</code> 类创建一个 <code>name</code> 属性用来表示名称。</p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+    name = '点'
+</code></pre>
+<h4 id="312-类属性的访问">3.1.2 类属性的访问</h4>
+<p>类属性可以直接通过类名和对象以句点法访问，语法格式如下：</p>
+<pre><code class="language-python">类名.类属性名
+对象.类属性名
+</code></pre>
+<h5 id="案例-4">案例：</h5>
+<pre><code class="language-python">print(Point.name)  # 直接通过类名访问类属性
+point=Point()  # 创建一个实例
+print(point.name)     # 通过对象访问类属性
+</code></pre>
+<p>点<br>
+点<br>
+注意：如果不存在属性则抛出 <code>AttributeError</code> 的异常</p>
+<pre><code class="language-python">print(Point.a)
+</code></pre>
+<hr>
+<p>AttributeError Traceback (most recent call last)</p>
+<p>in<br>
+----&gt; 1 print(Point.a)</p>
+<p>AttributeError: type object 'Point' has no attribute 'a'</p>
+<h3 id="32-对象属性">3.2 对象属性</h3>
+<p>对象的特征数据称为对象属性。</p>
+<h4 id="321-对象属性的定义">3.2.1 对象属性的定义</h4>
+<p>对象属性一般定义在构造方法中，详见下面构造方法一节。</p>
+<p>通过句点法 <code>对象.对象属性</code> 以赋值的方式可以直接定义对象属性。</p>
+<h5 id="案例-5">案例：</h5>
+<p>平面坐标系中的每个点都有 x 坐标和 y 坐标，通过类 <code>Point</code> 创建一个对象表示点（x=1，y=2）</p>
+<pre><code class="language-python">point = Point()
+# 通过赋值直接定义对象属性
+point.x = 1
+point.y = 2
+</code></pre>
+<p>注意：在定义对象属性时如果和类属性同名，那么通过对象将无法访问到类属性。</p>
+<h4 id="322-对象属性的访问">3.2.2 对象属性的访问</h4>
+<p>通过句点法 <code>对象.对象属性</code> 可以访问对象属性。</p>
+<h5 id="案例-6">案例：</h5>
+<p>访问上面案例中 <code>point</code> 的 x 坐标和 y 坐标</p>
+<pre><code class="language-python">print(point.x)
+print(point.y)
+</code></pre>
+<p>1<br>
+2<br>
+访问对象属性时，首先会检查对象是否拥有此属性，如果没有则去创建对象的类中查找有没有同名的类属性，如果有则返回，如果都找不到则抛出 AttributeError 的异常</p>
+<h2 id="4-方法">4. 方法</h2>
+<p>定义在类中的函数称为方法。通过调用的方式的不同，分为对象方法，类方法，静态方法和魔术方法。</p>
+<h3 id="41-对象方法">4.1 对象方法</h3>
+<p>定义在类中的普通方法，一般通过对象调用称为对象方法。</p>
+<h4 id="411-对象方法的定义">4.1.1 对象方法的定义</h4>
+<p>为了讲清楚对象方法的定义和调用，我们先看下面的案例。</p>
+<h5 id="案例-7">案例：</h5>
+<p>定义函数 <code>my_print</code>，它接收一个 <code>Point</code> 对象，然后打印这个点的 x，y 坐标。</p>
+<pre><code class="language-python">def my_print(point):
+    print('({},{})'.format(point.x, point.y))
+  
+p = Point()
+p.x = 1
+p.y = 2
+my_print(p)
+</code></pre>
+<p>(1,2)<br>
+定义函数 <code>distance</code>，它接收两个 <code>Point</code> 对象，然后返回这两个点的距离。</p>
+<pre><code class="language-python">def distance(p1, p2):
+    return ((p1.x-p2.x)**2 + (p1.y-p2.y)**2)**0.5
+
+p1 = Point()
+p2 = Point()
+p1.x = 1
+p1.y = 2
+p2.x = 3
+p2.y = 4
+res = distance(p1,p2)
+print(res)
+</code></pre>
+<p>2.8284271247461903<br>
+观察上面的两个函数，发现它们都接收一个或多个 Point 的对象作为参数。为了显式的加强这样的联系，我们可以将它们定义在 Point 的类中。</p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+    name = '点'
+
+    def my_print(point):
+        print('({},{})'.format(point.x, point.y))
+
+    def distance(p1, p2):
+        return ((p1.x-p2.x)**2 + (p1.y-p2.y)**2)**0.5
+</code></pre>
+<h4 id="412-对象方法的调用">4.1.2 对象方法的调用</h4>
+<p>对象方法向属性一样，可以通过句点法进行调用。</p>
+<pre><code class="language-python">类名.方法名(参数)
+对象.方法名(参数)
+</code></pre>
+<p>通过类名调用方法时，和普通函数没有区别</p>
+<pre><code class="language-python"># 更新了类，再次实例化对象
+point = Point()
+point.x = 1
+point.y = 2
+p1 = Point()
+p2 = Point()
+p1.x = 1
+p1.y = 2
+p2.x = 3
+p2.y = 4
+  Point.my_print(point)
+res = Point.distance(p1, p2)
+print(res)
+</code></pre>
+<p>(1,2)<br>
+2.8284271247461903<br>
+通过对象调用方法时，对象本身会被隐式的传给方法的第一个参数</p>
+<pre><code class="language-python">point.my_print()
+res = p1.distance(p2)
+print(res)
+</code></pre>
+<p>(1,2)<br>
+2.8284271247461903<br>
+因此，定义对象方法会习惯性的把第一个形参定义为 self，表示调用对象本身</p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+    name = '点'
+
+    def my_print(self):
+        print('({},{})'.format(self.x, self.y))
+
+    def distance(self, p2):
+        return ((self.x-p2.x)**2 + (self.y-p2.y)**2)**0.5
+</code></pre>
+<h3 id="42-类方法">4.2 类方法</h3>
+<p>在类中通过装饰器 classmethod 可以把一个方法变成类方法。</p>
+<p>一个类方法把类自己作为第一个实参，就像一个实例方法把实例自己作为第一个实参。</p>
+<h5 id="案例-8">案例</h5>
+<p>定义一个类方法 <code>base_point</code> 用来返回坐标原点。</p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+    name = '点'
+
+    def my_print(self):
+        print('({},{})'.format(self.x, self.y))
+
+    def distance(self, p2):
+        return ((self.x-p2.x)**2 + (self.y-p2.y)**2)**0.5
+    @classmethod
+    def base_point(cls):
+        bp = cls()
+        bp.x = 0
+        bp.y = 0
+        return bp
+</code></pre>
+<p>通过类本身或者是该类的实例都可以调用类方法。</p>
+<pre><code class="language-python">p = Point()
+bp1 = p.base_point()
+bp1.my_print()
+bp2 = Point.base_point()
+bp2.my_print()
+</code></pre>
+<p>(0,0)<br>
+(0,0)<br>
+类方法一般都用来生成特殊对象。</p>
+<h3 id="43-特殊方法魔术方法">4.3 特殊方法（魔术方法）</h3>
+<p>在类中可以定义一些特殊的方法用来实现特殊的功能，也称为魔术方法。这些方法一般都以双下划线 <code>__</code> 开头</p>
+<h4 id="__init__"><code>__init__</code></h4>
+<p><code>__init__</code> 又叫构造方法，初始化方法，在调用类名实例化对象时，构造方法会被调用，类名括号 <code>()</code> 后的参数会传递给构造方法，对象属性一般在这个方法中定义。</p>
+<h5 id="案例-9">案例：</h5>
+<p>上面案例中的 <code>Point</code> 类实例化后，需要手动创建对象属性 <code>x</code> 和 <code>y</code>，这显然容易出错和不规范，正确的做法应该是在构造方法中定义属性 <code>x</code> 和 <code>y</code></p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+    name = '点'
+  
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+  
+    def my_print(self):
+        print('({},{})'.format(self.x, self.y))
+
+    def distance(self, p2):
+        return ((self.x-p2.x)**2 + (self.y-p2.y)**2)**0.5
+  
+    @classmethod
+    def base_point(cls):
+        return cls(0,0)
+# 实例化
+p1 = Point(1, 2)
+p2 = Point(x=3, y=4)
+p1.my_print()
+p2.my_print()
+</code></pre>
+<p>(1,2)<br>
+(3,4)</p>
+<h4 id="__str__"><code>__str__</code></h4>
+<p><code>__str__</code> 方法在对象被 <code>print</code> 函数打印时被调用，<code>print</code> 输出 <code>__str__</code> 方法返回的字符串。</p>
+<h5 id="案例-10">案例：</h5>
+<p>上面案例中 <code>Point</code> 类里的 <code>my_print</code> 方法可以去掉，定义一个 <code>__str__</code> 方法</p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+    name = '点'
+  
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+  
+    def __str__(self):
+        return '({},{})'.format(self.x, self.y)
+
+    def distance(self, p2):
+        return ((self.x-p2.x)**2 + (self.y-p2.y)**2)**0.5
+  
+    @classmethod
+    def base_point(cls):
+        return cls(0,0)
+  p = Point(2,2)
+print(p)
+</code></pre>
+<p>(2,2)<br>
+更多的特殊方法详见<a href="http://testingpai.com/forward?goto=https%3A%2F%2Fdocs.python.org%2Fzh-cn%2F3%2Freference%2Fdatamodel.html%23special-method-names">官方文档</a></p>
+<h3 id="44-静态方法">4.4 静态方法</h3>
+<p>在类中通过装饰器 staticmethod 可以把一个方法变静态方法。</p>
+<p>静态方法不会接收隐式的第一个参数，它和普通的函数一样，只是被封装到类中。</p>
+<p>通过类和对象都可以调用。</p>
+<h5 id="案例-11">案例：</h5>
+<p>在 Point 类中定义一个静态方法，用来计算两个数的和。</p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+    name = '点'
+  
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+  
+    def __str__(self):
+        return '({},{})'.format(self.x, self.y)
+
+    def distance(self, p2):
+        return ((self.x-p2.x)**2 + (self.y-p2.y)**2)**0.5
+  
+    @classmethod
+    def base_point(cls):
+        return cls(0,0)
+  
+    @staticmethod
+    def sum(x,y):
+        return x+y
+  Point.sum(1,2)
+</code></pre>
+<p>3</p>
+<pre><code class="language-python">p = Point(1,2)
+p.sum(3,4)
+</code></pre>
+<p>7</p>
+<h2 id="5-类的继承">5. 类的继承</h2>
+<p>类还有一个重要的特性是继承。</p>
+<h3 id="51-继承">5.1 继承</h3>
+<p>当定义一个类时，可以从现有的类继承，新的类称为子类(Subclass)，被继承的类称为基类，父类或超类(Base class,Super class).</p>
+<p>子类可以继承父类的属性和方法。</p>
+<h4 id="案例-12">案例：</h4>
+<p>创建一个类用来表示三维的点。</p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+    name = '点'
+  
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+  
+    def __str__(self):
+        return '({},{})'.format(self.x, self.y)
+
+    def distance(self, p2):
+        return ((self.x-p2.x)**2 + (self.y-p2.y)**2)**0.5
+  
+    @classmethod
+    def base_point(cls):
+        return cls(0,0)
+  
+    @staticmethod
+    def sum(x,y):
+        return x+y
+  
+class TdPoint(Point):
+    &quot;&quot;&quot;
+    表示三维的点
+    &quot;&quot;&quot;
+</code></pre>
+<p>在上面的案例中 TdPoint 类继承了 Point 类。对于 TdPoint 来说 Point 是它的父类，对于 Point 类来说 TdPoint 是他的子类。</p>
+<pre><code class="language-python">print(dir(TdPoint))
+</code></pre>
+<p>['<strong>class</strong>', '<strong>delattr</strong>', '<strong>dict</strong>', '<strong>dir</strong>', '<strong>doc</strong>', '<strong>eq</strong>', '<strong>format</strong>', '<strong>ge</strong>', '<strong>getattribute</strong>', '<strong>gt</strong>', '<strong>hash</strong>', '<strong>init</strong>', '<strong>init_subclass</strong>', '<strong>le</strong>', '<strong>lt</strong>', '<strong>module</strong>', '<strong>ne</strong>', '<strong>new</strong>', '<strong>reduce</strong>', '<strong>reduce_ex</strong>', '<strong>repr</strong>', '<strong>setattr</strong>', '<strong>sizeof</strong>', '<strong>str</strong>', '<strong>subclasshook</strong>', '<strong>weakref</strong>', 'base_point', 'distance', 'name', 'sum']<br>
+虽然在 TdPoint 类中没有定义任何的属性和方法，但它自动继承了父类 Point 的属性和方法。</p>
+<h3 id="52-重写">5.2 重写</h3>
+<p>在上面的案例中，虽然 TdPoint 类继承了 Point 的属性和方法，但是三维的点比二维的点多了一个纬度，所以大部分方法和属性不合适，需要重写。</p>
+<p>在子类中定义同名的方法和属性会覆盖父类的方法和属性。</p>
+<pre><code class="language-python">class Point:
+    &quot;&quot;&quot;
+    表示平面坐标系中的一个点
+    &quot;&quot;&quot;
+    name = '点'
+  
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+  
+    def __str__(self):
+        return '({},{})'.format(self.x, self.y)
+
+    def distance(self, p2):
+        return ((self.x-p2.x)**2 + (self.y-p2.y)**2)**0.5
+  
+    @classmethod
+    def base_point(cls):
+        return cls(0,0)
+  
+    @staticmethod
+    def sum(x,y):
+        return x+y
+  
+class TdPoint(Point):
+    &quot;&quot;&quot;
+    表示三维的点
+    &quot;&quot;&quot;
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+      
+    def __str__(self):
+        return '({},{},{})'.format(self.x, self.y, self.z)
+  
+    def distance(self, p2):
+        return ((self.x-p2.x)**2 + (self.y-p2.y)**2 + (self.z-p2.z)**2)**0.5
+  
+    @classmethod
+    def base_point(cls):
+        return cls(0,0,0)
+</code></pre>
+<p>上面的代码中 TdPoint 类重写了父类中的__init__,<strong>str</strong>,distance,base_point 三个方法</p>
+<pre><code class="language-python">p1 = TdPoint(1,2,3)
+p2 = TdPoint(2,3,4)
+print(p1)
+</code></pre>
+<p>(1,2,3)</p>
+<pre><code class="language-python">p1.distance(p2)
+</code></pre>
+<p>1.7320508075688772</p>
+<pre><code class="language-python">print(TdPoint.base_point())
+</code></pre>
+<p>(0,0,0)</p>
+<h3 id="53-super-方法">5.3 super 方法</h3>
+<p>重写了父类方法后如果又要调用父类的方法怎么解决呢？</p>
+<p>例如，三维点在计算点与点的距离时，要求同时返回投射到二维平面的点的距离。</p>
+<pre><code class="language-python">class TdPoint(Point):
+    &quot;&quot;&quot;
+    表示三维的点
+    &quot;&quot;&quot;
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+      
+    def __str__(self):
+        return '({},{},{})'.format(self.x, self.y, self.z)
+  
+    def distance(self, p2):
+        d2 = Point.distance(self, p2)
+        d3 = ((self.x-p2.x)**2 + (self.y-p2.y)**2 + (self.z-p2.z)**2)**0.5
+        return d2, d3
+  
+    @classmethod
+    def base_point(cls):
+        return cls(0,0,0)
+p1 = TdPoint(1,2,3)
+p2 = TdPoint(2,3,4)
+p1.distance(p2)
+</code></pre>
+<p>(1.4142135623730951, 1.7320508075688772)<br>
+可以直接通过类名的方式调用对应的方法。但是这种方法的耦合性太大，官方推荐使用 super 函数。</p>
+<pre><code class="language-python">class TdPoint(Point):
+    &quot;&quot;&quot;
+    表示三维的点
+    &quot;&quot;&quot;
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+      
+    def __str__(self):
+        return '({},{},{})'.format(self.x, self.y, self.z)
+  
+    def distance(self, p2):
+        d2 = super().distance(p2)
+        d3 = ((self.x-p2.x)**2 + (self.y-p2.y)**2 + (self.z-p2.z)**2)**0.5
+        return d2, d3
+  
+    @classmethod
+    def base_point(cls):
+        return cls(0,0,0)
+p1 = TdPoint(1,2,3)
+p2 = TdPoint(2,3,4)
+p1.distance(p2)
+</code></pre>
+<p>&lt;super: &lt;class 'TdPoint'&gt;, &gt;</p>
+<p>(1.4142135623730951, 1.7320508075688772)<br>
+在具有单继承的类层级结构中，super 可用来引用父类而不必显式地指定它们的名称，从而令代码更易维护。</p>
+<p>super()会返回一个代理对象，它会将方法调用委托给父类，这对于访问已在类中被重载的父类方法很有用。</p>
+<h3 id="54-多态">5.4 多态</h3>
+<p>python 是一门动态语言，严格的来说 python 不存在多态。</p>
+<pre><code class="language-python">def bark(animal):
+    animal.bark()
+</code></pre>
+<p>上面的函数 bark 接收一个对象，并调用了对象的 bark 方法。对于 python 来说只要传入的对象有 bark 方法这个函数就可以执行，而不必去检查这个对象的类型。</p>
+<pre><code class="language-python">class Animal:
+    def bark(self):
+        print('嗷嗷叫！')
+
+class Dog(Animal):
+    def bark(self):
+        print('汪汪叫！')
+
+class Cat(Animal):
+    def bark(self):
+        print('喵喵叫！')
+
+class Duck(Animal):
+    def bark(self):
+        print('嘎嘎叫！')
+  dog = Dog()
+cat = Cat()
+duck = Duck()
+bark(dog)
+bark(cat)
+bark(duck)
+</code></pre>
+<p>汪汪叫！<br>
+喵喵叫！<br>
+嘎嘎叫！<br>
+上面的案例中 dog 是 Dog 类型的一个实例，同时它也是 Animal 的一个实例。但是反过来不成立。</p>
+<p>对于静态语言来说函数 bark 如果需要传入 Animal 类型，则传入的对象必须是 Animal 类型或者它的子类，否则，不能调用 bark。</p>
+<p>dog，cat，duck 都是 Animal 类型，但是它们执行 bark 后的输出又各不相同。一个类型多种形态，这就是多态。</p>
+<p>对于 python 这样的动态语言来说，则不需要传入的一定是 Animal 类型，只要它具有一个 bark 方法就可以了。</p>
+<pre><code class="language-python">class SomeClass:
+    def bark(self):
+        print('随便叫！')
+sc = SomeClass()
+bark(sc)
+</code></pre>
+<p>随便叫！</p>
+<h3 id="55-私有化">5.5 私有化</h3>
+<p>python 中不存在那种只能在仅限从一个对象内部访问的私有变量。</p>
+<p>但是，大多数 Python 代码都遵循这样一个约定：以一个下划线开头的名称 (例如 _spam) 应该被当作是 API 的非公有部分 (无论它是函数、方法或是数据成员)。 这应当被视为一个实现细节，可能不经通知即加以改变。</p>
+<pre><code class="language-python">class A:
+    _arg1 = 'A'
+  
+    def _method1(self):
+        print('我是私有方法')
+  
+a = A()
+a._arg1
+</code></pre>
+<p>'A'</p>
+<pre><code class="language-python">a._method1()
+</code></pre>
+<p>我是私有方法<br>
+这种以一个下划线开头的属性可以被类和实例调用。</p>
+<p>只是在 from xxx import * 时不会被导入。</p>
+<p>还有一种定义私有属性的方法是以两个下划线开头的名称（例如__spam)，这种方式定义的私有变量只能在类的内部访问。</p>
+<pre><code class="language-python">class A:
+    __arg1 = 'A'
+  
+    def __method1(self):
+        print('我是私有方法')
+a = A()
+a.__arg1
+</code></pre>
+<hr>
+<p>AttributeError Traceback (most recent call last)</p>
+<p>in<br>
+1 a = A()<br>
+----&gt; 2 a.__arg1</p>
+<p>AttributeError: 'A' object has no attribute '__arg1'<br>
+这种限制访问的原理是，以双下划线开头的属性名(至少带有两个前缀下划线，至多一个后缀下划线)会被改写成 <code>_classname__spam</code>，所以在类外部通过原名称反问不到，但在类的内部使用原名称可以访问。</p>
+<pre><code class="language-python">a._A__arg1
+</code></pre>
+<p>'A'</p>
+<h2 id="6自省与反射机制">6.自省与反射机制</h2>
+<h3 id="61-自省">6.1 自省</h3>
+<p>在日常生活中，自省（introspection）是一种自我检查行为。</p>
+<p>在计算机编程中，自省是指这种能力：检查对象以确定它是什么类型、它有哪些属性和哪些方法。自省向程序员提供了极大的灵活性和控制力。</p>
+<h4 id="type">type</h4>
+<p>type 函数可以返回一个对象的类型</p>
+<pre><code class="language-python">type(1)
+</code></pre>
+<p>int</p>
+<h4 id="isinstance">isinstance</h4>
+<p>检查一个对象是否是某个或某些类型的实例</p>
+<pre><code class="language-python">isinstance(1,int)
+</code></pre>
+<p>True</p>
+<h4 id="issubclass">issubclass</h4>
+<p>检查一个类是否是某个或某些类的子类</p>
+<pre><code class="language-python">issubclass(bool, int)
+</code></pre>
+<p>True</p>
+<h4 id="dir">dir</h4>
+<p>返回一个传入对象的属性名和方法名的字符串列表</p>
+<pre><code class="language-python">print(dir(1))
+</code></pre>
+<p>['<strong>abs</strong>', '<strong>add</strong>', '<strong>and</strong>', '<strong>bool</strong>', '<strong>ceil</strong>', '<strong>class</strong>', '<strong>delattr</strong>', '<strong>dir</strong>', '<strong>divmod</strong>', '<strong>doc</strong>', '<strong>eq</strong>', '<strong>float</strong>', '<strong>floor</strong>', '<strong>floordiv</strong>', '<strong>format</strong>', '<strong>ge</strong>', '<strong>getattribute</strong>', '<strong>getnewargs</strong>', '<strong>gt</strong>', '<strong>hash</strong>', '<strong>index</strong>', '<strong>init</strong>', '<strong>init_subclass</strong>', '<strong>int</strong>', '<strong>invert</strong>', '<strong>le</strong>', '<strong>lshift</strong>', '<strong>lt</strong>', '<strong>mod</strong>', '<strong>mul</strong>', '<strong>ne</strong>', '<strong>neg</strong>', '<strong>new</strong>', '<strong>or</strong>', '<strong>pos</strong>', '<strong>pow</strong>', '<strong>radd</strong>', '<strong>rand</strong>', '<strong>rdivmod</strong>', '<strong>reduce</strong>', '<strong>reduce_ex</strong>', '<strong>repr</strong>', '<strong>rfloordiv</strong>', '<strong>rlshift</strong>', '<strong>rmod</strong>', '<strong>rmul</strong>', '<strong>ror</strong>', '<strong>round</strong>', '<strong>rpow</strong>', '<strong>rrshift</strong>', '<strong>rshift</strong>', '<strong>rsub</strong>', '<strong>rtruediv</strong>', '<strong>rxor</strong>', '<strong>setattr</strong>', '<strong>sizeof</strong>', '<strong>str</strong>', '<strong>sub</strong>', '<strong>subclasshook</strong>', '<strong>truediv</strong>', '<strong>trunc</strong>', '<strong>xor</strong>', 'as_integer_ratio', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']<br>
+python 中的自省函数有很多，凡是可以检查对象状态的函数都可以称为自省函数。</p>
+<h3 id="62-反射">6.2 反射</h3>
+<p>反射就是动态的操作对象。</p>
+<p>简单的讲就是根据字符串形式的属性名方法名操作对应的对象。</p>
+<h4 id="hasattr">hasattr</h4>
+<p>检查一个对象是否有给定名称的属性</p>
+<pre><code class="language-python">hasattr([1,2,3],'append')
+</code></pre>
+<p>True</p>
+<h4 id="getattr">getattr</h4>
+<p>返回一个对象给定名称的属性</p>
+<p>getattr(x,'y') 等价于 x.y</p>
+<pre><code class="language-python">class Point:
+  name = '点'
+getattr(Point,'name')
+</code></pre>
+<p>'点'</p>
+<h4 id="setattr">setattr</h4>
+<p>给一个对象添加一个给定名称的属性</p>
+<p>setattr(x, 'y', v) 等价于 x.y = v</p>
+<pre><code class="language-python">setattr(Point,'x',1)
+Point.x
+</code></pre>
+<p>1</p>
+<h4 id="delattr">delattr</h4>
+<p>删除对象的一个给定名称的属性</p>
+<p>delattr(x, 'y') 等价与 del x.y</p>
+<pre><code class="language-python">  delattr(Point, 'x')
+  Point.x
+</code></pre>
+<hr>
+<p>AttributeError Traceback (most recent call last)</p>
+<p>in<br>
+----&gt; 1 Point.x</p>
+<p>AttributeError: type object 'Point' has no attribute 'x'<br>
+自省和反射机制的理解需要大量的阅读源码。</p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/oQOHcoQAu/">
+            <span class="flex-auto">python</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/xQKemqjxn/">
+                <h3 class="post-title">
+                   python 的函数与代码复用
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
