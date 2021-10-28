@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635341666156">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635424520204">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635341666156" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635424520204" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -217,7 +217,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16"> python 的函数与代码复用</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-10-26 / 20 min read
+          2021-10-26 / 21 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/xQKemqjxn.jpg" alt="">
@@ -764,116 +764,120 @@ print(dir(builtins))
 <p>小写的就是全局内建函数和类</p>
 <h3 id="71-基本数据类型类">7.1 基本数据类型类</h3>
 <h4 id="711-int">7.1.1 int</h4>
-<ul>
-<li>int([x]) -&gt; integer</li>
-<li>int(x, base=10) -&gt; integer</li>
-</ul>
+<pre><code class="language-python">语法结构：
+int([x]) -&gt; integer    
+int(x, base=10) -&gt; integer
+</code></pre>
 <p>将一个数字或字符串转换成整数。<br>
 如果 x 不是一个数字，那么它必须是和 base 匹配的整数字符串表达式</p>
-<pre><code class="language-python">int(1.1)
+<pre><code class="language-python">  int(1.1)
 </code></pre>
 <p>1</p>
-<pre><code class="language-python">int('1')
+<pre><code class="language-python">  int('1')
 </code></pre>
 <p>1</p>
-<pre><code class="language-python">int('0b0101',2)
+<pre><code class="language-python">  int('0b0101',2)
 </code></pre>
 <p>5</p>
-<pre><code class="language-python">int('0x11',16)
+<pre><code class="language-python">  int('0x11',16)
 </code></pre>
 <p>17</p>
-<pre><code class="language-python">int('0o11',8)
+<pre><code class="language-python">  int('0o11',8)
 </code></pre>
 <p>9</p>
 <h4 id="712-float">7.1.2 float</h4>
+<pre><code class="language-python">语法结构：float([*x*])
+</code></pre>
 <p>将一个字符串或数字转换为浮点数。</p>
-<pre><code class="language-python">float(123)
+<pre><code class="language-python">  float(123)
 </code></pre>
 <p>123.0</p>
-<pre><code class="language-python">float('1.2')
+<pre><code class="language-python">  float('1.2')
 </code></pre>
 <p>1.2</p>
+<pre><code class="language-python"> float('-12345')
+</code></pre>
+<p>-12345.0</p>
 <h4 id="713-complex">7.1.3 complex</h4>
-<ul>
-<li>complex(real=0, imag=0)<br>
-创建一个复数通过实部和虚部</li>
-</ul>
+<pre><code class="language-python">语法结构：complex(real=0, imag=0)
+</code></pre>
+<p>将字符串或数字转换为复数。如果第一个形参是字符串，则它被解释为一个复数，并且函数调用时必须没有第二个形参。第二个形参不能是字符串。每个实参都可以是任意的数值类型（包括复数）</p>
+<p>创建一个复数通过实部和虚部</p>
 <pre><code class="language-python">complex(10,8)
 </code></pre>
 <p>(10+8j)</p>
 <h4 id="714-str">7.14 str</h4>
-<ul>
-<li>str(object='')<br>
-通过给定的对象创建一个新的字符串对象。</li>
-</ul>
-<pre><code class="language-python">str(1)
+<pre><code class="language-python">语法结构：str(object='')
+</code></pre>
+<p>通过给定的对象创建一个新的字符串对象。</p>
+<pre><code class="language-python">  str(1)
 </code></pre>
 <p>'1'</p>
-<pre><code class="language-python">str([1,2,3])
+<pre><code class="language-python">  str([1,2,3])
 </code></pre>
 <p>'[1, 2, 3]'</p>
-<pre><code class="language-python">str({'name':'xinlan'})
+<pre><code class="language-python">  str({'name':'xinlan'})
 </code></pre>
 <p>&quot;{'name': 'xinlan'}&quot;</p>
 <h4 id="715-list">7.15 list</h4>
-<ul>
-<li>list(iterable=())</li>
-</ul>
+<pre><code>语法结构：list(iterable=())
+</code></pre>
 <p>根据传入的可迭代对象创建一个列表，如果没有参数返回空列表</p>
-<pre><code class="language-python">list()
+<pre><code class="language-python">  list()
 </code></pre>
 <p>[]</p>
-<pre><code class="language-python">list(range(10))
+<pre><code class="language-python">  list(range(10))
 </code></pre>
 <p>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
-<pre><code class="language-python">list('abcde')
+<pre><code class="language-python">  list('abcde')
 </code></pre>
 <p>['a', 'b', 'c', 'd', 'e']</p>
 <h4 id="716-tuple">7.16 tuple</h4>
-<ul>
-<li>tuple(iterable=())</li>
-</ul>
+<pre><code class="language-python">语法结构： tuple(iterable=())
+</code></pre>
 <p>根据传入的可迭代对象创建一个元组，如果没有参数返回空元组</p>
-<pre><code class="language-python">tuple()
+<pre><code class="language-python">  tuple()
 </code></pre>
 <p>()</p>
-<pre><code class="language-python">tuple('abcd')
+<pre><code class="language-python">  tuple('abcd')
 </code></pre>
 <p>('a', 'b', 'c', 'd')</p>
 <h4 id="717-set">7.17 set</h4>
-<ul>
-<li>set(iterable)</li>
-</ul>
+<pre><code class="language-python">语法结构： set(iterable)
+</code></pre>
 <p>根据传入的可迭代对象创建一个集合对象。</p>
-<pre><code class="language-python">set('abc')
+<pre><code class="language-python">  set('abc')
 </code></pre>
 <p>{'a', 'b', 'c'}</p>
-<pre><code class="language-python">set(range(10))
+<pre><code class="language-python">  set(range(10))
 </code></pre>
 <p>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}</p>
 <h4 id="718-dict">7.18 dict</h4>
+<pre><code class="language-python">语法结构： 
+dict(***kwarg*)
+dict(*mapping*, ***kwarg*)
+dict(*iterable*, ***kwarg*)
+</code></pre>
 <p>根据传入的参数创建一个字典对象</p>
-<pre><code class="language-python"># 形如(key, value)的键值对数据
+<pre><code class="language-python">  # 形如(key, value)的键值对数据
 dict([('name','xinlan'),('age',18)])
 </code></pre>
 <p>{'name': 'xinlan', 'age': 18}</p>
-<pre><code class="language-python"># 关键字参数
+<pre><code class="language-python">  # 关键字参数
 dict(name='xinlan',age=18)
 </code></pre>
 <p>{'name': 'xinlan', 'age': 18}</p>
 <h3 id="72-常用内建函数">7.2 常用内建函数</h3>
 <h4 id="721-print">7.2.1 print</h4>
-<ul>
-<li>print(value,..,sep=' ', end='\n')
+<pre><code class="language-python">语法结构： print(value,..,sep=' ', end='\n')   
+</code></pre>
 <ul>
 <li>value 会打印 value 的字符串形式</li>
 <li>sep 分隔符，当有多个 value 时默认用空格作为分割</li>
 <li>end 每次打印在最后默认添加回车换行符</li>
 </ul>
-</li>
-</ul>
 <p>打印传入对象的字符串形式</p>
-<pre><code class="language-python">print(1,2,3,sep=',')
+<pre><code class="language-python">  print(1,2,3,sep=',')
 </code></pre>
 <p>1,2,3</p>
 <pre><code class="language-python">print(1,end='')
@@ -883,33 +887,30 @@ print(2)
 <h4 id="722-input">7.2.2 input</h4>
 <p>接收用户的输入数据，以字符串的形式返回。</p>
 <p>可以接收字符串参数最为提示信息输出</p>
-<pre><code class="language-python">input('&gt;&gt;&gt;:')
+<pre><code class="language-python">  input('&gt;&gt;&gt;:')
 </code></pre>
-<p><code>&gt; &gt; &gt;</code>:aaa<br>
-'aaa'</p>
+<pre><code class="language-python">&gt;&gt;&gt;: aaa
+'aaa'
+</code></pre>
 <h4 id="723-type">7.2.3 type</h4>
-<ul>
-<li>type(object)</li>
-</ul>
+<pre><code class="language-python">语法结构：type(object)
+</code></pre>
 <p>返回 object 的类型</p>
-<pre><code class="language-python">type(1)
+<pre><code class="language-python">  type(1)
 </code></pre>
 <p>int</p>
 <h4 id="724-dir">7.2.4 dir</h4>
-<ul>
-<li>dir([object])</li>
-</ul>
+<pre><code class="language-python">语法结构：([object])
+</code></pre>
 <p>返回传入对象的所有属性和方法名的列表</p>
-<pre><code class="language-python">print(dir(1))
+<pre><code class="language-python">  print(dir(1))
 </code></pre>
-<pre><code class="language-python">['**abs**', '**add**', '**and**', '**bool**', '**ceil**', '**class**', '**delattr**', '**dir**', '**divmod**', '**doc**', '**eq**', '**float**', '**floor**', '**floordiv**', '**format**', '**ge**', '**getattribute**', '**getnewargs**', '**gt**', '**hash**', '**index**', '**init**', '**init_subclass**', '**int**', '**invert**', '**le**', '**lshift**', '**lt**', '**mod**', '**mul**', '**ne**', '**neg**', '**new**', '**or**', '**pos**', '**pow**', '**radd**', '**rand**', '**rdivmod**', '**reduce**', '**reduce_ex**', '**repr**', '**rfloordiv**', '**rlshift**', '**rmod**', '**rmul**', '**ror**', '**round**', '**rpow**', '**rrshift**', '**rshift**', '**rsub**', '**rtruediv**', '**rxor**', '**setattr**', '**sizeof**', '**str**', '**sub**', '**subclasshook**', '**truediv**', '**trunc**', '**xor**', 'as_integer_ratio', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
-</code></pre>
+<p>['<strong>abs</strong>', '<strong>add</strong>', '<strong>and</strong>', '<strong>bool</strong>', '<strong>ceil</strong>', '<strong>class</strong>', '<strong>delattr</strong>', '<strong>dir</strong>', '<strong>divmod</strong>', '<strong>doc</strong>', '<strong>eq</strong>', '<strong>float</strong>', '<strong>floor</strong>', '<strong>floordiv</strong>', '<strong>format</strong>', '<strong>ge</strong>', '<strong>getattribute</strong>', '<strong>getnewargs</strong>', '<strong>gt</strong>', '<strong>hash</strong>', '<strong>index</strong>', '<strong>init</strong>', '<strong>init_subclass</strong>', '<strong>int</strong>', '<strong>invert</strong>', '<strong>le</strong>', '<strong>lshift</strong>', '<strong>lt</strong>', '<strong>mod</strong>', '<strong>mul</strong>', '<strong>ne</strong>', '<strong>neg</strong>', '<strong>new</strong>', '<strong>or</strong>', '<strong>pos</strong>', '<strong>pow</strong>', '<strong>radd</strong>', '<strong>rand</strong>', '<strong>rdivmod</strong>', '<strong>reduce</strong>', '<strong>reduce_ex</strong>', '<strong>repr</strong>', '<strong>rfloordiv</strong>', '<strong>rlshift</strong>', '<strong>rmod</strong>', '<strong>rmul</strong>', '<strong>ror</strong>', '<strong>round</strong>', '<strong>rpow</strong>', '<strong>rrshift</strong>', '<strong>rshift</strong>', '<strong>rsub</strong>', '<strong>rtruediv</strong>', '<strong>rxor</strong>', '<strong>setattr</strong>', '<strong>sizeof</strong>', '<strong>str</strong>', '<strong>sub</strong>', '<strong>subclasshook</strong>', '<strong>truediv</strong>', '<strong>trunc</strong>', '<strong>xor</strong>', 'as_integer_ratio', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']</p>
 <h4 id="725-help">7.2.5 help</h4>
-<ul>
-<li>help(builtins.object)</li>
-</ul>
+<pre><code class="language-python">语法结构：help(builtins.object)
+</code></pre>
 <p>返回内建对象的帮助信息</p>
-<pre><code class="language-python">help(help)
+<pre><code class="language-python">  help(help)
 </code></pre>
 <p>Help on _Helper in module _sitebuiltins object:</p>
 <p>class _Helper(builtins.object)<br>
@@ -959,50 +960,47 @@ print(2)
 </tbody>
 </table>
 <h4 id="726-len">7.2.6 len</h4>
-<ul>
-<li>len(obj)</li>
-</ul>
+<p>返回对象的长度（元素个数）。实参可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）。</p>
+<pre><code class="language-python">语法结构：len(obj)
+</code></pre>
 <p>返回容器的元素个数</p>
-<pre><code class="language-python">len([1,2,3])
+<pre><code class="language-python">  len([1,2,3])
 </code></pre>
 <p>3</p>
 <h4 id="727-hash">7.2.7 hash</h4>
-<ul>
-<li>hash(obj)</li>
-</ul>
+<pre><code class="language-python">语法结构： hash(obj)
+</code></pre>
 <p>返回对象的 hash 值</p>
-<pre><code class="language-python">hash('a')
+<pre><code class="language-python">  hash('a')
 </code></pre>
 <p>3636161774609400683</p>
 <h4 id="728-iter">7.2.8 iter</h4>
-<ul>
-<li>iter(iterable)</li>
-</ul>
+<pre><code class="language-python">语法结构：iter(iterable)
+</code></pre>
 <p>根据传入的可迭代对象返回一个迭代器</p>
-<pre><code class="language-python">iter('abcd')
+<pre><code class="language-python">  iter('abcd')
 </code></pre>
 <p>&lt;str_iterator at 0x7f98b7dd2eb0&gt;</p>
 <h4 id="729-id">7.2.9 id</h4>
-<ul>
-<li>id(obj)</li>
-</ul>
+<pre><code class="language-python">语法结构：id(obj)
+</code></pre>
 <p>返回传入对象的身份 id（虚拟内存地址的整数形式）</p>
-<pre><code class="language-python">id(1)
+<pre><code class="language-python">  id(1)
 </code></pre>
 <p>4344134656</p>
 <h4 id="7210-range">7.2.10 range</h4>
-<ul>
-<li>range(stop) -&gt; range object</li>
-<li>range(start, stop[,step])</li>
-</ul>
+<p><a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#range"><code>range</code></a> 实际上是一个不可变的序列类型</p>
+<pre><code class="language-python">语法结构:
+range(stop) -&gt; range object
+range(start, stop[,step])
+</code></pre>
 <p>返回一个 range object 对象，产生整数序列</p>
-<pre><code class="language-python">range(10)
+<pre><code class="language-python">  range(10)
 </code></pre>
 <p>range(0, 10)</p>
-<pre><code class="language-python">range(0,10,2)
+<pre><code class="language-python">  range(0,10,2)
 </code></pre>
-<p>range(0, 10, 2)<br>
-更多方法详见<a href="http://testingpai.com/forward?goto=https%3A%2F%2Fdocs.python.org%2F3%2Flibrary%2Ffunctions.html">官方文档</a></p>
+<p>range(0, 10, 2)</p>
 
         </div>
 
