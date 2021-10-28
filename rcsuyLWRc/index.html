@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635425214335">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635425748234">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635425214335" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635425748234" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -234,7 +234,7 @@
     &quot;&quot;&quot;
     表示平面坐标系中的一个点
     &quot;&quot;&quot;
-  print(Point)
+print(Point)
 </code></pre>
 <p>&lt;class '<strong>main</strong>.Point'&gt;</p>
 <h2 id="2-对象">2. 对象</h2>
@@ -376,7 +376,8 @@ p1.x = 1
 p1.y = 2
 p2.x = 3
 p2.y = 4
-  Point.my_print(point)
+</code></pre>
+<pre><code class="language-python">Point.my_print(point)
 res = Point.distance(p1, p2)
 print(res)
 </code></pre>
@@ -460,7 +461,8 @@ bp2.my_print()
     @classmethod
     def base_point(cls):
         return cls(0,0)
-# 实例化
+</code></pre>
+<pre><code class="language-python"># 实例化
 p1 = Point(1, 2)
 p2 = Point(x=3, y=4)
 p1.my_print()
@@ -491,7 +493,8 @@ p2.my_print()
     @classmethod
     def base_point(cls):
         return cls(0,0)
-  p = Point(2,2)
+</code></pre>
+<pre><code class="language-python">p = Point(2,2)
 print(p)
 </code></pre>
 <p>(2,2)<br>
@@ -525,7 +528,8 @@ print(p)
     @staticmethod
     def sum(x,y):
         return x+y
-  Point.sum(1,2)
+</code></pre>
+<pre><code class="language-python">Point.sum(1,2)
 </code></pre>
 <p>3</p>
 <pre><code class="language-python">p = Point(1,2)
@@ -654,7 +658,8 @@ print(p1)
     @classmethod
     def base_point(cls):
         return cls(0,0,0)
-p1 = TdPoint(1,2,3)
+</code></pre>
+<pre><code class="language-python">p1 = TdPoint(1,2,3)
 p2 = TdPoint(2,3,4)
 p1.distance(p2)
 </code></pre>
@@ -680,7 +685,8 @@ p1.distance(p2)
     @classmethod
     def base_point(cls):
         return cls(0,0,0)
-p1 = TdPoint(1,2,3)
+</code></pre>
+<pre><code class="language-python">p1 = TdPoint(1,2,3)
 p2 = TdPoint(2,3,4)
 p1.distance(p2)
 </code></pre>
@@ -709,10 +715,12 @@ class Cat(Animal):
 class Duck(Animal):
     def bark(self):
         print('嘎嘎叫！')
-  dog = Dog()
+</code></pre>
+<pre><code class="language-python">dog = Dog()
 cat = Cat()
 duck = Duck()
-bark(dog)
+</code></pre>
+<pre><code class="language-python">bark(dog)
 bark(cat)
 bark(duck)
 </code></pre>
@@ -726,7 +734,8 @@ bark(duck)
 <pre><code class="language-python">class SomeClass:
     def bark(self):
         print('随便叫！')
-sc = SomeClass()
+</code></pre>
+<pre><code class="language-python">sc = SomeClass()
 bark(sc)
 </code></pre>
 <p>随便叫！</p>
@@ -738,8 +747,8 @@ bark(sc)
   
     def _method1(self):
         print('我是私有方法')
-  
-a = A()
+</code></pre>
+<pre><code class="language-python">a = A()
 a._arg1
 </code></pre>
 <p>'A'</p>
@@ -754,7 +763,8 @@ a._arg1
   
     def __method1(self):
         print('我是私有方法')
-a = A()
+</code></pre>
+<pre><code class="language-python">a = A()
 a.__arg1
 </code></pre>
 <hr>
