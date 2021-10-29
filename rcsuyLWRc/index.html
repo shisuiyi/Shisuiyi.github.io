@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635425748234">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635511062605">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635425748234" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635511062605" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -365,7 +365,7 @@ print(res)
 <pre><code class="language-python">类名.方法名(参数)
 对象.方法名(参数)
 </code></pre>
-<p>通过类名调用方法时，和普通函数没有区别</p>
+<p><strong>通过类名调用方法时，和普通函数没有区别</strong></p>
 <pre><code class="language-python"># 更新了类，再次实例化对象
 point = Point()
 point.x = 1
@@ -383,14 +383,14 @@ print(res)
 </code></pre>
 <p>(1,2)<br>
 2.8284271247461903<br>
-通过对象调用方法时，对象本身会被隐式的传给方法的第一个参数</p>
+<strong>通过对象调用方法时，对象本身会被隐式的传给方法的第一个参数</strong></p>
 <pre><code class="language-python">point.my_print()
 res = p1.distance(p2)
 print(res)
 </code></pre>
 <p>(1,2)<br>
 2.8284271247461903<br>
-因此，定义对象方法会习惯性的把第一个形参定义为 self，表示调用对象本身</p>
+<strong>因此，定义对象方法会习惯性的把第一个形参定义为 self，表示调用对象本身</strong></p>
 <pre><code class="language-python">class Point:
     &quot;&quot;&quot;
     表示平面坐标系中的一个点
