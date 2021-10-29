@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635511062605">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635511352578">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635511062605" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635511352578" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -100,39 +100,29 @@
 <li><a href="#412-%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E7%9A%84%E8%B0%83%E7%94%A8">4.1.2 对象方法的调用</a></li>
 </ul>
 </li>
-<li><a href="#42-%E7%B1%BB%E6%96%B9%E6%B3%95">4.2 类方法</a><br>
-*
-<ul>
-<li><a href="#%E6%A1%88%E4%BE%8B-8">案例</a></li>
-</ul>
-</li>
+<li><a href="#42-%E7%B1%BB%E6%96%B9%E6%B3%95">4.2 类方法</a></li>
 <li><a href="#43-%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95">4.3 特殊方法（魔术方法）</a>
 <ul>
 <li><a href="#__init__"><code>__init__</code></a>
 <ul>
-<li><a href="#%E6%A1%88%E4%BE%8B-9">案例：</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B-8">案例：</a></li>
 </ul>
 </li>
 <li><a href="#__str__"><code>__str__</code></a>
 <ul>
-<li><a href="#%E6%A1%88%E4%BE%8B-10">案例：</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B-9">案例：</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#44-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">4.4 静态方法</a><br>
-*
-<ul>
-<li><a href="#%E6%A1%88%E4%BE%8B-11">案例：</a></li>
-</ul>
-</li>
+<li><a href="#44-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">4.4 静态方法</a></li>
 </ul>
 </li>
 <li><a href="#5-%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF">5. 类的继承</a>
 <ul>
 <li><a href="#51-%E7%BB%A7%E6%89%BF">5.1 继承</a>
 <ul>
-<li><a href="#%E6%A1%88%E4%BE%8B-12">案例：</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B-10">案例：</a></li>
 </ul>
 </li>
 <li><a href="#52-%E9%87%8D%E5%86%99">5.2 重写</a></li>
@@ -406,7 +396,6 @@ print(res)
 <h3 id="42-类方法">4.2 类方法</h3>
 <p>在类中通过装饰器 classmethod 可以把一个方法变成类方法。</p>
 <p>一个类方法把类自己作为第一个实参，就像一个实例方法把实例自己作为第一个实参。</p>
-<h5 id="案例-8">案例</h5>
 <p>定义一个类方法 <code>base_point</code> 用来返回坐标原点。</p>
 <pre><code class="language-python">class Point:
     &quot;&quot;&quot;
@@ -440,7 +429,7 @@ bp2.my_print()
 <p>在类中可以定义一些特殊的方法用来实现特殊的功能，也称为魔术方法。这些方法一般都以双下划线 <code>__</code> 开头</p>
 <h4 id="__init__"><code>__init__</code></h4>
 <p><code>__init__</code> 又叫构造方法，初始化方法，在调用类名实例化对象时，构造方法会被调用，类名括号 <code>()</code> 后的参数会传递给构造方法，对象属性一般在这个方法中定义。</p>
-<h5 id="案例-9">案例：</h5>
+<h5 id="案例-8">案例：</h5>
 <p>上面案例中的 <code>Point</code> 类实例化后，需要手动创建对象属性 <code>x</code> 和 <code>y</code>，这显然容易出错和不规范，正确的做法应该是在构造方法中定义属性 <code>x</code> 和 <code>y</code></p>
 <pre><code class="language-python">class Point:
     &quot;&quot;&quot;
@@ -472,7 +461,7 @@ p2.my_print()
 (3,4)</p>
 <h4 id="__str__"><code>__str__</code></h4>
 <p><code>__str__</code> 方法在对象被 <code>print</code> 函数打印时被调用，<code>print</code> 输出 <code>__str__</code> 方法返回的字符串。</p>
-<h5 id="案例-10">案例：</h5>
+<h5 id="案例-9">案例：</h5>
 <p>上面案例中 <code>Point</code> 类里的 <code>my_print</code> 方法可以去掉，定义一个 <code>__str__</code> 方法</p>
 <pre><code class="language-python">class Point:
     &quot;&quot;&quot;
@@ -503,7 +492,6 @@ print(p)
 <p>在类中通过装饰器 staticmethod 可以把一个方法变静态方法。</p>
 <p>静态方法不会接收隐式的第一个参数，它和普通的函数一样，只是被封装到类中。</p>
 <p>通过类和对象都可以调用。</p>
-<h5 id="案例-11">案例：</h5>
 <p>在 Point 类中定义一个静态方法，用来计算两个数的和。</p>
 <pre><code class="language-python">class Point:
     &quot;&quot;&quot;
@@ -541,7 +529,7 @@ p.sum(3,4)
 <h3 id="51-继承">5.1 继承</h3>
 <p>当定义一个类时，可以从现有的类继承，新的类称为子类(Subclass)，被继承的类称为基类，父类或超类(Base class,Super class).</p>
 <p>子类可以继承父类的属性和方法。</p>
-<h4 id="案例-12">案例：</h4>
+<h4 id="案例-10">案例：</h4>
 <p>创建一个类用来表示三维的点。</p>
 <pre><code class="language-python">class Point:
     &quot;&quot;&quot;
