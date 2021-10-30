@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635562832638">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635585127731">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635562832638" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635585127731" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -115,7 +115,11 @@
 </li>
 </ul>
 </li>
-<li><a href="#44-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">4.4 静态方法</a></li>
+<li><a href="#44-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95">4.4 静态方法</a>
+<ul>
+<li><a href="#%E6%80%BB%E7%BB%93">总结：</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#5-%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF">5. 类的继承</a>
@@ -201,7 +205,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16"> python 面向对象</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-10-28 / 19 min read
+          2021-10-28 / 21 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/rcsuyLWRc.jpg" alt="">
@@ -397,8 +401,9 @@ print(res)
 </code></pre>
 <h3 id="42-类方法">4.2 类方法</h3>
 <p>在类中通过装饰器 classmethod 可以把一个方法变成类方法。</p>
-<p>一个类方法把类自己作为第一个实参，就像一个实例方法把实例自己作为第一个实参。</p>
-<p>定义一个类方法 <code>base_point</code> 用来返回坐标原点。</p>
+<p>一个类方法把类自己作为第一个实参，就像一个实例方法把实例自己作为第一个实参。<br>
+cls 代表的是同一个对象，类对象<br>
+定义一个类方法 <code>base_point</code> 用来返回坐标原点。</p>
 <pre><code class="language-python">class Point:
     &quot;&quot;&quot;
     表示平面坐标系中的一个点
@@ -426,7 +431,13 @@ bp2.my_print()
 </code></pre>
 <p>(0,0)<br>
 (0,0)<br>
-类方法一般都用来生成特殊对象。</p>
+类方法一般都用来生成特殊对象。<br>
+类方法和对象方法很相似，又很不相似<br>
+<strong>相似点</strong><br>
+也至少要包含一个参数，不过通常命名为 cls<br>
+在调用类方法时，无需显式为 cls 参数传参，但传递的并不是实例对象，而是类对象本身</p>
+<p><strong>不同点</strong><br>
+最大的不同在于需要使用 @classmethod 装饰器才能称为类方法</p>
 <h3 id="43-特殊方法魔术方法">4.3 特殊方法（魔术方法）</h3>
 <p>在类中可以定义一些特殊的方法用来实现特殊的功能，也称为魔术方法。这些方法一般都以双下划线 <code>__</code> 开头</p>
 <h4 id="__init__"><code>__init__</code></h4>
@@ -526,6 +537,31 @@ print(p)
 p.sum(3,4)
 </code></pre>
 <p>7</p>
+<p><strong>静态方法</strong></p>
+<ol>
+<li>和之前学过的函数一毛一样，唯一区别是：静态方法需要定义在类体中，且需要添加 @staticmethod 装饰器</li>
+<li>静态方法没有 self、cls 参数，也不需要至少传一个参数，和普通函数一样</li>
+<li>Python 解释器不会对它包含的参数做任何类或对象的绑定，所以静态方法无法调用任何类属性、类方法、实例属性、实例方法，除非通过类名和实例对象</li>
+</ol>
+<p><strong>什么时候会用静态方法</strong><br>
+类里面封装的方法</p>
+<p>既不需要访问实例属性、实例方法<br>
+也不需要访问类属性、类方法<br>
+就可以考虑将这个方法封装成一个静态方法</p>
+<h4 id="总结">总结：</h4>
+<p>关于实例方法、 classmethod 和 staticmethod 的实际应用场景<br>
+简单来说</p>
+<ol>
+<li>
+<p>实例方法：方法内部需要访问实例属性、实例方法就定义为实例方法；既需要访问实例属性、方法，也需要访问类属性、方法，那必须定义为实例方法</p>
+</li>
+<li>
+<p>类方法：方法内部只需要访问类属性、类方法就定义为类方法</p>
+</li>
+<li>
+<p>静态方法：方法内部既不需要访问实例属性、实例方法，也不需要访问类属性、类方法就定义为静态方法</p>
+</li>
+</ol>
 <h2 id="5-类的继承">5. 类的继承</h2>
 <p>类还有一个重要的特性是继承。</p>
 <h3 id="51-继承">5.1 继承</h3>
