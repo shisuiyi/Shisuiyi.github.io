@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635585127731">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635585492810">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635585127731" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635585492810" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -205,7 +205,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16"> python 面向对象</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-10-28 / 21 min read
+          2021-10-28 / 22 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/rcsuyLWRc.jpg" alt="">
@@ -562,6 +562,42 @@ p.sum(3,4)
 <p>静态方法：方法内部既不需要访问实例属性、实例方法，也不需要访问类属性、类方法就定义为静态方法</p>
 </li>
 </ol>
+<pre><code class="language-python">class GirlFriend:
+    &quot;&quot;&quot;
+    女朋友特征
+    &quot;&quot;&quot;
+    sex = &quot;girl&quot;
+
+    def __init__(self, height, weight, education, location, skill):
+        self.height = height
+        self.weight = weight
+        self.education = education
+        self.location = location
+        self.skill = skill
+
+    def __str__(self):
+        return 'I want have a GirlFriend for  height&gt;{},weight&lt;{}),education is {} and location in {}' \
+            .format(self.height, self.weight, self.education, self.location)
+
+    def method(self):
+        print('she is good at {}！！'.format(self.skill))
+
+    @classmethod
+    def gender(cls):
+        print(&quot;she is {}&quot;.format(cls.sex))
+
+    @staticmethod
+    def hobby(sport, song):
+        print(&quot;she is favorite sport is {},and favorite listen song is {}&quot;
+              .format(sport, song))
+
+
+p = GirlFriend(150, 100, &quot;undergrad&quot;, &quot;杭州&quot;, &quot;cooking&quot;)  # 调用类名实例化对象--传参自动执行构造方法
+print(p)
+p.method() # 对象调用对象方法
+p.hobby(&quot;dance&quot;, &quot;GQ&quot;)  # 对象调用静态方法
+GirlFriend.gender()  # 调用类方法
+</code></pre>
 <h2 id="5-类的继承">5. 类的继承</h2>
 <p>类还有一个重要的特性是继承。</p>
 <h3 id="51-继承">5.1 继承</h3>
