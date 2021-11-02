@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635857520677">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1635858499487">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635857520677" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1635858499487" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -210,7 +210,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16"> python 面向对象</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-10-28 / 25 min read
+          2021-10-28 / 26 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/rcsuyLWRc.jpg" alt="">
@@ -703,7 +703,13 @@ print(p1)
 </code></pre>
 <p>(0,0,0)</p>
 <h3 id="53-super-方法">5.3 super 方法</h3>
-<p><strong>重写了父类方法后如果又要调用父类的方法怎么解决呢？</strong></p>
+<p><strong>重写了父类方法后如果又要调用父类的方法怎么解决呢？</strong><br>
+<strong>当子类重写了父类方法时，又想调用父类的同名方法时，就需要用到 super()</strong></p>
+<ol>
+<li>在 Python 中，super 是一个特殊的类</li>
+<li>super() 就是使用 super 类创建出来的对象</li>
+<li>实际应用的场景：子类在重写父类方法时，调用父类方法</li>
+</ol>
 <p>例如，三维点在计算点与点的距离时，要求同时返回投射到二维平面的点的距离。</p>
 <pre><code class="language-python">class TdPoint(Point):
     &quot;&quot;&quot;
