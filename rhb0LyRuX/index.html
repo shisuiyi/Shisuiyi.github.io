@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636031629787">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636031891389">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636031629787" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636031891389" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -48,11 +48,7 @@
 <li><a href="#utf-8">utf-8</a></li>
 </ul>
 </li>
-<li><a href="#3%E5%AD%97%E8%8A%82%E7%B1%BB%E5%9E%8B">3.字节类型</a>
-<ul>
-<li><a href="#31">3.1</a></li>
-</ul>
-</li>
+<li><a href="#3%E5%AD%97%E8%8A%82%E7%B1%BB%E5%9E%8B">3.字节类型</a></li>
 </ul>
 </li>
 <li><a href="#%E4%BA%8C-python-%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6">二、python 操作文件</a>
@@ -211,7 +207,6 @@
 注意为了统一 python3 在内存中所有的字符都采用 unicode。</p>
 <h3 id="3字节类型">3.字节类型</h3>
 <p>python中使用bytes来表示二进制信息，它是由单个字节构成的不可变序列。bytes字面量的语法于字符串字面值大致相同，只是添加了一个b的前缀，bytes字面量中只允许ASCII字符。任何超过127的二进制使用十六进制来表示</p>
-<h4 id="31">3.1</h4>
 <p>字符转换为对应的编码称为编码，根据字符编码转换为字符叫做解码。<br>
 字符方法encode 可以将字符转换为对应的编码的bytes对象</p>
 <pre><code class="language-python">res = 'abc123'.encode('utf-8')
