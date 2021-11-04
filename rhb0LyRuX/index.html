@@ -1,0 +1,645 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636029013973">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636029013973" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E6%96%87%E4%BB%B6%E6%A6%82%E8%BF%B0">一、文件概述</a>
+<ul>
+<li><a href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%96%87%E4%BB%B6">1. 什么是文件</a></li>
+<li><a href="#2%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81">2.字符编码</a>
+<ul>
+<li><a href="#21-ascii-%E7%A0%81">2.1 ascii 码</a></li>
+<li><a href="#22-gb2312">2.2 gb2312</a></li>
+<li><a href="#23-gbk">2.3 gbk</a></li>
+<li><a href="#unicode">unicode</a></li>
+<li><a href="#utf-8">utf-8</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-python-%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6">二、python 操作文件</a>
+<ul>
+<li><a href="#1-open-%E5%87%BD%E6%95%B0">1. open 函数</a></li>
+<li><a href="#2%E8%AF%BB%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6">2.读文本文件</a>
+<ul>
+<li><a href="#21-%E6%93%8D%E4%BD%9C%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4">2.1 操作基本步骤</a></li>
+<li><a href="#22-with-%E4%B8%8A%E4%B8%8B%E6%96%87%E7%AE%A1%E7%90%86">2.2 with 上下文管理</a></li>
+<li><a href="#23-%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E4%B8%8E%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84">2.3 相对路径与绝对路径</a></li>
+<li><a href="#24-%E9%80%90%E8%A1%8C%E8%AF%BB%E5%8F%96">2.4 逐行读取</a></li>
+</ul>
+</li>
+<li><a href="#3%E8%AF%BB%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6">3.读二进制文件</a></li>
+<li><a href="#4-%E5%86%99%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6">4. 写文本文件</a>
+<ul>
+<li><a href="#41-%E6%B8%85%E9%99%A4%E5%86%99-w">4.1 清除写 <code>w</code></a></li>
+<li><a href="#42-%E8%BF%BD%E5%8A%A0%E5%86%99-a">4.2 追加写 <code>a</code></a></li>
+<li><a href="#43-%E6%8E%92%E4%BB%96%E5%86%99-x">4.3 排他写 <code>x</code></a></li>
+</ul>
+</li>
+<li><a href="#5%E5%86%99%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6">5.写二进制文件</a></li>
+<li><a href="#6%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6">6.读写文件</a></li>
+<li><a href="#7%E6%A1%88%E4%BE%8Bpython-%E5%A4%84%E7%90%86%E8%A7%A3%E6%9E%90-csv-%E6%96%87%E4%BB%B6">7.案例：python 处理解析 CSV 文件</a></li>
+<li><a href="#8%E6%96%87%E4%BB%B6%E6%8C%87%E9%92%88">8.文件指针</a>
+<ul>
+<li><a href="#81-read-%E6%96%B9%E6%B3%95">8.1 read 方法</a></li>
+<li><a href="#82-tell-%E6%96%B9%E6%B3%95">8.2 tell 方法</a></li>
+<li><a href="#83-seek-%E6%96%B9%E6%B3%95">8.3 seek 方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">python文件操作</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-04 / 16 min read
+        </div>
+        
+        <div class="post-content yue">
+          <h2 id="一-文件概述">一、文件概述</h2>
+<h3 id="1-什么是文件">1. 什么是文件</h3>
+<p>计算机文件是一个存储在存储器上的数据序列，可以包含任何数据内容。</p>
+<p>概念上，文件是数据的集合和抽象。</p>
+<p>用文件形式组织和表达数据更有效也更为灵活。</p>
+<p>文件包括两种类型：文本文件和二进制文件。</p>
+<p>文件本质上都是存储在存储器上的二进制数据。</p>
+<p>使用 HexEditor 可以以 16 进制的方式打开任何文件。</p>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1636028923523.png" alt="" loading="lazy"></figure>
+<p>特别的文本文件遵循统一的字符编码，在打开时，计算机会根据字符编码解析成编码表上对应的字符。</p>
+<p>二进制文件和文本文件本质上没有区别，只是没有统一的编码，需要根据特定的程序进行解析和运行。</p>
+<p>无论是文本文件还是二进制文件都可以用&quot;文本文件方式&quot;和&quot;二进制文件方式&quot;打开，打开后的操作不同。</p>
+<h3 id="2字符编码">2.字符编码</h3>
+<p>计算机底层只能表示二进制信息，不能直接表示文字。计算机显示给我们看的文字可以看做是很小的一张张字符的图片。但如果文字都以图片进行存储和传输，图片体积非常大，从而效率会变得很低。</p>
+<p>所以计算机科学家将这些单个字符图片放到一个文件中，这个文件就是字体文件。再给每个字符一个编号，存储传输时就用字符的编号。这个编号表就是字符编码(简单这么理解)。</p>
+<p>文本文件存储的就是每个字符的编号，计算机在打开文本文件时，会根据指定的编码，去编码表中查询一个一个的字符，再渲染给用户。</p>
+<h4 id="21-ascii-码">2.1 ascii 码</h4>
+<p>因为历史原因，字符编码有很多。最先发明的是 ascii 码。</p>
+<p>总共 127 个字符，因此使用一个字节（8 位二进制）来表示，也即是一个字符占一个字节的大小。</p>
+<figure data-type="image" tabindex="2"><img src="https://Shisuiyi.github.io/post-images/1636028936695.png" alt="" loading="lazy"></figure>
+<p>在记事本中键入 abc123+-*/，然后使用 HexEditor 打开后发现跟上面的编码表是一致的。<br>
+<img src="https://Shisuiyi.github.io/post-images/1636028948954.png" alt="" loading="lazy"></p>
+<h4 id="22-gb2312">2.2 gb2312</h4>
+<p>可以看到 ascii 码里只有英文字母和常见字符，没有中文，以及世界上其他国家的文字。随着计算机的发展，各国都创建了自己国家的计算机字符编码。</p>
+<p>1980 年中国发布了 gb2312, GB2312 是一个简体中文字符集，由 6763 个常用汉字和 682 个全角的非汉字字符组成。</p>
+<p>gb2312 使用两个字节表示一个汉字。</p>
+<p>通过字符串的 encode 方法可以根据字符编码进行编码</p>
+<pre><code class="language-python">'中'.encode('gb2312')
+</code></pre>
+<p>b'\xd6\xd0'</p>
+<h4 id="23-gbk">2.3 gbk</h4>
+<p>GB2312 的出现，基本满足了汉字的计算机处理需要，但对于人名、古汉语等方面出现的罕用字，GB 2312 不能处理，这导致了后来 GBK 及 GB18030 汉字字符集的出现。</p>
+<p>GBK 即汉字内码扩展规范，K 为扩展的汉语拼音中“扩”字的声母。GBK 编码标准兼容 GB2312，共收录汉字 21003 个、符号 883 个，并提供 1894 个造字码位，简、繁体字融于一库。</p>
+<p>gbk 也是使用两个字节表示一个汉字。</p>
+<pre><code class="language-python">'中'.encode('gbk')
+</code></pre>
+<p>b'\xd6\xd0'</p>
+<pre><code class="language-python">'囙'.encode('gb2312')
+</code></pre>
+<hr>
+<p>UnicodeEncodeError Traceback (most recent call last)</p>
+<p>in<br>
+----&gt; 1 '囙'.encode('gb2312')</p>
+<p>UnicodeEncodeError: 'gb2312' codec can't encode character '\u56d9' in position 0: illegal multibyte sequence</p>
+<pre><code class="language-python">'囙'.encode('gbk')
+</code></pre>
+<p>b'\x87\xe0'</p>
+<h4 id="unicode">unicode</h4>
+<p>世界上存在着多种编码方式，同一个编码值，在不同的编码体系里代表着不同的字。要想打开一个文本文件，不但要知道它的编码方式，还要安装有对应编码表，否则就可能无法读取或出现乱码。</p>
+<p>我上大学时玩电脑游戏最大的问题就是乱码。</p>
+<p>以日文的编码方式创建一个文本文件写入 <code>やめて</code>，然后用记事本打开会显示如下：</p>
+<figure data-type="image" tabindex="3"><img src="https://Shisuiyi.github.io/post-images/1636028977509.png" alt="" loading="lazy"></figure>
+<p>这个问题促使了 unicode 码的诞生。</p>
+<p>unicode 将世界上所有的符号都纳入其中，无论是英文、日文、还是中文等，大家都使用这个编码表，就不会出现编码不匹配现象。每个符号对应一个唯一的编码，乱码问题就不存在了。</p>
+<p>Unicode 固然统一了编码方式，但是它的效率不高，比如 UCS-4(Unicode 的标准之一)规定用 4 个字节存储一个符号，那么每个英文字母前都必然有三个字节是 0，这对存储和传输来说都很耗资源。</p>
+<p>将之前写有 <code>abc123+-*\</code> 的文件用记事本另存为 unicode 会发现文件的体积大了一倍。(本来应该是 4 倍，windows 做了优化)<br>
+<img src="https://Shisuiyi.github.io/post-images/1636028989647.png" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="4"><img src="https://Shisuiyi.github.io/post-images/1636028999001.png" alt="" loading="lazy"></figure>
+<h4 id="utf-8">utf-8</h4>
+<p>为了提高 Unicode 的编码效率，于是就出现了 UTF-8 编码。UTF-8 可以根据不同的符号自动选择编码的长短。比如英文字母可以只用 1 个字节就够了。&quot;汉&quot;字的 Unicode 编码是 U+00006C49，然后把 U+00006C49 通过 UTF-8 编码器进行编码，最后输出的 UTF-8 编码是 E6B189。utf-8 中汉字使用 3 个字节存储。</p>
+<pre><code class="language-python">'a'.encode('utf-8')
+</code></pre>
+<p>b'a'</p>
+<pre><code class="language-python">'中'.encode('utf-8')
+</code></pre>
+<p>b'\xe4\xb8\xad'<br>
+注意为了统一 python3 在内存中所有的字符都采用 unicode。</p>
+<h2 id="二-python-操作文件">二、python 操作文件</h2>
+<p>python 提供内置函数 open()实现对文件的操作。</p>
+<p>python 对文本文件和二进制文件采用统一的操作步骤，和把大象放冰箱里的一样分三步，&quot;打开-操作-关闭。&quot;<br>
+<img src="https://Shisuiyi.github.io/post-images/1636029012554.png" alt="" loading="lazy"></p>
+<h3 id="1-open-函数">1. open 函数</h3>
+<pre><code>open(file, mode='r', encoding=None)
+</code></pre>
+<p>打开文件并返回对应的 <code>file object</code>。如果该文件不能打开，则触发 <code>OSError</code>。</p>
+<ul>
+<li>file 包含文件名的字符串，可以是绝对路径，可以是相对路径。</li>
+<li>mode 一个可选字符串，用于指定打开文件的模式。默认值 <code>r</code> 表示文本读。</li>
+<li>encoding 文本模式下指定文件的字符编码</li>
+</ul>
+<p><code>mode</code> 的取值：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'r'</code></td>
+<td>文本读取（默认）</td>
+</tr>
+<tr>
+<td><code>'w'</code></td>
+<td>文本写入，并先清空文件（慎用），文件不存在则创建</td>
+</tr>
+<tr>
+<td><code>'x'</code></td>
+<td>文本写，排它性创建，如果文件已存在则失败</td>
+</tr>
+<tr>
+<td><code>'a'</code></td>
+<td>文本写，如果文件存在则在末尾追加，不存在则创建</td>
+</tr>
+</tbody>
+</table>
+<p>和 <code>mode</code> 组合的字符</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'b'</code></td>
+<td>二进制模式，例如：'rb'表示二进制读</td>
+</tr>
+<tr>
+<td><code>'t'</code></td>
+<td>文本模式（默认），例如：<code>rt</code> 一般省略 <code>t</code></td>
+</tr>
+<tr>
+<td><code>'+'</code></td>
+<td>读取与写入，例如：'r+' 表示同时读写</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2读文本文件">2.读文本文件</h3>
+<p>在当前目录下创建一个名为 test.txt 的文本文件，(注意编码方式）文件中写入下面的内容：</p>
+<pre><code>静夜思
+床前明月光，疑是地上霜。
+举头望明月，低头思故乡。
+</code></pre>
+<h4 id="21-操作基本步骤">2.1 操作基本步骤</h4>
+<pre><code class="language-python"># 打开文件 mode=rt,t可以省略
+fb = open('test.txt', 'r', encoding='utf-8')
+# 读取
+content = fb.read()
+print(content)
+# 关闭文件
+fb.close()
+</code></pre>
+<p>静夜思<br>
+床前明月光，疑是地上霜。<br>
+举头望明月，低头思故乡。<br>
+上面这种操作经常会忘记关闭文件句柄，造成资源浪费，所以处理文件是往往使用 with 语句进行上下文管理。</p>
+<h4 id="22-with-上下文管理">2.2 with 上下文管理</h4>
+<pre><code class="language-python">with open('test.txt', 'r', encoding='utf-8') as fb:
+    content = fb.read()
+    print(content)
+</code></pre>
+<p>静夜思<br>
+床前明月光，疑是地上霜。<br>
+举头望明月，低头思故乡。<br>
+<code>with</code> 语句执行完毕会自动关闭文件句柄。</p>
+<h4 id="23-相对路径与绝对路径">2.3 相对路径与绝对路径</h4>
+<p>进行文件处理时经常会碰到相对路径和绝对路径的问题。</p>
+<p>绝对路径好理解，它指定了文件在电脑中的具体位置，以 windows 电脑为例：</p>
+<pre><code>d:\lemon\课件\python入门.md
+</code></pre>
+<p>相对路径一般是指相对当前脚本的路径，比如上面的案例中的 <code>test.txt</code> 因为和当前脚本在同一个文件夹下，所以可以直接使用 <code>test.txt</code> 作为文件名来操作。</p>
+<p>也可显式的表达当前路径 <code>./test.txt</code>,<code>./</code> 表示当前目录。</p>
+<p><code>../</code> 表示上级目录，同理 <code>../../</code> 表示上上级目录，依此类推。</p>
+<p>那什么时候使用相对路径，什么时候使用绝对路径呢。</p>
+<p>一般情况下项目本身的资源文件和脚本路径相对固定，为了不影响项目的移植性，必须使用相对路径。</p>
+<p>如果需要读取操作系统中固定位置的系统文件一般使用绝对路径。</p>
+<h4 id="24-逐行读取">2.4 逐行读取</h4>
+<p>在读取文本文件时，经常需要按行读取，文件对象提供了多种方法进行按行读取。</p>
+<ul>
+<li>readline</li>
+</ul>
+<p>从文件中读取一行；如果 f.readline() 返回一个空的字符串，则表示已经到达了文件末尾</p>
+<pre><code class="language-python">with open('test.txt', 'r', encoding='utf-8') as fb:
+    print(fb.readline())
+    print(fb.readline())
+    print(fb.readline())
+    print(fb.readline())
+</code></pre>
+<p>静夜思</p>
+<p>床前明月光，疑是地上霜。</p>
+<p>举头望明月，低头思故乡。</p>
+<ul>
+<li>readlines</li>
+</ul>
+<p>以列表的形式返回文件中所有的行。</p>
+<pre><code class="language-python">with open('test.txt', 'r', encoding='utf-8') as fb:
+    content = fb.readlines()
+    print(content)
+</code></pre>
+<p>['静夜思\n', '床前明月光，疑是地上霜。\n', '举头望明月，低头思故乡。']</p>
+<ul>
+<li>迭代</li>
+</ul>
+<p>要从文件中读取行，还可以循环遍历文件对象。这是内存高效，快速的，并简化代码：</p>
+<pre><code class="language-python"># 5星推荐
+with open('test.txt', 'r', encoding='utf-8') as fb:
+    for line in fb:
+        print(line)
+</code></pre>
+<p>静夜思</p>
+<p>床前明月光，疑是地上霜。</p>
+<p>举头望明月，低头思故乡。</p>
+<h3 id="3读二进制文件">3.读二进制文件</h3>
+<p>任何文件都可以以二进制读的方式打开，读取 <code>test.txt</code> 的二进制内容。</p>
+<pre><code class="language-python"># mode=rb，不需要encoding参数
+with open('test.txt', 'rb') as fb:
+    content = fb.read()
+    print(content)
+</code></pre>
+<p>b'\xe9\x9d\x99\xe5\xa4\x9c\xe6\x80\x9d\n\xe5\xba\x8a\xe5\x89\x8d\xe6\x98\x8e\xe6\x9c\x88\xe5\x85\x89\xef\xbc\x8c\xe7\x96\x91\xe6\x98\xaf\xe5\x9c\xb0\xe4\xb8\x8a\xe9\x9c\x9c\xe3\x80\x82\n\xe4\xb8\xbe\xe5\xa4\xb4\xe6\x9c\x9b\xe6\x98\x8e\xe6\x9c\x88\xef\xbc\x8c\xe4\xbd\x8e\xe5\xa4\xb4\xe6\x80\x9d\xe6\x95\x85\xe4\xb9\xa1\xe3\x80\x82'</p>
+<pre><code class="language-python"># 也可以逐行读取,以\n换行符标志
+with open('test.txt', 'rb') as fb:
+    for line in fb:
+        print(line)
+</code></pre>
+<p>b'\xe9\x9d\x99\xe5\xa4\x9c\xe6\x80\x9d\n'<br>
+b'\xe5\xba\x8a\xe5\x89\x8d\xe6\x98\x8e\xe6\x9c\x88\xe5\x85\x89\xef\xbc\x8c\xe7\x96\x91\xe6\x98\xaf\xe5\x9c\xb0\xe4\xb8\x8a\xe9\x9c\x9c\xe3\x80\x82\n'<br>
+b'\xe4\xb8\xbe\xe5\xa4\xb4\xe6\x9c\x9b\xe6\x98\x8e\xe6\x9c\x88\xef\xbc\x8c\xe4\xbd\x8e\xe5\xa4\xb4\xe6\x80\x9d\xe6\x95\x85\xe4\xb9\xa1\xe3\x80\x82'</p>
+<h3 id="4-写文本文件">4. 写文本文件</h3>
+<h4 id="41-清除写-w">4.1 清除写 <code>w</code></h4>
+<p>案例：将锄禾这首诗写入 test.txt 文件中</p>
+<pre><code class="language-python"># mode=w 没有文件就创建，有就清除内容，小心使用
+with open('test.txt', 'w', encoding='utf-8') as fb:
+    fb.write('锄禾\n')
+    fb.write('锄禾日当午，汗滴禾下土；\n')
+    fb.write('谁知盘中餐，粒粒皆辛苦。\n')
+</code></pre>
+<p>运行后会发现之前写有静夜思的 test.txt 内容修改为锄禾，因为 <code>w</code> 模式会清除原文件内容，所以小心使用。</p>
+<h4 id="42-追加写-a">4.2 追加写 <code>a</code></h4>
+<p>案例：将静夜思这首诗追加到 test.txt 文件中</p>
+<pre><code class="language-python"># mode=a 追加到文件的最后
+with open('test.txt', 'a', encoding='utf-8') as fb:
+    fb.write('静夜思\n床前明月光，疑是地上霜；\n举头望明月，低头思故乡。\n')
+</code></pre>
+<h4 id="43-排他写-x">4.3 排他写 <code>x</code></h4>
+<p>案例：在当前目录中创建文件 test.txt，存在则不创建</p>
+<pre><code class="language-python"># mode=x
+try:
+    with open('test.txt', 'x', encoding='utf-8') as fb:
+        fb.write('')
+except Exception as e:
+    print(e)
+</code></pre>
+<p>[Errno 17] File exists: 'test.txt'</p>
+<h3 id="5写二进制文件">5.写二进制文件</h3>
+<p>在写模式后加 <code>b</code> 即是写二进制模式，这种模式下写入内容为字节数据。</p>
+<p>例如：将爬到的图片二进制信息写入文件中。</p>
+<pre><code class="language-python">import requests
+
+url = 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1247698508,1430079989&amp;fm=26&amp;gp=0.jpg'
+
+response = requests.get(url)
+
+with open('校花.jpg', 'wb') as f:
+    f.write(response.content)
+</code></pre>
+<h3 id="6读写文件">6.读写文件</h3>
+<p>有时候需要能够同时读写文件，在模式后面加上 <code>+</code> 号即可给读模式添加写，给写模式添加读。</p>
+<pre><code class="language-python">with open('test.txt', 'r+', encoding='utf-8') as f:
+    # 读文件
+    print(f.read())
+    f.write('草\n离离原上草，一岁一枯荣；\n野火烧不尽，春风吹又生！\n')
+</code></pre>
+<p>锄禾<br>
+锄禾日当午，汗滴禾下土；<br>
+谁知盘中餐，粒粒皆辛苦。<br>
+静夜思<br>
+床前明月光，疑是地上霜；<br>
+举头望明月，低头思故乡。</p>
+<h3 id="7案例python-处理解析-csv-文件">7.案例：python 处理解析 CSV 文件</h3>
+<pre><code class="language-python"># 读取csv文件并解析为嵌套列表
+data = []
+with open('鸢尾.csv', 'r', encoding='gbk') as f:
+    for line in f:
+        # 去掉换行符
+        line = line.strip()
+        data.append(line.split(','))
+data
+# 将数据写为csv文件
+with open('test.csv', 'w', encoding='utf-8') as f:
+    for item in data:
+        f.write(','.join(item) + '\n')
+</code></pre>
+<h3 id="8文件指针">8.文件指针</h3>
+<p>open 函数返回的文件对象使用文件指针来记录当前在文件中的位置。</p>
+<h4 id="81-read-方法">8.1 read 方法</h4>
+<p>在读模式下，使用文件对象的 read 方法可以读取文件的内容。它接收一个整数参数表示读取内容的大小，文本模式下表示字符数量，二进制模式下表示字节大小。</p>
+<pre><code class="language-python">with open('test.txt', 'r', encoding='utf-8') as f:
+    content = f.read(3)
+    print(content)
+</code></pre>
+<p>锄禾</p>
+<pre><code class="language-python">content # 三个字符
+</code></pre>
+<p>'锄禾\n'</p>
+<pre><code class="language-python">with open('test.txt', 'rb') as f:
+    content = f.read(3)
+    print(content)
+</code></pre>
+<p>b'\xe9\x94\x84'</p>
+<pre><code class="language-python">'锄'.encode('utf-8') # 三个字节
+</code></pre>
+<p>b'\xe9\x94\x84'<br>
+当以读的方式打开文件后文件指针指向文件开头，执行 read 操作之后，根据读取的数据大小指针移动到对应的位置。</p>
+<h4 id="82-tell-方法">8.2 tell 方法</h4>
+<p>文件对象的 tell 方法返回整数，表示文件指针距离文件开头的字节数。</p>
+<pre><code class="language-python">with open('test.txt', 'r', encoding='utf-8') as f:
+    print(f.tell())
+    content = f.read(3)
+    print(content)
+    print(f.tell())
+</code></pre>
+<p>0<br>
+锄禾</p>
+<p>7</p>
+<pre><code class="language-python">content.encode('utf-8')
+</code></pre>
+<p>b'\xe9\x94\x84\xe7\xa6\xbe\n'<br>
+<code>r</code> 模式打开文件后文件指针指向文件开头，执行 read 操作之后，根据读取的数据大小指针移动到对应的位置。</p>
+<pre><code class="language-python">with open('test.txt', 'a', encoding='utf-8') as f:
+    print(f.tell())
+</code></pre>
+<p>243<br>
+<code>a</code> 模式打开文件后文件指针指向文件末尾。</p>
+<h4 id="83-seek-方法">8.3 seek 方法</h4>
+<p>通过文件对象的 seek 方法可以移动文件句柄</p>
+<p>seek 方法接收两个参数：</p>
+<ul>
+<li>offset 表示偏移指针的字节数</li>
+<li>whence 表示偏移参考，默认为 0
+<ul>
+<li>0 表示偏移参考文件的开头，offset 必须是 &gt;=0 的整数</li>
+<li>1 表示偏移参考当前位置，offset 可以是负数</li>
+<li>2 表示偏移参考文件的结尾，offset 一般是负数</li>
+</ul>
+</li>
+</ul>
+<p>注意文本模式下只允许从文件的开头进行偏移，也即只支持 whence=0</p>
+<pre><code class="language-python">with open('test.txt', 'r', encoding='utf-8') as f:
+    print(f.read(3))
+    # 跳转到文件开头
+    f.seek(0)
+    # 再读取第一个字
+    print(f.read(1))
+</code></pre>
+<p>锄禾</p>
+<p>锄</p>
+<pre><code class="language-python">with open('test.txt', 'rb') as f:
+    # 读取文件最后的10字节
+    f.seek(-10,2)
+    print(f.read())
+</code></pre>
+<p>b'\xe5\x8f\x88\xe7\x94\x9f\xef\xbc\x81\n'</p>
+
+        </div>
+
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/yWGYN84mh/">
+                <h3 class="post-title">
+                  面向对象-思维导图
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
