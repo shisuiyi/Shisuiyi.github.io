@@ -1,0 +1,449 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636200627755">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636200627755" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%8C%85%E5%92%8C%E6%A8%A1%E5%9D%97">包和模块</a></li>
+<li><a href="#1-%E6%A8%A1%E5%9D%97">1. 模块</a>
+<ul>
+<li><a href="#11-%E6%A6%82%E5%BF%B5">1.1 概念</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B">案例：</a></li>
+</ul>
+</li>
+<li><a href="#12-%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97">1.2 导入模块</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-2">案例：</a></li>
+<li><a href="#%E6%A1%88%E4%BE%8B-3">案例：</a>
+<ul>
+<li><a href="#%E6%A1%88%E4%BE%8B-4">案例：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-%E5%8C%85">2. 包</a>
+<ul>
+<li><a href="#21-%E6%A6%82%E5%BF%B5">2.1 概念</a></li>
+</ul>
+</li>
+<li><a href="#3%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93">3.第三方库</a>
+<ul>
+<li><a href="#31-pip">3.1 pip</a></li>
+<li><a href="#32-pip-%E6%BA%90%E7%9A%84%E9%85%8D%E7%BD%AE">3.2 pip 源的配置</a>
+<ul>
+<li><a href="#321-%E4%B8%B4%E6%97%B6%E9%85%8D%E7%BD%AE">3.2.1 临时配置</a></li>
+<li><a href="#322-%E6%B0%B8%E4%B9%85%E9%85%8D%E7%BD%AE">3.2.2 永久配置</a>
+<ul>
+<li><a href="#windows-%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AE">windows 平台配置</a></li>
+<li><a href="#liuxmac-%E5%B9%B3%E5%8F%B0%E9%85%8D%E7%BD%AE">liux/mac 平台配置</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">python模块和包</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-06 / 9 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/Gq3U0CFLu.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h2 id="包和模块">包和模块</h2>
+<p>如果你从 Python 解释器退出并再次进入，之前的定义（函数和变量）都会丢失。因此，如果你想编写一个稍长些的程序，最好使用文本编辑器为解释器准备输入并将该文件作为输入运行。这被称作编写 脚本 。随着程序变得越来越长，你或许会想把它拆分成几个文件，以方便维护。你亦或想在不同的程序中使用一个便捷的函数， 而不必把这个函数复制到每一个程序中去。</p>
+<h2 id="1-模块">1. 模块</h2>
+<h3 id="11-概念">1.1 概念</h3>
+<p>为支持这些，Python 有一种方法可以把定义放在一个文件里，并在脚本或解释器的交互式实例中使用它们。这样的文件被称作 <em>模块</em> ；模块中的定义可以 <em>导入</em> 到其它模块或者 <em>主</em> 模块（你在顶级和计算器模式下执行的脚本中可以访问的变量集合）。</p>
+<p>模块是一个包含 Python 定义和语句的文件。文件名就是模块名后跟文件后缀 <code>.py</code> 。</p>
+<h4 id="案例">案例：</h4>
+<p>使用你最喜欢的文本编辑器（当然不建议 windows 记事本）在当前目录下创建一个名为 <code>fibo.py</code> 的文件，文件中含有以下内容。</p>
+<pre><code class="language-python"># 斐波那契数列 模块
+
+def fib(n):    # 打印斐波那契数列到数n
+    a, b = 0, 1
+    while a &lt; n:
+        print(a, end=' ')
+        a, b = b, a+b
+    print()
+
+def fib2(n):   # return Fibonacci series up to n
+    result = []
+    a, b = 0, 1
+    while a &lt; n:
+        result.append(a)
+        a, b = b, a+b
+    return result
+</code></pre>
+<h3 id="12-导入模块">1.2 导入模块</h3>
+<p>通过关键字 <code>import</code> 可以在代码中导入写好的模块，语法如下：</p>
+<pre><code class="language-python">import 模块名
+</code></pre>
+<h4 id="案例-2">案例：</h4>
+<p>现在进入解释器，并用以下代码导入 <code>fibo.py</code></p>
+<pre><code class="language-python">import fibo
+</code></pre>
+<p>在当前变量表中，不会直接定义模块中的函数名，它只是定义了模块名。接下来，通过模块名 fibo 就可以访问其中的函数</p>
+<pre><code class="language-python">fibo.fib(10)
+fibo.fib2(10)
+</code></pre>
+<p>0 1 1 2 3 5 8</p>
+<p>[0, 1, 1, 2, 3, 5, 8]<br>
+<code>import</code> 语句有一个变体，它可以把模块中的名称（函数名，变量，类名）直接导入到当前模块的变量表里，语法如下：</p>
+<pre><code class="language-python">from 模块名 import 名称
+</code></pre>
+<h4 id="案例-3">案例：</h4>
+<pre><code class="language-python">from fibo import fib, fib2
+</code></pre>
+<p>这并不会把被调模块名引入到当前变量表里，而是将函数名 fib,fib2 引入，现在可以直接访问这两个函数了。</p>
+<pre><code class="language-python">fib(10)
+fib2(10)
+</code></pre>
+<p>0 1 1 2 3 5 8</p>
+<p>[0, 1, 1, 2, 3, 5, 8]<br>
+还有一个变体可以导入模块中定义的所有名称，语法如下：</p>
+<pre><code class="language-python">from 模块名 import *
+</code></pre>
+<p>这会导入所有非以下划线（<code>_</code>）开头的名称。 在多数情况下，Python 程序员都不会使用这个功能，因为它在解释器中引入了一组未知的名称，而它们很可能会覆盖一些你已经定义过的东西。</p>
+<p>注意通常情况下从一个模块或者包内导入 <code>*</code> 的做法是不太被接受的， 因为这通常会导致代码的可读性很差。不过，在交互式编译器中为了节省打字可以这么用。</p>
+<p>如果模块名称之后带有 <code>as</code>，则跟在 <code>as</code> 之后的名称将直接绑定到所导入的模块。语法如下：</p>
+<pre><code class="language-python">import 模块名称 as 新名称
+from 模块名称 import 名称 as 新名称
+</code></pre>
+<h5 id="案例-4">案例：</h5>
+<pre><code class="language-python">import fibo as fib
+fib.fib(10)
+</code></pre>
+<p>0 1 1 2 3 5 8<br>
+这会和 <code>import fibo</code> 方式一样有效地调入模块， 唯一的区别是它以 <code>fib</code> 的名称存在的。</p>
+<p>这种方式也可以在用到 from 的时候使用，并会有类似的效果：</p>
+<pre><code class="language-python">from fibo import fib as fibonacci
+fibonacci(10)
+</code></pre>
+<p>0 1 1 2 3 5 8<br>
+注意：出于效率的考虑，每个模块在解释器会话中只被导入一次。</p>
+<h2 id="2-包">2. 包</h2>
+<h3 id="21-概念">2.1 概念</h3>
+<p>模块的问题解决了代码过长不便于维护问题，但是如果不同人编写的模块名相同怎么办？为了避免模块名冲突，python 又引入了用目录来组织模块的方法，称为包。</p>
+<p>为了避免 <code>fibo.py</code> 与其他模块冲突，我们可以选择一个顶层包名，例如：<code>my_fibo</code>，然后创建名为 <code>my_fibo</code> 的文件夹，将模块 <code>fibo.py</code> 放入该文件夹下。然后通过 <code>import 包名.模块名</code> 的方式引入，只要顶层包名不起冲突，模块就不会起冲突。现在 <code>fibo</code> 模块的引入就是这样的：</p>
+<pre><code class="language-python">import my_fibo.fibo
+</code></pre>
+<p>但是这样导入引用时也要用全名</p>
+<pre><code class="language-python">my_fibo.fibo.fib(10)
+</code></pre>
+<p>0 1 1 2 3 5 8<br>
+也可以通过结合 from 引用</p>
+<pre><code class="language-python">from my_fibo import fibo
+</code></pre>
+<p>这样可以是用 <code>fibo</code> 调用模块中的函数</p>
+<pre><code class="language-python">fibo.fib(10)
+</code></pre>
+<p>0 1 1 2 3 5 8<br>
+也可以直接导入所需的函数或变量</p>
+<pre><code class="language-python">from my_fibo.fibo import fib
+</code></pre>
+<p>这样可以直接调用 <code>fib</code> 函数</p>
+<pre><code class="language-python">fib(10)
+</code></pre>
+<p>0 1 1 2 3 5 8<br>
+请注意，当使用 <code>from package import item</code> 时，item 可以是包的子模块（或子包），也可以是包中定义的其他名称，如函数，类或变量。 <code>import</code> 语句首先测试是否在包中定义了 item；如果没有，它假定它是一个模块并尝试加载它。如果找不到它，则引发 <a href="http://testingpai.com/forward?goto=https%3A%2F%2Fdocs.python.org%2Fzh-cn%2F3%2Flibrary%2Fexceptions.html%23ImportError"><code>ImportError</code></a> 异常。</p>
+<p>相反，当使用 <code>import item.subitem.subsubitem</code> 这样的语法时，除了最后一项之外的每一项都必须是一个包；最后一项可以是模块或包，但不能是前一项中定义的类或函数或变量。</p>
+<p>注意每一个包根目录下都有一个 <code>__init__.py</code> 的文件，这个文件必须存在，因为 python 就是通过它来是吧普通文件夹和包。<code>__init__.py</code> 中</p>
+<h2 id="3第三方库">3.第三方库</h2>
+<p>作为一个受欢迎的开源开发项目，Python 拥有活跃的贡献者和用户支持社区，并且根据开放源代码许可条款，其软件可供其他 Python 开发人员使用。</p>
+<p>这使 Python 用户可以受益于其他人已经针对常见（有时甚至是罕见的）问题创建的解决方案，并可以有效地共享和协作，并有可能将自己的解决方案贡献给公共资源库。</p>
+<p>其他用户共享在公共资源库中的 python 项目就是第三方库。</p>
+<p>换句话说就是别人写的 python 模块。</p>
+<h3 id="31-pip">3.1 pip</h3>
+<p>有很多方法可以管理 python 的第三方库，推荐使用 pip 下载，安装，删除第三方库。</p>
+<p>从 Python 3.4 开始，它默认包含在 Python 二进制安装程序中。</p>
+<p>命令行中输入一下命令来安装模块的最新版本和依赖项：</p>
+<pre><code>pip install SomePackage
+</code></pre>
+<h3 id="32-pip-源的配置">3.2 pip 源的配置</h3>
+<p>应为 pip 会从网上下载模块，默认服务器在国外，可以配置将 pip 源服务配置为国内的镜像服务器。</p>
+<p>国内比较稳定优质的镜像：</p>
+<pre><code>清华大学：https://pypi.tuna.tsinghua.edu.cn/simple
+阿里云：http://mirrors.aliyun.com/pypi/simple/
+豆瓣：http://pypi.douban.com/simple/
+</code></pre>
+<h4 id="321-临时配置">3.2.1 临时配置</h4>
+<p>通过在安装命令后加上-i 参数手动临时指定源</p>
+<pre><code>pip install requests -i https://pypi.doubanio.com/simple
+</code></pre>
+<h4 id="322-永久配置">3.2.2 永久配置</h4>
+<p>通过修改 pip 的配置文件，以后运行 pip 命令会使用配置中的源。</p>
+<h5 id="windows-平台配置">windows 平台配置</h5>
+<ol>
+<li>新建 pip 配置文件夹，直接在 user 用户目录中创建一个名为 pip 的文件夹( 即 %HOMEPATH%\pip)，如下图所示：</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1636200240059.png" alt="" loading="lazy"></figure>
+<ol start="2">
+<li>接着在 pip 文件夹中创建一个名为 pip 的文本文件(后缀名由&quot; .txt &quot;改为 &quot; .ini &quot;)，格式如下所示：<br>
+<img src="https://Shisuiyi.github.io/post-images/1636200257172.png" alt="" loading="lazy"></li>
+</ol>
+<p>文件内容如下：</p>
+<pre><code>[global]
+index-url = https://pypi.doubanio.com/simple
+[install]
+trusted-host = https://pypi.doubanio.com/  
+</code></pre>
+<p>保存后重新打开命令行工具使用 pip 安装第三方库就会使用配置的源。</p>
+<h5 id="liuxmac-平台配置">liux/mac 平台配置</h5>
+<ol>
+<li>在家目录下创建 pip 配置文件夹 <code>.pip</code></li>
+</ol>
+<pre><code>cd ~ # 切换到家目录
+</code></pre>
+<p><code>mkdir .pip</code> # 创建配置文件夹</p>
+<ol>
+<li>创建配置文件</li>
+</ol>
+<p><code>cd .pip</code> # 切换到配置文件夹下</p>
+<p><code>vim pip.conf</code> # 创建并编辑配置文件</p>
+<p>文件内容如下：</p>
+<pre><code class="language-python">[global]
+index-url = https://pypi.doubanio.com/simple
+[install]
+trusted-host = https://pypi.doubanio.com/  
+</code></pre>
+<p>保存后重新打开终端使用 pip 安装第三方库就会使用配置的源。</p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/oQOHcoQAu/">
+            <span class="flex-auto">python</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/rhb0LyRuX/">
+                <h3 class="post-title">
+                  python文件操作
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
