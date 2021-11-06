@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636200627755">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636201657889">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636200627755" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636201657889" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -195,7 +195,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">python 基本数据类型 ·中</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-10-10 / 37 min read
+          2021-10-10 / 38 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/YUhEQmZeL.jpg" alt="">
@@ -895,6 +895,20 @@ print(ls)
 ''.join(ls)
 </code></pre>
 <p>'hello world!'</p>
+<p><strong>join 方法</strong><br>
+这个函数展开来写应该是str.join(item)，join函数是一个字符串操作函数</p>
+<p>str表示字符串（字符），item表示一个成员，注意括号里必须只能有一个成员，比如','.join('a','b')这种写法是行不通的</p>
+<p>举个例子：</p>
+<pre><code class="language-python">','.join('abc')
+
+</code></pre>
+<p>上面代码的含义是“将字符串abc中的每个成员以字符','分隔开再拼接成一个字符串”，输出结果为：</p>
+<pre><code class="language-python">'a,b,c'
+</code></pre>
+<p>join里放列表、元组、字典也是可以的</p>
+<pre><code class="language-python">';'.join([a,b,c])
+&gt;&gt;  'a;b;c'
+</code></pre>
 <h3 id="3-元组">3. 元组</h3>
 <p>元组(tuple)表示任意元素的序列，元素可以是任意数据类型，序列中的元素不能增，删，改，可以说元组就是不可变的列表。</p>
 <h4 id="31-元组的定义">3.1 元组的定义</h4>
