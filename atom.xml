@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予测试笔记</title>
-    <updated>2021-11-07T05:53:18.896Z</updated>
+    <updated>2021-11-07T06:26:39.974Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://Shisuiyi.github.io/images/avatar.png</logo>
     <icon>https://Shisuiyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 师不予测试笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[流程控制-思维导图]]></title>
+        <id>https://Shisuiyi.github.io/9vrrgejSR/</id>
+        <link href="https://Shisuiyi.github.io/9vrrgejSR/">
+        </link>
+        <updated>2021-11-07T06:18:16.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[数据类型-思维导图]]></title>
         <id>https://Shisuiyi.github.io/9ftzgqOeZ/</id>
@@ -72,12 +79,5 @@
         <link href="https://Shisuiyi.github.io/YUhEQmZeL/">
         </link>
         <updated>2021-10-10T01:50:10.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ Python基本数据类型 ·上]]></title>
-        <id>https://Shisuiyi.github.io/w-B-uNoob/</id>
-        <link href="https://Shisuiyi.github.io/w-B-uNoob/">
-        </link>
-        <updated>2021-10-01T02:05:21.000Z</updated>
     </entry>
 </feed>
