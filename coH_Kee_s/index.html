@@ -1,0 +1,786 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636546417898">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636546417898" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E4%BB%8B%E7%BB%8D">1. 介绍</a></li>
+<li><a href="#2-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">2. 核心概念</a>
+<ul>
+<li><a href="#21-%E6%B5%8B%E8%AF%95%E8%84%9A%E6%89%8B%E6%9E%B6">2.1 测试脚手架</a></li>
+<li><a href="#22-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B">2.2 测试用例</a></li>
+<li><a href="#23-%E6%B5%8B%E8%AF%95%E5%A5%97%E4%BB%B6">2.3 测试套件</a></li>
+<li><a href="#24-%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C%E5%99%A8">2.4 测试运行器</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%88%E4%BE%8B">3. 单元测试案例</a>
+<ul>
+<li><a href="#31-%E6%B5%8B%E8%AF%95%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0">3.1 测试目标函数</a></li>
+<li><a href="#32-%E8%AE%BE%E8%AE%A1%E7%94%A8%E4%BE%8B">3.2 设计用例</a></li>
+<li><a href="#33%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%B9%B6%E8%BF%90%E8%A1%8C">3.3.编写测试用例并运行</a></li>
+<li><a href="#34-%E6%B5%8B%E8%AF%95%E8%84%9A%E6%89%8B%E6%9E%B6">3.4 测试脚手架</a></li>
+<li><a href="#35-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F">3.5 单元测试的执行顺序</a></li>
+<li><a href="#36-%E6%96%AD%E8%A8%80%E6%96%B9%E6%B3%95">3.6 断言方法</a></li>
+</ul>
+</li>
+<li><a href="#4-%E6%B5%8B%E8%AF%95%E5%A5%97%E4%BB%B6">4. 测试套件</a>
+<ul>
+<li><a href="#41-%E9%80%9A%E8%BF%87testsuite%E5%AF%B9%E8%B1%A1%E6%94%B6%E9%9B%86">4.1 通过TestSuite对象收集</a></li>
+<li><a href="#42-%E9%80%9A%E8%BF%87testloader%E5%AF%B9%E8%B1%A1%E6%94%B6%E9%9B%86">4.2 通过TestLoader对象收集</a></li>
+</ul>
+</li>
+<li><a href="#5-%E6%89%A7%E8%A1%8C%E7%94%A8%E4%BE%8B%E7%94%9F%E6%88%90%E6%8A%A5%E5%91%8A">5. 执行用例&amp;生成报告</a></li>
+<li><a href="#6%E5%BF%BD%E7%95%A5%E6%9F%90%E4%B8%AA%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95">6.忽略某个测试方法</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16"> unittest</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-09 / 15 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/coH_Kee_s.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h2 id="1-介绍">1. 介绍</h2>
+<p>python自带的一个单元测试框架。</p>
+<p>具备完整的测试结构，支持自动化测试的执行，对测试用例进行组织，并提供了丰富的断言方法，最后会生成测试报告。</p>
+<h2 id="2-核心概念">2. 核心概念</h2>
+<h3 id="21-测试脚手架">2.1 测试脚手架</h3>
+<p>前置  测试  后置</p>
+<p><strong><code>test fixture</code></strong>：环境的准备以及关联的清理动作。<code>setUp()</code>------前置条件、<code>tearDown()</code>-----后置条件，用于初始化测试用例及清理和释放资源。(<code>setUpClass()/tearDownClass()</code>)</p>
+<ol>
+<li>setUp()：每个测试方法运行前运行，测试前置的初始化工作。</li>
+<li>tearDown()：每个测试方法结束后运行，测试后的清理工作。</li>
+<li>setUpClass()：所有的测试方法运行前运行，单元测试类运行前的准备工作。必须使用@classmethod装饰器进行装饰。整个测试类运行过程中只会执行一次。</li>
+<li>tearDownClass()：所有的测试方法结束后运行，单元测试类运行后的清理工作。必须使用@classmethod装饰器进行装饰。整个测试类运行过程中只会执行一次。</li>
+</ol>
+<h3 id="22-测试用例">2.2 测试用例</h3>
+<p><strong><code>TestCase</code></strong>：是最小的测试单元，用于检测特定的输入集合的特定的返回值。<code>unittest</code>提供了<code>TestCase</code>基类，我们创建的测试类需要继承该基类，它可以用来创建新的测试用例。</p>
+<p>测试用例，通过继承<code>unittest.TestCase</code>，来实现用例的继承，<code>Unitest</code>中，测试用例都是通过test来识别的。</p>
+<pre><code class="language-python"> def test_xxxx(self):
+ 
+ def xxxx_test(self):
+</code></pre>
+<h3 id="23-测试套件">2.3 测试套件</h3>
+<ol>
+<li>直接通过unittest.main()方法加载单元测试的测试模块，这是一种最简单的加载方法。所有的测试用例的执行顺序都是按照方法名的字符串表示的<code>ASCII</code>码升序排序。</li>
+<li>将所有的单元测试用例TestCase加载到测试套件Test Suite集合中，然后一次性加载所有测试对象。</li>
+</ol>
+<p><code>test suit</code>是一系列的测试用例</p>
+<p>测试套件是测试用例，测试套件或两者的集合。用于组装一组要运行的测试。</p>
+<p>测试套件，也称为测试用例集，它用于归档需要一起执行的测试。</p>
+<p><strong><code>Test Suite</code></strong></p>
+<pre><code class="language-python">if __name__ == '__main__':
+    # 创建测试套件
+    suit = unittest.TestSuite()
+    suit.addTest(TestCalculator(&quot;test_add&quot;))
+    suit.addTest(TestCalculator(&quot;test_sub&quot;))
+    suit.addTest(TestCalculator(&quot;test_mul&quot;))
+    suit.addTest(TestCalculator(&quot;test_div&quot;))
+ 
+    # 创建测试运行器
+    runner = unittest.TextTestRunner()
+    runner.run(suit)
+  &quot;&quot;&quot;
+测试用例的执行抛弃了unittest提供的main（）方法，而是调用TestSuite类下面的addTest来添加参数用例，因为一次只能添加一条用例，所以需要指定测试类与测试方法。然后，再调用TextTestRunner类下面的run（）运行测套件。
+  &quot;&quot;&quot;
+</code></pre>
+<p><strong><code>Test Loader</code></strong></p>
+<p>该类根据各种标准加载测试用例，并将它们返回给测试套件。正常情况下，不需要创建这个类的实例。<code>unittest</code>提供了可以共享的<code>defaultTestLoader</code>类，可以使用其子类和方法创建实例，<code>discover()</code>就是其中之一。</p>
+<pre><code class="language-python">import unittest
+ 
+test_dir = './test_case'
+discover = unittest.defaultTestLoader.discover(test_dir, pattern='test*.py')
+ 
+if __name__ == '__main__':
+    runner = unittest.TextTestRunner()
+    runner.run(discover)
+</code></pre>
+<p><code>discover(start_dir,pattern='test*.py',top_level_dir=None)</code></p>
+<p>找到指定目录下所有测试模块，并可递归查到子目录下的测试模块，只有匹配到文件名才能被加载。如果启动的不是顶层目录，那么顶层目录必须单独指定。</p>
+<ul>
+<li><code>start_dir</code>：要测试的模块名或测试用例目录</li>
+<li><code>pattern='test*.py'</code>：表示用例文件名的匹配原则。此处匹配文件名以“test”开头的“.py”类型的文件，幸好“*”表示任意多个字符</li>
+<li><code>top_level_dir=None</code>：测试模块的顶层目录，如果没有顶层目录，默认为None</li>
+</ul>
+<h3 id="24-测试运行器">2.4 测试运行器</h3>
+<p>test runner 一个用于执行和输出测试结果的组件。</p>
+<p><code>TextTestRunner()</code></p>
+<pre><code class="language-python"># 创建测试运行器
+if __name__ == '__main__':
+    ts = unittest.defaultTestLoader.discover('./') # 表示收集当前目录下所有用例
+    runner = unittest.TextTestRunner()
+    runner.run(ts)
+</code></pre>
+<p><code>beautifulreport</code></p>
+<pre><code class="language-python">import unittest
+from BeautifulReport import BeautifulReport
+# beautifulreport
+if __name__ == '__main__':
+    
+    ts = unittest.defaultTestLoader.discover('./') # 表示收集当前目录下所有用例
+    runner = BeautifulReport(ts)
+    runner.report(&quot;py45期第一份测试报告&quot;, 'bfreport.html')
+</code></pre>
+<p><a href="https://unittestreport.readthedocs.io/en/latest/"><code>unittestreport</code></a></p>
+<pre><code class="language-python">import unittest
+import unittestreport
+
+
+if __name__ == '__main__':
+    discover = unittest.defaultTestLoader.discover('./')  # 表示收集当前目录下所有用例
+    runner = unittestreport.TestRunner(discover, title='py45期第一份测试报告', desc='木森老师的测试报告模板', tester='shisuiyi')
+    runner.run()
+</code></pre>
+<h2 id="3-单元测试案例">3. 单元测试案例</h2>
+<h3 id="31-测试目标函数">3.1 测试目标函数</h3>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/8 21:08
+# @Author  : shisuiyi
+# @File    : testcode.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+def login(username, password):
+    &quot;&quot;&quot;
+    登录校验的函数
+    :param username: 账号
+    :param password: 密码
+    :return:
+    &quot;&quot;&quot;
+    if 6 &lt;= len(password) &lt;= 18:
+        if username == 'python45' and password == 'lemonban':
+            return {&quot;code&quot;: 0, &quot;msg&quot;: &quot;登录成功&quot;}
+        else:
+            return {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}
+    else:
+        return {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}
+</code></pre>
+<h3 id="32-设计用例">3.2 设计用例</h3>
+<p>根据函数的参数和逻辑，设计如下用例:</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>标题</th>
+<th>测试数据</th>
+<th>预期结果</th>
+<th>实际结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>账号密码正确</td>
+<td>{&quot;username&quot;:&quot;python45&quot;, &quot;password&quot;:&quot;lemonban&quot;}</td>
+<td>{&quot;code&quot;: 0, &quot;msg&quot;: &quot;登录成功&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>账号正确密码不正确</td>
+<td>{&quot;username&quot;:&quot;python45&quot;, &quot;password&quot;:&quot;lemonban123&quot;}</td>
+<td>{&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>账号错误密码正确</td>
+<td>{&quot;username&quot;:&quot;python45123&quot;, &quot;password&quot;:&quot;lemonban&quot;}</td>
+<td>{&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>账号正确，密码长度小于6</td>
+<td>{&quot;username&quot;:&quot;python45&quot;, &quot;password&quot;:&quot;lemo&quot;}</td>
+<td>{&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>账号正确，密码长度大于18位</td>
+<td>{&quot;username&quot;:&quot;python45&quot;, &quot;password&quot;:&quot;lemonbanlemonbanlemonbanlemonbanlemonban&quot;}</td>
+<td>{&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="33编写测试用例并运行">3.3.编写测试用例并运行</h3>
+<p>编写步骤：</p>
+<ol>
+<li>
+<p>导入<code>unittest</code>模块，被检测函数或者类</p>
+</li>
+<li>
+<p>创建测试类，继承<code>unittest.TestCase</code></p>
+</li>
+<li>
+<p>如果有初始化条件和结束条件需要编写脚手架代码</p>
+</li>
+<li>
+<p>定义测试函数，函数名一定要以test开头</p>
+</li>
+<li>
+<p>调用<code>unittest.main()</code>方法运行测试用例</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/8 21:08
+# @Author  : shisuiyi
+# @File    : test_login.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import unittest
+from testcode import login
+
+
+class TestLogin(unittest.TestCase):
+    &quot;&quot;&quot;
+    测试登录函数
+    &quot;&quot;&quot;
+
+    @classmethod
+    def setUpClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级前置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级前置，在整个类的测试前执行')
+
+    @classmethod
+    def tearDownClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级后置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级后置，在整个测试类测试完成后执行')
+
+    def setUp(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级前置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行前执行====')
+
+    def tearDown(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级后置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行后执行======')
+
+    def test_login_01ok(self):
+        &quot;&quot;&quot;
+            测试登录成功
+            :return:
+            &quot;&quot;&quot;
+        print('1测试登录成功开始测试')
+        # 1. 准备测试数据
+        test_data = {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban&quot;}
+        expect_data = {&quot;code&quot;: 0, &quot;msg&quot;: &quot;登录成功&quot;}
+        # 2. 测试步骤
+        res = login(**test_data)
+        # 3. 断言
+        self.assertEqual(res, expect_data)
+
+    def test_login_02password_error(self):
+        &quot;&quot;&quot;
+            测试账号正确，密码错误
+            :return:
+            &quot;&quot;&quot;
+        print('2测试账号正确，密码错误')
+        # 1. 准备测试数据
+        test_data = {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban123&quot;}
+        expect_data = {&quot;code&quot;: 0, &quot;msg&quot;: &quot;登录成功&quot;}
+        # 2. 测试步骤
+        res = login(**test_data)
+        # 3. 断言
+        self.assertEqual(res, expect_data)
+
+    def test_login_03username_error(self):
+        &quot;&quot;&quot;
+            测试账号错误，密码正确
+            :return:
+            &quot;&quot;&quot;
+        print('3测试账号错误，密码正确')
+        # 1. 准备测试数据
+        test_data = {&quot;username&quot;: &quot;python45123&quot;, &quot;password&quot;: &quot;lemonban&quot;}
+        expect_data = {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}
+        # 2. 测试步骤
+        res = login(**test_data)
+        # 3. 断言
+        self.assertEqual(res, expect_data)
+
+    def test_login_04short_password(self):
+        &quot;&quot;&quot;
+            测试账号正确，密码长度过短
+            :return:
+            &quot;&quot;&quot;
+        print('4测试账号正确，密码长度过短')
+        # 1. 准备测试数据
+        test_data = {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemo&quot;}
+        expect_data = {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}
+        # 2. 测试步骤
+        res = login(**test_data)
+        # 3. 断言
+        self.assertEqual(res, expect_data)
+
+    def test_login_05long_password(self):
+        &quot;&quot;&quot;
+            测试账号正确，密码长得过长
+            :return:
+            &quot;&quot;&quot;
+        print('5 测试账号正确，密码长得过长')
+        # 1. 准备测试数据
+        test_data = {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonbanlemonbanlemonbanlemonbanlemonban&quot;}
+        expect_data = {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}
+        # 2. 测试步骤
+        res = login(**test_data)
+        # 3. 断言
+        self.assertEqual(res, expect_data)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+</code></pre>
+<pre><code class="language-python"># 输出：
+C:\Users\12446\AppData\Local\Programs\Python\Python39\python.exe C:\Users\12446\AppData\Local\JetBrains\Toolbox\apps\PyCharm-C\ch-0\212.5457.59\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py --path D:/Lemon/py45/day16/test_login.py
+Testing started at 21:16 ...
+Launching unittests with arguments python -m unittest D:/Lemon/py45/day16/test_login.py in D:\Lemon\py45\day16
+
+我是类级前置，在整个类的测试前执行
+======我会在每个测试执行前执行====
+1测试登录成功开始测试
+======我会在每个测试执行后执行======
+======我会在每个测试执行前执行====
+2测试账号正确，密码错误
+======我会在每个测试执行后执行======
+======我会在每个测试执行前执行====
+3测试账号错误，密码正确
+======我会在每个测试执行后执行======
+======我会在每个测试执行前执行====
+4测试账号正确，密码长度过短
+======我会在每个测试执行后执行======
+======我会在每个测试执行前执行====
+5 测试账号正确，密码长得过长
+======我会在每个测试执行后执行======
+我是类级后置，在整个测试类测试完成后执行
+
+
+Ran 5 tests in 0.022s
+
+OK
+
+Process finished with exit code 0
+
+</code></pre>
+</li>
+</ol>
+<h3 id="34-测试脚手架">3.4 测试脚手架</h3>
+<p>unittest的脚手架有4个？</p>
+<ul>
+<li>setUp 在每个单元测试开始之前执行</li>
+<li>tearDown在每个单元测试结束之后执行</li>
+<li>setUpClass 在整个测试用例类开始前执行</li>
+<li>tearDownClass 在整个测试用例类测试结束之后执行</li>
+</ul>
+<h3 id="35-单元测试的执行顺序">3.5 单元测试的执行顺序</h3>
+<p>按照单元测试函数名的ASCII编码来排序。</p>
+<h3 id="36-断言方法">3.6 断言方法</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">assertEqual(a,b)</td>
+<td style="text-align:left">a == b</td>
+</tr>
+<tr>
+<td style="text-align:left">assertNotEqual(a,b)</td>
+<td style="text-align:left">a!=b</td>
+</tr>
+<tr>
+<td style="text-align:left">assertTrue(x)</td>
+<td style="text-align:left">bool(x) is True</td>
+</tr>
+<tr>
+<td style="text-align:left">assertFalse(x)</td>
+<td style="text-align:left">bool(x) is False</td>
+</tr>
+<tr>
+<td style="text-align:left">assertIs(a,b)</td>
+<td style="text-align:left">a is b</td>
+</tr>
+<tr>
+<td style="text-align:left">assertIsNot(a,b)</td>
+<td style="text-align:left">a is not b</td>
+</tr>
+<tr>
+<td style="text-align:left">assertIn(a,b)</td>
+<td style="text-align:left">a in b</td>
+</tr>
+<tr>
+<td style="text-align:left">assertNotIn(a,b)</td>
+<td style="text-align:left">a not in b</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-测试套件">4. 测试套件</h2>
+<p>测试套件就是收集所有的测试用例，然后集中执行。</p>
+<h3 id="41-通过testsuite对象收集">4.1 通过TestSuite对象收集</h3>
+<p>这个麻烦，实际不用</p>
+<h3 id="42-通过testloader对象收集">4.2 通过TestLoader对象收集</h3>
+<pre><code>unittest.defaultTestLoader.discover()
+</code></pre>
+<p>discover方法可以根据给定的目录，去自动查找目录下所有符合要求的测试用例，它接受三个参数：</p>
+<ul>
+<li>start_dir 需要查找的目录</li>
+<li>pattern 查找模块名的规则，保持默认就好</li>
+<li>top_level_dir 项目的顶层目录，保持默认就好</li>
+</ul>
+<p>注意了：<code>pattern=test*.py</code>参数的规则，需要收的模块名必须以test开头</p>
+<h2 id="5-执行用例生成报告">5. 执行用例&amp;生成报告</h2>
+<p>直接输出的报告比较丑陋，比如<code>TextTestRunner</code>(unittest自带的)</p>
+<ul>
+<li>
+<p>HTMLTestRunnerNew 未知作者，更新什么的不靠谱，不用了</p>
+</li>
+<li>
+<p>BeautifulReport  通过pip可以安装</p>
+<ul>
+<li>pip install beautifulreport</li>
+</ul>
+</li>
+<li>
+<p>unittestreport  零檬班-木森老师开发的</p>
+<ul>
+<li>pip install unittestreport</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/9 20:14
+# @Author  : shisuiyi
+# @File    : main.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import unittest
+&quot;&quot;&quot;
+项目的入口文件
+&quot;&quot;&quot;
+import unittest
+
+import unittestreport
+
+from BeautifulReport import BeautifulReport
+
+from test_login import TestLogin
+
+if __name__ == '__main__':
+    # # 1. 实例化一个测试套件对象
+    # ts = unittest.TestSuite()
+    # # 一个一个的添加单元测试
+    # # 语法是测试用例类('单元测试方法')
+    # ts.addTest(TestLogin('test_login_01ok'))
+    # ts.addTest(TestLogin('test_login_02password_error'))
+    # # 多个添加
+    # ts.addTests([TestLogin('test_login_03username_error'),
+    #              TestLogin('test_login_04short_password'),])
+    # 运行
+    # testloader
+    ts = unittest.defaultTestLoader.discover('./') # 表示收集当前目录下所有用例
+    # runner = unittest.TextTestRunner()
+    # # 传入套件
+    # runner.run(ts)
+
+    # beautifulreport
+    # br = BeautifulReport(ts)
+    # br.report(&quot;py45期第一份测试报告&quot;, 'bfreport.html')
+
+    # unittestreport
+  runner = unittestreport.TestRunner(discover, title='py45期第一份测试报告', desc='木森老师的测试报告模板', tester='shisuiyi')
+    runner.run()
+</code></pre>
+<h2 id="6忽略某个测试方法">6.忽略某个测试方法</h2>
+<pre><code class="language-python">import sys
+import unittest
+
+
+class Test001(unittest.TestCase):
+    @unittest.expectedFailure  # 即使报错了，也会被计为成功的用例
+    def test_1(self):
+        print(&quot;1+1...&quot;, 2)
+        assert 1 + 1 == 3
+
+    @unittest.skip('无条件的忽略')  # 不管什么情况都会进行忽略
+    def test_2(self):
+        print(&quot;2+2...&quot;, 4)
+
+    @unittest.skipIf(sys.platform == &quot;win32&quot;, &quot;跳过&quot;)  # 如果系统平台为window则忽略
+    def test_3(self):
+        print(&quot;3+3...&quot;, 6)
+
+    @unittest.skipUnless(sys.platform == &quot;win32&quot;, &quot;跳过&quot;)  # 跳过该用例，除非系统平台为window
+    def test_4(self):
+        print(&quot;4+4...&quot;, 8)
+
+    def test_5(self):
+        print(&quot;5+5...&quot;, 10)
+
+
+if __name__ == &quot;__main__&quot;:
+    unittest.main(verbosity=2)
+</code></pre>
+<p>执行结果：</p>
+<pre><code class="language-python">test_1 (__main__.Test001) ... 1+1... 2
+expected failure
+test_2 (__main__.Test001) ... skipped '无条件的忽略'
+test_3 (__main__.Test001) ... skipped '跳过'
+test_4 (__main__.Test001) ... 4+4... 8
+ok
+test_5 (__main__.Test001) ... 5+5... 10
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.005s
+
+OK (skipped=2, expected failures=1)
+</code></pre>
+<p>可以看到skip有两个分别是test_2和test_3，因为他们的忽略条件都成立了。</p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/-xeCdFRiP/">
+            <span class="flex-auto">unittest</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/XzNnIFYoi/">
+                <h3 class="post-title">
+                  函数与代码复用-思维导图
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
