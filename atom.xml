@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>师不予测试笔记</title>
-    <updated>2021-11-10T12:13:55.073Z</updated>
+    <updated>2021-11-12T11:32:31.300Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://Shisuiyi.github.io/images/avatar.png</logo>
     <icon>https://Shisuiyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 师不予测试笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[ddt 数据驱动/参数化]]></title>
+        <id>https://Shisuiyi.github.io/On80jWjLX/</id>
+        <link href="https://Shisuiyi.github.io/On80jWjLX/">
+        </link>
+        <updated>2021-11-11T13:19:17.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ unittest]]></title>
         <id>https://Shisuiyi.github.io/coH_Kee_s/</id>
@@ -72,12 +79,5 @@
         <link href="https://Shisuiyi.github.io/xQKemqjxn/">
         </link>
         <updated>2021-10-26T13:26:31.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python程序流程控制]]></title>
-        <id>https://Shisuiyi.github.io/djnJ-yV6X/</id>
-        <link href="https://Shisuiyi.github.io/djnJ-yV6X/">
-        </link>
-        <updated>2021-10-19T12:34:08.000Z</updated>
     </entry>
 </feed>

@@ -1,0 +1,692 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636716743469">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636716743469" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80ddt-%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E5%8F%82%E6%95%B0%E5%8C%96">一：ddt 数据驱动/参数化</a>
+<ul>
+<li><a href="#1%E4%BB%80%E4%B9%88%E6%98%AFddt">1.什么是ddt</a></li>
+<li><a href="#2ddt-%E6%A8%A1%E5%9D%97">2.ddt 模块</a></li>
+<li><a href="#3-unittestreport">3. unittestreport</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8Cexcel%E7%94%A8%E4%BE%8B%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86">二：excel用例文件处理</a>
+<ul>
+<li><a href="#1-openpyxl-%E6%A8%A1%E5%9D%97">1. openpyxl 模块</a></li>
+<li><a href="#2-%E5%B0%81%E8%A3%85%E8%AF%BB%E5%8F%96excel%E7%94%A8%E4%BE%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8A%9F%E8%83%BD">2. 封装读取excel用例数据的功能</a>
+<ul>
+<li><a href="#1-%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90">1. 功能分析</a></li>
+<li><a href="#2%E5%B0%81%E8%A3%85%E6%88%90%E5%87%BD%E6%95%B0">2.封装成函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">ddt 数据驱动/参数化</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-11 / 15 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/On80jWjLX.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h1 id="一ddt-数据驱动参数化">一：ddt 数据驱动/参数化</h1>
+<h2 id="1什么是ddt">1.什么是ddt</h2>
+<p>痛点:测试代码和测试数据耦合了，修改测试或者增加测试都需要修改代码。</p>
+<p>DDT：DATA DRIVER TEST （数据驱动测试/参数化）,是一个设计思想，不同的人有不同的理解。 它解决的问题:测试数据与测试用例代码分离，通过外部数据生成单元测试函数。</p>
+<h2 id="2ddt-模块">2.ddt 模块</h2>
+<pre><code class="language-python">pip install ddt
+</code></pre>
+<p><code>ddt</code>模块的原理：本质上就是一个装饰器，总共高就百来行代码。在创建类的时候，根据用例数据，动态的创建测试函数。</p>
+<p><strong>使用</strong></p>
+<ol>
+<li>
+<p>从<code>ddt</code>模块中导入<code>from ddt import ddt, data</code>两个装饰器</p>
+</li>
+<li>
+<p>定义测试用例类时需要用</p>
+<pre><code class="language-python">@ddt
+class SomeTestCase(unittest.TestCase):
+ pass
+</code></pre>
+</li>
+<li>
+<p>定义单元测试函数时，需要</p>
+<pre><code class="language-python">@data(case1, case2, case3,...)
+def test_some(self, case):
+ pass
+</code></pre>
+</li>
+<li>
+<p>ddt模块会自动的通过case1,case2,...在类里面创建 test_some_1,test_some_2,..单元测试函数</p>
+</li>
+</ol>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/8 21:08
+# @Author  : shisuiyi
+# @File    : test_login.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import unittest
+from testcode import login
+from ddt import ddt, data
+# from unittestreport import ddt, list_data
+cases = [
+    {&quot;title&quot;: &quot;登陆成功&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 0, &quot;msg&quot;: &quot;登录成功&quot;}},
+    {&quot;title&quot;: &quot;账号或密码不正确&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban123&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}},
+    {&quot;title&quot;: &quot;账号或密码不正确&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45123&quot;, &quot;password&quot;: &quot;lemonban&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}},
+    {&quot;title&quot;: &quot;密码长度在6-18位之间&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemo&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}},
+    {&quot;title&quot;: &quot;密码长度在6-18位之间&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonbanlemonbanlemonbanlemonbanlemonban&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}},
+]
+
+
+@ddt
+class TestLogin(unittest.TestCase):
+    &quot;&quot;&quot;
+    测试登录函数
+    &quot;&quot;&quot;
+
+    @classmethod
+    def setUpClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级前置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级前置，在整个类的测试前执行')
+
+    @classmethod
+    def tearDownClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级后置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级后置，在整个测试类测试完成后执行')
+
+    def setUp(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级前置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行前执行====')
+
+    def tearDown(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级后置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行后执行======')
+
+    @data(*cases)
+    # @list_data(cases)
+    def test_login(self, case):
+        
+        # 1. 准备测试数据
+        print(case)
+        print('{}开始测试'.format(case['title']))
+        # 2. 测试步骤
+        res = login(**case['request'])
+        # 3. 断言
+        self.assertEqual(res, case['expect'])
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+</code></pre>
+<p>输出</p>
+<pre><code class="language-python">Launching unittests with arguments python -m unittest D:/Lemon/py45/day17/test_ddt_login.py in D:\Lemon\py45\day17
+
+我是类级前置，在整个类的测试前执行
+======我会在每个测试执行前执行====
+{'title': '登陆成功', 'request': {'username': 'python45', 'password': 'lemonban'}, 'expect': {'code': 0, 'msg': '登录成功'}}
+登陆成功开始测试
+======我会在每个测试执行后执行======
+======我会在每个测试执行前执行====
+{'title': '账号或密码不正确', 'request': {'username': 'python45', 'password': 'lemonban123'}, 'expect': {'code': 1, 'msg': '账号或密码不正确'}}
+账号或密码不正确开始测试
+======我会在每个测试执行后执行======
+======我会在每个测试执行前执行====
+{'title': '账号或密码不正确', 'request': {'username': 'python45123', 'password': 'lemonban'}, 'expect': {'code': 1, 'msg': '账号或密码不正确'}}
+账号或密码不正确开始测试
+======我会在每个测试执行后执行======
+======我会在每个测试执行前执行====
+{'title': '密码长度在6-18位之间', 'request': {'username': 'python45', 'password': 'lemo'}, 'expect': {'code': 1, 'msg': '密码长度在6-18位之间'}}
+密码长度在6-18位之间开始测试
+======我会在每个测试执行后执行======
+======我会在每个测试执行前执行====
+{'title': '密码长度在6-18位之间', 'request': {'username': 'python45', 'password': 'lemonbanlemonbanlemonbanlemonbanlemonban'}, 'expect': {'code': 1, 'msg': '密码长度在6-18位之间'}}
+密码长度在6-18位之间开始测试
+======我会在每个测试执行后执行======
+我是类级后置，在整个测试类测试完成后执行
+
+
+Ran 5 tests in 0.010s
+
+OK
+
+Process finished with exit code 0
+</code></pre>
+<h2 id="3-unittestreport">3. unittestreport</h2>
+<p>这个也有ddt功能，使用方法同ddt</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/8 21:08
+# @Author  : shisuiyi
+# @File    : test_login.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import unittest
+from testcode import login
+# from ddt import ddt, data
+from unittestreport import ddt, list_data
+cases = [
+    {&quot;title&quot;: &quot;登陆成功&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 0, &quot;msg&quot;: &quot;登录成功&quot;}},
+    {&quot;title&quot;: &quot;账号或密码不正确&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban123&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}},
+    {&quot;title&quot;: &quot;账号或密码不正确&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45123&quot;, &quot;password&quot;: &quot;lemonban&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}},
+    {&quot;title&quot;: &quot;密码长度在6-18位之间&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemo&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}},
+    {&quot;title&quot;: &quot;密码长度在6-18位之间&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonbanlemonbanlemonbanlemonbanlemonban&quot;},
+     &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}},
+]
+
+
+@ddt
+class TestLogin(unittest.TestCase):
+    &quot;&quot;&quot;
+    测试登录函数
+    &quot;&quot;&quot;
+
+    @classmethod
+    def setUpClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级前置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级前置，在整个类的测试前执行')
+
+    @classmethod
+    def tearDownClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级后置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级后置，在整个测试类测试完成后执行')
+
+    def setUp(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级前置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行前执行====')
+
+    def tearDown(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级后置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行后执行======')
+
+    # @data(*cases)
+    @list_data(cases)
+    def test_login(self, case):
+        
+        # 1. 准备测试数据
+        print(case)
+        print('{}开始测试'.format(case['title']))
+        # 2. 测试步骤
+        res = login(**case['request'])
+        # 3. 断言
+        self.assertEqual(res, case['expect'])
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+</code></pre>
+<h1 id="二excel用例文件处理">二：excel用例文件处理</h1>
+<h2 id="1-openpyxl-模块">1. openpyxl 模块</h2>
+<p>读写excel文件的第三方库 支持的格式: excel 2010 xlsx/xlsm/xltx/xltm</p>
+<pre><code class="language-python">pip install openpyxl
+</code></pre>
+<p><strong>基本操作</strong></p>
+<p>示例图表：</p>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1636636841872.png" alt="" loading="lazy"></figure>
+<pre><code class="language-python"># 1. 打开工作簿
+import openpyxl
+wb = openpyxl.load_workbook('testdata.xlsx') # 读取excel文件返回一个workbook对象
+print(wb, type(wb))
+
+# 输出
+&lt;openpyxl.workbook.workbook.Workbook object at 0x000002476C754BB0&gt; &lt;class 'openpyxl.workbook.workbook.Workbook'&gt;
+</code></pre>
+<pre><code class="language-python"># 2. 读取表
+# 一个excel文件是要给workbook，拥有多个表，通过sheetname获取对应的表
+ws = wb['login'] # 获取login表
+print(ws, type(ws))
+# 通过表名可以以字典取值的方式获取对应的表。封装为一个worksheet对象
+
+# 输出
+&lt;Worksheet &quot;login&quot;&gt; &lt;class 'openpyxl.worksheet.worksheet.Worksheet'&gt;
+</code></pre>
+<pre><code class="language-python">wb.active  # workbook对象的active属性返回第一个表
+</code></pre>
+<p>输出</p>
+<pre><code class="language-python">&lt;Worksheet &quot;login&quot;&gt;
+</code></pre>
+<pre><code class="language-python"># 3. 读取单元格
+# 通过表的行和列指定单元格，注意行号，列号以1开始
+cell = ws.cell(row=1,column=1)  # 单元格封装为cell对象
+print(cell, type(cell))
+
+# 输出
+&lt;Cell 'login'.A1&gt; &lt;class 'openpyxl.cell.cell.Cell'&gt;
+</code></pre>
+<pre><code class="language-python"># 通过cell对象的value属性可以取出单元格中的值
+cell.value
+</code></pre>
+<p>输出</p>
+<pre><code class="language-python">'id'
+</code></pre>
+<pre><code class="language-python"># 4. 读取一行
+# worksheet对象的rows属性返回表的行数据的迭代对象
+ws.rows
+</code></pre>
+<p>输出</p>
+<pre><code class="language-python">&lt;generator object Worksheet._cells_by_row at 0x000002476E52D5F0&gt;
+</code></pre>
+<pre><code class="language-python">for row in ws.rows:
+    for item in row:
+        print(item.value, end=' ')
+    print()
+    
+    
+# 输出
+id title request expect 
+1 登录成功 {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban&quot;} {&quot;code&quot;: 0, &quot;msg&quot;: &quot;登录成功&quot;} 
+None 密码错误 {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban1&quot;} {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;} 
+None 账号错误 {&quot;username&quot;: &quot;python415&quot;, &quot;password&quot;: &quot;lemonban&quot;} {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;} 
+None 密码过短 {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemon&quot;} {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;} 
+None 密码过长 {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban123456789012345678&quot;} {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;} 
+</code></pre>
+<h2 id="2-封装读取excel用例数据的功能">2. 封装读取excel用例数据的功能</h2>
+<p>是封装成一个函数，还是封装成一个类。</p>
+<p>在大多数情况下，简单功能(代码函数较少，逻辑较简单)可以直接封装成函数。</p>
+<p>复杂功能，数据结构复杂，一般进行面向对象封装。</p>
+<h3 id="1-功能分析">1. 功能分析</h3>
+<ol>
+<li>根据exel文件名读取对应的文件数据</li>
+<li>根据工作表名读取对应表数据</li>
+<li>返回字典列表格式便于处理</li>
+</ol>
+<h3 id="2封装成函数">2.封装成函数</h3>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/11 20:51
+# @Author  : shisuiyi
+# @File    : read_excel_tool.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+# 测试数据处理模块
+
+from openpyxl import load_workbook
+
+
+def get_data_from_excel(file, sheet_name=None):
+    &quot;&quot;&quot;
+    获取excel文件中指定表里的测试数据
+    :param file:
+    :param sheet_name:
+    &quot;&quot;&quot;
+
+    # 1. 读取excel文件 
+    wb = load_workbook(file)  # 读取excel文件返回一个workbook对象
+    # 2. 读取对应的表
+    if sheet_name is None:
+        # 如果不传sheet_name,默认使用第一张表
+        ws = wb.active
+    else:
+        ws = wb[sheet_name] # 通过表名可以以字典取值的方式获取对应的表。封装为一个worksheet对象
+    # 3. 创建一个列表容器存放数据
+    data = []
+    # 4. 组织数据
+    # 4.1 获取表头，作为字典的key
+    row_list = list(ws.rows)   # worksheet对象的rows属性返回表的行数据的迭代对象
+    # tilte = []
+    # # 拿到第一行，然后迭代
+    # for key in row_list[0]:
+    #     tilte.append(key.value)  # 通过cell对象的value属性可以取出单元格中的值
+    title = [item.value for item in row_list[0]]  # 列表生成式
+    # 4.2 获取其他数据
+    for row in row_list[1:]:
+        # 获取每一行的数据
+        temp = [i.value for i in row]
+        # 将表头与这一行数据打包，换成字典
+        data.append(dict(zip(title, temp)))
+    return data
+
+
+if __name__ == '__main__':
+    res = get_data_from_excel('testdata.xlsx')
+    print(res)
+
+</code></pre>
+<p>使用封装的函数读取excel中的元素然后进行测试</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/8 21:08
+# @Author  : shisuiyi
+# @File    : test_login.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import unittest
+from testcode import login
+# from ddt import ddt, data
+from unittestreport import ddt, list_data
+from read_excel_tool import get_data_from_excel
+
+# cases = [
+#     {&quot;title&quot;: &quot;登陆成功&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban&quot;},
+#      &quot;expect&quot;: {&quot;code&quot;: 0, &quot;msg&quot;: &quot;登录成功&quot;}},
+#     {&quot;title&quot;: &quot;账号或密码不正确&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemonban123&quot;},
+#      &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}},
+#     {&quot;title&quot;: &quot;账号或密码不正确&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45123&quot;, &quot;password&quot;: &quot;lemonban&quot;},
+#      &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;账号或密码不正确&quot;}},
+#     {&quot;title&quot;: &quot;密码长度在6-18位之间&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;, &quot;password&quot;: &quot;lemo&quot;},
+#      &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}},
+#     {&quot;title&quot;: &quot;密码长度在6-18位之间&quot;, &quot;request&quot;: {&quot;username&quot;: &quot;python45&quot;,
+#     &quot;password&quot;: &quot;lemonbanlemonbanlemonbanlemonbanlemonban&quot;},
+#      &quot;expect&quot;: {&quot;code&quot;: 1, &quot;msg&quot;: &quot;密码长度在6-18位之间&quot;}},
+# ]
+
+cases = get_data_from_excel('testdata.xlsx', 'login')
+
+
+@ddt
+class TestLogin(unittest.TestCase):
+    &quot;&quot;&quot;
+    测试登录函数
+    &quot;&quot;&quot;
+
+    @classmethod
+    def setUpClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级前置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级前置，在整个类的测试前执行')
+
+    @classmethod
+    def tearDownClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级后置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级后置，在整个测试类测试完成后执行')
+
+    def setUp(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级前置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行前执行====')
+
+    def tearDown(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级后置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行后执行======')
+
+    # @data(*cases)
+    @list_data(cases)
+    def test_login(self, case):
+        # 1. 准备测试数据
+        print(case)
+        print('{}开始测试'.format(case['title']))
+        # 2. 测试步骤
+        res = login(**eval(case['request']))
+        # 3. 断言
+        self.assertEqual(res, eval(case['expect']))
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+</code></pre>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/-xeCdFRiP/">
+            <span class="flex-auto">unittest</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/coH_Kee_s/">
+                <h3 class="post-title">
+                   unittest
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
