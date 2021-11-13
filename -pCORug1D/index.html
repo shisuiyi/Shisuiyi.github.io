@@ -1,0 +1,788 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636793435472">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636793435472" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%97%A5%E5%BF%97">日志</a></li>
+<li><a href="#%E4%B8%80-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8">一、简单使用</a>
+<ul>
+<li><a href="#1-%E5%85%A5%E9%97%A8%E5%B0%8F%E6%A1%88%E4%BE%8B">1. 入门小案例</a></li>
+<li><a href="#2-%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB">2. 日志级别</a></li>
+<li><a href="#3-%E9%85%8D%E7%BD%AEbasicconfig%E6%96%B9%E6%B3%95%E6%94%AF%E6%8C%81%E4%B8%80%E4%B8%8B%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE">3. 配置<code>basicConfig</code>方法支持一下关键字参数进行配置。</a></li>
+<li><a href="#4-%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%A7%84%E5%88%99">4. 格式化规则</a></li>
+<li><a href="#5%E6%97%A5%E5%BF%97%E5%86%99%E5%88%B0%E6%96%87%E4%BB%B6">5.日志写到文件</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95">二、高级用法</a>
+<ul>
+<li><a href="#1-%E6%97%A5%E5%BF%97%E7%BB%84%E4%BB%B6">1. 日志组件</a></li>
+<li><a href="#2%E6%AD%A5%E9%AA%A4">2.步骤</a>
+<ul>
+<li><a href="#21-%E5%88%9B%E5%BB%BA%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E5%99%A8">2.1 创建日志记录器</a></li>
+<li><a href="#22-%E5%88%9B%E5%BB%BA%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86%E5%99%A8">2.2 创建日志处理器</a></li>
+<li><a href="#23-%E5%88%9B%E5%BB%BA%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%99%A8">2.3 创建格式化器</a></li>
+<li><a href="#24-%E5%88%9B%E5%BB%BA%E8%BF%87%E6%BB%A4%E5%99%A8">2.4 创建过滤器</a></li>
+<li><a href="#25-%E5%B0%86%E5%A4%84%E7%90%86%E5%99%A8%E6%B7%BB%E5%8A%A0%E5%88%B0%E8%AE%B0%E5%BD%95%E5%99%A8%E4%B8%8A">2.5 将处理器添加到记录器上</a></li>
+<li><a href="#26-%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97">2.6 记录日志</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97%E5%B0%81%E8%A3%85">三、日志模块封装</a>
+<ul>
+<li><a href="#1-%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90">1. 功能分析</a></li>
+<li><a href="#2%E5%B0%81%E8%A3%85%E6%88%90%E5%87%BD%E6%95%B0">2.封装成函数</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%9B-%E5%BA%94%E7%94%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E4%B8%AD">四、应用到项目中</a>
+<ul>
+<li><a href="#1-%E5%AF%BC%E5%85%A5">1. 导入</a></li>
+<li><a href="#2-%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97">2. 记录日志</a></li>
+<li><a href="#3%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE">3.测试数据</a></li>
+<li><a href="#4-%E6%B5%8B%E8%AF%95%E6%AD%A5%E9%AA%A4">4. 测试步骤</a></li>
+<li><a href="#5-%E6%96%AD%E8%A8%80">5. 断言</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16"> python 日志模块的使用</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-13 / 14 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/-pCORug1D.webp" alt="">
+        
+        <div class="post-content yue">
+          <h2 id="日志">日志</h2>
+<p>软件开发中通过日志记录程序的运行情况是一个开发的好习惯，对于错误排查和系统运维都有很大帮助。</p>
+<p>Python 标准库自带了强大的 logging 日志模块，在各种 python 模块中得到广泛应用。</p>
+<h2 id="一-简单使用">一、简单使用</h2>
+<h3 id="1-入门小案例">1. 入门小案例</h3>
+<pre><code class="language-python">import logging
+
+# 默认的warning级别，只输出warning以上的
+# 使用basicConfig()来指定日志级别和相关信息
+logging.basicConfig(level=logging.DEBUG,  # 设置级别，根据等级显示
+                    format='%(asctime)s-[%(filename)s--&gt;line:%(lineno)d]-%(levelname)s:%(message)s',  # 设置输出格式
+                    datefmt=&quot;%Y-%m-%d %H:%M:%S&quot;  # 时间输出的格式
+
+                    )
+logging.debug(&quot;This is  DEBUG !!&quot;)
+logging.info(&quot;This is  INFO !!&quot;)
+logging.warning(&quot;This is  WARNING !!&quot;)
+logging.error(&quot;This is  ERROR !!&quot;)
+logging.critical(&quot;This is  CRITICAL !!&quot;)
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-python">C:\Users\12446\AppData\Local\Programs\Python\Python39\python.exe D:/Lemon/py45/day18/common/log_handler.py
+2021-11-13 12:35:45-[log_handler.py--&gt;line:16]-DEBUG:This is  DEBUG !!
+2021-11-13 12:35:45-[log_handler.py--&gt;line:17]-INFO:This is  INFO !!
+2021-11-13 12:35:45-[log_handler.py--&gt;line:18]-WARNING:This is  WARNING !!
+2021-11-13 12:35:45-[log_handler.py--&gt;line:19]-ERROR:This is  ERROR !!
+2021-11-13 12:35:45-[log_handler.py--&gt;line:20]-CRITICAL:This is  CRITICAL !!
+
+Process finished with exit code 0
+</code></pre>
+<h3 id="2-日志级别">2. 日志级别</h3>
+<p>根据不同情况设置了五种日志等级，不同情况输出不同等级的日志。</p>
+<table>
+<thead>
+<tr>
+<th>日志等级（level）</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEBUG</td>
+<td>调试信息，通常在诊断问题的时候用得着</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>普通信息，确认程序按照预期运行</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>警告信息，表示发生意想不到的事情，或者指示接下来可能会出现一些问题，但是程序还是继续运行</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>错误信息，程序运行中出现了一些问题，程序某些功能不能执行</td>
+</tr>
+<tr>
+<td>CRITICAL</td>
+<td>危险信息，一个严重的错误，导致程序无法继续运行</td>
+</tr>
+</tbody>
+</table>
+<p>日志器设置的级别会过滤掉低于这个级别的日志</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/13 12:27
+# @Author  : shisuiyi
+# @File    : log_handler.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import logging
+
+# 默认的warning级别，只输出warning以上的
+# 使用basicConfig()来指定日志级别和相关信息
+logging.basicConfig(level=logging.ERROR,  # 设置级别，根据等级显示
+                    format='%(asctime)s-[%(filename)s--&gt;line:%(lineno)d]-%(levelname)s:%(message)s',  # 设置输出格式
+                    datefmt=&quot;%Y-%m-%d %H:%M:%S&quot;  # 时间输出的格式
+                    )
+logging.debug(&quot;This is a debug log&quot;)
+logging.info(&quot;This is  INFO log&quot;)
+logging.warning(&quot;This is  WARNING log&quot;)
+logging.error(&quot;This is  ERROR log&quot;)
+logging.critical(&quot;This is  CRITICAL log&quot;)
+</code></pre>
+<p>输出</p>
+<pre><code class="language-python">2021-11-13 12:39:13-[log_handler.py--&gt;line:19]-ERROR:This is  ERROR log
+2021-11-13 12:39:13-[log_handler.py--&gt;line:20]-CRITICAL:This is  CRITICAL log
+</code></pre>
+<h3 id="3-配置basicconfig方法支持一下关键字参数进行配置">3. 配置<code>basicConfig</code>方法支持一下关键字参数进行配置。</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filename</td>
+<td>使用指定的文件名而不是 StreamHandler 创建 FileHandler。</td>
+</tr>
+<tr>
+<td>filemode</td>
+<td>如果指定了 filename，则用此 模式 打开该文件。 默认模式为 'a'。</td>
+</tr>
+<tr>
+<td>format</td>
+<td>处理器使用的指定格式字符串。</td>
+</tr>
+<tr>
+<td>datefmt</td>
+<td>使用指定的日期/时间格式，与 time.strftime() 所接受的格式相同。</td>
+</tr>
+<tr>
+<td>style</td>
+<td>如果指定了 format，将为格式字符串使用此风格。 '%', '{' 或 '$' 分别对应于 printf 风格，str.format() 或 string.Template。 默认为 '%'。</td>
+</tr>
+<tr>
+<td>level</td>
+<td>设置根记录器级别去指定 level.</td>
+</tr>
+<tr>
+<td>stream</td>
+<td>使用指定的流初始化 StreamHandler。 请注意此参数与 filename 是不兼容的 - 如果两者同时存在，则会引发 ValueError。</td>
+</tr>
+<tr>
+<td>handlers</td>
+<td>如果指定，这应为一个包含要加入根日志记录器的已创建处理程序的可迭代对象。 任何尚未设置格式描述符的处理程序将被设置为在此函数中创建的默认格式描述符。 请注意此参数与 filename 或 stream 不兼容 —— 如果两者同时存在，则会引发 ValueError。</td>
+</tr>
+<tr>
+<td>force</td>
+<td>如果将此关键字参数指定为 true，则在执行其他参数指定的配置之前，将移除并关闭附加到根记录器的所有现有处理器。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-格式化规则">4. 格式化规则</h3>
+<p>日志的输出格式可以通过下面格式自由组合输出</p>
+<table>
+<thead>
+<tr>
+<th>规则</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%(asctime)s</td>
+<td>日志事件发生的时间</td>
+</tr>
+<tr>
+<td>%(levelname)s</td>
+<td>该日志记录的日志级别</td>
+</tr>
+<tr>
+<td>%(message)s</td>
+<td>日志记录的文本内容</td>
+</tr>
+<tr>
+<td>%(name)s</td>
+<td>所使用的日志器名称，默认是'root'</td>
+</tr>
+<tr>
+<td>%(pathname)s</td>
+<td>调用日志记录函数的文件的全路径</td>
+</tr>
+<tr>
+<td>%(filename)s</td>
+<td>调用日志记录函数的文件</td>
+</tr>
+<tr>
+<td>%(module)s</td>
+<td>模块 (filename 的名称部分)。</td>
+</tr>
+<tr>
+<td>%(funcName)s</td>
+<td>调用日志记录函数的函数名</td>
+</tr>
+<tr>
+<td>%(lineno)d</td>
+<td>调用日志记录函数的代码所在的行号</td>
+</tr>
+</tbody>
+</table>
+<p>常用格式：<code>%(asctime)s-[%(filename)s--&gt;line:%(lineno)d]-%(levelname)s:%(message)s</code></p>
+<h3 id="5日志写到文件">5.日志写到文件</h3>
+<p>只需要配置 filename 参数即可</p>
+<pre><code class="language-python">import logging
+# 设置日志
+logging.basicConfig(
+    level=logging.WARNING,  # 设置日志等级
+    format='%(asctime)s-[%(filename)s--&gt;line:%(lineno)d]-%(levelname)s:%(message)s', # 设置输出格式
+    datefmt='%Y/%m/%d %H:%M:%S',
+    filename='my.log',
+    filemode='a'
+)
+logging.debug('This is a debug log')
+logging.info('This is a info log')
+logging.warning('This is a warning log')
+logging.error('This is a error log')
+logging.critical('This is a critical log')
+</code></pre>
+<p>输出</p>
+<pre><code class="language-python"># my.log 文件
+2021/11/13 13:13:58-[log_handler.py--&gt;line:18]-WARNING:This is a warning log
+2021/11/13 13:13:58-[log_handler.py--&gt;line:19]-ERROR:This is a error log
+2021/11/13 13:13:58-[log_handler.py--&gt;line:20]-CRITICAL:This is a critical log
+</code></pre>
+<h2 id="二-高级用法">二、高级用法</h2>
+<p>简单的代码通过 logging 直接使用即可，如果要深入使用需要按照面向对象的方式使用 logging。</p>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1636793103340.png" alt="" loading="lazy"></figure>
+<h3 id="1-日志组件">1. 日志组件</h3>
+<p>logging 模块包含一下几个组件。</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loggers(日志记录器)</td>
+<td>提供程序直接使用的接口</td>
+</tr>
+<tr>
+<td>Handlers(日志处理器)</td>
+<td>将记录的日志发送到指定的位置</td>
+</tr>
+<tr>
+<td>Filters(日志过滤器)</td>
+<td>用于过滤特定的日志记录</td>
+</tr>
+<tr>
+<td>Formatters(日志格式器)</td>
+<td>用于控制日志信息的输出格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2步骤">2.步骤</h3>
+<h4 id="21-创建日志记录器">2.1 创建日志记录器</h4>
+<p><code>import logging</code></p>
+<p><strong>第一步创建一个 logger，用来产生日志</strong></p>
+<pre><code class="language-python">import logging
+# 1. 创建日志器
+logger = logging.getLogger('py45')
+logger.setLevel(logging.DEBUG)  # 给日志器设置等级 通过 getLogger 这个方法可以创建一个日志记录器，注意要给名字否则返回根日志记录器。
+</code></pre>
+<p>通过 setLevel 设置日志记录器的等级。</p>
+<h4 id="22-创建日志处理器">2.2 创建日志处理器</h4>
+<p><strong>创建一个文本处理器用来将日志写入到文件</strong></p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/13 12:27
+# @Author  : shisuiyi
+# @File    : log_handler.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import logging
+
+# 1. 创建日志记录器
+logger = logging.getLogger('py45')
+logger.setLevel(logging.DEBUG)  # 给日志器设置等级
+
+# 2.1 创建日志处理器
+file_handler = logging.FileHandler(
+    filename='py34.log', encoding='utf-8')
+file_handler.setLevel('WARNING')  # 设置处理器的日志等级
+
+
+# 2.2创建一个控制台处理器用来将日志输出到控制台
+console_handler = logging.StreamHandler()
+console_handler.setLevel('INFO')  # 设置控制台处理器的日志等级日志处理器就是将日志发送到指定的位置。
+
+</code></pre>
+<ul>
+<li><code>FileHandler</code> 将日志发送到文件</li>
+<li><code>StreaHandler</code>将它可将日志记录输出发送到数据流例如 sys.stdout, sys.stderr 或任何文件类对象默认 sys.stdout 即控制台。</li>
+<li><code>RotatingFileHandler</code>支持根据日志文件大小进行轮转</li>
+<li><code>TimedRotatingFileHandler</code> 支持根据时间进行轮转日志文件</li>
+</ul>
+<p>更多详情见<a href="http://testingpai.com/forward?goto=https%3A%2F%2Fdocs.python.org%2Fzh-cn%2F3%2Flibrary%2Flogging.handlers.html%23module-logging.handlers">官方文档</a></p>
+<h4 id="23-创建格式化器">2.3 创建格式化器</h4>
+<pre><code class="language-python">formatter = logging.Formatter(fmt='%(asctime)s-[%(filename)s--&gt;line:%(lineno)d]-%(levelname)s:%(message)s')
+</code></pre>
+<p>格式化器需要设置到处理器上</p>
+<pre><code class="language-python">console_handler.setFormatter(formatter)
+file_handler.setFormatter(formatter)
+</code></pre>
+<h4 id="24-创建过滤器">2.4 创建过滤器</h4>
+<p>过滤器用来过滤指定日志。具体使用略，一般用不到。</p>
+<p>详情见<a href="http://testingpai.com/forward?goto=https%3A%2F%2Fdocs.python.org%2Fzh-cn%2F3%2Fhowto%2Flogging-cookbook.html%23filters-contextual">官方文档</a></p>
+<h4 id="25-将处理器添加到记录器上">2.5 将处理器添加到记录器上</h4>
+<pre><code class="language-python">logger.addHandler(console_handler)
+logger.addHandler(file_handler)
+</code></pre>
+<h4 id="26-记录日志">2.6 记录日志</h4>
+<pre><code class="language-python">logger.info('aaaa')
+logger.warning('你再不输出试试123')
+</code></pre>
+<h2 id="三-日志模块封装">三、日志模块封装</h2>
+<h3 id="1-功能分析">1. 功能分析</h3>
+<ol>
+<li>能够自定义日志器名</li>
+<li>能够自定义日志文件名和路径</li>
+<li>能够自定义日志文件编码方式</li>
+<li>能够自定义日志格式</li>
+<li>使用时间轮转处理器，并能够配置</li>
+</ol>
+<h3 id="2封装成函数">2.封装成函数</h3>
+<p>在 <code>common</code> 目录下创建模块 <code>log_handler.py</code> 在其中创建如下函数。</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/13 12:27
+# @Author  : shisuiyi
+# @File    : log_handler.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import logging
+from logging.handlers import TimedRotatingFileHandler
+
+
+def get_logger(name, filename, encoding='utf-8',
+               fmt=None, when='d', interval=1, backup_count=7, debug=False):
+    &quot;&quot;&quot;
+    @param name:日志器的名字
+    @param filename:日志文件名(包含路径)
+    @param encoding:字符编码
+    @param fmt:日志格式
+    @param when:日志轮转时间单位
+    @param interval:间隔
+    @param backup_count:日志文件个数
+    @param debug:调试模式
+    &quot;&quot;&quot;
+    # 1. 创建日志器
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.DEBUG)
+    # 文件处理器的等级一般情况一定比控制台要高
+    if debug:
+        file_level = logging.DEBUG
+        console_level = logging.DEBUG
+    else:
+        file_level = logging.WARNING
+        console_level = logging.INFO
+
+    if fmt is None:
+        fmt = '%(levelname)s %(asctime)s [%(filename)s--&gt;line:%(lineno)d]:%(message)s'
+
+    file_handler = TimedRotatingFileHandler(
+        filename=filename, when=when, interval=interval, backupCount=backup_count, encoding=encoding)
+    file_handler.setLevel(file_level)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(console_level)
+
+    formatter = logging.Formatter(fmt=fmt)
+    file_handler.setFormatter(formatter)
+    console_handler.setFormatter(formatter)
+
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
+    return logger
+
+
+if __name__ == '__main__':
+    log = get_logger(name='py48', filename='my.log', debug=True, when='s')
+    log.info('我是普通信息')
+    import time
+    time.sleep(3)
+    log.warning('我是3秒之后的日志')
+
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://Shisuiyi.github.io/post-images/1636793128182.png" alt="" loading="lazy"></figure>
+<h2 id="四-应用到项目中">四、应用到项目中</h2>
+<h3 id="1-导入">1. 导入</h3>
+<p>日志器生成函数的导入不能像 Excel 数据读取函数一样，每个用例模块里都导入一遍。因为它返回一个日志器对象，当多次调用日志器生成函数，且日志器名称相同时，会给同一个日志器添加多个日志处理器，从而出现重复记录日志器的问题。</p>
+<p>为了解决上面的问题，在 common 文件夹下创建一个名为 <code>__init__.py</code> 的文件，在 common 模块被导入时会自动执行这个文件里的代码，且只会执行一次。</p>
+<p>在 <code>__init__.py</code> 文件编写如下代码：</p>
+<pre><code class="language-python">from .log_handler import get_logger
+logger = get_logger(name='py48', filename='my.log')
+</code></pre>
+<p>那么在项目中的其他模块中就可以通过如下代码导入</p>
+<p><code>from common import logger</code>从而可以保证在项目执行过程中，get_logger 方法只会执行一遍。</p>
+<h3 id="2-记录日志">2. 记录日志</h3>
+<p>日志的作用是记录程序的运行状态和当程序出现问题时能提供定位分析错误的依据。</p>
+<p>什么时候需要记录日志，记录什么日志，根据每个人对程序的理解，以及经验。</p>
+<p>我们的项目中，在用例执行的过程是核心，所以我们的日志也是围绕着用例的执行。</p>
+<p>使用日志记录每个用例的测试数据，和测试结果，代码如下：</p>
+<pre><code class="language-python">@list_data(cases)
+def test_login(self, case):
+    # 1. 准备测试数据
+    # print(case)
+    # print('{}开始测试'.format(case['title']))
+    logger.info('测试用例【{}】开始测试'.format(case['title']))
+</code></pre>
+<h3 id="3测试数据">3.测试数据</h3>
+<p><strong>传入进来的 case 参数</strong></p>
+<pre><code class="language-python">logger.info('测试用例【{}】的测试数据是：{}'.format(case['title'], case))
+</code></pre>
+<h3 id="4-测试步骤">4. 测试步骤</h3>
+<pre><code class="language-python"> # 2. 测试步骤
+        res = login(**eval(case['request']))
+        logger.info('测试用例【{}】的测试结果是：{}'.format(case['title'], res))
+</code></pre>
+<h3 id="5-断言">5. 断言</h3>
+<pre><code class="language-python"># 3. 断言
+# self.assertEqual(res, eval(case['expect']))
+try:
+    self.assertEqual(res, eval(case['expect']))
+except AssertionError as e:
+    logger.error('测试用例【{}】断言失败'.format(case['title']))
+    raise e
+else:
+    logger.info('测试用例【{}】断言成功'.format(case['title']))
+finally:
+    logger.info('测试用例【{}】测试结束'.format(case['title']))
+</code></pre>
+<p><strong>整体代码如下</strong></p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/8 21:08
+# @Author  : shisuiyi
+# @File    : test_login.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import unittest
+from testcode import login
+from unittestreport import ddt, list_data
+from common.read_excel_tool import get_data_from_excel
+from common import logger
+
+cases = get_data_from_excel(r'D:\Lemon\py45\day18\testdata\testdata.xlsx', 'login')
+
+
+@ddt
+class TestLogin(unittest.TestCase):
+    &quot;&quot;&quot;
+    测试登录函数
+    &quot;&quot;&quot;
+
+    @classmethod
+    def setUpClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级前置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级前置，在整个类的测试前执行')
+
+    @classmethod
+    def tearDownClass(cls) -&gt; None:
+        &quot;&quot;&quot;
+        类级后置
+        :return:
+        &quot;&quot;&quot;
+        print('我是类级后置，在整个测试类测试完成后执行')
+
+    def setUp(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级前置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行前执行====')
+
+    def tearDown(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级后置
+        :return:
+        &quot;&quot;&quot;
+        print('======我会在每个测试执行后执行======')
+
+    # @data(*cases)
+    @list_data(cases)
+    def test_login(self, case):
+        # 1. 准备测试数据
+        # print(case)
+        # print('{}开始测试'.format(case['title']))
+        logger.info('测试用例【{}】开始测试'.format(case['title']))
+        logger.info('测试用例【{}】的测试数据是：{}'.format(case['title'], case))
+        # 2. 测试步骤
+        res = login(**eval(case['request']))
+        logger.info('测试用例【{}】的测试结果是：{}'.format(case['title'], res))
+        # 3. 断言
+        # self.assertEqual(res, eval(case['expect']))
+        try:
+            self.assertEqual(res, eval(case['expect']))
+        except AssertionError as e:
+            logger.error('测试用例【{}】断言失败'.format(case['title']))
+            raise e
+        else:
+            logger.info('测试用例【{}】断言成功'.format(case['title']))
+        finally:
+            logger.info('测试用例【{}】测试结束'.format(case['title']))
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+</code></pre>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/x3_cNMkns/">
+            <span class="flex-auto">logging</span>
+          </a>
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/o5ETtCpkfo/">
+            <span class="flex-auto">接口测试</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/VInD-wOSR/">
+                <h3 class="post-title">
+                  分层设计结构
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>

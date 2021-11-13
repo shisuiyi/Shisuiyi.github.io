@@ -78,19 +78,73 @@
 <div class="mask" onclick="closeMenu()">
 </div>
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
-        <h1 class="text-3xl font-bold lg:mt-16">流程控制-思维导图</h1>
+        <h1 class="text-3xl font-bold lg:mt-16">分层设计结构</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-11-07 / 0 min read
+          2021-11-13 / 1 min read
         </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/VInD-wOSR.webp" alt="">
         
         <div class="post-content yue">
-          <figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1636265911159.png" alt="" loading="lazy"></figure>
+          <p>把代码安装不同的功能分别放到不同的子文件夹中进行管理，代码分层。</p>
+<ul>
+<li>测试用例模块：<code>testcases</code></li>
+<li>测试数据目录：<code>testdata</code></li>
+<li>测试报告目录：<code>reports</code></li>
+<li>公共模块：<code>common</code></li>
+<li>项目入口文件:<code>main.py</code></li>
+</ul>
+<pre><code class="language-python">│  main.py
+│  testcode.py
+│
+├─common
+│  │  read_excel_tool.py
+│  │  __init__.py
+│  │
+│  └─__pycache__
+│          read_excel_tool.cpython-39.pyc
+│          __init__.cpython-39.pyc
+│
+├─reports
+│      history.json
+│      report.html
+│
+├─testcases
+│  │  test_ddt_login.py
+│  │  test_some.py
+│  │  __init__.py
+│  │
+│  ├─.pytest_cache
+│  │  │  .gitignore
+│  │  │  CACHEDIR.TAG
+│  │  │  README.md
+│  │  │
+│  │  └─v
+│  │      └─cache
+│  │              nodeids
+│  │              stepwise
+│  │
+│  └─__pycache__
+│          test_ddt_login.cpython-39.pyc
+│          test_some.cpython-39.pyc
+│
+├─testdata
+│      testdata.xlsx
+│
+└─__pycache__
+        testcode.cpython-39.pyc
+
+</code></pre>
 
         </div>
 
         
-          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/ci_h-jaCA/">
-            <span class="flex-auto">思维导图</span>
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/o5ETtCpkfo/">
+            <span class="flex-auto">接口测试</span>
+          </a>
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/-xeCdFRiP/">
+            <span class="flex-auto">unittest</span>
           </a>
         
 
@@ -98,10 +152,10 @@
         <div class="flex justify-between py-8">
           
             <div class="prev-post">
-              <a href="https://Shisuiyi.github.io/XzNnIFYoi/">
+              <a href="https://Shisuiyi.github.io/-pCORug1D/">
                 <h3 class="post-title">
                   <i class="ri-arrow-left-line"></i>
-                  函数与代码复用-思维导图
+                   python 日志模块的使用
                 </h3>
               </a>
             </div>
@@ -109,9 +163,9 @@
 
           
             <div class="next-post">
-              <a href="https://Shisuiyi.github.io/9ftzgqOeZ/">
+              <a href="https://Shisuiyi.github.io/LMEecicou/">
                 <h3 class="post-title">
-                  数据类型-思维导图
+                  Python 操作 json 数据
                   <i class="ri-arrow-right-line"></i>
                 </h3>
               </a>
