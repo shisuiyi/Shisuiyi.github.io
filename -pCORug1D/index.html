@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636795502927">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1636796420294">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636795502927" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1636796420294" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -508,7 +508,8 @@ if __name__ == '__main__':
 <p>为了解决上面的问题，在 common 文件夹下创建一个名为 <code>__init__.py</code> 的文件，在 common 模块被导入时会自动执行这个文件里的代码，且只会执行一次。</p>
 <p>在 <code>__init__.py</code> 文件编写如下代码：</p>
 <pre><code class="language-python">from .log_handler import get_logger
-logger = get_logger(name='py48', filename='my.log')
+logger = get_logger(name='py48', filename='D:\Lemon\py45\day18\log\my.log', debug=True, when='S', interval=10)
+
 </code></pre>
 <p>那么在项目中的其他模块中就可以通过如下代码导入</p>
 <p><code>from common import logger</code>从而可以保证在项目执行过程中，get_logger 方法只会执行一遍。</p>
