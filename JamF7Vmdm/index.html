@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1637069207939">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1637243200238">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1637069207939" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1637243200238" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -124,7 +124,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">python常用的配置文件</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-11-16 / 9 min read
+          2021-11-16 / 10 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/JamF7Vmdm.webp" alt="">
@@ -335,10 +335,64 @@ if __name__ == '__main__':
 <p>封装思路：</p>
 <ol>
 <li>整体思路和上面的函数封装是一致的</li>
-<li>将解析ini文件和yaml文件的逻辑分开放到两个私有方法中</li>
+<li><s>将解析ini文件和yaml文件的逻辑分开放到两个私有方法中</s></li>
 <li>因为逻辑本身比较简单，面向对象封装和函数封装没有太多区别</li>
 </ol>
-<p>略~</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/16 20:33
+# @Author  : shisuiyi
+# @File    : congig_handler.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+from configparser import ConfigParser
+import yaml
+
+
+class Config:
+    def __init__(self, filename, encoding='utf-8'):
+        self.filename = filename
+        self.encoding = encoding
+        self.suffix = self.filename.split('.')[-1]
+        if self.suffix not in ['yaml', 'yml', 'cnf', 'conf', 'ini']:
+            raise ValueError('不能识别的配置文件后缀：{}'.format(self.suffix))
+
+    def parse_ini(self):
+        &quot;&quot;&quot;
+        解析ini
+        :return:
+        &quot;&quot;&quot;
+        conf = ConfigParser()
+        conf.read(self.filename)
+        data = {}
+        for section in conf.sections():
+            data[section] = dict(conf.items(section))
+        return data
+
+    def parse_yaml(self):
+        &quot;&quot;&quot;
+        解析yaml
+        :return:
+        &quot;&quot;&quot;
+        with open(self.filename, 'r', encoding=self.encoding) as f:
+            data = yaml.load(f, Loader=yaml.FullLoader)
+        return data
+
+    def parse(self):
+        &quot;&quot;&quot;
+        解析配置文件
+        :return:
+        &quot;&quot;&quot;
+        if self.suffix in ['yaml', 'yml']:
+            return self.parse_yaml()
+        else:
+            return self.parse_ini()
+
+
+if __name__ == '__main__':
+    cm = Config(r'D:\Lemon\py45\day20\config.yaml')
+    res = cm.parse()
+    print(res)
+</code></pre>
 <h3 id="4应用到项目中">4.应用到项目中</h3>
 <p>一个框架封装的彻不彻底的标准是能否复用，也即是另外一个项目来用时，不需要修改框架的源码。</p>
 <p>在我们目前封装的框架中，耦合高的点有：</p>
@@ -432,6 +486,15 @@ if __name__ == '__main__':
 
 
         <div class="flex justify-between py-8">
+          
+            <div class="prev-post">
+              <a href="https://Shisuiyi.github.io/VbQMqWSnj/">
+                <h3 class="post-title">
+                  <i class="ri-arrow-left-line"></i>
+                  python项目配置文件的终极方案
+                </h3>
+              </a>
+            </div>
           
 
           

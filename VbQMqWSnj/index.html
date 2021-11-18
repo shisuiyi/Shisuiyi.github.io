@@ -1,0 +1,445 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1637243200238">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1637243200238" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%A8%A1%E5%9D%97">一 、创建配置模块</a></li>
+<li><a href="#%E4%BA%8C-%E9%A1%B9%E7%9B%AE%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86">二、项目路径处理</a>
+<ul>
+<li><a href="#1-%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F__file__">1. 全局变量<code>__file__</code></a></li>
+<li><a href="#2-os%E6%A8%A1%E5%9D%97">2. os模块</a>
+<ul>
+<li><a href="#21-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B7%AF%E5%BE%84">2.1 获取当前模块的路径</a></li>
+<li><a href="#22-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%A8%A1%E5%9D%97%E6%89%80%E5%9C%A8%E7%9A%84%E7%9B%AE%E5%BD%95">2.2 获取当前模块所在的目录</a></li>
+<li><a href="#23-%E6%8B%BC%E6%8E%A5%E8%B7%AF%E5%BE%84">2.3 拼接路径</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%9C%A8settings%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E5%A4%84%E7%90%86%E8%B7%AF%E5%BE%84">3. 在settings配置文件中处理路径</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">python项目配置文件的终极方案</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-18 / 5 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/VbQMqWSnj.webp" alt="">
+        
+        <div class="post-content yue">
+          <p>python是一门解释型编程语言，代码不需要编译，修改后立刻可以执行。</p>
+<p>而配置文件中的数据都会转化为python中的对象来进行操作，所以我们可以单独使用一个python文件，在其中定义配置信息。</p>
+<p>框架中的其他核心模块，直接导入该配置模块中的配置变量直接使用，效率更高，更直观。</p>
+<p>很多python项目都是采用这种方式进行配置化，例如<code>django</code>.</p>
+<h2 id="一-创建配置模块">一 、创建配置模块</h2>
+<p>在项目根目录创建模块<code>settings.py</code>，在其中直接定义配置项。</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/17 20:27
+# @Author  : shisuiyi
+# @File    : setting.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+
+
+# 日志配置
+LOG_CONFIG = {
+    'name': 'py45',
+    'filename': 'D:\Lemon\py45\day20\logs\my.log',
+    'debug': 'true'
+}
+
+# 测试用例目录
+TESTCASES_DIR = 'D:\Lemon\py45\day20\testcases'
+
+
+# 测试数据
+TEST_DATA_FILE ='D:\Lemon\py45\day18\testdata\testdata.xlsx'
+
+# 测试报告
+REPORT_CONFIG = {
+    'report_dir': 'D:\Lemon\py45\day18\reports',
+    'title': 'py45期第一份测试报告',
+    'desc': '木森老师的测试报告模板',
+    'tester': 'shisuiyi',
+    'templates': 3
+}
+
+</code></pre>
+<h2 id="二-项目路径处理">二、项目路径处理</h2>
+<p>前面我们实现了配置化，但其中路径都是使用的项目根目录的相对路径，在调试子模块时会出现路径错误的问题。</p>
+<p>为了解决上面的问题，我们需要在项目中使用动态创建的绝对路径。</p>
+<h3 id="1-全局变量__file__">1. 全局变量<code>__file__</code></h3>
+<p>python中的每个模块中有一个特殊的变量<code>__file__</code>它的值永远是当前模块的绝对路径。</p>
+<p>创建模块<code>demo.py</code>，在其中输入如下内容:</p>
+<pre><code class="language-python">print(__file__)
+</code></pre>
+<p>运行后会输出当前模块的绝对路径</p>
+<pre><code class="language-bash">D:/project/classes/py38/day22/demo.py
+</code></pre>
+<p>即使在别的模块中导入这个模块时，这个值依然是这个模块的绝对路径。</p>
+<p>所以可以利用这个属性来动态的获取项目的根目录，再通过路径拼接来获取其他需要配置路径的绝对路径。</p>
+<h3 id="2-os模块">2. os模块</h3>
+<p>路径处理涉及到不同系统的格式问题，直接使用字符串拼接太麻烦，可以使用内置模块os来进行路径的处理。</p>
+<h4 id="21-获取当前模块的路径">2.1 获取当前模块的路径</h4>
+<pre><code class="language-python">import os
+print(os.path.abspath(__file__))
+print(__file__)
+D:\project\classes\py38\day22/demo.py
+D:/project/classes/py38/day22/demo.py
+</code></pre>
+<p>上面的代码是在windows系统上运行的，可以看到<code>os.path.abspath</code>会根据系统处理路径，在windows下路径使用反斜杠表示目录</p>
+<h4 id="22-获取当前模块所在的目录">2.2 获取当前模块所在的目录</h4>
+<pre><code class="language-python">import os
+print(os.path.dirname(os.path.abspath(__file__)))
+D:\project\classes\py38\day22
+</code></pre>
+<p><code>os.path.dirname</code>可以获取一个路径的父路径（上一层路径）</p>
+<h4 id="23-拼接路径">2.3 拼接路径</h4>
+<pre><code class="language-python">import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+print(os.path.join(BASE_DIR, 'logs'))
+D:\project\classes\py38\day22\logs
+</code></pre>
+<p><code>os.path.join</code>可以将多个路径按照系统风格拼接起来</p>
+<h3 id="3-在settings配置文件中处理路径">3. 在settings配置文件中处理路径</h3>
+<p>根据上面的知识，我们可以在配置文件中动态的生成绝对路径。</p>
+<p>修改<code>settings.py</code>文件如下：</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/17 20:27
+# @Author  : shisuiyi
+# @File    : setting.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import os
+
+# 项目根目录
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+print(BASE_DIR)
+
+# 日志配置
+LOG_CONFIG = {
+    'name': 'py45',
+    'filename': os.path.join(BASE_DIR, 'logs', 'my.log'),
+    'debug': 'true'
+}
+
+# 测试用例目录
+TESTCASES_DIR = os.path.join(BASE_DIR, 'testcases')
+
+
+# 测试数据
+TEST_DATA_FILE = os.path.join(BASE_DIR, 'testdata', 'testdata.xlsx')
+
+# 测试报告
+REPORT_CONFIG = {
+    'report_dir': os.path.join(BASE_DIR, 'reports'),
+    'title': 'py45期第一份测试报告',
+    'desc': '木森老师的测试报告模板',
+    'tester': 'shisuiyi',
+    'templates': 3
+}
+print(__file__)
+</code></pre>
+<p>在<code>common</code> 文件夹下的 <code>__init__.py</code>的文件中调用解析配置文件的函数</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/13 10:16
+# @Author  : shisuiyi
+# @File    : __init__.py.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+from common.log_handler import get_logger
+from common.read_excel_tool import get_data_from_excel
+import setting
+
+
+logger = get_logger(**setting.LOG_CONFIG)  # 在这里创建日志器
+</code></pre>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/8 21:08
+# @Author  : shisuiyi
+# @File    : test_login.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import unittest
+
+import setting
+from testcode import login
+from unittestreport import ddt, list_data
+# from common.read_excel_tool import get_data_from_excel
+from common import get_data_from_excel  # 事先在common 中的__init__导入了get_data_from_excel
+
+from common import logger
+
+cases = get_data_from_excel(setting.TEST_DATA_FILE, 'login')
+
+# 略	~
+</code></pre>
+<p><code>main.py</code></p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/9 20:14
+# @Author  : shisuiyi
+# @File    : main.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import unittest
+import unittestreport
+import setting
+
+
+if __name__ == '__main__':
+    discover = unittest.defaultTestLoader.discover(setting.TESTCASES_DIR)  # 表示收集当前目录下所有用例
+    runner = unittestreport.TestRunner(discover, **setting.REPORT_CONFIG)
+    runner.run()
+</code></pre>
+<p><strong>测试报告如下</strong><br>
+<img src="https://Shisuiyi.github.io/post-images/1637240975896.png" alt="" loading="lazy"><br>
+<img src="https://Shisuiyi.github.io/post-images/1637240984034.png" alt="" loading="lazy"></p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/HFVPV5osD/">
+            <span class="flex-auto">配置文件</span>
+          </a>
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/o5ETtCpkfo/">
+            <span class="flex-auto">接口测试</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+            <div class="prev-post">
+              <a href="https://Shisuiyi.github.io/riziBLm55/">
+                <h3 class="post-title">
+                  <i class="ri-arrow-left-line"></i>
+                  接口相关知识
+                </h3>
+              </a>
+            </div>
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/JamF7Vmdm/">
+                <h3 class="post-title">
+                  python常用的配置文件
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
