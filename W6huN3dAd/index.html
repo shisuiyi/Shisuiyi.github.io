@@ -30,34 +30,17 @@
       
         <div class="animated fadeInLeft" style="animation-delay: 0.4s">
           <p class="my-4 text-gray-600 font-light hidden lg:block">
-            <font color=#6495ED size=2 >小小Tester的学习历程</font>
+            文章目录
           </p>
-          <div class="animated fadeInLeft social-container hidden lg:block" style="animation-delay: 0.6s">
-            
-              
-                <a href="https://github.com/shisuiyi" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="ri-github-line"></i>
-                </a>
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%AE%80%E4%BB%8B">简介</a></li>
+</ul>
+</li>
+</ul>
+
           </div>
         </div>
       
@@ -101,87 +84,81 @@
 </div>
 <div class="mask" onclick="closeMenu()">
 </div>
-      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4">
-        <h2 class="text-lg text-gray-700 mb-8">
-          <i class="ri-bookmark-line"></i> unittest
-        </h2>
-        
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${0 * 0.2}s` }">
-    
-      <a href="https://Shisuiyi.github.io/JamF7Vmdm/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://Shisuiyi.github.io/post-images/JamF7Vmdm.webp'">
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">UDP协议详解</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-19 / 3 min read
         </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://Shisuiyi.github.io/JamF7Vmdm/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">python常用的配置文件</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">2021-11-16 / 10 min read</div>
-    </div>
-  </section>
+        <div class="post-content yue">
+          <h2 id="简介">简介</h2>
+<p>UDP（UserDatagramProtocol）是一个简单的面向消息的传输层协议，尽管UDP提供标头和有效负载的完整性验证（通过校验和），但它不保证向上层协议提供消息传递，并且UDP层在发送后不会保留UDP 消息的状态。因此，UDP有时被称为不可靠的数据报协议。如果需要传输可靠性，则必须在用户应用程序中实现。</p>
+<p>UDP使用具有最小协议机制的简单无连接通信模型。UDP提供数据完整性的校验和，以及用于在数据报的源和目标寻址不同函数的端口号。它没有握手对话，因此将用户的程序暴露在底层网络的任何不可靠的方面。如果在网络接口级别需要纠错功能，应用程序可以使用为此目的设计的传输控制协议（TCP）。</p>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1637323511849.png" alt="" loading="lazy"></figure>
+<p>综上所述：</p>
+<p>UDP是基于IP的简单协议，不可靠的协议。<br>
+UDP的优点：简单，轻量化。<br>
+UDP的缺点：没有流控制，没有应答确认机制，不能解决丢包、重发、错序问题。<br>
+这里需要注意一点，并不是所有使用UDP协议的应用层都是不可靠的，应用程序可以自己实现可靠的数据传输，通过增加确认和重传机制，所以使用UDP 协议最大的特点就是速度快。<br>
+UDP数据报分为首部和用户数据部分，整个UDP数据报作为IP数据报的数据部分封装在IP数据报中，UDP数据报文结构如图所示：</p>
+<p>UDP首部有8个字节，由4个字段构成，每个字段都是两个字节，</p>
+<ol>
+<li>源端口： 源端口号，需要对方回信时选用，不需要时全部置0.</li>
+<li>目的端口：目的端口号，在终点交付报文的时候需要用到。</li>
+<li>长度：UDP的数据报的长度（包括首部和数据）其最小值为8（只有首部）</li>
+<li>校验和：检测UDP数据报在传输中是否有错，有错则丢弃。</li>
+</ol>
+<p>该字段是可选的，当源主机不想计算校验和，则直接令该字段全为0.</p>
+<p>当传输层从IP层收到UDP数据报时，就根据首部中的目的端口，把UDP数据报通过相应的端口，上交给应用进程。</p>
+<p>如果接收方UDP发现收到的报文中的目的端口号不正确（不存在对应端口号的应用进程0,），就丢弃该报文，并由ICMP发送“端口不可达”差错报文给对方。</p>
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${1 * 0.2}s` }">
-    
-      <a href="https://Shisuiyi.github.io/VInD-wOSR/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://Shisuiyi.github.io/post-images/VInD-wOSR.webp'">
         </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://Shisuiyi.github.io/VInD-wOSR/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">分层设计结构</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        
-      </div>
-      <div class="text-gray-400 text-sm font-light">2021-11-13 / 1 min read</div>
-    </div>
-  </section>
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${2 * 0.2}s` }">
-    
-      <a href="https://Shisuiyi.github.io/On80jWjLX/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://Shisuiyi.github.io/post-images/On80jWjLX.jpg'">
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/pTeaTR3Ib/">
+                <h3 class="post-title">
+                  TCP/IP协议族
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
         </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://Shisuiyi.github.io/On80jWjLX/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">ddt 数据驱动/参数化</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        
-      </div>
-      <div class="text-gray-400 text-sm font-light">2021-11-11 / 15 min read</div>
-    </div>
-  </section>
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${3 * 0.2}s` }">
-    
-      <a href="https://Shisuiyi.github.io/coH_Kee_s/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'https://Shisuiyi.github.io/post-images/coH_Kee_s.jpg'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://Shisuiyi.github.io/coH_Kee_s/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0"> unittest</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">2021-11-09 / 15 min read</div>
-    </div>
-  </section>
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-        <div class="pagination-container animated fadeIn">
-  
-  
-</div>
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
 
       </div>
     </div>
