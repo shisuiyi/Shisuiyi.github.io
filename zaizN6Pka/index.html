@@ -1,0 +1,289 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1637389741421">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1637389741421" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1%E5%91%A8%E7%9F%A5%E7%AB%AF%E5%8F%A3well-known-ports">1.周知端口（Well Known Ports）</a></li>
+<li><a href="#2%E5%8A%A8%E6%80%81%E7%AB%AF%E5%8F%A3dynamic-ports">2.动态端口（Dynamic Ports）</a></li>
+<li><a href="#3%E6%B3%A8%E5%86%8C%E7%AB%AF%E5%8F%A3">3.注册端口</a></li>
+<li><a href="#4-%E5%A5%97%E6%8E%A5%E5%AD%97">4. 套接字</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">端口</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-20 / 5 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/zaizN6Pka.png" alt="">
+        
+        <div class="post-content yue">
+          <p>&quot;端口&quot;是英文port的意译，是设备与外界通讯交流的出口。端口可分为虚拟端口和物理端口，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见。例如计算机中的80端口、21端口、23端口等。物理端口又称为接口，是可见端口，计算机背板的RJ45网口，交换机路由器集线器等RJ45端口。今天我们主要来学习计算机的虚拟端口。</p>
+<p>我们知道，一台拥有IP地址的主机可以提供许多服务，比如Web服务、FTP服务、SMTP服务等，这些服务完全可以通过1个IP地址来实现。那么，主机是怎样区分不同的网络服务呢？显然不能只靠IP地址，因为IP 地址与网络服务的关系是一对多的关系。实际上是通过“IP地址+端口号”来区分不同的服务的。</p>
+<p>理解小技巧：可以把端口比作银行的服务窗口，对外服务。现金业务一个窗口，非现金业务一个窗口，贵宾服务一个窗口，用来接待不同的客户。操作系统比这个要复杂得多，同时运行的服务程序非常多，为了能够方便的管理，于是就开了很多的窗口，一个服务程序一个，相互不干扰。</p>
+<p>其实我们常说的端口也叫协议端口它总是和ip一起出现。如果把IP地址比作一间房子 ，端口就是出入这间房子的门。真正的房子只有几个门，但是一个IP地址的端口可以有65536（即：2^16）个之多！端口是通过端口号来标记的，端口号只有整数，范围是从0 到65535（2^16-1）。</p>
+<p>注意：协议端口分为TCP端口和UDP端口。由于TCP和UDP 两个协议是独立的，因此各自的端口号也相互独立，比如TCP有235端口，UDP也 可以有235端口，两者并不冲突。</p>
+<p>扩展：</p>
+<h3 id="1周知端口well-known-ports">1.周知端口（Well Known Ports）</h3>
+<p>周知端口是众所周知的端口号，范围从0到1023，其中80端口分配给WWW服务，21端口分配给FTP服务等。我们在IE的地址栏里输入一个网址的时候是不必指定端口号的，因为在默认情况下WWW服务的端口是“80”。</p>
+<p>网络服务是可以使用其他端口号的，如果不是默认的端口号则应该在 地址栏上指定端口号，方法是在地址后面加上冒号“：”（半角），再加上端口号。比如使用“8080”作为WWW服务的端口，则需要在地址栏里输入“网址：8080”。</p>
+<p>但是有些系统协议使用固定的端口号，它是不能被改变的，比如139 端口专门用于NetBIOS与TCP/IP之间的通信，不能手动改变。</p>
+<h3 id="2动态端口dynamic-ports">2.动态端口（Dynamic Ports）</h3>
+<p>动态端口的范围是从49152到65535。之所以称为动态端口，是因为它 一般不固定分配某种服务，而是动态分配。</p>
+<h3 id="3注册端口">3.注册端口</h3>
+<p>端口1024到49151，分配给用户进程或应用程序。这些进程主要是用户选择安装的一些应用程序，而不是已经分配好了公认端口的常用程序。这些端口在没有被服务器资源占用的时候，可以用用户端动态选用为源端口。</p>
+<h3 id="4-套接字">4. 套接字</h3>
+<p>套接字，是支持网络通信的基本操作单元，它是一个程序接口，它把复杂的TCP/IP协议族封装为几个简单的接口提供给应用层调用，实现程序在网络中的通信。</p>
+<p>socket是计算机网络通信的基本技术之一。大多数基于网络的软件，都是基于socket实现的。在通信开始之前，网络应用程序必须创建套接字。可以将它比作电话的插孔，电源的插座，没有它将无法进行通信。</p>
+<h2 id="总结">总结</h2>
+<p>上面的知识是为了大家从底层了解网络通信，网络通信涉及物理层和应用层，我们进行软件测试针对的是应用层。</p>
+<p>不同的客户端和不同服务端进行数据交互，为了统一大家制定了协议，也就是网络传输协议接口，我们的接口测试主要就是测试网络接口。</p>
+<p>目前使用最广泛的就是网络传输协议是HTTP协议。</p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/r6vPEMhB3/">
+            <span class="flex-auto">网络相关</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+            <div class="prev-post">
+              <a href="https://Shisuiyi.github.io/c6B-gYM_0/">
+                <h3 class="post-title">
+                  <i class="ri-arrow-left-line"></i>
+                  HTTP协议
+                </h3>
+              </a>
+            </div>
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/W6huN3dAd/">
+                <h3 class="post-title">
+                  UDP协议简介
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
