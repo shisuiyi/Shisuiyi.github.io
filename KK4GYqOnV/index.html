@@ -1,0 +1,527 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1637675412471">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1637675412471" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#requests">requests</a></li>
+<li><a href="#%E4%B8%80-%E7%AE%80%E4%BB%8B">一、简介</a>
+<ul>
+<li><a href="#%E4%BD%9C%E8%80%85">作者</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E4%BD%BF%E7%94%A8">二、使用</a>
+<ul>
+<li><a href="#1-%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82">1. 发起请求</a>
+<ul>
+<li><a href="#11-%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95">1.1 请求方法</a></li>
+<li><a href="#12-%E4%BC%A0%E9%80%92-url-%E5%8F%82%E6%95%B0">1.2 传递 URL 参数</a></li>
+<li><a href="#13-%E4%BC%A0%E9%80%92%E8%A1%A8%E5%8D%95%E5%8F%82%E6%95%B0">1.3 传递表单参数</a></li>
+<li><a href="#14-%E4%BC%A0%E9%80%92-json-%E5%8F%82%E6%95%B0">1.4 传递 JSON 参数</a></li>
+<li><a href="#15-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6">1.5 上传文件</a></li>
+<li><a href="#16-%E8%87%AA%E5%AE%9A%E4%B9%89-headers">1.6 自定义 Headers</a></li>
+<li><a href="#17-%E8%87%AA%E5%AE%9A%E4%B9%89-cookies">1.7 自定义 Cookies</a></li>
+<li><a href="#18-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">1.8 设置代理</a></li>
+<li><a href="#19-%E9%87%8D%E5%AE%9A%E5%90%91">1.9 重定向</a></li>
+<li><a href="#110-%E7%A6%81%E6%AD%A2%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81">1.10 禁止证书验证</a></li>
+<li><a href="#111-%E8%AE%BE%E7%BD%AE%E8%B6%85%E6%97%B6">1.11 设置超时</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%93%8D%E5%BA%94">2. 响应</a>
+<ul>
+<li><a href="#21-%E5%93%8D%E5%BA%94%E6%95%B0%E6%8D%AE">2.1 响应数据</a></li>
+<li><a href="#22-%E7%8A%B6%E6%80%81%E7%A0%81">2.2 状态码</a></li>
+<li><a href="#24-%E5%93%8D%E5%BA%94%E6%8A%A5%E5%A4%B4">2.4 响应报头</a></li>
+<li><a href="#25-%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%94%E5%9B%9E%E7%9A%84-cookies">2.5 服务器返回的 cookies</a></li>
+<li><a href="#26-url">2.6 url</a></li>
+</ul>
+</li>
+<li><a href="#3-session">3. Session</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">requests 让接口测试如此简单</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-23 / 10 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/KK4GYqOnV.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h2 id="requests">requests</h2>
+<h2 id="一-简介">一、简介</h2>
+<p>使用 python 做自动化接口测试需要用代码发送 http 请求。requests 是 Python 语言里网络请求库中最好用的，没有之一。</p>
+<p>requests 库有完善详尽的中文版官方文档：<a href="http://testingpai.com/forward?goto=https%3A%2F%2Frequests.readthedocs.io%2Fzh_CN%2Flatest%2F">https://requests.readthedocs.io/zh_CN/latest/</a></p>
+<h3 id="作者">作者</h3>
+<p><code>Requests</code> 的作者 <strong>Kenneth Reitz</strong> 是一个富有传奇色彩的人物。</p>
+<p><strong>Kenneth Reitz</strong> 在有着“云服务鼻祖”之称的 Heroku 公司，28 岁时就担任了 Python 语言的总架构师。他做了什么呢？随便列几个项目名称： requests、python-guide、pipenv、legit、autoenv，当然它也给 Python 界很多知名的开源项目贡献了代码，比如 Flask。大神级程序员，据说其身价高达 5 亿美元。</p>
+<h2 id="二-使用">二、使用</h2>
+<h3 id="1-发起请求">1. 发起请求</h3>
+<h4 id="11-请求方法">1.1 请求方法</h4>
+<p>每一个请求方法都有一个对应的 API，比如 GET 请求就可以使用 <code>get()</code> 方法：</p>
+<pre><code class="language-python">import requests
+resp = requests.get('https://www.baidu.com')
+</code></pre>
+<p>而 POST 请求就可以使用 <code>post()</code> 方法，并且将需要提交的数据传递给 data 参数即可：</p>
+<pre><code class="language-python">resp = requests.post('http://httpbin.org/post', data = {'key':'value'})
+</code></pre>
+<p>而其他的请求类型，都有各自对应的方法：</p>
+<pre><code class="language-python">requests.put('http://httpbin.org/put', data = {'key':'value'})
+requests.delete('http://httpbin.org/delete')
+requests.head('http://httpbin.org/get')
+requests.options('http://httpbin.org/get')
+</code></pre>
+<p>非常的简单直观明了。</p>
+<h4 id="12-传递-url-参数">1.2 传递 URL 参数</h4>
+<p>传递 URL 参数不需要去拼接 URL，而是简单的，构造一个字典，并在请求时将其传递给 params 参数：</p>
+<pre><code class="language-python">import requests
+params = {'key1': 'value1', 'key2': 'value2'}
+resp = requests.get(&quot;http://httpbin.org/get&quot;, params=params)
+</code></pre>
+<p>此时，查看请求的 URL，则可以看到 URL 已经构造正确了：</p>
+<pre><code class="language-python">print(resp.url)
+</code></pre>
+<p><a href="http://testingpai.com/forward?goto=http%3A%2F%2Fhttpbin.org%2Fget%3Fkey1%3Dvalue1%26key2%3Dvalue2">http://httpbin.org/get?key1=value1&amp;key2=value2</a><br>
+并且，有时候我们会遇到相同的 url 参数名，但有不同的值，而 python 的字典又不支持键的重名，那么我们可以把键的值用列表表示：</p>
+<pre><code class="language-python">params = {'key1': 'value1', 'key2': ['value2', 'value3']}
+resp = requests.get('http://httpbin.org/get', params=params)
+print(resp.url)
+</code></pre>
+<p><a href="http://testingpai.com/forward?goto=http%3A%2F%2Fhttpbin.org%2Fget%3Fkey1%3Dvalue1%26key2%3Dvalue2%26key2%3Dvalue3">http://httpbin.org/get?key1=value1&amp;key2=value2&amp;key2=value3</a><br>
+注：<code>http://httpbin.org</code> 是 Kenneth Reitz 搭建的为测试 http 服务而写的项目</p>
+<h4 id="13-传递表单参数">1.3 传递表单参数</h4>
+<p>通常，你想要发送一些编码为表单形式的数据——非常像一个 HTML 表单。</p>
+<p>要实现这个，只需简单地传递一个字典给 data 参数。你的数据字典在发出请求时会自动编码为表单形式：</p>
+<pre><code class="language-python">resp = requests.post('http://httpbin.org/post', data = {'key':'value'})
+resp.json()
+</code></pre>
+<pre><code class="language-python">{'args': {},
+'data': '',
+'files': {},
+'form': {'key': 'value'},
+'headers': {'Accept': '*/*',
+'Accept-Encoding': 'gzip, deflate',
+'Content-Length': '9',
+'Content-Type': 'application/x-www-form-urlencoded',
+'Host': 'httpbin.org',
+'User-Agent': 'python-requests/2.23.0',
+'X-Amzn-Trace-Id': 'Root=1-5f620401-c24c466c4e6fac3ee0fda64d'},
+'json': None,
+'origin': '113.246.106.31',
+'url': '[http://httpbin.org/post'}](http://testingpai.com/forward?goto=http%3A%2F%2Fhttpbin.org%2Fpost'%7D)
+</code></pre>
+<h4 id="14-传递-json-参数">1.4 传递 JSON 参数</h4>
+<p>使用 <code>json</code> 参数直接传递，然后它就会被自动编码。这是 2.4.2 版的新加功能：</p>
+<pre><code class="language-python">resp = requests.post('http://httpbin.org/post', json = {'key':'value'})
+resp.json()
+</code></pre>
+<pre><code class="language-python">{'args': {},
+'data': '{&quot;key&quot;: &quot;value&quot;}',
+'files': {},
+'form': {},
+'headers': {'Accept': '*/*',
+'Accept-Encoding': 'gzip, deflate',
+'Content-Length': '16',
+'Content-Type': 'application/json',
+'Host': 'httpbin.org',
+'User-Agent': 'python-requests/2.23.0',
+'X-Amzn-Trace-Id': 'Root=1-5f620443-9d8785d6ee6f444a67a162f8'},
+'json': {'key': 'value'},
+'origin': '113.246.106.31',
+'url': '[http://httpbin.org/post'}](http://testingpai.com/forward?goto=http%3A%2F%2Fhttpbin.org%2Fpost'%7D)
+</code></pre>
+<h4 id="15-上传文件">1.5 上传文件</h4>
+<p>使用 <code>files</code> 参数传递文件句柄</p>
+<pre><code class="language-python">url = 'http://httpbin.org/post'
+files = {'file': open('test.xls', 'rb')}
+r = requests.post(url, files=files)
+r.text
+</code></pre>
+<h4 id="16-自定义-headers">1.6 自定义 Headers</h4>
+<p>如果想自定义请求的 Headers，同样的将字典数据传递给 headers 参数。</p>
+<pre><code class="language-python">url = 'http://httpbin.org/get'
+headers = {'user-agent': 'lemonban/0.0.1'}
+resp = requests.get(url, headers=headers)
+resp.json()
+</code></pre>
+<pre><code class="language-python">{'args': {},
+'headers': {'Accept': '*/*',
+'Accept-Encoding': 'gzip, deflate',
+'Host': 'httpbin.org',
+'User-Agent': 'lemonban/0.0.1',
+'X-Amzn-Trace-Id': 'Root=1-5f6205a1-25641a90501e5911352a84c0'},
+'origin': '113.246.106.31',
+'url': '[http://httpbin.org/get'}](http://testingpai.com/forward?goto=http%3A%2F%2Fhttpbin.org%2Fget'%7D)
+</code></pre>
+<h4 id="17-自定义-cookies">1.7 自定义 Cookies</h4>
+<p><code>Requests</code> 中自定义 Cookies 也不用再去构造 CookieJar 对象，直接将字典递给 cookies 参数。</p>
+<pre><code class="language-python">url = 'http://httpbin.org/get'
+cookies = {'cookies_are': 'working'}
+resp = requests.get(url, cookies=cookies)
+resp.json()
+</code></pre>
+<pre><code class="language-python">{'args': {},
+'headers': {'Accept': '*/*',
+'Accept-Encoding': 'gzip, deflate',
+'Cookie': 'cookies_are=working',
+'Host': 'httpbin.org',
+'User-Agent': 'python-requests/2.23.0',
+'X-Amzn-Trace-Id': 'Root=1-5f6205d9-03efd00833b145237185ded0'},
+'origin': '113.246.106.31',
+'url': '[http://httpbin.org/get'}](http://testingpai.com/forward?goto=http%3A%2F%2Fhttpbin.org%2Fget'%7D)
+</code></pre>
+<h4 id="18-设置代理">1.8 设置代理</h4>
+<p>当我们需要使用代理时，同样构造代理字典，传递给 proxies 参数。</p>
+<pre><code class="language-python">proxies = {
+  'http': 'http://10.10.1.10:3128',
+  'https': 'http://10.10.1.10:1080',
+}
+
+requests.get('http://example.org', proxies=proxies)
+</code></pre>
+<h4 id="19-重定向">1.9 重定向</h4>
+<p>在网络请求中，我们常常会遇到状态码是 3 开头的重定向问题，在 Requests 中是默认开启允许重定向的，即遇到重定向时，会自动继续访问。</p>
+<pre><code class="language-python">resp = requests.get('http://github.com', allow_redirects=False)
+resp.status_code
+</code></pre>
+<p>301</p>
+<h4 id="110-禁止证书验证">1.10 禁止证书验证</h4>
+<p>有时候我们使用了抓包工具，这个时候由于抓包工具提供的证书并不是由受信任的数字证书颁发机构颁发的，所以证书的验证会失败，所以我们就需要关闭证书验证。</p>
+<p>在请求的时候把 <code>verify</code> 参数设置为 <code>False</code> 就可以关闭证书验证了。</p>
+<pre><code class="language-python">import requests
+resp = requests.get('https://httpbin.org/get', verify=False)
+</code></pre>
+<p>但是关闭验证后，会有一个比较烦人的 warning，可以使用以下方法关闭警告：</p>
+<pre><code class="language-python">from requests.packages.urllib3.exceptions import InsecureRequestWarning
+# 禁用安全请求警告
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+</code></pre>
+<h4 id="111-设置超时">1.11 设置超时</h4>
+<p>设置访问超时，设置 timeout 参数即可。</p>
+<pre><code class="language-python">requests.get('http://github.com', timeout=0.001)
+</code></pre>
+<p>可见，通过 Requests 发起请求，只需要构造好几个需要的字典，并将其传入请求的方法中，即可完成基本的网络请求。</p>
+<h3 id="2-响应">2. 响应</h3>
+<p>通过 Requests 发起请求获取到的，是一个 requests.models.Response 对象。通过这个对象我们可以很方便的获取响应的内容。</p>
+<h4 id="21-响应数据">2.1 响应数据</h4>
+<p>通过 Response 对象的 <code>text</code> 属性可以获得字符串格式的响应内容。</p>
+<pre><code class="language-python">import requests
+resp = requests.get('https://www.baidu.com')
+resp.text
+</code></pre>
+<p><code>Requests</code> 会自动的根据响应的报头来猜测网页的编码是什么，然后根据猜测的编码来解码网页内容，基本上大部分的网页都能够正确的被解码。而如果发现 <code>text</code> 解码不正确的时候，就需要我们自己手动的去指定解码的编码格式。</p>
+<pre><code class="language-python">import requests
+resp = requests.get('https://www.baidu.com')
+resp.encoding = 'utf-8'   # 设置编码
+resp.text
+</code></pre>
+<p>而如果你需要获得原始的二进制数据，那么使用 <code>content</code> 属性即可。</p>
+<pre><code class="language-python">resp.content
+</code></pre>
+<p>如果我们访问之后获得的数据是 JSON 格式的，那么我们可以使用 <code>json()</code> 方法，直接获取转换成字典格式的数据。</p>
+<pre><code class="language-python">resp = requests.get('http://httpbin.org/get')
+resp.json()
+</code></pre>
+<pre><code class="language-python">{'args': {},
+'headers': {'Accept': '*/*',
+'Accept-Encoding': 'gzip, deflate',
+'Host': 'httpbin.org',
+'User-Agent': 'python-requests/2.23.0',
+'X-Amzn-Trace-Id': 'Root=1-5f62083f-6b0db04c94aff004d15c0068'},
+'origin': '113.246.106.31',
+'url': '[http://httpbin.org/get'}](http://testingpai.com/forward?goto=http%3A%2F%2Fhttpbin.org%2Fget'%7D)
+</code></pre>
+<h4 id="22-状态码">2.2 状态码</h4>
+<p>通过 <code>status_code</code> 属性获取响应的状态码</p>
+<pre><code class="language-python">resp = requests.get('http://httpbin.org/get')
+resp.status_code
+</code></pre>
+<p>200</p>
+<h4 id="24-响应报头">2.4 响应报头</h4>
+<p>通过 <code>headers</code> 属性获取响应的报头</p>
+<pre><code class="language-python">resp.headers
+</code></pre>
+<pre><code class="language-python">{'Date': 'Wed, 16 Sep 2020 12:43:17 GMT', 'Content-Type': 'application/json', 'Content-Length': '307', 'Connection': 'keep-alive', 'Server': 'gunicorn/19.9.0', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'}
+</code></pre>
+<h4 id="25-服务器返回的-cookies">2.5 服务器返回的 cookies</h4>
+<p>通过 <code>cookies</code> 属性获取服务器返回的 <code>cookies</code></p>
+<pre><code class="language-python">import requests
+url = 'http://www.baidu.com'
+resp = requests.get(url)
+resp.cookies
+</code></pre>
+<pre><code class="language-python">&lt;RequestsCookieJar[Cookie(version=0, name='BDORZ', value='27315', port=None, port_specified=False, domain='.baidu.com', domain_specified=True, domain_initial_dot=True, path='/', path_specified=True, secure=False, expires=1600346744, discard=False, comment=None, comment_url=None, rest={}, rfc2109=False)]&gt;
+</code></pre>
+<h4 id="26-url">2.6 url</h4>
+<p>还可以使用 <code>url</code> 属性查看访问的 url。</p>
+<pre><code class="language-python">params = {'key1': 'value1', 'key2': 'value2'}
+resp = requests.get(&quot;http://httpbin.org/get&quot;, params=params)
+resp.url
+</code></pre>
+<p>'<a href="http://testingpai.com/forward?goto=http%3A%2F%2Fhttpbin.org%2Fget%3Fkey1%3Dvalue1%26key2%3Dvalue2">http://httpbin.org/get?key1=value1&amp;key2=value2</a>'</p>
+<h3 id="3-session">3. Session</h3>
+<p>在 <code>Requests</code> 中，实现了 <code>Session(会话)</code> 功能，当我们使用 <code>Session</code> 时，能够像浏览器一样，在没有关闭关闭浏览器时，能够保持住访问的状态。</p>
+<p>这个功能常常被我们用于登陆之后的数据获取，使我们不用再一次又一次的传递 cookies。</p>
+<pre><code class="language-python">import requests
+
+session = requests.Session()
+
+session.get('http://httpbin.org/cookies/set/sessioncookie/123456789')
+resp = session.get('http://httpbin.org/cookies')
+
+print(resp.text)
+</code></pre>
+<pre><code class="language-python">{
+&quot;cookies&quot;: {
+&quot;sessioncookie&quot;: &quot;123456789&quot;
+}
+}
+</code></pre>
+<p>首先我们需要去生成一个 <code>Session</code> 对象，然后用这个 <code>Session</code> 对象来发起访问，发起访问的方法与正常的请求是一摸一样的。</p>
+<p>同时，需要注意的是，如果是我们在 <code>get()</code> 方法中传入 <code>headers</code> 和 <code>cookies</code> 等数据，那么这些数据只在当前这一次请求中有效。如果你想要让一个 <code>headers</code> 在 <code>Session</code> 的整个生命周期内都有效的话，需要用以下的方式来进行设置：</p>
+<pre><code class="language-python"># 设置整个headers
+session.headers = {
+    'user-agent': 'lemonban/0.0.1'
+}
+# 增加一条headers
+session.headers.update({'x-test': 'true'})
+</code></pre>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/Bl68Kl7N6/">
+            <span class="flex-auto">requests</span>
+          </a>
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/o5ETtCpkfo/">
+            <span class="flex-auto">接口测试</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/c6B-gYM_0/">
+                <h3 class="post-title">
+                  HTTP协议
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
