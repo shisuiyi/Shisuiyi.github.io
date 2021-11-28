@@ -1,0 +1,641 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1638101711191">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1638101711191" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E9%85%8D%E7%BD%AE%E5%8C%96%E8%A1%A5%E5%85%85">一、配置化补充</a></li>
+<li><a href="#%E4%BA%8C-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%A1%E9%AA%8C">二、数据库校验</a>
+<ul>
+<li><a href="#1-python%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93">1. python操作数据库</a>
+<ul>
+<li><a href="#pymysql"><code>pymysql</code></a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4">使用步骤</a></li>
+<li><a href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE">更新数据</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2%E7%B1%BB%E5%B0%81%E8%A3%85">2. 数据查询类封装</a>
+<ul>
+<li><a href="#1-%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90">1. 功能分析</a></li>
+<li><a href="#2-%E5%B0%81%E8%A3%85%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E7%B1%BB">2. 封装成数据库查询类</a></li>
+<li><a href="#3-%E5%BA%94%E7%94%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E4%B8%AD">3. 应用到项目中</a>
+<ul>
+<li><a href="#31-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE">3.1 数据库配置</a></li>
+<li><a href="#32-%E5%AF%BC%E5%85%A5">3.2 导入</a></li>
+<li><a href="#33-%E4%BF%AE%E6%94%B9%E7%94%A8%E4%BE%8B%E6%95%B0%E6%8D%AE">3.3 修改用例数据</a></li>
+<li><a href="#34-%E7%94%A8%E4%BE%8B%E4%BB%A3%E7%A0%81%E7%BC%96%E5%86%99">3.4 用例代码编写</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">pymysql的封装配置与项目应用</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-11-28 / 10 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/X0z1NrI8f.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h1 id="一-配置化补充">一、配置化补充</h1>
+<p>用例的url是写死的，如果出现变动修改起来就不够优雅，解决方案，配置化</p>
+<pre><code class="language-python">setting.py 中添加接口地址
+# 项目主机地址
+PROJECT_HOST = 'http://api.lemonban.com/futureloan'
+# 接口地址
+INTERFACES = {
+    'register': PROJECT_HOST + '/member/register'
+}
+</code></pre>
+<p>将excel 表中的url字段内容改为register</p>
+<pre><code class="language-python"># 发送请求
+res = send_http_request(url=setting.INTERFACES[item['url']], method=item['method'], **request_data)
+</code></pre>
+<h1 id="二-数据库校验">二、数据库校验</h1>
+<h2 id="1-python操作数据库">1. python操作数据库</h2>
+<h3 id="pymysql"><code>pymysql</code></h3>
+<p><code>PyMSQL</code>是一个纯的python的<code>MySQL</code>客户端。</p>
+<pre><code class="language-python">pip install PyMySQL
+</code></pre>
+<h4 id="使用步骤">使用步骤</h4>
+<ol>
+<li>创建连接(修高速公路)</li>
+<li>创建游标(运输车)</li>
+<li>执行sql(提货单)</li>
+<li>获取结果(卸货)</li>
+<li>关闭游标(车退掉)</li>
+<li>关闭连接(路也断掉)</li>
+</ol>
+<pre><code class="language-python">import pymysql
+from pymysql.cursors import DictCursor
+# 1.创建连接(修高速公路)
+conn = pymysql.connect(
+    host='api.lemonban.com',
+    user='future',
+    password='123456',
+    port=3306,
+    db='futureloan',
+    charset='utf8'
+)
+# 2. 创建游标(运输车)
+# cursor = conn.cursor()  # 返回元组
+cursor = conn.cursor(DictCursor)  # 返回字典
+# 3. 执行sql(提货单)
+sql = 'select id, reg_name, mobile_phone from member limit 10'
+res = cursor.execute(sql)
+print(res)
+# 4. 获取结果(卸货)
+res1 = cursor.fetchone() # 一次卸载一条
+res2 = cursor.fetchmany(3) # 一次卸载指定的条数
+res3 = cursor.fetchall() # 一次获取所有
+# 5. 关闭游标(车退掉)
+cursor.close()
+# 6. 关闭连接(路也断掉)
+conn.close()
+
+</code></pre>
+<pre><code>10
+</code></pre>
+<pre><code class="language-python">res1:
+</code></pre>
+<pre><code class="language-python">{'id': 1, 'reg_name': '檬檬', 'mobile_phone': '13453457687'}
+</code></pre>
+<pre><code class="language-python">res2:
+</code></pre>
+<pre><code class="language-python">[{'id': 2, 'reg_name': '青柠檬', 'mobile_phone': '13622120322'},
+ {'id': 3, 'reg_name': '小傻瓜', 'mobile_phone': '15500000000'},
+ {'id': 4, 'reg_name': '测试开发小可爱', 'mobile_phone': '15088314689'}]
+</code></pre>
+<pre><code class="language-python">res3:
+</code></pre>
+<pre><code class="language-python">[{'id': 5, 'reg_name': '小傻瓜', 'mobile_phone': '13574660252'},
+ {'id': 6, 'reg_name': '小傻瓜', 'mobile_phone': '18717906533'},
+ {'id': 7, 'reg_name': '圆圆', 'mobile_phone': '18235075293'},
+ {'id': 8, 'reg_name': '小傻瓜', 'mobile_phone': '15209028515'},
+ {'id': 9, 'reg_name': '小傻瓜', 'mobile_phone': '13800001001'},
+ {'id': 10, 'reg_name': '小傻瓜', 'mobile_phone': '15100002222'}]
+</code></pre>
+<h4 id="更新数据">更新数据</h4>
+<pre><code class="language-python">import pymysql
+db_config = {
+    'host': 'api.lemonban.com',
+    'user': 'future',
+    'password': '123456',
+    'port': 3306,
+    'db': 'futureloan',
+    'charset': 'utf8'
+}
+conn = pymysql.connect(**db_config)
+try:
+    with conn.cursor() as cursor: # 上下文管理--自动关闭游标
+        sql1 = 'UPDATE account set amount=amount - 100 where username=&quot;A&quot;'
+        sql2 = 'UPDATE account set amount=amount + 100 where username=&quot;B&quot;'
+        cursor.execute(sql1)
+        cursor.execute(sql2)
+        # pymysql默认开启事务
+        conn.commit()
+except Exception as e:
+    # 回滚
+    conn.rollback()
+finally:
+    conn.close()
+</code></pre>
+<h2 id="2-数据查询类封装">2. 数据查询类封装</h2>
+<h3 id="1-功能分析">1. 功能分析</h3>
+<ol>
+<li>可以连接不同sql数据库</li>
+<li>查一条数据，多条数据</li>
+<li>可以获取不同格式的数据</li>
+</ol>
+<h3 id="2-封装成数据库查询类">2. 封装成数据库查询类</h3>
+<p>封装思路:</p>
+<ol>
+<li>
+<p>数据库查询模块有多个功能，且需要复用，所以封装成类</p>
+</li>
+<li>
+<p>在构造方法中创建连接</p>
+</li>
+<li>
+<p>创建对象方法实现各种查询</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/28 16:33
+# @Author  : shisuiyi
+# @File    : db_handler.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import pymysql
+from pymysql.cursors import DictCursor
+
+
+class SQLdbHandler:
+    &quot;&quot;&quot;
+    sql数据库查询类
+    &quot;&quot;&quot;
+
+    def __init__(self, db_config: dict):
+        # 创建连接
+        # 根据不同的数据库，创建不同的连接
+        engine = db_config.pop('engine', 'mysql')
+        # Python 字典 pop() 方法删除字典给定键 key 及对应的值，返回值为被删除的值。key 值必须给出。 否则，返回 default 值。
+        if engine.lower() == 'mysql':
+            self.conn = pymysql.connect(**db_config)
+        elif engine.lower() == 'oracle':
+            # 扩展
+            pass
+
+    def __execute(self, sql, action, res_type='t', *args):
+        &quot;&quot;&quot;
+        执行sql
+        :param sql:
+        :param action: 字符串，指定执行cursor对应的方法
+        :param res_type:
+        :param args: 其他参数，比如当执行fetchmany传入的size
+        :return:
+        &quot;&quot;&quot;
+        if res_type == 't':
+            cursor = self.conn.cursor()
+        else:
+            cursor = self.conn.cursor(DictCursor)
+        try:
+            cursor.execute(sql)
+            return getattr(cursor, action)(*args)
+        except Exception as e:
+            raise e
+        finally:
+            cursor.close()
+
+    def get_one(self, sql, res_type='t'):
+        &quot;&quot;&quot;
+        获取一条数据
+        :param sql:
+        :param res_type: 返回数据的类型，默认为t表示以元组返回，'d'表示以字典的形式返回
+        :return: 元组/字典
+        &quot;&quot;&quot;
+        # 数据库若断开即重连
+        self.reConnect()
+        return self.__execute(sql, 'fetchone', res_type)
+
+    def get_many(self, sql, size, res_type='t'):
+        # 数据库若断开即重连
+        self.reConnect()
+        return self.__execute(sql, 'fetchmany', res_type, size)
+
+    def get_all(self, sql, res_type='t'):
+        # 数据库若断开即重连
+        self.reConnect()
+        return self.__execute(sql, 'fetchall', res_type)
+
+    def exist(self, sql):
+        if self.get_one(sql):
+            return True
+        else:
+            return False
+
+    def reConnect(self):
+        &quot;&quot;&quot;
+        重连机制
+        :@return
+        &quot;&quot;&quot;
+        try:
+            self.conn.ping()
+        except:
+            self.conn()
+
+    def __del__(self):
+        &quot;&quot;&quot;
+        对象销毁的时候自动会被调用
+        :return:
+        &quot;&quot;&quot;
+        self.conn.close()
+
+
+if __name__ == '__main__':
+    db_config = {
+        'engine': 'mysql',  # 指定mysql数据
+        'host': 'api.lemonban.com',
+        'user': 'future',
+        'password': '123456',
+        'port': 3306,
+        'db': 'futureloan',
+        'charset': 'utf8'
+    }
+    db = SQLdbHandler(db_config)
+    sql = 'select id, reg_name, mobile_phone from member limit 10'
+    # res = db.get_one(sql)
+    res = db.get_many(sql, size=5)
+    print(res)
+
+</code></pre>
+</li>
+</ol>
+<h3 id="3-应用到项目中">3. 应用到项目中</h3>
+<h4 id="31-数据库配置">3.1 数据库配置</h4>
+<p>在<code>setting.py</code>中添加# 数据库配置：<code>DB_CONFIG</code></p>
+<pre><code class="language-python">DB_CONFIG = {
+        'engine': 'mysql',  # 指定mysql数据
+        'host': 'api.lemonban.com',
+        'user': 'future',
+        'password': '123456',
+        'port': 3306,
+        'db': 'futureloan',
+        'charset': 'utf8'
+    }
+</code></pre>
+<h4 id="32-导入">3.2 导入</h4>
+<p>在一个项目中会查询多次数据库，如果每次都要实例化一个数据库查询对象，也即是，每次都要重新连接，显然是比较浪费资源。当前这种场景下需要用到单例模式，也即是在一个脚本的生命周期内，某个类的实例始终只有一个。</p>
+<p>因为python的模块就是填入的单例模式，所有的模块有且只会被导入一次。</p>
+<p>在common 目录下的<code>__init__</code>模块创建数据库查询对象实现单例模式</p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/13 10:16
+# @Author  : shisuiyi
+# @File    : __init__.py.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+from common.log_handler import get_logger
+from common.read_excel_tool import get_data_from_excel
+import setting
+from common.make_requests import send_http_request
+from common.db_handler import SQLdbHandler
+
+logger = get_logger(**setting.LOG_CONFIG)  # 在这里创建日志器
+db = SQLdbHandler(db_config=setting.DB_CONFIG)  # 这里创建数据库查询对象实现单例模式
+
+&quot;&quot;&quot;
+在一个项目中会查询多次数据库，如果每次都要实例化一个数据库查询对象，
+也即是，每次都要重新连接，显然是比较浪费资源。当前这种场景下需要用到单例模式，也即是在一个脚本的生命周期内，
+某个类的实例始终只有一个。
+因为python的模块就是填入的单例模式，所有的模块有且只会被导入一次。
+&quot;&quot;&quot;
+</code></pre>
+<h4 id="33-修改用例数据">3.3 修改用例数据</h4>
+<p>在用例中添加一个sql字段，里面编写需要校验的sql语句</p>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1638097264940.png" alt="" loading="lazy"></figure>
+<h4 id="34-用例代码编写">3.4 用例代码编写</h4>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/28 13:02
+# @Author  : shisuiyi
+# @File    : test_register.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import json
+import unittest
+from unittestreport import ddt, list_data
+
+import setting
+from common import get_data_from_excel
+from common import logger
+from common import send_http_request
+from common import db
+
+# 读取测试用例数据
+cases = get_data_from_excel(setting.TEST_DATA_FILE)
+
+
+@ddt
+class RegisterTestCase(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls) -&gt; None:
+        logger.info('===========注册接口开始测试===========')
+
+    @classmethod
+    def tearDownClass(cls) -&gt; None:
+        logger.info('===========注册接口结束测试===========')
+
+    @list_data(cases)
+    def test_register(self, item):
+        logger.info('&gt;&gt;&gt;&gt;&gt;&gt;&gt;用例{}开始执行&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;'.format(item['title']))
+        # 1. 处理测试数据
+        # 把请求参数处理好，request_data是一个json字符串，怎么通过封装好的发送请求的函数发送
+        # expect_data也是一个json字符串，也需要loads成python对象-字典
+        request_data = json.loads(item['request'])
+        expect_data = json.loads(item['expect_data'])
+        # 2. 测试步骤
+        # 发送请求
+        res = send_http_request(url=setting.INTERFACES[item['url']], method=item['method'], **request_data)
+        print(res.json())
+        # 3. 断言
+        # 3.1 断言响应状态码
+        try:
+            self.assertEqual(item['status_code'], res.status_code)
+
+        except AssertionError as e:  # AssertionError断言异常
+            logger.warning('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}响应异常&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+            raise e
+        else:
+            logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}响应状态码断言成功&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+
+        # 3.2 断言响应数据
+        if item['res_type'].lower() == 'json':
+            res = res.json()
+        elif item['res_type'].lower() == 'html':
+            # 扩展思路
+            res = res.text
+        try:
+            self.assertEqual(expect_data, {'code': res['code'], 'msg': res['msg']})
+        except AssertionError as e:
+            logger.warning('用例【{}】响应数据断言异常'.format(item['title']))
+            logger.warning('用例【{}】期望结果为：{}'.format(item['title'], expect_data))
+            logger.warning('用例【{}】实际结果为：{}'.format(item['title'], {'code': res['code'], 'msg': res['msg']}))
+            raise e
+        else:
+            logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}响应数据断言成功&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+
+        # 3.3 数据库断言后面的任务
+        if item.get('sql'):  # 返回指定键的值，如果键不在字典中返回默认值 None 或者设置的默认值。
+            # 只有sql字段有sql的才需要校验数据库
+            try:
+                self.assertTrue(db.exist(item['sql']))
+            except AssertionError as e:
+                logger.warning('用例【{}】数据库断言异常，执行的sql为:{}'.format(item['title'], item['sql']))
+                logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}测试结束&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+                raise e
+        logger.info('---------------用例{}测试成功---------------'.format(item['title']))
+
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<p><img src="https://Shisuiyi.github.io/post-images/1638097384774.png" alt="" loading="lazy"><br>
+<img src="https://Shisuiyi.github.io/post-images/1638097393385.png" alt="" loading="lazy"></p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/Bl68Kl7N6/">
+            <span class="flex-auto">requests</span>
+          </a>
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/o5ETtCpkfo/">
+            <span class="flex-auto">接口测试</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/00cwkpWML/">
+                <h3 class="post-title">
+                  requests模块的封装与接口请求
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>

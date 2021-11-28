@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>师不予测试笔记</title>
 <meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1637675412471">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1638101711191">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1637675412471" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1638101711191" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
       </div>
@@ -121,7 +121,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">requests 让接口测试如此简单</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-11-23 / 10 min read
+          2021-11-23 / 13 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/KK4GYqOnV.jpg" alt="">
@@ -217,7 +217,8 @@ r = requests.post(url, files=files)
 r.text
 </code></pre>
 <h4 id="16-自定义-headers">1.6 自定义 Headers</h4>
-<p>如果想自定义请求的 Headers，同样的将字典数据传递给 headers 参数。</p>
+<p>如果想自定义请求的 Headers，同样的将字典数据传递给 headers 参数。<br>
+注意：headers里面的key是大小写不敏感的</p>
 <pre><code class="language-python">url = 'http://httpbin.org/get'
 headers = {'user-agent': 'lemonban/0.0.1'}
 resp = requests.get(url, headers=headers)
@@ -338,6 +339,52 @@ resp = requests.get(&quot;http://httpbin.org/get&quot;, params=params)
 resp.url
 </code></pre>
 <p>'<a href="http://testingpai.com/forward?goto=http%3A%2F%2Fhttpbin.org%2Fget%3Fkey1%3Dvalue1%26key2%3Dvalue2">http://httpbin.org/get?key1=value1&amp;key2=value2</a>'</p>
+<p><strong>补充</strong>：当调用 json() 时，确保响应内容是json格式字符串，否则会报错</p>
+<pre><code class="language-python">import requests
+import json
+url = 'http://httpbin.org/post'
+data = {
+    'username': '123',
+    'password': '321'
+}
+res = requests.post(url, data=data)
+print('请求url: ' + res.url)
+print('响应内容 json格式: ' + json.dumps(res.json()))
+print('响应内容 字符串格式: ' + res.text)
+print('响应内容 二进制格式: ' + str(res.content))
+print('响应码: ' + str(res.status_code))
+</code></pre>
+<p><strong>输出</strong></p>
+<pre><code class="language-python">C:\Users\12446\AppData\Local\Programs\Python\Python39\python.exe D:/Lemon/py45/day23/day23.py
+请求url: http://httpbin.org/post
+响应内容 json格式: {&quot;args&quot;: {}, &quot;data&quot;: &quot;&quot;, &quot;files&quot;: {}, &quot;form&quot;: {&quot;password&quot;: &quot;321&quot;, &quot;username&quot;: &quot;123&quot;}, &quot;headers&quot;: {&quot;Accept&quot;: &quot;*/*&quot;, &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, &quot;Content-Length&quot;: &quot;25&quot;, &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, &quot;Host&quot;: &quot;httpbin.org&quot;, &quot;User-Agent&quot;: &quot;python-requests/2.24.0&quot;, &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-619e37c9-4217c0933e52e1ce22f0dd6c&quot;}, &quot;json&quot;: null, &quot;origin&quot;: &quot;101.71.232.89&quot;, &quot;url&quot;: &quot;http://httpbin.org/post&quot;}
+响应内容 字符串格式: {
+  &quot;args&quot;: {}, 
+  &quot;data&quot;: &quot;&quot;, 
+  &quot;files&quot;: {}, 
+  &quot;form&quot;: {
+    &quot;password&quot;: &quot;321&quot;, 
+    &quot;username&quot;: &quot;123&quot;
+  }, 
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;, 
+    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, 
+    &quot;Content-Length&quot;: &quot;25&quot;, 
+    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, 
+    &quot;Host&quot;: &quot;httpbin.org&quot;, 
+    &quot;User-Agent&quot;: &quot;python-requests/2.24.0&quot;, 
+    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-619e37c9-4217c0933e52e1ce22f0dd6c&quot;
+  }, 
+  &quot;json&quot;: null, 
+  &quot;origin&quot;: &quot;101.71.232.89&quot;, 
+  &quot;url&quot;: &quot;http://httpbin.org/post&quot;
+}
+
+响应内容 二进制格式: b'{\n  &quot;args&quot;: {}, \n  &quot;data&quot;: &quot;&quot;, \n  &quot;files&quot;: {}, \n  &quot;form&quot;: {\n    &quot;password&quot;: &quot;321&quot;, \n    &quot;username&quot;: &quot;123&quot;\n  }, \n  &quot;headers&quot;: {\n    &quot;Accept&quot;: &quot;*/*&quot;, \n    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, \n    &quot;Content-Length&quot;: &quot;25&quot;, \n    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, \n    &quot;Host&quot;: &quot;httpbin.org&quot;, \n    &quot;User-Agent&quot;: &quot;python-requests/2.24.0&quot;, \n    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-619e37c9-4217c0933e52e1ce22f0dd6c&quot;\n  }, \n  &quot;json&quot;: null, \n  &quot;origin&quot;: &quot;101.71.232.89&quot;, \n  &quot;url&quot;: &quot;http://httpbin.org/post&quot;\n}\n'
+响应码: 200
+
+Process finished with exit code 0
+</code></pre>
 <h3 id="3-session">3. Session</h3>
 <p>在 <code>Requests</code> 中，实现了 <code>Session(会话)</code> 功能，当我们使用 <code>Session</code> 时，能够像浏览器一样，在没有关闭关闭浏览器时，能够保持住访问的状态。</p>
 <p>这个功能常常被我们用于登陆之后的数据获取，使我们不用再一次又一次的传递 cookies。</p>
@@ -380,6 +427,15 @@ session.headers.update({'x-test': 'true'})
 
 
         <div class="flex justify-between py-8">
+          
+            <div class="prev-post">
+              <a href="https://Shisuiyi.github.io/00cwkpWML/">
+                <h3 class="post-title">
+                  <i class="ri-arrow-left-line"></i>
+                  requests模块的封装与接口请求
+                </h3>
+              </a>
+            </div>
           
 
           
