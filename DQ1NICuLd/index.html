@@ -1,0 +1,840 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1638455633497">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1638455633497" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E6%8E%A5%E5%8F%A3%E4%BE%9D%E8%B5%96">一、接口依赖</a>
+<ul>
+<li><a href="#1-%E7%B1%BB%E7%BA%A7%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E5%A4%84%E7%90%86">1. 类级前置条件处理</a>
+<ul>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
+<li><a href="#%E5%85%85%E5%80%BC%E6%8E%A5%E5%8F%A3%E7%9A%84%E6%B5%8B%E8%AF%95">充值接口的测试</a>
+<ul>
+<li><a href="#11-%E5%85%85%E5%80%BC%E6%8E%A5%E5%8F%A3%E5%88%86%E6%9E%90">1.1 充值接口分析</a></li>
+<li><a href="#12-%E5%B0%81%E8%A3%85%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7%E5%87%BD%E6%95%B0">1.2 封装注册，登录用户函数</a></li>
+<li><a href="#13-%E9%A1%B9%E7%9B%AE%E5%85%85%E5%80%BC%E6%8E%A5%E5%8F%A3%E7%94%A8%E4%BE%8B%E6%95%B0%E6%8D%AE%E7%BC%96%E5%86%99">1.3 项目充值接口用例数据编写</a></li>
+<li><a href="#14-%E9%A1%B9%E7%9B%AE%E5%85%85%E5%80%BC%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E4%BB%A3%E7%A0%81%E7%9A%84%E7%BC%96%E5%86%99">1.4 项目充值接口测试用例代码的编写</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-%E6%96%B9%E6%B3%95%E7%BA%A7%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E5%A4%84%E7%90%86">2. 方法级前置条件处理</a>
+<ul>
+<li><a href="#21-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">2.1 解决方案</a></li>
+<li><a href="#22-%E5%AE%A1%E6%A0%B8%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95">2.2 审核接口测试</a>
+<ul>
+<li><a href="#221-%E9%A1%B9%E7%9B%AE%E5%AE%A1%E6%A0%B8%E6%8E%A5%E5%8F%A3%E5%88%86%E6%9E%90">2.2.1 项目审核接口分析</a></li>
+<li><a href="#222-%E5%B0%81%E8%A3%85%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%87%BD%E6%95%B0">2.2.2 封装创建项目函数</a></li>
+<li><a href="#223-%E9%A1%B9%E7%9B%AE%E5%AE%A1%E6%A0%B8%E6%8E%A5%E5%8F%A3%E7%94%A8%E4%BE%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BC%96%E5%86%99">2.2.3 项目审核接口用例数据的编写</a></li>
+<li><a href="#224%E9%A1%B9%E7%9B%AE%E5%AE%A1%E6%A0%B8%E6%8E%A5%E5%8F%A3%E7%94%A8%E4%BE%8B%E7%BC%96%E5%86%99">2.2.4项目审核接口用例编写</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">接口依赖的处理</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-12-02 / 14 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/DQ1NICuLd.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h1 id="一-接口依赖">一、接口依赖</h1>
+<p>一个接口的测试经常要依赖另外一个或者多个接口成功请求后的返回数据。</p>
+<p>例如，当前项目中的充值接口的测试就依赖注册接口，登录接口。</p>
+<p>因为需要先注册，在登录然后才充值。</p>
+<p>所以进行单接口测试的时候，有些处于业务流中间的接口需要依赖前置接口，可以在测试脚手架中完成这些前置操作。</p>
+<h2 id="1-类级前置条件处理">1. 类级前置条件处理</h2>
+<p>当一个接口的前置依赖接口只需要在整个测试开始前请求一遍，就可以在类级前置方法<code>setUpClass</code>中去处理即可。</p>
+<p>如何将依赖数据传递到后面单元测试方法中？</p>
+<h3 id="解决方案">解决方案</h3>
+<p>方案有两种：</p>
+<ol>
+<li>全局变量</li>
+<li>类属性</li>
+</ol>
+<pre><code class="language-python">#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time : 2021/11/29 21:25
+# @Author : shisuiyi
+&quot;&quot;&quot;
+类级前置条件处理
+如何把类级前置条件中的数据传递到测试用例函数中
+1. 全局变量
+2. 类属性(用例类)  用这个
+&quot;&quot;&quot;
+
+import unittest
+import random
+
+
+# 定义一个全局变量类
+class EnvData:
+    &quot;&quot;&quot;
+    共享数据
+    &quot;&quot;&quot;
+    pass
+
+
+def do_something():
+    return random.randint(0, 9)
+
+
+class SomeTestCase(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls) -&gt; None:
+        # 执行前置操作
+        data = do_something()
+        print('前置方法中产生的数据data={}'.format(data))
+        # 将data绑定到全局变量类的类属性上
+        EnvData.data = data
+        # 将data绑定到当前用例类的类属性上
+        cls.data = data
+
+    def test_something(self):
+        print('执行测试')
+        # 获取前置方法中产生的数据
+        # 从全局变量中去取
+        print('从全局变量中获取到的data={}'.format(EnvData.data))
+        # 从当前对象的类上面去取
+        print('从当前对象的用例类的类属性上获取data={}'.format(self.__class__.data))
+
+
+</code></pre>
+<h3 id="充值接口的测试">充值接口的测试</h3>
+<h4 id="11-充值接口分析">1.1 充值接口分析</h4>
+<ol>
+<li>
+<p>接口依赖(前置条件)</p>
+<ul>
+<li>注册用户</li>
+<li>登录用户</li>
+</ul>
+</li>
+<li>
+<p>权限验证</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1638454271930.png" alt="" loading="lazy"></figure>
+<h4 id="12-封装注册登录用户函数">1.2 封装注册，登录用户函数</h4>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/12/2 20:09
+# @Author  : shisuiyi
+# @File    : fixture.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import setting
+from common import send_http_request
+from common import logger
+
+
+# 封装注册，登录用户函数
+def register(mobile_phone, pwd, reg_name=None, _type=None):
+    &quot;&quot;&quot;
+    注册用户
+    @param mobile_phone: 手机号
+    @param pwd:密码
+    @param reg_name:注册名
+    @param _type:类型 0：管理员，1：普通用户
+    &quot;&quot;&quot;
+    # 1. 构造发送注册请求的参数
+    data = {
+        'mobile_phone': mobile_phone,
+        'pwd': pwd,
+    }
+    if reg_name:
+        data['reg_name'] = reg_name
+    if _type is not None:
+        data['type'] = _type
+    # 构造请求头
+    headers = {'X-Lemonban-Media-Type': 'lemonban.v1'}
+    url = setting.INTERFACES['register']
+    # 2.发请求
+    try:
+        res = send_http_request(url=url, method='post', json=data, headers=headers)
+        # 这个是判断请求是否正常
+        if res.status_code == 200:
+            # 这个是判断响应的结果是否正常
+            if res.json()['code'] == 0:
+                # 返回登录成功后的数据
+                return res.json()['data']
+        raise ValueError(res.text)
+    except Exception as e:
+        logger.warning('用户注册失败')
+        raise e
+
+
+# 定义登录
+def login(mobile_phone, pwd):
+    &quot;&quot;&quot;
+    登录用户
+    :param mobile_phone:
+    :param pwd:
+    :return: token
+    &quot;&quot;&quot;
+    # 1. 构造发送注册请求的参数
+    data = {
+        'mobile_phone': mobile_phone,
+        'pwd': pwd
+    }
+
+    # 构造请求头
+    headers = {'X-Lemonban-Media-Type': 'lemonban.v2'}
+    url = setting.INTERFACES['login']
+    # 2.发请求
+    try:
+        res = send_http_request(url, 'post', json=data, headers=headers)
+        # 这个是判断请求是否正常
+        if res.status_code == 200:
+            # 这个是判断响应的结果是否正常
+            if res.json()['code'] == 0:
+                # 返回登录成功后的数据
+                return res.json()['data']
+        raise ValueError(res.text)
+
+    except Exception as e:
+        logger.warning('用户登录失败')
+        raise e
+
+
+
+if __name__ == '__main__':
+    from common.data_handler import generate_no_usr_phone
+    phone = generate_no_usr_phone()
+    res = register(phone, '12345678')
+    if res:
+        token = login(phone, '12345678')
+        print(token)
+
+
+</code></pre>
+<h4 id="13-项目充值接口用例数据编写">1.3 项目充值接口用例数据编写</h4>
+<ul>
+<li>在用例中，需要依赖的数据使用定义槽位的方式。格式<code>#变量名#</code></li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://Shisuiyi.github.io/post-images/1638454324945.png" alt="" loading="lazy"></figure>
+<h4 id="14-项目充值接口测试用例代码的编写">1.4 项目充值接口测试用例代码的编写</h4>
+<ul>
+<li>
+<p>在类级前置条件中请求依赖接口，并把依赖数据绑定到类属性上</p>
+</li>
+<li>
+<p>在测试方法中，把指定的依赖数据，替换用例数据中对应的槽位。</p>
+</li>
+</ul>
+<pre><code class="language-python"> #!/usr/bin/env python
+ # -*- coding: utf-8 -*-
+ # @Time    : 2021/12/1 20:21
+ # @Author  : shisuiyi
+ # @File    : test_recharge.py
+ # @Software: win10 Tensorflow1.13.1 python3.9
+ import unittest
+ import setting
+ import json
+ from common import logger
+ from common.data_handler import get_data_from_excel, generate_no_usr_phone
+ from common.fixture import register, login
+ from unittestreport import ddt, list_data
+ from common import db
+ from common.make_requests import send_http_request
+ 
+ cases = get_data_from_excel(setting.TEST_DATA_FILE, 'recharge')
+ 
+ 
+ @ddt
+ class TestRecharge(unittest.TestCase):
+     @classmethod
+     def setUpClass(cls) -&gt; None:
+         logger.info('=======充值接口开始测试=======')
+         logger.info('注册用户并登录用户')
+         # 1. 注册一个用户
+         mobile_phone = generate_no_usr_phone()
+         pwd = '12345678'
+         register(mobile_phone, pwd)
+         # 2. 登录
+         data = login(mobile_phone, pwd)
+ 
+         # 3. 保存需要传递到测试函数中的数据到类属性
+         # 依赖member_id
+         cls.member_id = str(data['id'])
+         # 依赖token
+         cls.token = data['token_info']['token']
+ 
+     @classmethod
+     def tearDownClass(cls) -&gt; None:
+         logger.info('=======充值接口结束测试=======')
+ 
+     @list_data(cases)
+     def test_recharge(self, item):
+         logger.info('&gt;&gt;&gt;&gt;&gt;&gt;&gt;用例{}开始执行&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;'.format(item['title']))
+         # 1. 处理测试数据
+         # 需要替换依赖参数
+         item = json.dumps(item)  # 把用例数据dumps成字符串，一次替换
+         item = item.replace('#member_id#', self.__class__.member_id)
+         item = item.replace('#token#', self.__class__.token)
+         item = json.loads(item)
+ 
+         # 再将request_data, expect_data loads为字典
+         request_data = json.loads(item['request_data'])
+         expect_data = json.loads(item['expect_data'])
+ # 略~~
+</code></pre>
+<h2 id="2-方法级前置条件处理">2. 方法级前置条件处理</h2>
+<p>当一个接口的前置依赖接口在每一次测试前都要请求一遍时，就可以在方法级限制方法<code>setUp</code>中去处理。</p>
+<pre><code class="language-python">import random
+import unittest
+
+
+def do_something():
+    return random.random()
+
+
+class SomeTestCase(unittest.TestCase):
+
+    def setUp(self) -&gt; None:
+        # 执行方法级前置
+        data = do_something()
+        # 从当前用例的对象属性中获取
+        self.data = data
+        # self.__class__.data = data
+
+    def test1(self):
+        print('执行测试1')
+        print('获取前置数据：{}'.format(self.data))
+
+    def test2(self):
+        print('执行测试1')
+        print('获取前置数据：{}'.format(self.data))
+
+
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-python">执行测试1
+获取前置数据：0.21591204964117416
+.执行测试1
+获取前置数据：0.3895812078440388 
+.
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+</code></pre>
+<p>例如：项目审核接口。</p>
+<p>如何将依赖数据传递到后面的单元测试方法中？</p>
+<h3 id="21-解决方案">2.1 解决方案</h3>
+<ul>
+<li>类属性</li>
+<li>对象属性</li>
+</ul>
+<h3 id="22-审核接口测试">2.2 审核接口测试</h3>
+<h4 id="221-项目审核接口分析">2.2.1 项目审核接口分析</h4>
+<ul>
+<li>
+<p>类级前置条件</p>
+<ul>
+<li>注册普通用户</li>
+<li>登录普通用户</li>
+<li>注册管理员用户</li>
+<li>登录管理员用户</li>
+</ul>
+</li>
+<li>
+<p>方法级前置条件</p>
+<ul>
+<li>创建项目</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python"> #!/usr/bin/env python
+ # -*- coding: utf-8 -*-
+ # @Time    : 2021/12/2 21:28
+ # @Author  : shisuiyi
+ # @File    : test_audit.py
+ # @Software: win10 Tensorflow1.13.1 python3.9
+ 
+ import json
+ import unittest
+ 
+ from unittestreport import ddt, list_data
+ 
+ import setting
+ from common import logger, db
+ from common.data_handler import get_data_from_excel, generate_no_usr_phone
+ from common.fixture import register, login, add_loan
+ from common.make_requests import send_http_request
+ 
+ cases = get_data_from_excel(setting.TEST_DATA_FILE, 'audit')
+ 
+ 
+ @ddt
+ class TestAudit(unittest.TestCase):
+     @classmethod
+     def setUpClass(cls) -&gt; None:
+         logger.info('===========项目审核接口开始测试===========')
+         # 1.注册借钱用户
+         mobile_phone = generate_no_usr_phone()
+         pwd = '12345678'
+         register(mobile_phone, pwd)
+ 
+         # 2.登录借钱用户
+         data = login(mobile_phone, pwd)
+ 
+         # 保存投资用户的数据用来创建标,保存在类属性中
+         # 要保存借钱用户的id和token
+         cls.normal_member_id = data['id']
+         cls.normal_token = data['token_info']['token']
+         # 3.注册管理员用户
+         mobile_phone = generate_no_usr_phone()
+         register(mobile_phone, pwd, _type=0)
+         # 4.登录管理员用户
+         data = login(mobile_phone, pwd)
+         # 保存管理员用户的token
+         cls.token = data['token_info']['token']
+ 
+     @classmethod
+     def tearDownClass(cls) -&gt; None:
+         logger.info('===========项目审核接口结束测试===========')
+ 
+     def setUp(self) -&gt; None:
+         &quot;&quot;&quot;
+         方法级前置
+         :return:
+         &quot;&quot;&quot;
+         # 创建项目
+         res = add_loan(member_id=self.__class__.normal_member_id,
+                        token=self.__class__.normal_token)
+ 
+         # 将创建好的项目的id传递到测试用例中
+         # 通过对象属性
+         self.loan_id = res['id']
+</code></pre>
+<h4 id="222-封装创建项目函数">2.2.2 封装创建项目函数</h4>
+<pre><code class="language-python">def add_loan(member_id, token, title='借钱实现财富自由', amount=50000,
+             loan_rate=12.0, loan_term=11, loan_date_type=2, bidding_days=5):
+    &quot;&quot;&quot;
+    添加一个项目
+    :param member_id:借款人id
+    :param token:借款人token
+    :param title:标题
+    :param amount:借款金额
+    :param loan_rate:年利率
+    :param loan_term:借款期限
+    :param loan_date_type:借款期限类型
+    :param bidding_days:竞标天数
+    :return:
+    &quot;&quot;&quot;
+    # 构造数据
+    data = {
+        'member_id': member_id,
+        'title': title,
+        'amount': amount,
+        'loan_rate': loan_rate,
+        'loan_term': loan_term,
+        'loan_date_type': loan_date_type,
+        'bidding_days': bidding_days
+    }
+    # 构造请求头
+    headers = {'X-Lemonban-Media-Type': 'lemonban.v2', 'Authorization': 'Bearer {}'.format(token)}
+    url = setting.INTERFACES['add']
+    # 2.发请求
+    try:
+        res = send_http_request(url, 'post', json=data, headers=headers)
+        # 这个是判断请求是否正常
+        if res.status_code == 200:
+            # 这个是判断响应的结果是否正常
+            if res.json()['code'] == 0:
+                # 返回登录成功后的数据
+                return res.json()['data']
+        raise ValueError(res.text)
+
+    except Exception as e:
+        logger.warning('创建项目失败')
+        raise e
+
+</code></pre>
+<h4 id="223-项目审核接口用例数据的编写">2.2.3 项目审核接口用例数据的编写</h4>
+<figure data-type="image" tabindex="3"><img src="https://Shisuiyi.github.io/post-images/1638454338909.png" alt="" loading="lazy"></figure>
+<h4 id="224项目审核接口用例编写">2.2.4项目审核接口用例编写</h4>
+<pre><code class="language-python">   #!/usr/bin/env python
+   # -*- coding: utf-8 -*-
+   # @Time    : 2021/12/2 21:28
+   # @Author  : shisuiyi
+   # @File    : test_audit.py
+   # @Software: win10 Tensorflow1.13.1 python3.9
+   
+   import json
+   import unittest
+   
+   from unittestreport import ddt, list_data
+   
+   import setting
+   from common import logger, db
+   from common.data_handler import get_data_from_excel, generate_no_usr_phone
+   from common.fixture import register, login, add_loan
+   from common.make_requests import send_http_request
+   
+   cases = get_data_from_excel(setting.TEST_DATA_FILE, 'audit')
+   
+   
+   @ddt
+   class TestAudit(unittest.TestCase):
+       @classmethod
+       def setUpClass(cls) -&gt; None:
+           logger.info('===========项目审核接口开始测试===========')
+           # 1.注册借钱用户
+           mobile_phone = generate_no_usr_phone()
+           pwd = '12345678'
+           register(mobile_phone, pwd)
+   
+           # 2.登录借钱用户
+           data = login(mobile_phone, pwd)
+   
+           # 保存投资用户的数据用来创建标,保存在类属性中
+           # 要保存借钱用户的id和token
+           cls.normal_member_id = data['id']
+           cls.normal_token = data['token_info']['token']
+           # 3.注册管理员用户
+           mobile_phone = generate_no_usr_phone()
+           register(mobile_phone, pwd, _type=0)
+           # 4.登录管理员用户
+           data = login(mobile_phone, pwd)
+           # 保存管理员用户的token
+           cls.token = data['token_info']['token']
+   
+       @classmethod
+       def tearDownClass(cls) -&gt; None:
+           logger.info('===========项目审核接口结束测试===========')
+   
+       def setUp(self) -&gt; None:
+           &quot;&quot;&quot;
+           方法级前置
+           :return:
+           &quot;&quot;&quot;
+           # 创建项目
+           res = add_loan(member_id=self.__class__.normal_member_id,
+                          token=self.__class__.normal_token)
+   
+           # 将创建好的项目的id传递到测试用例中
+           # 通过对象属性
+           self.loan_id = res['id']
+   
+       @list_data(cases)
+       def test_audit(self, item):
+           &quot;&quot;&quot;
+           作业
+           :param item:
+           :return:
+           &quot;&quot;&quot;
+           logger.info('&gt;&gt;&gt;&gt;&gt;&gt;&gt;用例{}开始执行&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;'.format(item['title']))
+           # 1. 处理测试数据
+           # 需要替换依赖参数
+           item = json.dumps(item)  # 把用例数据dumps成字符串，一次替换
+           item = item.replace('#loan_id#', str(self.loan_id))
+           item = item.replace('#token#', self.__class__.token)
+           item = json.loads(item)
+   
+           # 再将request_data, expect_data loads为字典
+           request_data = json.loads(item['request_data'])
+           expect_data = json.loads(item['expect_data'])
+   
+           # 处理url
+           if item['url'].startswith('http'):
+               # 是否是全地址
+               pass
+           elif item['url'].startswith('/'):
+               # 是否是短地址
+               item['url'] = setting.PROJECT_HOST + item['url']
+           else:
+               # 接口名称
+               item['url'] = setting.INTERFACES[item['url']]
+   
+           # 2. 测试步骤
+           # 发送请求
+   
+           response = send_http_request(url=item['url'], method=item['method'], **request_data)
+   
+           # 3. 断言
+           # 3.1 断言响应状态码
+           try:
+               self.assertEqual(item['status_code'], response.status_code)
+           except AssertionError as e:
+               logger.warning('用例【{}】响应状态码断言异常'.format(item['title']))
+               logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}测试结束&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+               raise e
+           else:
+               logger.info('用例【{}】响应状态码断言成功'.format(item['title']))
+           # 3.2 断言响应数据
+           if item['res_type'].lower() == 'json':
+               res = response.json()
+           elif item['res_type'].lower() == 'html':
+               # 扩展思路
+               res = response.text
+           try:
+               self.assertEqual(expect_data, {'code': res['code'], 'msg': res['msg']})
+           except AssertionError as e:
+               logger.warning('用例【{}】响应数据断言异常'.format(item['title']))
+               logger.warning('用例【{}】期望结果为:{}'.format(item['title'], expect_data))
+               logger.warning('用例【{}】的响应结果:{}'.format(item['title'], res))
+               logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}测试结束&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+               raise e
+           else:
+               logger.info('用例【{}】响应数据断言成功'.format(item['title']))
+   
+           # 3.3 数据库断言后面的任务
+           if item.get('sql'):  # 返回指定键的值，如果键不在字典中返回默认值 None 或者设置的默认值。
+               # 只有sql字段有sql的才需要校验数据库
+               try:
+                   self.assertTrue(db.exist(item['sql']))
+               except AssertionError as e:
+                   logger.warning('用例【{}】数据库断言异常，执行的sql为:{}'.format(item['title'], item['sql']))
+                   logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}测试结束&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+                   raise e
+           logger.info('---------------用例{}测试成功---------------'.format(item['title']))
+   
+   
+   if __name__ == '__main__':
+       unittest.main()
+</code></pre>
+<p><img src="https://Shisuiyi.github.io/post-images/1638454451327.png" alt="" loading="lazy"><br>
+<img src="https://Shisuiyi.github.io/post-images/1638454458599.png" alt="" loading="lazy"></p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/ti186P6Ku/">
+            <span class="flex-auto">接口依赖</span>
+          </a>
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/o5ETtCpkfo/">
+            <span class="flex-auto">接口测试</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/5yPwPPmW2/">
+                <h3 class="post-title">
+                  测试数据动态生成
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
