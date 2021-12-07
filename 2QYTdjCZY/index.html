@@ -1,0 +1,961 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>师不予测试笔记</title>
+<meta name="description" content="<font color=#6495ED size=2 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1638883927688">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1638883927688" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">师不予测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a></li>
+<li><a href="#%E4%B8%80-%E6%A6%82%E8%BF%B0">一、概述</a>
+<ul>
+<li><a href="#1-%E6%A6%82%E5%BF%B5">1. 概念</a></li>
+<li><a href="#2-%E7%9B%AE%E7%9A%84">2. 目的</a></li>
+<li><a href="#3-%E7%89%B9%E7%82%B9">3. 特点：</a></li>
+<li><a href="#4-%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95">4. 学习方法</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AC%A6%E5%8F%B7">二、正则表达式符号</a>
+<ul>
+<li><a href="#1-%E6%99%AE%E9%80%9A%E5%AD%97%E7%AC%A6">1. 普通字符</a></li>
+<li><a href="#2-%E5%85%83%E5%AD%97%E7%AC%A6">2. 元字符</a>
+<ul>
+<li><a href="#21-%E9%80%9A%E9%85%8D%E7%AC%A6">2.1 通配符 <code>.</code></a></li>
+<li><a href="#22-%E8%84%B1%E5%AD%97%E7%AC%A6">2.2 脱字符 <code>^</code></a></li>
+<li><a href="#23-%E7%BE%8E%E5%85%83%E7%AC%A6">2.3 美元符 <code>$</code></a></li>
+<li><a href="#24-%E9%87%8D%E5%A4%8D%E5%85%83%E5%AD%97%E7%AC%A6">2.4 重复元字符 <code>*,+,?</code></a></li>
+<li><a href="#25-%E9%87%8D%E5%A4%8D%E5%85%83%E5%AD%97%E7%AC%A6">2.5 重复元字符 <code>{}</code></a></li>
+<li><a href="#2-6-%E5%AD%97%E7%AC%A6%E7%BB%84">2. 6 字符组 <code>[]</code></a></li>
+<li><a href="#27-%E9%80%89%E6%8B%A9%E5%85%83%E5%AD%97%E7%AC%A6">2.7 选择元字符 <code>|</code></a></li>
+<li><a href="#28-%E5%88%86%E7%BB%84%E5%85%83%E5%AD%97%E7%AC%A6">2.8 分组元字符 <code>()</code></a></li>
+<li><a href="#29-%E8%BD%AC%E4%B9%89%E5%85%83%E5%AD%97%E7%AC%A6">2.9 转义元字符 <code>\</code></a></li>
+<li><a href="#210-%E9%9D%9E%E8%B4%AA%E5%A9%AA%E6%A8%A1%E5%BC%8F">2.10 非贪婪模式</a></li>
+</ul>
+</li>
+<li><a href="#3-%E9%A2%84%E5%AE%9A%E4%B9%89%E5%AD%97%E7%AC%A6%E7%BB%84">3. 预定义字符组</a>
+<ul>
+<li><a href="#31-d">3.1 <code>\d</code></a></li>
+<li><a href="#32-d">3.2 <code>\D</code></a></li>
+<li><a href="#33-s">3.3 <code>\s</code></a></li>
+</ul>
+</li>
+<li><a href="#4re-%E6%A8%A1%E5%9D%97%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0">4.re 模块常用函数</a>
+<ul>
+<li><a href="#41-rematch">4.1 <code>re.match</code></a></li>
+<li><a href="#42-research">4.2 <code>re.search</code></a></li>
+<li><a href="#43-resub">4.3 <code>re.sub</code></a></li>
+<li><a href="#44-refindall">4.4 <code>re.findall</code></a>
+<ul>
+<li><a href="#matchsearchfindall-%E7%9A%84%E5%8C%BA%E5%88%AB"><code>match</code>,<code>search</code>,<code>findall</code> 的区别</a></li>
+</ul>
+</li>
+<li><a href="#45-recompile">4.5 <code>re.compile</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">三、应用场景</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">最简明的 python 正则教程</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-12-07 / 16 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/2QYTdjCZY.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h2 id="正则表达式">正则表达式</h2>
+<h2 id="一-概述">一、概述</h2>
+<h3 id="1-概念">1. 概念</h3>
+<p>正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。</p>
+<h3 id="2-目的">2. 目的</h3>
+<p>给定一个正则表达式和另一个字符串，我们可以达到如下的目的：</p>
+<ul>
+<li>
+<p>a. 给定的字符串是否符合正则表达式的过滤逻辑（称作“匹配”）；</p>
+<p>例如：邮箱匹配，电话号码匹配</p>
+</li>
+<li>
+<p>b. 可以通过正则表达式，从字符串中获取我们想要的特定部分。</p>
+<p>爬虫中解析 HTML 数据</p>
+</li>
+</ul>
+<h3 id="3-特点">3. 特点：</h3>
+<ul>
+<li>a. 灵活性、逻辑性和功能性非常的强；</li>
+<li>b. 可以迅速地用极简单的方式达到字符串的复杂控制。</li>
+<li>c. 对于刚接触的人来说，比较晦涩难懂。</li>
+</ul>
+<h3 id="4-学习方法">4. 学习方法</h3>
+<ul>
+<li>a. 做好笔记，不要死记硬背</li>
+<li>b. 大量练习</li>
+</ul>
+<p><strong>python 中通过系统库 re 实现正则表达式的所有功能</strong></p>
+<h2 id="二-正则表达式符号">二、正则表达式符号</h2>
+<h3 id="1-普通字符">1. 普通字符</h3>
+<p>下面的案例使用 <code>re</code> 模块的 <code>findall()</code> 函数，函数参考如下：</p>
+<ul>
+<li>
+<pre><code class="language-python">re.findall(pattern, string, flag)
+</code></pre>
+<ul>
+<li>在字符串中找到正则表达式所匹配的所有子串，并返回列表，如果没有找到返回空列表</li>
+<li><code>pattern</code>: 正则表达式</li>
+<li><code>string</code>：被匹配的字符串</li>
+<li>flag：标志位用来控制正则表达式匹配方式</li>
+</ul>
+</li>
+</ul>
+<p>在最简单的情况下，一个正则表达式看上去就是一个普通的查找串</p>
+<pre><code class="language-python">import re
+s1 = &quot;testing123&quot;
+s2 = &quot;Testing123&quot;
+r = re.findall(&quot;test&quot;, s1)  # 表示在s1中找到字符串&quot;test&quot;
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['test']
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;test&quot;, s2)
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">[]
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;test&quot;, s2, re.I) # 修饰符re.I:使匹配对大小写不敏感
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['Test']
+</code></pre>
+<h3 id="2-元字符">2. 元字符</h3>
+<pre><code class="language-python">. ^ $ * + ? { } [ ] | ( ) \
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>通配符 <code>.</code> <strong>匹配除 <code>\n</code> 之外的任何单个字符</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>脱字符 <code>^</code> <strong>匹配输入字符串的开始位置</strong></td>
+</tr>
+<tr>
+<td>$</td>
+<td>美元符 <code>$</code> <strong>匹配输入字符串的结束位置</strong></td>
+</tr>
+<tr>
+<td>*</td>
+<td>重复元字符 <code>*</code> 匹配前面的子表达式任意次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复元字符 <code>+</code> 匹配前面的子表达式一次或多次（至少一次）</td>
+</tr>
+<tr>
+<td>?</td>
+<td>重复元字符 <code>?</code> 匹配前面的子表达式 0 次或 1 次</td>
+</tr>
+<tr>
+<td>{ }</td>
+<td>重复元字符<code>{}</code><strong>也是控制匹配前面的子表达式次数</strong></td>
+</tr>
+<tr>
+<td>[ ]</td>
+<td>字符组 <code>[]</code><strong>表示匹配给出的任意字符</strong></td>
+</tr>
+<tr>
+<td>|</td>
+<td>选择元字符 <code>|</code> 表示两个表达式选择一个匹配</td>
+</tr>
+<tr>
+<td>( )</td>
+<td>分组元字符 <code>()</code><strong>将括号之间的表达式定义为组(group)，并且将匹配这个子表达式的字符返回</strong></td>
+</tr>
+<tr>
+<td>\</td>
+<td>转义元字符 <code>\</code> <strong>用来匹配元字符本身时的转义，和特定字符组成字符串，见预定义字符组</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="21-通配符">2.1 通配符 <code>.</code></h4>
+<p><strong>匹配除 <code>\n</code> 之外的任何单个字符</strong></p>
+<pre><code class="language-python">s1 = &quot;testing123&quot;
+s2 = &quot;testing123\n&quot;
+r = re.findall(&quot;.&quot;, s1)
+print(r)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['t', 'e', 's', 't', 'i', 'n', 'g', '1', '2', '3']
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;.&quot;, s2)  # 除“\n”
+print(r)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['t', 'e', 's', 't', 'i', 'n', 'g', '1', '2', '3']
+</code></pre>
+<p>修饰符 <code>re.S</code> 使 <code>.</code> 匹配包括换行在内的所有字符</p>
+<pre><code class="language-python">r = re.findall(&quot;.&quot;, s2, re.S)  
+print(r)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['t', 'e', 's', 't', 'i', 'n', 'g', '1', '2', '3', '\n']
+</code></pre>
+<h4 id="22-脱字符">2.2 脱字符 <code>^</code></h4>
+<p><strong>匹配输入字符串的开始位置</strong></p>
+<pre><code class="language-python">s1 = &quot;testing\nTesting\ntest&quot;
+
+r = re.findall(&quot;^test&quot;, s1)  # 默认只匹配单行
+print(r)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['test']
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;^test&quot;, s1, re.M)   # 修饰符re.M:多行匹配
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['test', 'test']
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;^test&quot;, s1, re.I | re.M)  
+print(r)  # 输出['test', 'Test', 'test']
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['test', 'Test', 'test']
+</code></pre>
+<h4 id="23-美元符">2.3 美元符 <code>$</code></h4>
+<p><strong>匹配输入字符串的结束位置</strong></p>
+<pre><code class="language-python">s1 = &quot;testing\nTesting\ntest&quot;
+r = re.findall(&quot;testing$&quot;, s1)  # 默认匹配单行
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">[]
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;testing$&quot;, s1, re.M)   # 修饰符re.M:多行匹配
+print(r)  # 输出['testing']
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['testing']
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;testing$&quot;, s1, re.I | re.M)    # 多个修饰符通过 OR(|) 来指定
+print(r)  # 输出['testing', 'Testing']
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['testing', 'Testing']
+</code></pre>
+<h4 id="24-重复元字符">2.4 重复元字符 <code>*,+,?</code></h4>
+<ul>
+<li><code>*</code> 匹配前面的子表达式任意次</li>
+<li><code>+</code> 匹配前面的子表达式一次或多次（至少一次）</li>
+<li><code>?</code> 匹配前面的子表达式 0 次或 1 次</li>
+</ul>
+<pre><code class="language-python">s1 = &quot;z\nzo\nzoo&quot;
+r = re.findall(&quot;zo*&quot;, s1)     # 匹配o{0，}
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['z', 'zo', 'zoo']
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;zo+&quot;, s1)   # 匹配o{1，}
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['zo', 'zoo']
+</code></pre>
+<pre><code class="language-bash">r = re.findall(&quot;zo?&quot;, s1)    # 匹配o{0，1}
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">['z', 'zo', 'zo']
+</code></pre>
+<h4 id="25-重复元字符">2.5 重复元字符 <code>{}</code></h4>
+<p><strong>也是控制匹配前面的子表达式次数</strong></p>
+<pre><code class="language-python">s1 = &quot;z\nzo\nzoo&quot;
+r = re.findall(&quot;zo*&quot;, s1)     # 匹配o{0,},逗号后不能空格
+r1 = re.findall(r&quot;zo{0,}&quot;, s1)
+print(r)  # ['z', 'zo', 'zoo']
+print(r1)  # ['z', 'zo', 'zoo']
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['z', 'zo', 'zoo']
+['z', 'zo', 'zoo']
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;zo+&quot;, s1)   # 匹配o{1，}
+r1 = re.findall(r&quot;zo{1,}&quot;, s1)
+print(r)  # 输出['zo', 'zoo']
+print(r1)  # 输出['zo', 'zoo']
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['zo', 'zoo']
+['zo', 'zoo']
+</code></pre>
+<pre><code class="language-bash">r1 = re.findall(&quot;zo{2}&quot;, s1)  
+print(r1)  # 输出['zoo']
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">['zoo']
+</code></pre>
+<h4 id="2-6-字符组">2. 6 字符组 <code>[]</code></h4>
+<p><strong>表示匹配给出的任意字符</strong></p>
+<pre><code class="language-python">s1 = &quot;吴建国\n李建国\n黄建国&quot;
+
+r = re.findall(&quot;[黄刘李]建国&quot;, s1)   # 匹配包含的任意字符
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['李建国', '黄建国']
+</code></pre>
+<pre><code class="language-python">s1 = &quot;test\nTesting\nzoo&quot;
+r = re.findall(&quot;[e-o]&quot;, s1)   # 匹配包含的字符范围
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['e', 'e', 'i', 'n', 'g', 'o', 'o']
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;^[eio]&quot;, s1, re.M)   # 回忆脱字符，匹配以[eio]开头字符。
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">[]
+</code></pre>
+<pre><code class="language-python">r = re.findall(&quot;[^eio]&quot;, s1)    # 匹配未包含e、i、o的任意字符
+print(r) 
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['t', 's', 't', '\n', 'T', 's', 't', 'n', 'g', '\n', 'z']
+</code></pre>
+<pre><code class="language-bash">r1 = re.findall(&quot;[^e-o]&quot;, s1)    # 匹配未包含的字符范围
+print(r1)  # 输出['t', 's', 't', '\n', 'T', 's', 't', '\n', 'z']
+['t', 's', 't', '\n', 'T', 's', 't', '\n', 'z']
+</code></pre>
+<h4 id="27-选择元字符">2.7 选择元字符 <code>|</code></h4>
+<p>表示两个表达式选择一个匹配</p>
+<pre><code class="language-python">s1 = &quot;z\nzood\nfood&quot;
+r = re.findall(&quot;z|food&quot;, s1)   # 匹配&quot;z&quot;或&quot;food&quot;
+print(r) 
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['z', 'z', 'food']
+</code></pre>
+<pre><code class="language-bash">r = re.findall(&quot;[z|f]ood&quot;, s1)   # 匹配&quot;zood&quot;或&quot;food&quot;
+print(r)  # 
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">['zood', 'food']
+</code></pre>
+<h4 id="28-分组元字符">2.8 分组元字符 <code>()</code></h4>
+<p><strong>将括号之间的表达式定义为组(group)，并且将匹配这个子表达式的字符返回</strong></p>
+<pre><code class="language-python">s1 = &quot;z\nzood\nfood&quot;
+r = re.findall(&quot;[z|f]o*&quot;, s1)   # 不加分组，拿到的引号内正则表达式匹配到的字符
+print(r)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['z', 'zoo', 'foo']
+</code></pre>
+<pre><code class="language-bash">r = re.findall(&quot;[z|f](o*)&quot;, s1)   # 加上分组，返回的将是引号内正则表达式匹配到的字符中（）中的内容。
+print(r)  # ['', 'oo', 'oo']
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">['', 'oo', 'oo']
+</code></pre>
+<h4 id="29-转义元字符">2.9 转义元字符 <code>\</code></h4>
+<p><strong>用来匹配元字符本身时的转义，和特定字符组成字符串，见预定义字符组</strong></p>
+<pre><code class="language-python">s = '12345@qq.com'
+r = re.findall('\.', s)
+print(r)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">['.']
+</code></pre>
+<h4 id="210-非贪婪模式">2.10 非贪婪模式</h4>
+<p>在默认情况下，元字符 <code>*,+</code> 和 <code>{n,m}</code> 会尽可能多的匹配前面的子表达式，这叫贪婪模式。</p>
+<pre><code class="language-python">s = &quot;abcadcaec&quot;
+
+r = re.findall(r&quot;ab.*c&quot;, s)   # 贪婪模式，尽可能多的匹配字符(.*或者.+)
+print(r) 
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['abcadcaec']
+</code></pre>
+<pre><code class="language-python">r = re.findall(r&quot;ab.*?c&quot;, s)  # 非贪婪模式，尽可能少的匹配字符
+print(r)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['abc']
+</code></pre>
+<pre><code class="language-python">r = re.findall('ab.+c', s)  # 贪婪
+print(r) 
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['abcadcaec']
+</code></pre>
+<pre><code class="language-python">r = re.findall('ab.+?c', s)  # 非贪婪
+print(r)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['abcadc']
+</code></pre>
+<pre><code class="language-python">r = re.findall('ab.{0,}', s) # 贪婪
+print(r)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['abcadcaec']
+</code></pre>
+<pre><code class="language-python">r = re.findall('ab.{0,}?', s) # 非贪婪
+print(r)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['ab']
+</code></pre>
+<h3 id="3-预定义字符组">3. 预定义字符组</h3>
+<p>元字符 <code>\</code> 与某些字符组合在一起表示特定的匹配含义</p>
+<h4 id="31-d">3.1 <code>\d</code></h4>
+<p><strong>匹配单个数字，等价于[0-9]</strong></p>
+<pre><code class="language-python">s = &quot;&lt;a href=' asdf'&gt;1360942725&lt;/a&gt;&quot;
+a = re.findall('\d', s)
+print(a) 
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['1', '3', '6', '0', '9', '4', '2', '7', '2', '5']
+</code></pre>
+<pre><code class="language-python">a = re.findall('\d+', s)
+print(a)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">['1360942725']
+</code></pre>
+<h4 id="32-d">3.2 <code>\D</code></h4>
+<p><strong>匹配任意单个非数字字符，等价于[^0-9]</strong></p>
+<pre><code class="language-python">a = re.findall('\D', s)
+print(a)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">['&lt;', 'a', ' ', 'h', 'r', 'e', 'f', '=', &quot;'&quot;, ' ', 'a', 's', 'd', 'f', &quot;'&quot;, '&gt;', '&lt;', '/', 'a', '&gt;']
+</code></pre>
+<h4 id="33-s">3.3 <code>\s</code></h4>
+<p><strong>匹配任意单个空白符，包括空格，制表符(tab)，换行符等</strong></p>
+<pre><code class="language-python">s = 'fdfa**68687+ 我怕n fdg\tf_d\n'
+a = re.findall('\s', s)
+print(a)  
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">[' ', ' ', '\t', '\n']
+</code></pre>
+<p>3.4 <code>\S</code></p>
+<p><strong>匹配任何非空白字符</strong></p>
+<pre><code class="language-python">s = 'fdfa**68687+ 我怕n fdg\tf_d\n'
+a = re.findall('\S', s)
+print(a) 
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">['f', 'd', 'f', 'a', '', '', '6', '8', '6', '8', '7', '+', '我', '怕', 'n', 'f', 'd', 'g', 'f', '_', 'd']
+</code></pre>
+<p>3.5 <code>\w</code></p>
+<p><strong>匹配除符号外的单个字母，数字，下划线或汉字等</strong></p>
+<pre><code class="language-python">a = re.findall(&quot;\w&quot;, s)
+print(a)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">['f', 'd', 'f', 'a', '6', '8', '6', '8', '7', '我', '怕', 'n', 'f', 'd', 'g', 'f', '_', 'd']
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">元字符</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">匹配除换行符以外的任意字符</td>
+</tr>
+<tr>
+<td style="text-align:left">\w</td>
+<td style="text-align:left">匹配字母或数字或下划线</td>
+</tr>
+<tr>
+<td style="text-align:left">\W</td>
+<td style="text-align:left">和 \w 相反</td>
+</tr>
+<tr>
+<td style="text-align:left">\d</td>
+<td style="text-align:left">匹配数字</td>
+</tr>
+<tr>
+<td style="text-align:left">\D</td>
+<td style="text-align:left">和 \d 相反</td>
+</tr>
+<tr>
+<td style="text-align:left">\s</td>
+<td style="text-align:left">匹配任意的空白符</td>
+</tr>
+<tr>
+<td style="text-align:left">\S</td>
+<td style="text-align:left">和 \s 相反</td>
+</tr>
+</tbody>
+</table>
+<p>小案例</p>
+<ol>
+<li>检测邮箱</li>
+</ol>
+<pre><code class="language-python">s = &quot;3003756995@qq.com&quot;
+a = re.findall('^\w+@\w+\.com$', s) # 检测邮箱
+if a:
+    print('是正确格式的邮箱')
+else:
+    print('不是邮箱地址')
+</code></pre>
+<p>是正确格式的邮箱</p>
+<ol start="2">
+<li>检测手机号码</li>
+</ol>
+<pre><code class="language-python">s = '13812345678'
+r = re.findall('^1[3-9]\d{9}$', s)  # 检查手机号码
+if r:
+    print('手机号码格式正确')
+else:
+    print('手机号码格式不正确')
+  
+</code></pre>
+<p>手机号码格式正确</p>
+<h3 id="4re-模块常用函数">4.re 模块常用函数</h3>
+<h4 id="41-rematch">4.1 <code>re.match</code></h4>
+<ul>
+<li>
+<pre><code>re.match(pattern, string, flag)
+</code></pre>
+<ul>
+<li>尝试从字符串的起始位置匹配一个模式，成功返回匹配对象，否则返回 None</li>
+<li><code>pattern</code>: 正则表达式</li>
+<li><code>string</code>: 被匹配的字符串</li>
+<li><code>flag</code>: 标志位，表示匹配模式</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">import re
+url = 'www.hhxpython.com'
+res = re.match('www', url)    # 'www' 就是正则表达式，没有元字符表示匹配字符本身
+                              # re.match默认是从字符串开头匹配，等价于'^www'
+print(res)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">&lt;re.Match object; span=(0, 3), match='www'&gt;
+</code></pre>
+<pre><code class="language-bash">res2 = re.match('hhx', url)
+print(res2)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">None
+</code></pre>
+<p><strong>匹配对象</strong></p>
+<p><code>match</code> 函数返回一个匹配对象，通过这个对象可以取出匹配到的字符串和分组字符串</p>
+<pre><code class="language-python">line = 'Good good study, Day day up!'
+match_obj = re.match('(?P&lt;aa&gt;.*), (.*) (.*)', line)  
+if match_obj: 
+    print(match_obj.group())    # 返回匹配到的字符串
+    print(match_obj.group(1))   # 返回对应序号分组字符串 从1开始
+    print(match_obj.group(2))
+    print(match_obj.group(3))
+else:
+    print('not found')
+print(match_obj.groups())  # 返回分组字符串元组
+print(match_obj.groupdict())  # 按照分组名和分组字符串组成字典 (?P&lt;name&gt;pattern)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-python">Good good study, Day day up!
+Good good study
+Day day
+up!
+('Good good study', 'Day day', 'up!')
+{'aa': 'Good good study'}
+</code></pre>
+<h4 id="42-research">4.2 <code>re.search</code></h4>
+<ul>
+<li>
+<pre><code>re.search(pattern, string, flag)
+</code></pre>
+<ul>
+<li>扫描整个字符串返回第一个成功的匹配对象</li>
+<li><code>pattern</code>: 正则表达式</li>
+<li><code>string</code>: 被匹配的字符串</li>
+<li><code>flag</code>: 标志位，表示匹配模式</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">url = 'www.hhxpython.com'
+res = re.search('www', url)    # 'www' 就是正则表达式，没有元字符表示匹配字符本身
+print(res)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">&lt;re.Match object; span=(0, 3), match='www'&gt;
+res2 = re.search('hhx', url)
+print(res2)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">&lt;re.Match object; span=(4, 7), match='hhx'&gt;
+res3 = re.search('h', url)
+print(res3)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">&lt;re.Match object; span=(4, 5), match='h'&gt;
+</code></pre>
+<h4 id="43-resub">4.3 <code>re.sub</code></h4>
+<ul>
+<li>
+<pre><code>re.sub(pattern, repl, string, count=0, flag)
+</code></pre>
+<ul>
+<li>将表达式匹配到的部分替换为制定字符串，返回替换后的新字符串</li>
+<li><code>pattern</code>: 正则表达式</li>
+<li><code>repl</code>: 用来替换的字符串</li>
+<li><code>string</code>: 被匹配的字符串</li>
+<li><code>count</code>: 替换次数，默认为 0，表示全部替换</li>
+<li><code>flags</code>: 标志位，表示匹配模式</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">phone = '2004-959-559 # 这是一个国外电话号码'
+
+# 删除字符串中的python注释
+num = re.sub('#.*', '', phone)
+print(num)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">2004-959-559
+# 删除连接符号 -
+num = re.sub('-', '', num)
+print(num)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">2004959559
+</code></pre>
+<h4 id="44-refindall">4.4 <code>re.findall</code></h4>
+<ul>
+<li>
+<pre><code>re.findall(pattern, string, flags=0)
+</code></pre>
+<ul>
+<li>在字符串中找到正则表达式匹配的所有子串，返回一个列表，匹配失败则返回空列表</li>
+<li><code>pattern</code>: 正则表达式</li>
+<li><code>string</code>: 被匹配的字符串</li>
+<li><code>flags</code>: 标志位，表示匹配模式</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">res1 = re.findall('day', line, re.I)
+res2 = re.search('day', line, re.I)
+res3 = re.match('day', line, re.I)
+
+print('findall', res1)
+print('search', res2.group())
+print('search', res3)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">findall ['Day', 'day']
+search Day
+search None
+</code></pre>
+<h5 id="matchsearchfindall-的区别"><code>match</code>,<code>search</code>,<code>findall</code> 的区别</h5>
+<ul>
+<li><code>match</code> 从头开始匹配，成功返回匹配对象，失败返回 None</li>
+<li><code>search</code> 只匹配第一个，成功返回匹配对象，失败返回 None</li>
+<li><code>findall</code> 匹配所有，成功返回所有匹配到的字符串组成的列表，失败返回空列表</li>
+</ul>
+<h4 id="45-recompile">4.5 <code>re.compile</code></h4>
+<ul>
+<li>
+<pre><code>re.compile(pattern, [flags])
+</code></pre>
+<ul>
+<li>compile 函数用于编译正则表达式，生成一个正则表达式对象，该对象调用 findall，search，match，sub 等方法</li>
+<li><code>pattern</code>: 正则表达式</li>
+<li><code>flags</code>: 标志位，表示匹配模式<br>
+面向对象编程时使用</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">pattern = re.compile('day', re.I)
+res1 = pattern.findall(line)
+res2 = pattern.search(line)
+res3 = pattern.match(line)
+print('findall', res1)
+print('search', res2.group())
+print('match', res3)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">findall ['Day', 'day']
+search Day
+match None
+</code></pre>
+<h2 id="三-应用场景">三、应用场景</h2>
+<p>在做自动化测试时用例数据是动态的，需要程序自动处理。<br>
+<img src="http://testingpai.com/upload/file/2020/08/image-d5e32b43.png" alt="image.png" loading="lazy"></p>
+<pre><code class="language-python">import re
+# 用例json数据字符串
+data = '{&quot;member_id&quot;:&quot;#member_id#&quot;,&quot;pwd&quot;:&quot;#pwd#&quot;,&quot;user&quot;:&quot;#user#&quot;,&quot;loan_id&quot;:&quot;#loan#&quot;}'
+# 动态数据
+class DynamicData:
+    member_id = 123
+    user = &quot;musen&quot;
+    pwd = &quot;lemonban&quot;
+    loan = 31
+
+def mk_data(json_str,dn_data):
+    while True:
+        item = re.search('#(.*?)#', json_str)
+        # 没有匹配到说明匹配完成
+        if not item:
+            break
+        # 需要被替换的字符串
+        need_replace = item.group()
+        # 需要被替换的参数名
+        key = item.group(1)
+        # 替换
+        json_str = json_str.replace(need_replace, str(getattr(dn_data, key)))
+    return json_str
+
+mk_data(data, DynamicData)
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="language-bash">'{&quot;member_id&quot;:&quot;123&quot;,&quot;pwd&quot;:&quot;lemonban&quot;,&quot;user&quot;:&quot;musen&quot;,&quot;loan_id&quot;:&quot;31&quot;}'
+</code></pre>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/wed9YLth-/">
+            <span class="flex-auto">正则表达式</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/DQ1NICuLd/">
+                <h3 class="post-title">
+                  接口依赖的处理
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
