@@ -1,0 +1,463 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>不予の测试笔记</title>
+<meta name="description" content="<font color=#339999 size=3 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639056282642">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639056282642" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">不予の测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li><a href="#%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2">动态参数替换</a>
+<ul>
+<li><a href="#1-%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF">1. 设计思路</a></li>
+<li><a href="#2-%E5%B0%81%E8%A3%85%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0%E6%9B%BF%E6%8D%A2%E5%87%BD%E6%95%B0">2. 封装动态参数替换函数</a>
+<ul>
+<li><a href="#%E5%B0%81%E8%A3%85%E5%8A%A8%E6%80%81%E6%9B%BF%E6%8D%A2%E5%87%BD%E6%95%B0">封装动态替换函数</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%BA%94%E7%94%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E4%B8%AD">3. 应用到项目中</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">动态参数替换</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-12-09 / 6 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/1qdXCMK0o.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h1 id="动态参数替换">动态参数替换</h1>
+<p>需求：动态的去替换参数。</p>
+<p>在替换的过程中，根据不同的参数自动的去找对应的值进行替换。</p>
+<h2 id="1-设计思路">1. 设计思路</h2>
+<ol>
+<li>用例数据中的槽位变量名要和对应的类属性名一致</li>
+<li>找出用例数据中的所有槽位名</li>
+<li>根据槽位名依次去类中获取对应的属性并替换</li>
+</ol>
+<h2 id="2-封装动态参数替换函数">2. 封装动态参数替换函数</h2>
+<h3 id="封装动态替换函数">封装动态替换函数</h3>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/11/11 20:51
+# @Author  : shisuiyi
+# @File    : data_handler.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+# 测试数据处理模块
+
+def replace_args_by_re(json_str, obj):
+    &quot;&quot;&quot;
+    通过正则表达式动态去替换
+    @param json_str:需要被替换的json字符串
+    @param obj:通过数据的对象
+    @return: 返回替换后的字符串
+    &quot;&quot;&quot;
+    # 1.先找出字符串中的槽位名(槽位)
+    args = re.findall('#(.*?)#', json_str)
+    # 2.再去数据对象中获取对应名字的参数的值
+    for arg in args:
+        # 3.获取对应obj中对应参数名的属性值
+        value = getattr(obj, arg, None)
+        # 4.如果有属性则替换
+        if value is not None:
+            json_str = json_str.replace('#{}#'.format(arg), str(value))
+    return json_str
+
+
+if __name__ == '__main__':
+    class Some:
+        loan_id = 1
+        token = 'abcdef'
+
+    s = &quot;&quot;&quot;{
+&quot;headers&quot;: {&quot;X-Lemonban-Media-Type&quot;: &quot;lemonban.v2&quot;,&quot;Authorization&quot;:&quot;Bearer #token#&quot;},
+&quot;json&quot;:{&quot;loan_id&quot;:#loan_id#,&quot;approved_or_not&quot;:true}
+}&quot;&quot;&quot;
+    res = replace_args_by_re(s, Some)
+    print(res)
+
+</code></pre>
+<pre><code class="language-python">{
+&quot;headers&quot;: {&quot;X-Lemonban-Media-Type&quot;: &quot;lemonban.v2&quot;,&quot;Authorization&quot;:&quot;Bearer abcdef&quot;},
+&quot;json&quot;:{&quot;loan_id&quot;:1,&quot;approved_or_not&quot;:true}
+}
+
+</code></pre>
+<h2 id="3-应用到项目中">3. 应用到项目中</h2>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/12/2 21:28
+# @Author  : shisuiyi
+# @File    : test_audit.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+
+import json
+import unittest
+
+from unittestreport import ddt, list_data
+
+import setting
+from common import logger, db
+from common.data_handler import (
+    get_data_from_excel,
+    generate_no_usr_phone,
+    replace_args_by_re)
+from common.fixture import register, login, add_loan
+from common.make_requests import send_http_request
+
+cases = get_data_from_excel(setting.TEST_DATA_FILE, 'audit')
+
+
+@ddt
+class TestAudit(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -&gt; None:
+        logger.info('===========项目审核接口开始测试===========')
+        # 1.注册借钱用户
+        mobile_phone = generate_no_usr_phone()
+        pwd = '12345678'
+        register(mobile_phone, pwd)
+
+        # 2.登录借钱用户
+        data = login(mobile_phone, pwd)
+
+        # 保存投资用户的数据用来创建标,保存在类属性中
+        # 要保存借钱用户的id和token
+        cls.normal_member_id = data['id']
+        cls.normal_token = data['token_info']['token']
+        # 3.注册管理员用户
+        mobile_phone = generate_no_usr_phone()
+        register(mobile_phone, pwd, _type=0)
+        # 4.登录管理员用户
+        data = login(mobile_phone, pwd)
+        # 保存管理员用户的token
+        cls.token = data['token_info']['token']
+
+    @classmethod
+    def tearDownClass(cls) -&gt; None:
+        logger.info('===========项目审核接口结束测试===========')
+
+    def setUp(self) -&gt; None:
+        &quot;&quot;&quot;
+        方法级前置
+        :return:
+        &quot;&quot;&quot;
+        # 创建项目
+        res = add_loan(member_id=self.__class__.normal_member_id,
+                       token=self.__class__.normal_token)
+
+        # 将创建好的项目的id传递到测试用例中
+        # 通过对象属性
+        self.loan_id = res['id']
+
+    @list_data(cases)
+    def test_audit(self, item):
+        &quot;&quot;&quot;
+        作业
+        :param item:
+        :return:
+        &quot;&quot;&quot;
+        logger.info('&gt;&gt;&gt;&gt;&gt;&gt;&gt;用例{}开始执行&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;'.format(item['title']))
+        # 1. 处理测试数据
+        # 需要替换依赖参数
+        item = json.dumps(item)  # 把用例数据dumps成字符串，一次替换
+        item = replace_args_by_re(item, self)
+        # item = item.replace('#loan_id#', str(self.loan_id))
+        # item = item.replace('#token#', self.__class__.token)
+        item = json.loads(item)
+
+        # 再将request_data, expect_data loads为字典
+        request_data = json.loads(item['request_data'])
+        expect_data = json.loads(item['expect_data'])
+
+        # 处理url
+        if item['url'].startswith('http'):
+            # 是否是全地址
+            pass
+        elif item['url'].startswith('/'):
+            # 是否是短地址
+            item['url'] = setting.PROJECT_HOST + item['url']
+        else:
+            # 接口名称
+            item['url'] = setting.INTERFACES[item['url']]
+
+        # 2. 测试步骤
+        # 发送请求
+
+        response = send_http_request(url=item['url'], method=item['method'], **request_data)
+
+        # 3. 断言
+        # 3.1 断言响应状态码
+        try:
+            self.assertEqual(item['status_code'], response.status_code)
+        except AssertionError as e:
+            logger.warning('用例【{}】响应状态码断言异常'.format(item['title']))
+            logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}测试结束&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+            raise e
+        else:
+            logger.info('用例【{}】响应状态码断言成功'.format(item['title']))
+        # 3.2 断言响应数据
+        if item['res_type'].lower() == 'json':
+            res = response.json()
+        elif item['res_type'].lower() == 'html':
+            # 扩展思路
+            res = response.text
+        try:
+            self.assertEqual(expect_data, {'code': res['code'], 'msg': res['msg']})
+        except AssertionError as e:
+            logger.warning('用例【{}】响应数据断言异常'.format(item['title']))
+            logger.warning('用例【{}】期望结果为:{}'.format(item['title'], expect_data))
+            logger.warning('用例【{}】的响应结果:{}'.format(item['title'], res))
+            logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}测试结束&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+            raise e
+        else:
+            logger.info('用例【{}】响应数据断言成功'.format(item['title']))
+
+        # 3.3 数据库断言后面的任务
+        if item.get('sql'):  # 返回指定键的值，如果键不在字典中返回默认值 None 或者设置的默认值。
+            # 只有sql字段有sql的才需要校验数据库
+            try:
+                self.assertTrue(db.exist(item['sql']))
+            except AssertionError as e:
+                logger.warning('用例【{}】数据库断言异常，执行的sql为:{}'.format(item['title'], item['sql']))
+                logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}测试结束&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(item['title']))
+                raise e
+        logger.info('---------------用例{}测试成功---------------'.format(item['title']))
+
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/wed9YLth-/">
+            <span class="flex-auto">正则表达式</span>
+          </a>
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/AtZVPnuFc/">
+            <span class="flex-auto">数据生成</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/2QYTdjCZY/">
+                <h3 class="post-title">
+                  最简明的 python 正则教程
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
