@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>不予の测试笔记</title>
 <meta name="description" content="<font color=#339999 size=3 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639207091102">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639208183008">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639207091102" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639208183008" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">不予の测试笔记</h1>
       </div>
@@ -93,7 +93,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">测试用例基类抽取</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-12-11 / 16 min read
+          2021-12-11 / 12 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/MDZtvI1oI.jpg" alt="">
@@ -113,15 +113,9 @@
 # @Author  : shisuiyi
 # @File    : base_case.py
 # @Software: win10 Tensorflow1.13.1 python3.9
-import json
 import unittest
-
 import setting
 from common import logger, db
-from common.data_handler import (
-   replace_args_by_re,
-   generate_no_usr_phone)
-from common.make_requests import send_http_request
 
 
 class BaseCase(unittest.TestCase):
@@ -131,157 +125,6 @@ class BaseCase(unittest.TestCase):
    db = db
    logger = logger
    setting = setting
-   name = 'base_case'
-
-   @classmethod
-   def setUpClass(cls) -&gt; None:
-       cls.logger.info('==========={}接口开始测试==========='.format(cls.name))
-   @classmethod
-   def tearDownClass(cls) -&gt; None:
-       cls.logger.info('==========={}接口结束测试==========='.format(cls.name))
-
-
-   def flow(self, item):
-       &quot;&quot;&quot;
-       测试流程
-       &quot;&quot;&quot;
-       self.logger.info('&gt;&gt;&gt;&gt;&gt;&gt;&gt;用例{}开始执行&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;'.format(item['title']))
-       # 把测试数据绑定到方法属性case上,其他也要把一些变量绑定到对象的属性上
-       self._case = item
-       # 1. 处理测试数据
-       self.process_test()
-       # 2. 发送请求
-       self.send_request()
-       # 3. 断言
-       self.assert_all()
-
-
-   def process_test(self):
-       &quot;&quot;&quot;
-       测试数据的处理
-       &quot;&quot;&quot;
-       # 1.1 生成测试数据
-       self.generate_test_data()
-       # 1.2 替换依赖参数
-       self.replace_args()
-       # 1.3 处理url
-       self.process_url()
-
-   def generate_test_data(self):
-       &quot;&quot;&quot;
-       生成测试数据
-       &quot;&quot;&quot;
-       &quot;&quot;&quot;
-          生成测试数据,不是固定流程，有不同可以复写
-          :return:
-          &quot;&quot;&quot;
-       self._case = json.dumps(self._case)
-       if '$phone_number$' in self._case:
-           phone = generate_no_usr_phone()
-           self._case = self._case.replace('$phone_number$', phone)
-       self._case = json.loads(self._case)
-
-   def replace_args(self):
-       &quot;&quot;&quot;
-       替换参数
-       &quot;&quot;&quot;
-       self._case = json.dumps(self._case)  # 把用例数据dumps成字符串，一次替换
-       self._case = replace_args_by_re(self._case, self)
-       self._case = json.loads(self._case)
-       # 再将request_data, expect_data loads为字典
-       try:
-           self._case['request_data'] = json.loads(self._case['request_data'])
-           self._case['expect_data'] = json.loads(self._case['expect_data'])
-       except Exception as e:
-           self.logger.error('{}用例的测试数据格式不正确'.format(self._case['title']))
-           raise e
-
-   def process_url(self):
-       &quot;&quot;&quot;
-       处理url
-       &quot;&quot;&quot;
-
-       if self._case['url'].startswith('http'):
-           # 是否是全地址
-           pass
-       elif self._case['url'].startswith('/'):
-           # 是否是短地址
-           self._case['url'] = self.setting.PROJECT_HOST + self._case['url']
-       else:
-           # 接口名称
-           try:
-               self._case['url'] = self.setting.INTERFACES[self._case['url']]
-           except Exception as e:
-               self.logger.error('接口名称：{}不存在'.format(self._case['url']))
-               raise e
-
-
-   def send_request(self):
-       &quot;&quot;&quot;
-       发送请求
-       @return:
-       &quot;&quot;&quot;
-       self._response = send_http_request(url=self._case['url'], method=self._case['method'],
-                                          **self._case['request_data'])
-
-
-   def assert_all(self):
-       try:
-           # 3.1 断言响应状态码
-           self.assert_status_code()
-           # 3.2 断言响应数据
-           self.assert_response()
-           # 3.3 数据库断言后面的任务
-           self.assert_sql()
-       except  Exception as e:
-           self.logger.error('++++++用例{}测试失败'.format(self._case['title']))
-           raise e
-       else:
-           self.logger.info('&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;用例{}测试成功&lt;&lt;&lt;&lt;&lt;&lt;&lt;'.format(self._case['title']))
-
-   def assert_status_code(self):
-       &quot;&quot;&quot;
-       断言响应状态码
-       &quot;&quot;&quot;
-       try:
-           self.assertEqual(self._case['status_code'], self._response.status_code)
-       except AssertionError as e:
-           self.logger.warning('用例【{}】响应状态码断言异常'.format(self._case['title']))
-           raise e
-       else:
-           self.logger.info('用例【{}】响应状态码断言成功'.format(self._case['title']))
-
-   def assert_response(self):
-       &quot;&quot;&quot;
-       断言响应数据
-       &quot;&quot;&quot;
-       if self._case['res_type'].lower() == 'json':
-           res = self._response.json()
-       elif self._case['res_type'].lower() == 'html':
-           # 扩展思路
-           res = self._response.text
-       try:
-           self.assertEqual(self._case['expect_data'], {'code': res['code'], 'msg': res['msg']})
-       except AssertionError as e:
-           self.logger.warning('用例【{}】响应数据断言异常'.format(self._case['title']))
-           self.logger.warning('用例【{}】期望结果为:{}'.format(self._case['title'], self._case['expect_data']))
-           self.logger.warning('用例【{}】的响应结果:{}'.format(self._case['title'], res))
-           raise e
-       else:
-           self.logger.info('用例【{}】响应数据断言成功'.format(self._case['title']))
-
-   def assert_sql(self):
-       &quot;&quot;&quot;
-       断言数据库
-       &quot;&quot;&quot;
-       if self._case.get('sql'):  # 返回指定键的值，如果键不在字典中返回默认值 None 或者设置的默认值。
-           # 只有sql字段有sql的才需要校验数据库
-           try:
-               self.assertTrue(self.db.exist(self._case['sql']))
-           except AssertionError as e:
-               self.logger.warning('用例【{}】数据库断言异常，执行的sql为:{}'.format(self._case['title'], self._case['sql']))
-               raise e
-
 </code></pre>
 <h3 id="12-将测试方法中的每一个步骤单独封装成对象方法">1.2 将测试方法中的每一个步骤单独封装成对象方法</h3>
 <ul>
@@ -507,7 +350,15 @@ class BaseCase(unittest.TestCase):
         &quot;&quot;&quot;
         生成测试数据
         &quot;&quot;&quot;
-        pass
+        &quot;&quot;&quot;
+           生成测试数据,不是固定流程，有不同可以复写
+           :return:
+           &quot;&quot;&quot;
+        self._case = json.dumps(self._case)
+        if '$phone_number$' in self._case:
+            phone = generate_no_usr_phone()
+            self._case = self._case.replace('$phone_number$', phone)
+        self._case = json.loads(self._case)
 
     def replace_args(self):
         &quot;&quot;&quot;
@@ -609,6 +460,7 @@ class BaseCase(unittest.TestCase):
             except AssertionError as e:
                 self.logger.warning('用例【{}】数据库断言异常，执行的sql为:{}'.format(self._case['title'], self._case['sql']))
                 raise e
+
 </code></pre>
 <pre><code class="language-python">#!/usr/bin/env python
 # -*- coding: utf-8 -*-
