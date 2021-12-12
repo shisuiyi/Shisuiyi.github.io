@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>不予の测试笔记</title>
 <meta name="description" content="<font color=#339999 size=3 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639208183008">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639298506525">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639208183008" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639298506525" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">不予の测试笔记</h1>
       </div>
@@ -132,7 +132,7 @@
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
         <h1 class="text-3xl font-bold lg:mt-16">python文件操作</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2021-11-04 / 16 min read
+          2021-11-04 / 17 min read
         </div>
         
           <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/rhb0LyRuX.jpg" alt="">
@@ -383,6 +383,54 @@ b'\xe5\xba\x8a\xe5\x89\x8d\xe6\x98\x8e\xe6\x9c\x88\xe5\x85\x89\xef\xbc\x8c\xe7\x
 b'\xe4\xb8\xbe\xe5\xa4\xb4\xe6\x9c\x9b\xe6\x98\x8e\xe6\x9c\x88\xef\xbc\x8c\xe4\xbd\x8e\xe5\xa4\xb4\xe6\x80\x9d\xe6\x95\x85\xe4\xb9\xa1\xe3\x80\x82'
 </code></pre>
 <h3 id="4-写文本文件">4. 写文本文件</h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可做操作</th>
+<th>若文件不存在</th>
+<th>是否覆盖</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>只能读</td>
+<td>报错</td>
+<td>-</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>可读可写</td>
+<td>报错</td>
+<td>是</td>
+</tr>
+<tr>
+<td>w</td>
+<td>只能写</td>
+<td>创建</td>
+<td>是</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>可读可写</td>
+<td>创建</td>
+<td>是</td>
+</tr>
+<tr>
+<td>a</td>
+<td>只能写</td>
+<td>创建</td>
+<td>否，追加写</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>可读可写</td>
+<td>创建</td>
+<td>否，追加写</td>
+</tr>
+</tbody>
+</table>
 <h4 id="41-清除写-w">4.1 清除写 <code>w</code></h4>
 <p>案例：将锄禾这首诗写入 test.txt 文件中</p>
 <pre><code class="language-python"># mode=w 没有文件就创建，有就清除内容，小心使用
