@@ -1,0 +1,459 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>不予の测试笔记</title>
+<meta name="description" content="<font color=#339999 size=3 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639661037631">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639661037631" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">不予の测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li><a href="#mock%E6%B5%8B%E8%AF%95">mock测试</a>
+<ul>
+<li><a href="#1-%E7%AE%80%E8%BF%B0">1. 简述</a></li>
+<li><a href="#2-unittestmock">2. <code>unittest.mock</code></a></li>
+<li><a href="#3-%E5%85%85%E5%80%BC%E6%8E%A5%E5%8F%A3%E7%9A%84mock%E6%B5%8B%E8%AF%95">3. 充值接口的mock测试</a></li>
+<li><a href="#mock">Mock</a></li>
+<li><a href="#4-mock%E6%9C%8D%E5%8A%A1">4. Mock服务</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16"> mock测试</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-12-16 / 7 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/4-zRzmkp0.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h1 id="mock测试">mock测试</h1>
+<h2 id="1-简述">1. 简述</h2>
+<p>mock测试就是在测试过程中，对于某些不容易构造或者不容易获取的对象，用一个虚拟的对象来创建以便测试的测试方法。</p>
+<p>典型的应用场景：</p>
+<ol>
+<li>当某个单元测试依赖另外一个函数，而这个函数还未开发完成，那么可以使用这个函数的mock对象来完成测试。</li>
+<li>当某个接口测试依赖另一个接口，而这个接口未开发完成，或不方便调用（例如第三方的支付接口），那么可以使用mock服务模拟这个依赖接口来完成。</li>
+</ol>
+<h2 id="2-unittestmock">2. <code>unittest.mock</code></h2>
+<pre><code class="language-python">from unittest.mock import create_autospec
+# create_autospec：校验参数个数，再返回固定值；create_autospec方法替代Mock方法。
+</code></pre>
+<pre><code class="language-python"># 需要被mock的函数
+def some_function(a, b, c):
+    &quot;&quot;&quot;
+    返回True或者False
+    &quot;&quot;&quot;
+    pass
+</code></pre>
+<pre><code class="language-python">mock_function = create_autospec(some_function, return_value=True)
+</code></pre>
+<pre><code class="language-python">mock_function(1,2,3)
+</code></pre>
+<pre><code class="language-python">True
+</code></pre>
+<h2 id="3-充值接口的mock测试">3. 充值接口的mock测试</h2>
+<h2 id="mock">Mock</h2>
+<p><strong>本文举例讲解<code>unittest</code>中的mock</strong></p>
+<pre><code class="language-python">from unittest import mock
+from pprint import pprint
+
+pprint([i for i in dir(mock.Mock) if not ((i.startswith(&quot;_&quot;) or i.startswith(&quot;__&quot;)))])
+</code></pre>
+<p>输出</p>
+<pre><code class="language-python">['assert_any_call',
+ 'assert_called',
+ 'assert_called_once',
+ 'assert_called_once_with',
+ 'assert_called_with',
+ 'assert_has_calls',
+ 'assert_not_called',
+ 'attach_mock',
+ 'call_args',
+ 'call_args_list',
+ 'call_count',
+ 'called',
+ 'configure_mock',
+ 'mock_add_spec',
+ 'mock_calls',
+ 'reset_mock',
+ 'return_value',
+ 'side_effect']
+
+Process finished with exit code 0
+
+</code></pre>
+<ul>
+<li>从上面代码种可以得到Mock类有哪些方法</li>
+<li>在日常工作中只需要掌握 <code>return_value</code>和 <code>side_effect</code> 两个参数</li>
+</ul>
+<p>在日常工作中，往往需要对第三方接口，或者开发还未开发的接口，或者有些需要扣费的接口，不让我们调的接口等等。<br>
+在接口测试当中，我们又需要调这些接口怎么办？</p>
+<p><code>unittest</code>当中的Mock由此而生为我们解决这等问题。不让调的接口我们用假数据进行Mock掉。只要值符合接口文档即可。</p>
+<ul>
+<li>新建一个<code>unittest_mock</code>文件夹</li>
+<li>在此目录创建一个 <code>payment.py</code>和 <code>test_pay.py</code></li>
+<li>模拟用户支付接口调用第三方支付宝接口<br>
+<strong>第三方支付宝接口，我们往往不能掉，因为需要花钱啊，你难道花钱去测试？</strong></li>
+</ul>
+<p><code>payment.py</code></p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/12/16 21:08
+# @Author  : shisuiyi
+# @File    : payment.py.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import requests
+
+
+class Payment:
+    &quot;&quot;&quot;
+    定义第三方支付类
+    &quot;&quot;&quot;
+    def auth(self, card_num, amount):
+        &quot;&quot;&quot;
+        请求第三方外部支付接口的方法, 返回响应状态码
+        :param card_num: 卡号
+        :param amount: 金额
+        :return: 返回状态码, 200 代表支付成功, 500 代表支付异常, 失败
+        &quot;&quot;&quot;
+        url = &quot;http://第三方支付url.payment&quot;
+        data = {&quot;card_num&quot;: card_num, &quot;amount&quot;: amount} # 请求参数
+        self.res = requests.post(url, data=data)
+        return self.res.status_code  # 返回的状态码
+
+    def pay(self, user_id, card_num, amount):
+        &quot;&quot;&quot;
+        支付方法
+        :param user_id: 用户ID
+        :param card_num: 卡号
+        :param amount: 支付金额
+        :return:
+        &quot;&quot;&quot;
+        try:
+            status_code = self.auth(card_num, amount)
+        except TimeoutError:
+            status_code = self.auth(card_num, amount)   # 如果支付超时, 再请求一次
+
+        if status_code == 200:
+            print(&quot;[{}]支付[{}]成功!!! 进行扣款并登记支付记录&quot;.format(user_id, amount))
+            return &quot;success&quot;
+        elif status_code == 500:
+            print(&quot;[{}]支付[{}]失败!!! 不进行扣款&quot;.format(user_id, amount))
+            return &quot;Fail&quot;
+
+</code></pre>
+<ul>
+<li>从上面可以看出 <code>auth</code>是第三方接口，我们如何mock掉，怎么测试呢？</li>
+</ul>
+<p><code>test_pay.py</code></p>
+<pre><code class="language-python">#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2021/12/16 21:09
+# @Author  : shisuiyi
+# @File    : test_pay.py.py
+# @Software: win10 Tensorflow1.13.1 python3.9
+import unittest
+from unittest import mock
+
+from mockTest.payment import Payment
+
+
+class PaymentTest(unittest.TestCase):
+    &quot;&quot;&quot;
+    测试支付接口
+    &quot;&quot;&quot;
+    def setUp(self):
+        self.payment = Payment()
+
+    def test_1_success(self):
+        &quot;&quot;&quot;
+        测试支付成功
+        :return:
+        &quot;&quot;&quot;
+        self.payment.auth = mock.Mock(return_value=200)
+        res = self.payment.pay(user_id=1001, card_num=12345678, amount=5000000)
+        self.assertEqual('success', res)
+
+    def test_2_fail(self):
+        &quot;&quot;&quot;
+        测试支付失败
+        :return:
+        &quot;&quot;&quot;
+        self.payment.auth = mock.Mock(return_value=500)
+        res = self.payment.pay(user_id=1001, card_num=12345678, amount=5000000)
+        self.assertEqual('Fail', res)
+
+    def test_3_retry_success(self):
+        &quot;&quot;&quot;
+        测试调用第三方接口超时之后, 再次支付成功
+        :return:
+        &quot;&quot;&quot;
+        self.payment.auth = mock.Mock(side_effect=[TimeoutError, 200])
+        res = self.payment.pay(user_id=1001, card_num=12345678, amount=5000000)
+        self.assertEqual('success', res)
+
+    def test_4_retry_fail(self):
+        &quot;&quot;&quot;
+        测试调用第三方接口超时之后, 再次支付失败
+        :return:
+        &quot;&quot;&quot;
+        # side_effect 第一次会得到列表第一个值抛出TimeoutError的异常，抛出异常payment.py里会再次调用第
+        # 三方支付接口auth，接着将列表第2个值 500返回给auth，pay函数里面代码判断 500 为失败 Fail.
+        # side_effect 参数可以等于另外一个函数 函数的返回值，作为Mock函数的返回值，例子这里就不举了。
+        self.payment.auth = mock.Mock(side_effect=[TimeoutError, 500])
+        res = self.payment.pay(user_id=1001, card_num=12345678, amount=5000000)
+        self.assertEqual('Fail', res)
+
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre>
+<p>我们需要测的场景，一般有支付成功， 支付失败。支付超时，回调之后支付成功。支付超时，回调支付失败。其他网络异常支付成功未扣款这里暂时不讨论。先弄懂mock怎么去干这些事的。</p>
+<p><code>self.payment.auth = mock.Mock(return_value=200)</code> return_value的值直接作为要mock掉的函数auth的返回值，之后无论在哪里调用，返回值都是200</p>
+<p><code>side_effect=[TimeoutError, 200]</code> 分两次给mock掉的函数auth传值，第一次传一个异常TimeoutError,第一次传 200给auth,请看pay函数的代码，超时会再掉一次。</p>
+<p>最后跑一下单元测试 看看结果</p>
+<pre><code class="language-python">test_pay.py::PaymentTest::test_2_fail 
+test_pay.py::PaymentTest::test_3_retry_success 
+test_pay.py::PaymentTest::test_4_retry_fail 
+
+============================== 4 passed in 0.20s ==============================
+
+Process finished with exit code 0
+PASSED                          [ 25%][1001]支付[5000000]成功!!! 进行扣款并登记支付记录
+PASSED                             [ 50%][1001]支付[5000000]失败!!! 不进行扣款
+PASSED                    [ 75%][1001]支付[5000000]成功!!! 进行扣款并登记支付记录
+PASSED                       [100%][1001]支付[5000000]失败!!! 不进行扣款
+
+</code></pre>
+<h2 id="4-mock服务">4. Mock服务</h2>
+<p>在接口测试的时候，还有一种mock服务。</p>
+<p>本质上mock服务就是一个web应用程序，可以自定义接口地址，发送参数，以及响应 结果，实现技术简单。</p>
+<p>目前市面上有无数产品，大多数都可以免费使用。</p>
+<p>https://marvengong.gitee.io/fastmock/#/</p>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/6e35x9qIa/">
+            <span class="flex-auto">mock测试</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/zRmpqPbKP/">
+                <h3 class="post-title">
+                  session鉴权的处理
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
