@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Shisuiyi.github.io</id>
     <title>不予の测试笔记</title>
-    <updated>2021-12-16T13:24:38.967Z</updated>
+    <updated>2021-12-18T05:41:57.883Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Shisuiyi.github.io"/>
     <link rel="self" href="https://Shisuiyi.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://Shisuiyi.github.io/images/avatar.png</logo>
     <icon>https://Shisuiyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 不予の测试笔记</rights>
+    <entry>
+        <title type="html"><![CDATA[持续集成与jenkins]]></title>
+        <id>https://Shisuiyi.github.io/edNg_Vcbf/</id>
+        <link href="https://Shisuiyi.github.io/edNg_Vcbf/">
+        </link>
+        <updated>2021-12-18T04:24:32.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ mock测试]]></title>
         <id>https://Shisuiyi.github.io/4-zRzmkp0/</id>
@@ -72,12 +79,5 @@
         <link href="https://Shisuiyi.github.io/5yPwPPmW2/">
         </link>
         <updated>2021-12-01T13:05:49.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[pymysql的封装配置与项目应用]]></title>
-        <id>https://Shisuiyi.github.io/X0z1NrI8f/</id>
-        <link href="https://Shisuiyi.github.io/X0z1NrI8f/">
-        </link>
-        <updated>2021-11-28T11:00:43.000Z</updated>
     </entry>
 </feed>
