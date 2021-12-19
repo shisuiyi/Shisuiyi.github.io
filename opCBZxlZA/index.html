@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>不予の测试笔记</title>
 <meta name="description" content="<font color=#339999 size=3 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639897196875">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639911290360">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639897196875" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639911290360" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">不予の测试笔记</h1>
       </div>
@@ -38,8 +38,7 @@
 <ul>
 <li><a href="#1-%E5%AE%98%E6%96%B9%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80">1. 官方下载地址</a></li>
 <li><a href="#2-%E9%85%8D%E7%BD%AE-java-%E7%8E%AF%E5%A2%83">2. 配置 JAVA 环境</a></li>
-<li><a href="#3-%E5%90%AF%E5%8A%A8-tomcat">3. 启动 Tomcat</a><br>
-*
+<li><a href="#3-%E5%90%AF%E5%8A%A8-tomcat">3. 启动 Tomcat</a>
 <ul>
 <li><a href="#%E8%A7%A3%E5%8E%8B">解压</a></li>
 <li><a href="#%E6%96%87%E6%9C%AC%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80-catalinabat">文本方式打开 catalina.bat</a></li>
@@ -49,8 +48,7 @@
 <li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
 </ul>
 </li>
-<li><a href="#4-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">4. 配置环境变量</a><br>
-*
+<li><a href="#4-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">4. 配置环境变量</a>
 <ul>
 <li><a href="#%E6%96%B0%E5%BB%BA%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F">新建系统变量</a></li>
 <li><a href="#%E4%BF%AE%E6%94%B9-path-%E5%80%BC">修改 path 值</a></li>
@@ -122,33 +120,33 @@
 <h2 id="2-配置-java-环境">2. 配置 JAVA 环境</h2>
 <p>直接参考这篇博客就好啦：https://www.cnblogs.com/poloyy/p/12744072.html</p>
 <h2 id="3-启动-tomcat">3. 启动 Tomcat</h2>
-<h4 id="解压">解压</h4>
+<h3 id="解压">解压</h3>
 <figure data-type="image" tabindex="2"><img src="https://Shisuiyi.github.io/post-images/1639884469835.png" alt="" loading="lazy"></figure>
 <p>进入 bin 目录</p>
-<h4 id="文本方式打开-catalinabat">文本方式打开 catalina.bat</h4>
+<h3 id="文本方式打开-catalinabat">文本方式打开 catalina.bat</h3>
 <figure data-type="image" tabindex="3"><img src="https://Shisuiyi.github.io/post-images/1639884476850.png" alt="" loading="lazy"></figure>
 <p>依赖 jdk，因为已经配置了 jdk 的环境变量，所以下面可以直接引用</p>
-<h4 id="文本方式打开-setclasspathbat">文本方式打开 setclasspath.bat</h4>
+<h3 id="文本方式打开-setclasspathbat">文本方式打开 setclasspath.bat</h3>
 <p>jdk 环境安装好则可以直接使用了</p>
 <figure data-type="image" tabindex="4"><img src="https://Shisuiyi.github.io/post-images/1639884492096.png" alt="" loading="lazy"></figure>
 <p><img src="https://Shisuiyi.github.io/post-images/1639884497940.png" alt="" loading="lazy"><br>
 <img src="https://Shisuiyi.github.io/post-images/1639884503149.png" alt="" loading="lazy"></p>
-<h4 id="启动服务">启动服务</h4>
+<h3 id="启动服务">启动服务</h3>
 <p>点击 bin 目录下的 startup.bat</p>
-<h4 id="访问1270018080">访问127.0.0.1:8080</h4>
+<h3 id="访问1270018080">访问127.0.0.1:8080</h3>
 <figure data-type="image" tabindex="5"><img src="https://Shisuiyi.github.io/post-images/1639884510203.png" alt="" loading="lazy"></figure>
-<h4 id="注意">注意</h4>
+<h3 id="注意">注意</h3>
 <p>可以看到全称并没有去配置环境变量哦</p>
 <h2 id="4-配置环境变量">4. 配置环境变量</h2>
-<p><strong>为了启动方便</strong>，不需要每次都点 startup.bat ，还是通过命令行的方式来启动</p>
-<h4 id="新建系统变量">新建系统变量</h4>
+<p>为了启动方便，不需要每次都点 startup.bat ，还是通过命令行的方式来启动</p>
+<h3 id="新建系统变量">新建系统变量</h3>
 <pre><code>TOMCAT_HOME = D:\apache-tomcat-9.0.29
 CATALINA_HOME = D:\apache-tomcat-9.0.29
 </code></pre>
 <figure data-type="image" tabindex="6"><img src="https://Shisuiyi.github.io/post-images/1639884518964.png" alt="" loading="lazy"></figure>
-<h4 id="修改-path-值">修改 path 值</h4>
+<h3 id="修改-path-值">修改 path 值</h3>
 <figure data-type="image" tabindex="7"><img src="https://Shisuiyi.github.io/post-images/1639884526230.png" alt="" loading="lazy"></figure>
-<h4 id="cmd-窗口验证">cmd 窗口验证</h4>
+<h3 id="cmd-窗口验证">cmd 窗口验证</h3>
 <figure data-type="image" tabindex="8"><img src="https://Shisuiyi.github.io/post-images/1639884535349.png" alt="" loading="lazy"></figure>
 <p>也可以直接在运行窗口输入 startup</p>
 <figure data-type="image" tabindex="9"><img src="https://Shisuiyi.github.io/post-images/1639884545305.png" alt="" loading="lazy"></figure>

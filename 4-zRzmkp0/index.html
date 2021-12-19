@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>不予の测试笔记</title>
 <meta name="description" content="<font color=#339999 size=3 >小小Tester的学习历程</font>" />
-<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639897196875">
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639911290360">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://Shisuiyi.github.io">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639897196875" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639911290360" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">不予の测试笔记</h1>
       </div>
@@ -38,9 +38,12 @@
 <ul>
 <li><a href="#1-%E7%AE%80%E8%BF%B0">1. 简述</a></li>
 <li><a href="#2-unittestmock">2. <code>unittest.mock</code></a></li>
-<li><a href="#3-%E5%85%85%E5%80%BC%E6%8E%A5%E5%8F%A3%E7%9A%84mock%E6%B5%8B%E8%AF%95">3. 充值接口的mock测试</a></li>
+<li><a href="#3-%E5%85%85%E5%80%BC%E6%8E%A5%E5%8F%A3%E7%9A%84mock%E6%B5%8B%E8%AF%95">3. 充值接口的mock测试</a>
+<ul>
 <li><a href="#mock%E7%B1%BB%E8%A7%A3%E8%AF%BB">mock类解读</a></li>
 <li><a href="#mock%E8%A3%85%E9%A5%B0%E5%99%A8">mock装饰器</a></li>
+</ul>
+</li>
 <li><a href="#4-mock%E6%9C%8D%E5%8A%A1">4. Mock服务</a></li>
 <li></li>
 </ul>
@@ -125,7 +128,7 @@ def some_function(a, b, c):
 <pre><code class="language-python">True
 </code></pre>
 <h2 id="3-充值接口的mock测试">3. 充值接口的mock测试</h2>
-<h2 id="mock类解读">mock类解读</h2>
+<h3 id="mock类解读">mock类解读</h3>
 <p>class Mock(spec=None,side_effect=None,return_value=DEFFAULT,name=None)</p>
 <ul>
 <li><strong>secp</strong>：定义mock对象的属性值，可以是列表，字符串，甚至一个对象或者实例</li>
@@ -305,7 +308,7 @@ PASSED                    [ 75%][1001]支付[5000000]成功!!! 进行扣款并�
 PASSED                       [100%][1001]支付[5000000]失败!!! 不进行扣款
 
 </code></pre>
-<h2 id="mock装饰器">mock装饰器</h2>
+<h3 id="mock装饰器">mock装饰器</h3>
 <p>一共两种格式</p>
 <ol>
 <li>@patch('module名字.方法名')</li>
