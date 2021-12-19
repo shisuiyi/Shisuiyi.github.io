@@ -1,0 +1,310 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>不予の测试笔记</title>
+<meta name="description" content="<font color=#339999 size=3 >小小Tester的学习历程</font>" />
+<link rel="shortcut icon" href="https://Shisuiyi.github.io/favicon.ico?v=1639897196875">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+<link rel="stylesheet" href="https://Shisuiyi.github.io/styles/main.css">
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
+      <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
+  <div class="lg:sticky top-0">
+    <div class="sidebar-content">
+      <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
+        <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
+        <a href="https://Shisuiyi.github.io">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://Shisuiyi.github.io/images/avatar.png?v=1639897196875" alt="">
+        </a>
+        <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">不予の测试笔记</h1>
+      </div>
+      
+        <div class="animated fadeInLeft" style="animation-delay: 0.4s">
+          <p class="my-4 text-gray-600 font-light hidden lg:block">
+            文章目录
+          </p>
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li><a href="#window-%E5%AE%89%E8%A3%85-tomcat">Window - 安装 Tomcat</a>
+<ul>
+<li><a href="#1-%E5%AE%98%E6%96%B9%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80">1. 官方下载地址</a></li>
+<li><a href="#2-%E9%85%8D%E7%BD%AE-java-%E7%8E%AF%E5%A2%83">2. 配置 JAVA 环境</a></li>
+<li><a href="#3-%E5%90%AF%E5%8A%A8-tomcat">3. 启动 Tomcat</a><br>
+*
+<ul>
+<li><a href="#%E8%A7%A3%E5%8E%8B">解压</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80-catalinabat">文本方式打开 catalina.bat</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80-setclasspathbat">文本方式打开 setclasspath.bat</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1">启动服务</a></li>
+<li><a href="#%E8%AE%BF%E9%97%AE1270018080">访问127.0.0.1:8080</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
+</ul>
+</li>
+<li><a href="#4-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">4. 配置环境变量</a><br>
+*
+<ul>
+<li><a href="#%E6%96%B0%E5%BB%BA%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F">新建系统变量</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9-path-%E5%80%BC">修改 path 值</a></li>
+<li><a href="#cmd-%E7%AA%97%E5%8F%A3%E9%AA%8C%E8%AF%81">cmd 窗口验证</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="menu-container">
+  <i class="ri-arrow-left-line text-2xl cursor-pointer animated fadeIn close-menu-btn" onclick="closeMenu()"></i>
+  <div>
+    
+      
+        <a href="/" class="menu" style="animation-delay: 0s">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu" style="animation-delay: 0.2s">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu" style="animation-delay: 0.4s">
+          标签
+        </a>
+      
+    
+      
+        <a href="https://Shisuiyi.github.io/about" class="menu" style="animation-delay: 0.6000000000000001s" target="_blank">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="site-footer">
+    <div class="py-4 text-gray-700">Powered by <a href="https://github.com/shisuiyi" target="_blank">shisuiyi</a></div>
+    <a class="rss" href="https://Shisuiyi.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+<div class="mask" onclick="closeMenu()">
+</div>
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">Window - 安装 Tomcat </h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2021-12-19 / 1 min read
+        </div>
+        
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="https://Shisuiyi.github.io/post-images/opCBZxlZA.jpg" alt="">
+        
+        <div class="post-content yue">
+          <h1 id="window-安装-tomcat">Window - 安装 Tomcat</h1>
+<h2 id="1-官方下载地址">1. 官方下载地址</h2>
+<pre><code>https://tomcat.apache.org/download-90.cgi
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://Shisuiyi.github.io/post-images/1639884460788.png" alt="" loading="lazy"></figure>
+<p>window 系统选择 zip</p>
+<h2 id="2-配置-java-环境">2. 配置 JAVA 环境</h2>
+<p>直接参考这篇博客就好啦：https://www.cnblogs.com/poloyy/p/12744072.html</p>
+<h2 id="3-启动-tomcat">3. 启动 Tomcat</h2>
+<h4 id="解压">解压</h4>
+<figure data-type="image" tabindex="2"><img src="https://Shisuiyi.github.io/post-images/1639884469835.png" alt="" loading="lazy"></figure>
+<p>进入 bin 目录</p>
+<h4 id="文本方式打开-catalinabat">文本方式打开 catalina.bat</h4>
+<figure data-type="image" tabindex="3"><img src="https://Shisuiyi.github.io/post-images/1639884476850.png" alt="" loading="lazy"></figure>
+<p>依赖 jdk，因为已经配置了 jdk 的环境变量，所以下面可以直接引用</p>
+<h4 id="文本方式打开-setclasspathbat">文本方式打开 setclasspath.bat</h4>
+<p>jdk 环境安装好则可以直接使用了</p>
+<figure data-type="image" tabindex="4"><img src="https://Shisuiyi.github.io/post-images/1639884492096.png" alt="" loading="lazy"></figure>
+<p><img src="https://Shisuiyi.github.io/post-images/1639884497940.png" alt="" loading="lazy"><br>
+<img src="https://Shisuiyi.github.io/post-images/1639884503149.png" alt="" loading="lazy"></p>
+<h4 id="启动服务">启动服务</h4>
+<p>点击 bin 目录下的 startup.bat</p>
+<h4 id="访问1270018080">访问127.0.0.1:8080</h4>
+<figure data-type="image" tabindex="5"><img src="https://Shisuiyi.github.io/post-images/1639884510203.png" alt="" loading="lazy"></figure>
+<h4 id="注意">注意</h4>
+<p>可以看到全称并没有去配置环境变量哦</p>
+<h2 id="4-配置环境变量">4. 配置环境变量</h2>
+<p><strong>为了启动方便</strong>，不需要每次都点 startup.bat ，还是通过命令行的方式来启动</p>
+<h4 id="新建系统变量">新建系统变量</h4>
+<pre><code>TOMCAT_HOME = D:\apache-tomcat-9.0.29
+CATALINA_HOME = D:\apache-tomcat-9.0.29
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://Shisuiyi.github.io/post-images/1639884518964.png" alt="" loading="lazy"></figure>
+<h4 id="修改-path-值">修改 path 值</h4>
+<figure data-type="image" tabindex="7"><img src="https://Shisuiyi.github.io/post-images/1639884526230.png" alt="" loading="lazy"></figure>
+<h4 id="cmd-窗口验证">cmd 窗口验证</h4>
+<figure data-type="image" tabindex="8"><img src="https://Shisuiyi.github.io/post-images/1639884535349.png" alt="" loading="lazy"></figure>
+<p>也可以直接在运行窗口输入 startup</p>
+<figure data-type="image" tabindex="9"><img src="https://Shisuiyi.github.io/post-images/1639884545305.png" alt="" loading="lazy"></figure>
+
+        </div>
+
+        
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://Shisuiyi.github.io/NLxGeWTyD/">
+            <span class="flex-auto">tomcat</span>
+          </a>
+        
+
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://Shisuiyi.github.io/KuEeiRaTl/">
+                <h3 class="post-title">
+                  Git
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '978584b9702b5d850dd5',
+    clientSecret: 'b6647706cb7b990e2cd5ca77eccf73943df73a6c',
+    repo: 'Shisuiyi.github.io',
+    owner: 'shisuiyi',
+    admin: ['shisuiyi'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+      </div>
+    </div>
+
+    <script src="https://Shisuiyi.github.io/media/prism.js"></script>  
+<script>
+
+Prism.highlightAll()
+let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+// This should probably be throttled.
+// Especially because it triggers during smooth scrolling.
+// https://lodash.com/docs/4.17.10#throttle
+// You could do like...
+// window.addEventListener("scroll", () => {
+//    _.throttle(doThatStuff, 100);
+// });
+// Only not doing it here to keep this Pen dependency-free.
+
+window.addEventListener("scroll", event => {
+  let fromTop = window.scrollY;
+
+  mainNavLinks.forEach((link, index) => {
+    let section = document.getElementById(decodeURI(link.hash).substring(1));
+    let nextSection = null
+    if (mainNavLinks[index + 1]) {
+      nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+    }
+    if (section.offsetTop <= fromTop) {
+      if (nextSection) {
+        if (nextSection.offsetTop > fromTop) {
+          link.classList.add("current");
+        } else {
+          link.classList.remove("current");    
+        }
+      } else {
+        link.classList.add("current");
+      }
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyImages = [].slice.call(document.querySelectorAll(".post-feature-image.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          lazyImage.style.backgroundImage = `url(${lazyImage.dataset.bg})`
+          lazyImage.classList.remove("lazy")
+          lazyImageObserver.unobserve(lazyImage)
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage)
+    })
+  } else {
+    // Possibly fall back to a more compatible method here
+  }
+});
+
+const menuContainer = document.querySelector('.menu-container')
+const menus = document.querySelectorAll('.menu-container .menu')
+const mask = document.querySelector('.mask')
+const contentWrapper = document.querySelector('.content-wrapper')
+const latestArticle = document.querySelector('.latest-article')
+const readMore = document.querySelector('.read-more')
+const indexPage = document.querySelector('.index-page')
+
+const isHome = location.pathname === '/'
+if (latestArticle) {
+  latestArticle.style.display = isHome ? 'block' : 'none'
+  readMore.style.display = isHome ? 'block' : 'none'
+  indexPage.style.display = isHome ? 'none' : 'block'
+}
+
+const openMenu = () => {
+  menuContainer.classList.add('open')
+  menus.forEach(menu => {
+    menu.classList.add('animated', 'fadeInLeft')
+  })
+  mask.classList.add('open')
+  contentWrapper.classList.add('is-second')
+}
+
+const closeMenu = () => {
+  menuContainer.classList.remove('open')
+  menus.forEach(menu => {
+    menu.classList.remove('animated', 'fadeInLeft')
+  })
+  mask.classList.remove('open')
+  contentWrapper.classList.remove('is-second')
+}
+</script>
+  
+  </body>
+</html>
